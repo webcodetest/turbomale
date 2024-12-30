@@ -1,0 +1,414 @@
+<style>
+    .custom-contact-us {
+        padding: 57px 0;
+    }
+
+    .custom-contact-us-title {
+  display: flex;
+  margin-bottom: 17px;
+  width: 100%;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .custom-contact-us-title {
+    margin-bottom: 23px;
+  }
+}
+
+.custom-contact-us-title div {
+  position: absolute;
+  width: 100%;
+  top: -70px;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-text-stroke-color: #c6c6c6;
+  -webkit-text-stroke-width: 1px;
+  font-family: Proxima Nova;
+  font-size: 100px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: uppercase;
+  color: transparent;
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .custom-contact-us-title div {
+    font-size: 35px;
+    top: -20px;
+    left: 50%;
+  }
+}
+
+.custom-contact-us-title h2 {
+  color: #05060B;
+  font-family: "Proxima Nova";
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .custom-contact-us-title h2 {
+    font-size: 25px;
+  }
+}
+
+.custom-contact-us-title p {
+    color: #05060B;
+    text-align: center;
+    font-family: "Proxima Nova";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 40px;
+}
+
+@media screen and (max-width: 768px) {
+  .custom-contact-us-title p {
+    margin-bottom: 35px;
+  }
+}
+.custom-contact-us-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 0;
+    border-radius: 12px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 40px;
+}
+
+.custom-contact-us-block img {
+    width: 90px;
+    height: 90px;
+}
+
+.custom-contact-us-block p {
+    color: #FFF;
+    font-family: "Proxima Nova";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+}
+
+.custom-contact-us form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.custom-contact-input input {
+    width: 100%;
+    height: 58px;
+    padding: 20px 28px;
+    border-radius: 12px;
+    border: 1px solid #E0E0E0;
+    background: #FFF;
+    outline: none;
+    box-shadow: none;
+    color: #727272;
+    font-family: "Proxima Nova";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.custom-contact-input textarea {
+    height: 127px;
+     width: 100%;
+    padding: 20px 28px;
+    border-radius: 12px;
+    border: 1px solid #E0E0E0;
+    background: #FFF;
+    outline: none;
+    box-shadow: none;
+    color: #727272;
+    font-family: "Proxima Nova";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.custom-contact-input-file {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 11px;
+    position: relative;
+    height: 58px;
+    padding: 20px 28px; 
+    border-radius: 12px;
+    border: 1px solid #40AE00;
+    background: #FFF;
+    box-shadow: 0px 0px 18.6px 0px rgba(0, 0, 0, 0.07);
+}
+
+.custom-contact-input-file input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 58px;
+    opacity: 0;
+}
+
+.custom-contact-input-file p {
+    color: #727272;
+    font-family: "Proxima Nova";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.custom-contact-submit {
+    display: flex;
+    justify-content: center;
+}
+
+.custom-contact-submit button {
+    display: flex;
+    width: 278px;
+    height: 54px;
+    padding: 18px 20px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    background: #40AE00;
+    color: #FFF;
+    font-family: "Proxima Nova";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    border: none;
+}
+
+.dropdown-selected {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 58px;
+    padding: 20px 28px;
+    border-radius: 12px;
+    border: 1px solid #E0E0E0;
+    background: #FFF;
+    align-items: center;
+    color: #727272;
+    font-family: "Proxima Nova";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.dropdown-options {
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px 28px;
+    border-radius: 12px;
+    border: 1px solid #E0E0E0;
+    background: #FFF;
+    color: #727272;
+    font-family: "Proxima Nova";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.dropdown-icon {
+    transform: rotate(0deg);
+    transition: all 0.3s;
+}
+
+.dropdown-icon.open {
+    transform: rotate(180deg);
+}
+</style>
+
+<section class='custom-contact-us'>
+    <div class='container'>
+        <div class='custom-contact-us-title'>
+            <div>{{ section.settings.title_absolute }}</div>
+            <h2>{{ section.settings.title }}</h2>
+            <p>{{ section.settings.text }}</p>
+        </div>
+        <div class='custom-contact-us-block' style='background-image: url({{ section.settings.block_bg | img_url: 'master' }});'>
+            <img src='{{ section.settings.block_image | img_url: 'master' }}' alt='{{ section.settings.block_image_alt }}'>
+            <p>{{ section.settings.block_text }}</p>
+        </div>
+       {% form 'contact', id: 'custom-contact-form' %}
+        <div class='custom-contact-input'>
+            <input type="text" id="name" name="contact[name]" placeholder="Name" required>
+        </div>
+        <div class="custom-contact-input custom-dropdown">
+            <div class="dropdown-selected" data-placeholder="Subject*" onclick="toggleDropdown(this)">
+                Subject*
+                <svg class='dropdown-icon' xmlns="http://www.w3.org/2000/svg" width="17" height="10" viewBox="0 0 17 10" fill="none">
+                    <path d="M8.5 10L0.272757 0.25L16.7272 0.250002L8.5 10Z" fill="#60AC22" style="fill:#60AC22;fill:color(display-p3 0.3768 0.6749 0.1322);fill-opacity:1;"/>
+                </svg>
+            </div>
+            <ul class="dropdown-options">
+                {% for block in section.blocks %}
+                <li onclick="selectOption(this)" data-value="option{{ forloop.index }}">{{ block.settings.subject }}</li>
+                {% endfor %}
+            </ul>
+            <input type="hidden" name="contact[dropdown]" required>
+        </div>
+        <div class='custom-contact-input'>
+            <input type="email" id="email" name="contact[email]" placeholder="Email" required>
+        </div>
+
+        <div class='custom-contact-input'>
+            <textarea id="message" name="contact[message]" rows="5" placeholder="Message*" required></textarea>
+        </div>
+        <div class='custom-contact-input-file'>
+            <input type="file" id="file" name="contact[file]" onchange="updateFileName(this)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <g clip-path="url(#clip0_33_5288)">
+                    <path d="M16.3146 2.16453C14.0712 -0.0789316 10.4207 -0.0789316 8.17701 2.16453L1.20172 9.13978C-0.400663 10.7423 -0.400557 13.3498 1.20194 14.9523C2.00325 15.7536 3.05548 16.1543 4.10813 16.1542C5.16049 16.154 6.21328 15.7535 7.01446 14.9523L13.4083 8.55833C13.8741 8.09258 14.1306 7.4733 14.1307 6.81461C14.1307 6.15589 13.8743 5.53665 13.4084 5.07076C12.4468 4.10927 10.8822 4.1093 9.92079 5.07093L5.73948 9.25214C5.41847 9.57311 5.41847 10.0936 5.73941 10.4146C6.06039 10.7357 6.58088 10.7356 6.90192 10.4146L11.0833 6.23341C11.4038 5.91289 11.9252 5.91282 12.2458 6.23334C12.401 6.38859 12.4866 6.59503 12.4866 6.81458C12.4866 7.03413 12.4011 7.24049 12.2458 7.39581L5.85195 13.7898C4.89039 14.7512 3.32593 14.7513 2.36445 13.7898C1.40296 12.8283 1.40289 11.2637 2.36427 10.3022L9.33952 3.32704C10.9422 1.72448 13.5497 1.72448 15.152 3.32704C15.9284 4.10329 16.356 5.13544 16.356 6.23327C16.356 7.33109 15.9284 8.36324 15.152 9.13956L8.1769 16.1149C7.85592 16.4359 7.85592 16.9564 8.17697 17.2774C8.33749 17.438 8.54787 17.5182 8.75821 17.5182C8.96858 17.5182 9.17896 17.4379 9.33948 17.2774L16.3145 10.3021C17.4014 9.21533 17.9999 7.77033 18 6.2333C18 4.69631 17.4014 3.25131 16.3146 2.16453Z" fill="#60AC22" style="fill:#60AC22;fill:color(display-p3 0.3768 0.6749 0.1322);fill-opacity:1;"/>
+                </g>
+                <defs>
+                    <clipPath id="clip0_33_5288">
+                        <rect width="18" height="18" fill="white" style="fill:white;fill-opacity:1;"/>
+                    </clipPath>
+                </defs>
+            </svg>
+            <p>Attached files</p>
+        </div>
+        <div class='custom-contact-submit'> 
+            <button type="submit">send</button>
+        </div>
+        {% endform %}
+    </div>
+</section>
+<script>
+function updateFileName(input) {
+    const fileName = input.files[0]?.name || 'Attached files';
+    const fileLabel = input.closest('.custom-contact-input-file').querySelector('p');
+    fileLabel.textContent = fileName;
+}
+
+function toggleDropdown(element) {
+  const dropdown = element.nextElementSibling;
+  const isOpen = dropdown.style.display === 'flex';
+  const svgIcon = element.querySelector('.dropdown-icon');
+
+  closeAllDropdowns();
+
+  if (!isOpen) {
+    dropdown.style.display = 'flex';
+    svgIcon.classList.add('open');
+  } else {
+    svgIcon.classList.remove('open');
+  }
+}
+
+function selectOption(option) {
+  const dropdown = option.closest('.custom-dropdown');
+  const selected = dropdown.querySelector('.dropdown-selected');
+  const input = dropdown.querySelector('input[type="hidden"]');
+  const value = option.dataset.value;
+  const svgIcon = selected.querySelector('.dropdown-icon');
+
+  selected.textContent = option.textContent;
+  input.value = value;
+
+  closeAllDropdowns();
+  svgIcon.classList.remove('open');
+}
+
+function closeAllDropdowns() {
+  const dropdowns = document.querySelectorAll('.dropdown-options');
+  const icons = document.querySelectorAll('.dropdown-icon');
+
+  dropdowns.forEach((dropdown) => (dropdown.style.display = 'none'));
+  icons.forEach((icon) => icon.classList.remove('open'));
+}
+
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.custom-dropdown')) {
+    closeAllDropdowns();
+  }
+});
+
+</script>
+{% schema %}
+  {
+    "name": "Custom contact us",
+    "settings": [
+    {
+    "type": "text",
+    "id": "title",
+    "label": "Title"
+    },
+    {
+    "type": "text",
+    "id": "title_absolute",
+    "label": "Title Absolute"
+    },
+    {
+    "type": "textarea",
+    "id": "text",
+    "label": "Text"
+    },
+    {
+    "type": "image_picker",
+    "id": "block_bg",
+    "label": "Block BG"
+    },
+    {
+    "type": "image_picker",
+    "id": "block_image",
+    "label": "Block image"
+    },
+    {
+    "type": "text",
+    "id": "block_image_alt",
+    "label": "Block image alt"
+    },
+    {
+    "type": "text",
+    "id": "block_text",
+    "label": "Block text"
+    },
+    ],
+    "blocks": [
+    {
+      "type": "form_subject",
+      "name": "Form Subject",
+      "settings": [
+        {
+          "type": "text",
+          "id": "subject",
+          "label": "Subject"
+        },
+      ]
+    },
+   
+  ],
+     "presets": [
+    {
+      "name": "Custom contact us"
+    }
+  ]
+  }
+{% endschema %}

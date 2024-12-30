@@ -1,0 +1,293 @@
+<style>
+    .custom-faq-page {
+  padding: 60px 0;
+}
+
+@media screen and (max-width: 768px) {
+  .custom-faq-page {
+    padding: 27px 0 30px;
+  }
+}
+
+.custom-faq-page-title {
+  display: flex;
+  margin-bottom: 32px;
+  width: 100%;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  gap: 11px;
+}
+
+@media screen and (max-width: 768px) {
+  .custom-faq-page-title {
+    margin-bottom: 23px;
+  }
+}
+
+.custom-faq-page-title div {
+  position: absolute;
+  width: 100%;
+  top: -70px;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-text-stroke-color: #c6c6c6;
+  -webkit-text-stroke-width: 1px;
+  font-family: Proxima Nova;
+  font-size: 100px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: uppercase;
+  color: transparent;
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .custom-faq-page-title div {
+    font-size: 35px;
+    top: -20px;
+    left: 50%;
+  }
+}
+
+.custom-faq-page-title h2 {
+  color: #05060B;
+  font-family: "Proxima Nova";
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .custom-faq-page-title h2 {
+    font-size: 25px;
+  }
+}
+
+.custom-faq-page-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 38px;
+}
+
+.custom-faq-page-list-item {
+  max-width: 980px;
+  border-radius: 12px;
+  box-shadow: 0px 0px 18.6px 0px rgba(0, 0, 0, 0.07);
+  padding: 16px 22px;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.custom-faq-page-list-item.active {
+  border: 1px solid #40ae00;
+}
+
+.custom-faq-page-list-item-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.custom-faq-page-list-item-top h3 {
+  width: 100%;
+  color: #05060B;
+  font-family: "Proxima Nova";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  transition: color 0.3s ease;
+}
+
+.custom-faq-page-list-item.active .custom-faq-page-list-item-top h3 {
+  color: #40ae00;
+}
+
+.custom-faq-page-list-item-top svg {
+  width: 100%;
+  max-width: 26px;
+  height: 26px;
+  fill: #05060B;
+  transition: transform 0.3s ease, fill 0.3s ease;
+}
+
+.custom-faq-page-list-item.active .custom-faq-page-list-item-top svg {
+  fill: #40ae00;
+  transform: rotate(180deg);
+}
+
+.custom-faq-page-list-item p {
+  color: #05060B;
+  font-family: "Proxima Nova";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease;
+  opacity: 0;
+  margin-top: 0;
+}
+
+.custom-faq-page-list-item.active p {
+  max-height: 200px;
+  opacity: 1;
+  margin-top: 12px;
+}
+
+.custom-faq-page-search {
+    display: flex;
+    align-items: center;
+    max-width: 660px;
+    height: 58px;
+    padding: 20px 28px;
+    border-radius: 12px;
+    background: #FFF;
+    box-shadow: 0px 0px 18.6px 0px rgba(0, 0, 0, 0.07);
+    margin: 0 auto;
+    margin-bottom: 37px;
+    position: relative;
+}
+
+.custom-faq-page-search input {
+    height: 58px;
+    width: 100%;
+    outline: none;
+    border: none;
+    box-shadow: none;
+    color: #727272;
+    font-family: "Proxima Nova";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.custom-faq-page-search svg {
+    position: absolute;
+    top: 50%;
+    right: 36px;
+    transform: translateY(-50%);
+    width: 14px;
+    height: 14px;
+}
+
+.custom-faq-page-bottom {
+    margin: 0 auto;
+    color: #05060B;
+    text-align: center;
+    font-family: "Proxima Nova";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.custom-faq-page-bottom a {
+    color: #05060B;
+    text-align: center;
+    font-family: "Proxima Nova";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration-line: underline;
+}
+</style>
+
+<section class='custom-faq-page'>
+    <div class='container'>
+        <div class='custom-faq-page-title'>
+            <div>{{ section.settings.title_absolute }}</div>
+            <h2>{{ section.settings.title }}</h2>
+        </div>
+        <div class='custom-faq-page-search'>
+            <input type="text" id="search" name="search" placeholder="Type your question here" required>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M4.85414 0.0393257C2.30781 0.383966 0.3249 2.41625 0.0213104 4.98464C0.00216507 5.15696 -0.00604007 5.46605 0.00490012 5.81889C0.0240454 6.56561 0.122507 7.05522 0.385071 7.71715C0.997722 9.27077 2.26952 10.4688 3.85584 10.9885C4.45755 11.1854 4.9608 11.2648 5.62268 11.2648C6.79875 11.2648 7.82713 10.9557 8.80081 10.302L9.08525 10.1105L10.9752 12.0005C12.4247 13.4475 12.8924 13.9015 12.9882 13.9426C13.1577 14.0191 13.4476 14.0191 13.6063 13.9426C13.7403 13.8796 13.9071 13.7073 13.9618 13.5733C14.0193 13.4365 14.0111 13.1357 13.9427 12.988C13.9017 12.8922 13.4504 12.4272 12.0008 10.9748L10.1109 9.08477L10.2859 8.82766C10.781 8.10282 11.1119 7.24395 11.2241 6.38235C11.276 5.97754 11.276 5.28278 11.2241 4.88617C10.9697 2.94962 9.72252 1.27292 7.95021 0.482435C7.43602 0.252675 6.96559 0.118648 6.38303 0.0365906C6.04114 -0.0126438 5.22063 -0.0126438 4.85414 0.0393257ZM6.46508 1.49447C7.32115 1.68047 7.97482 2.03879 8.60115 2.66242C8.99499 3.0563 9.21106 3.35444 9.4326 3.81122C10.3379 5.69034 9.70884 7.97973 7.96935 9.13674C7.2938 9.58532 6.60456 9.80414 5.78132 9.83423C4.52866 9.87799 3.45106 9.43488 2.5649 8.51037C2.02883 7.94965 1.66781 7.2631 1.48729 6.45073C1.41892 6.14165 1.39977 5.35664 1.45447 5.012C1.6596 3.73464 2.39806 2.65148 3.53037 1.97861C3.93516 1.73791 4.48764 1.54371 5.0155 1.45618C5.33277 1.40421 6.14508 1.42609 6.46508 1.49447Z" fill="#60AC22" style="fill:#60AC22;fill:color(display-p3 0.3768 0.6749 0.1322);fill-opacity:1;"/>
+            </svg>
+        </div>
+        <ul class='custom-faq-page-list'>
+            {% for block in section.blocks %}
+                <li class='custom-faq-page-list-item'>
+                    <div class='custom-faq-page-list-item-top'>
+                        <h3>{{ block.settings.item_title }}</h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
+                            <path d="M13.0001 15.1482L21.8411 6.65757C22.0595 6.44429 22.42 6.44937 22.6435 6.66773L24.1974 8.18609C24.4208 8.40444 24.4259 8.75991 24.2075 8.97319L13.4063 19.3427C13.2946 19.4544 13.1423 19.5052 12.995 19.4951C12.8427 19.5001 12.6954 19.4494 12.5837 19.3427L1.7876 8.97319C1.56924 8.75991 1.57432 8.40444 1.79776 8.18608L3.35166 6.66773C3.5751 6.44937 3.93565 6.44429 4.15401 6.65757L13.0001 15.1482Z" fill="сurrentColor" style="fill-opacity:1;"/>
+                        </svg>
+                    </div>
+                    <p>{{ block.settings.item_text }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+        <div class='custom-faq-page-bottom'>{{ section.settings.text_bottom }}</div>
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const faqItems = document.querySelectorAll('.custom-faq-page-list-item');
+
+  faqItems.forEach(item => {
+    const toggle = item.querySelector('.custom-faq-page-list-item-top');
+
+    toggle.addEventListener('click', () => {
+      // faqItems.forEach(i => i.classList.remove('active'));
+      
+      item.classList.toggle('active');
+    });
+  });
+});
+</script>
+{% schema %}
+  {
+    "name": "Custom Faq on page",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "title_absolute",
+        "label": "Title Absolute"
+      },
+      {
+        "type": "richtext",
+        "id": "text_bottom",
+        "label": "Text bottom"
+      },
+    ],
+    "blocks": [
+    {
+      "type": "faq",
+      "name": "Faq",
+      "settings": [
+        {
+          "type": "text",
+          "id": "item_title",
+          "label": "Item title"
+        },
+        {
+          "type": "text",
+          "id": "item_text",
+          "label": "Item text"
+        },
+      ]
+    },
+  ],
+     "presets": [
+    {
+      "name": "Custom Faq on page"
+    }
+  ]
+  }
+{% endschema %}
