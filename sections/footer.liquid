@@ -1,3 +1,18 @@
+<style>
+  .footer-newsletter-email::after {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+    background-image: url({{ "input-arrow.svg" | asset_url }});
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 28px;
+    height: 15px;
+    content: '';
+  }
+</style>
+
 <section class='custom-sign-up' style="background-image: url({{ section.settings.form_bg | img_url: 'master'}});">
     <div class='container'>
         <h2 class='custom-sign-up-title'>{{ section.settings.title }}</h2>
@@ -17,36 +32,93 @@
     <div class='container'>
         <div class='footer-wrapper'>
             <div class='footer-help'>
-            <h3>{{ section.settings.footer_help_title }}</h3>
-            <ul>
-                {% for block in section.blocks %}
-                    {% if block.type == 'help_links' %}
-
-                    {% endif %}
-                {% endfor %}
-            </ul>
+              <h3>{{ section.settings.footer_help_title }}</h3>
+              <div class='footer-help-block'>
+                <ul>
+                    {% assign help_menu_links = section.settings.help_menu.links %}
+                    {% for link in help_menu_links %}
+                      <li>
+                        <a href="{{ link.url }}" title="{{ link.title }}">
+                          {{ link.title }}
+                        </a>
+                      </li>
+                    {% endfor %}
+                    <li><a href='#'>About Us</a></li>
+                    <li><a href='#'>Contact Us</a></li>
+                    <li><a href='#'>Track Your Order</a></li>
+                    <li><a href='#'>Affiliate Program</a></li>
+                </ul>
+                <img class='footer-certified-desktop' src='{{ section.settings.help_image | img_url: 'master' }}' alt='Certified'>
+              </div>
             </div>
             <div class='footer-info'>
                 <div class='footer-info-social'>
                     <h3>{{ section.settings.footer_social_title }}</h3>
                     <ul>
-                        {% for block in section.blocks %}
-                            {% if block.type == 'social' %}
-                                <li>
-                                    <a href='{{ block.settings.social_url }}'>
-                                        <img src='{{ block.settings.social_icon | img_url: 'master' }}' alt='Social'>
-                                    </a>
-                                </li>
-                            {% endif %}
-                        {% endfor %}
+                      {% if section.settings.youtube_link != blank %}
+                        <li>
+                            <a href='{{ section.settings.youtube_link }}'>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="27" height="19" viewBox="0 0 27 19" fill="none">
+                                  <path fill-rule="evenodd" clip-rule="evenodd" d="M2.77669 17.9682C2.29528 17.8289 1.85602 17.5812 1.49599 17.2458C1.13596 16.9105 0.865721 16.4974 0.708072 16.0415C-0.192779 13.6848 -0.459698 3.84432 1.27527 1.90169C1.8527 1.26974 2.66796 0.880662 3.54408 0.818911C8.19848 0.341216 22.5787 0.404909 24.2303 0.978143C24.6948 1.12199 25.1192 1.36431 25.4717 1.68695C25.8241 2.00959 26.0955 2.40418 26.2655 2.84116C27.2498 5.2774 27.2832 14.1307 26.1321 16.4714C25.8267 17.0807 25.3155 17.5742 24.6807 17.8726C22.9457 18.7006 5.07886 18.6847 2.77669 17.9682ZM10.167 13.3505L18.5082 9.21043L10.167 5.03855V13.3505Z" fill="currentColor"/>
+                                </svg>
+                            </a>
+                        </li>
+                      {% endif %}
+                      {% if section.settings.twitter_link != blank %}
+                        <li>
+                            <a href='{{ section.settings.twitter_link }}'>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="21" viewBox="0 0 24 21" fill="none">
+                                  <path fill-rule="evenodd" clip-rule="evenodd" d="M15.57 13.6629C14.673 13.6629 13.9193 12.942 13.9193 12.0532C13.9193 11.1644 14.673 10.4197 15.57 10.4197C16.467 10.4197 17.1945 11.1644 17.1945 12.0532C17.1945 12.942 16.467 13.6629 15.57 13.6629ZM15.951 16.7872C15.1155 17.6143 13.827 18.0163 12.012 18.0163C12.0082 18.0163 12.0038 18.0156 11.9993 18.0156C11.9955 18.0156 11.991 18.0163 11.9865 18.0163C10.1715 18.0163 8.88375 17.6143 8.049 16.7872C7.7925 16.533 7.7925 16.122 8.049 15.8686C8.30475 15.6152 8.7195 15.6152 8.976 15.8686C9.552 16.4394 10.5367 16.7173 11.9865 16.7173C11.991 16.7173 11.9955 16.718 11.9993 16.718C12.0038 16.718 12.0082 16.7173 12.012 16.7173C13.4617 16.7173 14.4473 16.4394 15.024 15.8686C15.2805 15.6144 15.6953 15.6152 15.951 15.8686C16.2068 16.1228 16.2068 16.5337 15.951 16.7872ZM6.8055 12.0532C6.8055 11.1651 7.55775 10.4197 8.454 10.4197C9.351 10.4197 10.0785 11.1651 10.0785 12.0532C10.0785 12.942 9.351 13.6629 8.454 13.6629C7.55775 13.6629 6.8055 12.942 6.8055 12.0532ZM19.998 1.79905C20.6055 1.79905 21.0998 2.28879 21.0998 2.89001C21.0998 3.49197 20.6055 3.98172 19.998 3.98172C19.3905 3.98172 18.8962 3.49197 18.8962 2.89001C18.8962 2.28879 19.3905 1.79905 19.998 1.79905ZM24 10.2852C24 8.70898 22.7062 7.42702 21.1155 7.42702C20.427 7.42702 19.7948 7.66781 19.2983 8.06837C17.5395 6.97295 15.3075 6.31302 12.915 6.17331L14.163 2.26353L17.5928 3.06391C17.6828 4.30128 18.7267 5.28077 19.998 5.28077C21.3277 5.28077 22.41 4.20838 22.41 2.89001C22.41 1.57238 21.3277 0.5 19.998 0.5C19.068 0.5 18.2595 1.02467 17.8568 1.79087L13.8713 0.861177C13.5375 0.783145 13.2 0.973395 13.0965 1.29741L11.547 6.15027C8.96925 6.21269 6.546 6.87485 4.65825 8.03419C4.1685 7.65443 3.55275 7.42702 2.8845 7.42702C1.29375 7.42702 0 8.70898 0 10.2852C0 11.2595 0.495 12.1208 1.24875 12.6366C1.21725 12.8633 1.20075 13.0914 1.20075 13.3225C1.20075 15.2927 2.3565 17.1253 4.455 18.4823C6.4665 19.7836 9.129 20.5 11.9513 20.5C14.7735 20.5 17.436 19.7836 19.4475 18.4823C21.546 17.1253 22.7017 15.2927 22.7017 13.3225C22.7017 13.1122 22.6875 12.9034 22.6612 12.696C23.4653 12.1885 24 11.2974 24 10.2852Z" fill="currentColor"/>
+                                </svg>
+                            </a>
+                        </li>
+                      {% endif %}
+                      {% if section.settings.instagram_link != blank %}
+                        <li>
+                            <a href='{{ section.settings.instagram_link }}'>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                                  <path d="M10 2.30723C12.6506 2.30723 13.0121 2.30723 14.0964 2.30723C15.0602 2.30723 15.5422 2.54819 15.9036 2.66868C16.3855 2.90964 16.747 3.03012 17.1084 3.39157C17.4699 3.75301 17.7108 4.11446 17.8313 4.59639C17.9518 4.95783 18.0723 5.43976 18.1928 6.40362C18.1928 7.48795 18.1928 7.72892 18.1928 10.5C18.1928 13.2711 18.1928 13.5121 18.1928 14.5964C18.1928 15.5602 17.9518 16.0422 17.8313 16.4036C17.5904 16.8855 17.4699 17.247 17.1084 17.6084C16.747 17.9699 16.3855 18.2108 15.9036 18.3313C15.5422 18.4518 15.0602 18.5723 14.0964 18.6928C13.0121 18.6928 12.7711 18.6928 10 18.6928C7.22892 18.6928 6.98795 18.6928 5.90362 18.6928C4.93976 18.6928 4.45783 18.4518 4.09639 18.3313C3.61446 18.0904 3.25301 17.9699 2.89157 17.6084C2.53012 17.247 2.28916 16.8855 2.16868 16.4036C2.04819 16.0422 1.92771 15.5602 1.80723 14.5964C1.80723 13.5121 1.80723 13.2711 1.80723 10.5C1.80723 7.72892 1.80723 7.48795 1.80723 6.40362C1.80723 5.43976 2.04819 4.95783 2.16868 4.59639C2.40964 4.11446 2.53012 3.75301 2.89157 3.39157C3.25301 3.03012 3.61446 2.78916 4.09639 2.66868C4.45783 2.54819 4.93976 2.42771 5.90362 2.30723C6.98795 2.30723 7.3494 2.30723 10 2.30723ZM10 0.5C7.22892 0.5 6.98795 0.5 5.90362 0.5C4.81928 0.5 4.09639 0.740965 3.49398 0.981928C2.89157 1.22289 2.28916 1.58434 1.68675 2.18675C1.08434 2.78916 0.843374 3.27109 0.481928 3.99398C0.240965 4.59639 0.120482 5.31928 0 6.40362C0 7.48795 0 7.8494 0 10.5C0 13.2711 0 13.5121 0 14.5964C0 15.6807 0.240965 16.4036 0.481928 17.006C0.722892 17.6084 1.08434 18.2108 1.68675 18.8133C2.28916 19.4157 2.77109 19.6566 3.49398 20.0181C4.09639 20.259 4.81928 20.3795 5.90362 20.5C6.98795 20.5 7.3494 20.5 10 20.5C12.6506 20.5 13.0121 20.5 14.0964 20.5C15.1807 20.5 15.9036 20.259 16.506 20.0181C17.1084 19.7771 17.7108 19.4157 18.3133 18.8133C18.9157 18.2108 19.1566 17.7289 19.5181 17.006C19.759 16.4036 19.8795 15.6807 20 14.5964C20 13.5121 20 13.1506 20 10.5C20 7.8494 20 7.48795 20 6.40362C20 5.31928 19.759 4.59639 19.5181 3.99398C19.2771 3.39157 18.9157 2.78916 18.3133 2.18675C17.7108 1.58434 17.2289 1.34337 16.506 0.981928C15.9036 0.740965 15.1807 0.620482 14.0964 0.5C13.0121 0.5 12.7711 0.5 10 0.5Z" fill="currentColor"/>
+                                  <path d="M10 5.31928C7.10843 5.31928 4.81928 7.60843 4.81928 10.5C4.81928 13.3916 7.10843 15.6807 10 15.6807C12.8916 15.6807 15.1807 13.3916 15.1807 10.5C15.1807 7.60843 12.8916 5.31928 10 5.31928ZM10 13.8735C8.19277 13.8735 6.62651 12.4277 6.62651 10.5C6.62651 8.69277 8.07229 7.12651 10 7.12651C11.8072 7.12651 13.3735 8.57229 13.3735 10.5C13.3735 12.3072 11.8072 13.8735 10 13.8735Z" fill="currentColor"/>
+                                  <path d="M15.3012 6.40362C15.9666 6.40362 16.506 5.8642 16.506 5.1988C16.506 4.53339 15.9666 3.99398 15.3012 3.99398C14.6358 3.99398 14.0964 4.53339 14.0964 5.1988C14.0964 5.8642 14.6358 6.40362 15.3012 6.40362Z" fill="currentColor"/>
+                                </svg>
+                            </a>
+                        </li>
+                      {% endif %}
+                      {% if section.settings.x_link != blank %}
+                        <li>
+                            <a href='{{ section.settings.x_link }}'>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="21" viewBox="0 0 19 21" fill="none">
+                                  <path d="M0 0.764824C0 0.78743 1.67281 3.24014 3.71862 6.21277C7.34682 11.4912 7.43724 11.6381 7.24509 11.8529C6.11481 13.1301 0.113028 20.1604 0.113028 20.2169C0.113028 20.2508 0.429506 20.2735 0.825104 20.2735C1.68412 20.2735 1.31112 20.6351 5.19929 16.0914C6.77037 14.2604 8.0928 12.7458 8.12671 12.7345C8.16062 12.7119 9.35872 14.4073 10.7942 16.487L13.3825 20.2735H16.1969H19L18.6722 19.7874C18.4914 19.5275 16.762 17.0069 14.818 14.1925C12.5574 10.8921 11.3254 9.01587 11.3819 8.92544C11.4384 8.84632 12.9982 7.01527 14.8632 4.84513C16.7281 2.6863 18.2766 0.86655 18.2879 0.810036C18.3105 0.753521 17.9941 0.719614 17.5645 0.742218L16.7847 0.776127L13.8459 4.18957C12.2296 6.06584 10.8281 7.68214 10.7264 7.78386C10.5568 7.9534 10.3534 7.68214 8.19453 4.53996C6.90601 2.65239 5.76443 1.02479 5.674 0.91176C5.51576 0.742218 5.23319 0.719614 2.74658 0.719614C1.24331 0.719614 0 0.742218 0 0.764824ZM10.7377 10.4061C13.9816 15.0629 16.6716 18.9284 16.6942 18.9962C16.7394 19.1093 16.4456 19.1432 15.4509 19.1432H14.1398L8.63534 11.2538C5.60619 6.92485 2.90482 3.05929 2.62225 2.66369L2.12493 1.96292H3.48126H4.82629L10.7377 10.4061Z" fill="currentColor"/>
+                                </svg>
+                            </a>
+                        </li>
+                      {% endif %}
+                      {% if section.settings.facebook_link != blank %}
+                        <li>
+                            <a href='{{ section.settings.facebook_link }}'>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="23" viewBox="0 0 12 23" fill="none">
+                                  <path d="M7.65708 12.3648H11.3793L11.9637 8.56055H7.65632V6.48134C7.65632 4.90099 8.16957 3.49962 9.63891 3.49962H12V0.179741C11.5852 0.123382 10.7078 0 9.04996 0C5.58819 0 3.55867 1.8393 3.55867 6.0297V8.56055H0V12.3648H3.55867V22.821C4.26344 22.9276 4.97729 23 5.71007 23C6.37245 23 7.01893 22.9391 7.65708 22.8522V12.3648Z" fill="currentColor"/>
+                                </svg>
+                            </a>
+                        </li>
+                      {% endif %}
+                      {% if section.settings.pinterest_link != blank %}
+                        <li>
+                            <a href='{{ section.settings.pinterest_link }}'>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                                  <path d="M10 0.75C4.5 0.75 0 5.25 0 10.75C0 14.875 2.5 18.375 6 19.875C6 19.125 5.99999 18.375 6.12499 17.625C6.37499 16.75 7.37499 12.125 7.37499 12.125C7.37499 12.125 7.00001 11.5 7.00001 10.5C7.00001 9 7.87501 7.875 8.87501 7.875C9.75001 7.875 10.25 8.5 10.25 9.375C10.25 10.25 9.625 11.625 9.375 12.875C9.125 13.875 9.875 14.75 11 14.75C12.875 14.75 14.125 12.375 14.125 9.375C14.125 7.125 12.625 5.5 10 5.5C7 5.5 5.12501 7.75 5.12501 10.25C5.12501 11.125 5.37501 11.75 5.75001 12.25C5.87501 12.5 6 12.5 5.875 12.75C5.875 12.875 5.75 13.375 5.625 13.5C5.5 13.75 5.37501 13.875 5.12501 13.75C3.75001 13.125 3.125 11.625 3.125 9.875C3.125 7 5.5 3.625 10.25 3.625C14.125 3.625 16.625 6.375 16.625 9.375C16.625 13.25 14.5 16.25 11.25 16.25C10.125 16.25 9.125 15.625 8.75 15C8.75 15 8.12499 17.25 7.99999 17.75C7.74999 18.5 7.37501 19.25 7.00001 19.875C7.87501 20.125 8.87499 20.25 9.87499 20.25C15.375 20.25 19.875 15.75 19.875 10.25C20 5.25 15.5 0.75 10 0.75Z" fill="currentColor"/>
+                                </svg>
+                            </a>
+                        </li>
+                      {% endif %}
                     </ul>
                 </div>
                 <div class='footer-info-partners'>
                     <h3>{{ section.settings.footer_partners_title }}</h3>
                     <ul>
                         {% for block in section.blocks %}
-                            {% if block.type == 'help_links' %}
-
+                            {% if block.type == 'partners' %}
+                              <li><img src='{{ block.settings.partners_logo | img_url: 'master' }}' alt='{{ block.settings.partners_logo_alt }}'></li>
                             {% endif %}
                         {% endfor %}
                     </ul>
@@ -55,8 +127,8 @@
                     <h3>{{ section.settings.footer_payment_title }}</h3>
                     <ul>
                         {% for block in section.blocks %}
-                            {% if block.type == 'help_links' %}
-
+                            {% if block.type == 'payments' %}
+                              <li><img src='{{ block.settings.payments_logo | img_url: 'master' }}' alt='{{ block.settings.payments_logo_alt }}'></li>
                             {% endif %}
                         {% endfor %}
                     </ul>
@@ -65,17 +137,30 @@
             <div class='footer-policies'>
                 <h3>{{ section.settings.footer_policies_title }}</h3>
                 <ul>
-                    {% for block in section.blocks %}
-                        {% if block.type == 'policies_link' %}
-
-                        {% endif %}
+                    {% assign policies_menu_links = section.settings.policies_menu.links %}
+                    {% for link in policies_menu_links %}
+                      <li>
+                        <a href="{{ link.url }}" title="{{ link.title }}">
+                          {{ link.title }}
+                        </a>
+                      </li>
                     {% endfor %}
                 </ul>
             </div>
             <div class='footer-newsletter'>
                 <h3>{{ section.settings.footer_newsletter_title }}</h3>
-                <p></p>
+                <p>{{ section.settings.footer_newsletter_text }}</p>
+                {% form 'customer' %}
+                <div class="footer-newsletter-email">
+                    <input type="email" name="contact[email]" placeholder="your@email.com" />
+                </div>
+
+                <div class="footer-newsletter-submit">
+                    <input type="submit" value="{{ section.settings.form_button_text }}" />
+                </div>
+                {% endform %}
             </div>
+            <img class='footer-certified-mobile' src='{{ section.settings.help_image | img_url: 'master' }}' alt='Certified'>
         </div>
         <p class='footer-copyright'>{{ section.settings.footer_copyright }}</p>
     </div>
@@ -111,9 +196,49 @@
         "label": "Footer Help Title"
       },
       {
+          "type": "link_list",
+          "id": "help_menu",
+          "label": "Help menu"
+      },
+      {
+          "type": "image_picker",
+          "id": "help_image",
+          "label": "Help image"
+      },
+      {
         "type": "text",
         "id": "footer_social_title",
         "label": "Footer Social Title"
+      },
+      {
+        "type": "text",
+        "id": "youtube_link",
+        "label": "Youtube link"
+      },
+      {
+        "type": "text",
+        "id": "twitter_link",
+        "label": "Twitter link"
+      },
+      {
+        "type": "text",
+        "id": "instagram_link",
+        "label": "Instagram link"
+      },
+      {
+        "type": "text",
+        "id": "x_link",
+        "label": "X link"
+      },
+      {
+        "type": "text",
+        "id": "facebook_link",
+        "label": "Facebook link"
+      },
+      {
+        "type": "text",
+        "id": "pinterest_link",
+        "label": "Pinterest link"
       },
       {
         "type": "text",
@@ -131,9 +256,19 @@
         "label": "Footer Policies Title"
       },
       {
+          "type": "link_list",
+          "id": "policies_menu",
+          "label": "Policies menu"
+      },
+      {
         "type": "text",
         "id": "footer_newsletter_title",
         "label": "Footer Newsletter Title"
+      },
+      {
+        "type": "text",
+        "id": "footer_newsletter_text",
+        "label": "Footer Newsletter Text"
       },
       {
         "type": "text",
@@ -143,43 +278,38 @@
     ],
     "blocks": [
     {
-      "type": "help_links",
-      "name": "Help links",
-      "settings": [
-        {
-          "type": "link_list",
-          "id": "help_menu",
-          "label": "Help menu"
-        },
-      ]
-    },
-    {
-      "type": "social",
-      "name": "Social",
+      "type": "partners",
+      "name": "Partners",
       "settings": [
         {
           "type": "image_picker",
-          "id": "social_icon",
-          "label": "Social icon"
+          "id": "partners_logo",
+          "label": "Partners Logo"
         },
         {
-          "type": "url",
-          "id": "social_url",
-          "label": "Social url"
+          "type": "text",
+          "id": "partners_logo_alt",
+          "label": "Partners Logo Alt"
         },
       ]
     },
     {
-      "type": "policies_link",
-      "name": "Policies links",
+      "type": "payments",
+      "name": "Paymants",
       "settings": [
         {
-          "type": "link_list",
-          "id": "policies_menu",
-          "label": "Policies menu"
+          "type": "image_picker",
+          "id": "payments_logo",
+          "label": "Paymants Logo"
+        },
+        {
+          "type": "text",
+          "id": "payments_logo_alt",
+          "label": "Paymants Logo Alt"
         },
       ]
     },
+   
   ],
      "presets": [
     {

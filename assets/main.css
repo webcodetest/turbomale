@@ -2395,6 +2395,8 @@ ul {
   margin-top: 12px;
 }
 
+/* custom-comparison */
+
 /* custom-sign-up */
 .custom-sign-up {
   padding: 60px 0 64px;
@@ -2522,4 +2524,340 @@ ul {
 .footer {
   padding: 60px 0;
   background: #05060b;
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    padding: 30px 0;
+  }
+}
+
+.footer-wrapper {
+  display: flex;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 1100px) {
+  .footer-wrapper {
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer-wrapper {
+    justify-content: normal;
+    gap: 30px 50px;
+  }
+}
+
+.footer-wrapper h3 {
+  color: #fff;
+  font-family: "Proxima Nova";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}
+
+.footer-help {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media screen and (max-width: 768px) {
+  .footer-help {
+    order: 1;
+  }
+}
+
+.footer-help-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  height: 100%;
+}
+
+.footer-help-block ul {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-help-block ul li {
+  line-height: normal;
+}
+
+.footer-help-block ul li a {
+  color: #fff;
+  font-family: "Proxima Nova";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+@media screen and (max-width: 768px) {
+  .footer-help-block ul li a {
+    font-size: 16px;
+  }
+}
+
+.footer-help-block ul li a:hover {
+  color: #60ac22;
+}
+
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+@media screen and (max-width: 768px) {
+  .footer-info {
+    order: 3;
+  }
+}
+
+.footer-info-social {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-info-social ul {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.footer-info-social ul li a {
+  color: #fff;
+  transition: all 0.3s;
+}
+
+.footer-info-social ul li a:hover {
+  color: #60ac22;
+}
+
+.footer-info-partners {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footer-info-partners ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  max-width: 260px;
+}
+
+.footer-info-partners ul li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-info-payment {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footer-info-payment ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  max-width: 270px;
+}
+
+.footer-info-payment ul li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-policies {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media screen and (max-width: 768px) {
+  .footer-policies {
+    order: 2;
+  }
+}
+
+.footer-policies ul {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-policies ul li {
+  line-height: normal;
+}
+
+.footer-policies ul li a {
+  color: #fff;
+  font-family: "Proxima Nova";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+@media screen and (max-width: 768px) {
+  .footer-policies ul li a {
+    font-size: 16px;
+  }
+}
+
+.footer-policies ul li a:hover {
+  color: #60ac22;
+}
+
+.footer-newsletter {
+  max-width: 380px;
+}
+
+@media screen and (max-width: 768px) {
+  .footer-newsletter {
+    order: 5;
+  }
+}
+
+.footer-newsletter h3 {
+  margin-bottom: 16px;
+}
+
+.footer-newsletter p {
+  color: #fff;
+  font-family: "Proxima Nova";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 32px;
+}
+
+@media screen and (max-width: 768px) {
+  .footer-newsletter p {
+    font-size: 16px;
+  }
+}
+
+.footer-newsletter form {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+@media screen and (max-width: 768px) {
+  .footer-newsletter form {
+    justify-content: normal;
+    gap: 20px;
+  }
+}
+
+.footer-newsletter-email {
+  position: relative;
+}
+
+.footer-newsletter-email input {
+  padding: 10px 40px 10px 26px;
+  border-radius: 12px;
+  background: #333;
+  height: 50px;
+  width: 100%;
+  color: #727272;
+  font-family: "Proxima Nova";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  border: none;
+  outline: none;
+}
+
+.footer-newsletter-email input::placeholder {
+  color: #727272;
+  font-family: "Proxima Nova";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.footer-newsletter-submit input {
+  display: flex;
+  width: 269px;
+  height: 54px;
+  padding: 18px 20px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  background: #40ae00;
+  color: #fff;
+  font-family: "Proxima Nova";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+  border: none;
+}
+
+@media screen and (max-width: 500px) {
+  .footer-newsletter-submit {
+    width: 100%;
+  }
+  .footer-newsletter-submit input {
+    width: 100%;
+  }
+}
+
+.footer-copyright {
+  color: #bdbdbd;
+  font-family: "Proxima Nova";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 42px;
+}
+
+@media screen and (max-width: 768px) {
+  .footer-copyright {
+    font-size: 16px;
+    text-align: center;
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer-certified-desktop {
+    display: none;
+  }
+}
+
+.footer-certified-mobile {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .footer-certified-mobile {
+    display: block;
+    width: 120px;
+    height: 50px;
+    order: 4;
+  }
 }
