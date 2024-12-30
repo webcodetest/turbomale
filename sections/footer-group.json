@@ -4,11 +4,152 @@
   "sections": {
     "footer": {
       "type": "footer",
+      "blocks": {
+        "partners_zyrWyJ": {
+          "type": "partners",
+          "settings": {
+            "partners_logo": "shopify:\/\/shop_images\/dhl.svg",
+            "partners_logo_alt": ""
+          }
+        },
+        "partners_fb3UdM": {
+          "type": "partners",
+          "settings": {
+            "partners_logo": "shopify:\/\/shop_images\/logo-header-fedex-express_1.png",
+            "partners_logo_alt": ""
+          }
+        },
+        "partners_UnrDwa": {
+          "type": "partners",
+          "settings": {
+            "partners_logo": "shopify:\/\/shop_images\/1718px-United_Parcel_Service_logo_2014_1.png",
+            "partners_logo_alt": ""
+          }
+        },
+        "partners_mCacpb": {
+          "type": "partners",
+          "settings": {
+            "partners_logo": "shopify:\/\/shop_images\/Royal_Mail_1.png",
+            "partners_logo_alt": ""
+          }
+        },
+        "partners_7MiFPT": {
+          "type": "partners",
+          "settings": {
+            "partners_logo": "shopify:\/\/shop_images\/amazon-logistics_1_traced.svg",
+            "partners_logo_alt": ""
+          }
+        },
+        "partners_WhEkUR": {
+          "type": "partners",
+          "settings": {
+            "partners_logo": "shopify:\/\/shop_images\/TNT_TV_logo.svg_1.png",
+            "partners_logo_alt": ""
+          }
+        },
+        "partners_G8gcai": {
+          "type": "partners",
+          "settings": {
+            "partners_logo": "shopify:\/\/shop_images\/DPD-Emblem_1.png",
+            "partners_logo_alt": ""
+          }
+        },
+        "partners_rTQMGA": {
+          "type": "partners",
+          "settings": {
+            "partners_logo": "shopify:\/\/shop_images\/deutsche-post3601.logowik.com_1.png",
+            "partners_logo_alt": ""
+          }
+        },
+        "payments_zgCrRr": {
+          "type": "payments",
+          "settings": {
+            "payments_logo": "shopify:\/\/shop_images\/amex.svg",
+            "payments_logo_alt": ""
+          }
+        },
+        "payments_UxmLEA": {
+          "type": "payments",
+          "settings": {
+            "payments_logo": "shopify:\/\/shop_images\/apple-pay.svg",
+            "payments_logo_alt": ""
+          }
+        },
+        "payments_qeitBc": {
+          "type": "payments",
+          "settings": {
+            "payments_logo": "shopify:\/\/shop_images\/mastercard.svg",
+            "payments_logo_alt": ""
+          }
+        },
+        "payments_UhxiwY": {
+          "type": "payments",
+          "settings": {
+            "payments_logo": "shopify:\/\/shop_images\/paypal.svg",
+            "payments_logo_alt": ""
+          }
+        },
+        "payments_wPNcAT": {
+          "type": "payments",
+          "settings": {
+            "payments_logo": "shopify:\/\/shop_images\/visa.svg",
+            "payments_logo_alt": ""
+          }
+        },
+        "payments_7F6zm8": {
+          "type": "payments",
+          "settings": {
+            "payments_logo": "shopify:\/\/shop_images\/google-pay.png",
+            "payments_logo_alt": ""
+          }
+        },
+        "payments_HNfPhH": {
+          "type": "payments",
+          "settings": {
+            "payments_logo": "shopify:\/\/shop_images\/bitcoin.png",
+            "payments_logo_alt": ""
+          }
+        }
+      },
+      "block_order": [
+        "partners_zyrWyJ",
+        "partners_fb3UdM",
+        "partners_UnrDwa",
+        "partners_mCacpb",
+        "partners_7MiFPT",
+        "partners_WhEkUR",
+        "partners_G8gcai",
+        "partners_rTQMGA",
+        "payments_zgCrRr",
+        "payments_UxmLEA",
+        "payments_qeitBc",
+        "payments_UhxiwY",
+        "payments_wPNcAT",
+        "payments_7F6zm8",
+        "payments_HNfPhH"
+      ],
       "settings": {
         "form_bg": "shopify:\/\/shop_images\/Newsletter-bg.webp",
         "title": "GET OFF AT 15% OFF",
         "subtitle": "Sign-Up for Exclusive Deals and DiscountsLatest offers, discounts, news, updates",
-        "form_button_text": "join now"
+        "form_button_text": "join now",
+        "footer_help_title": "Here to Help",
+        "help_menu": "footer-help",
+        "help_image": "shopify:\/\/shop_images\/Trusted_Site_Certified_Secure_1.svg",
+        "footer_social_title": "Feelin' Social",
+        "youtube_link": "#",
+        "twitter_link": "#",
+        "instagram_link": "#",
+        "x_link": "#",
+        "facebook_link": "#",
+        "pinterest_link": "#",
+        "footer_partners_title": "Shopping partners",
+        "footer_payment_title": "Payment Methods",
+        "footer_policies_title": "Our Policies:",
+        "policies_menu": "our-policies",
+        "footer_newsletter_title": "Newsletter",
+        "footer_newsletter_text": "A short sentence describing what someone will receive when signing up to newsletters.",
+        "footer_copyright": "TurboMale Ltd. All rights reserved. © 2024"
       }
     }
   },

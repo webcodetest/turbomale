@@ -1,0 +1,277 @@
+<style>
+    .return-one {
+        padding: 57px 0;
+    }
+
+    @media screen and (max-width: 768px) {
+        .return-one  {
+            padding: 34px 0;
+        }
+    }
+
+    .return-one-title {
+    display: flex;
+    margin-bottom: 17px;
+    width: 100%;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    }
+
+@media screen and (max-width: 768px) {
+  .return-one-title {
+    margin-bottom: 23px;
+  }
+}
+
+.return-one-title div {
+  position: absolute;
+  width: 100%;
+  top: -70px;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-text-stroke-color: #c6c6c6;
+  -webkit-text-stroke-width: 1px;
+  font-family: Proxima Nova;
+  font-size: 100px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: uppercase;
+  color: transparent;
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .return-one-title div {
+    font-size: 35px;
+    top: -20px;
+    left: 50%;
+  }
+}
+
+.return-one-title h2 {
+  color: #05060B;
+  font-family: "Proxima Nova";
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .return-one-title h2 {
+    font-size: 25px;
+  }
+}
+
+.return-one-item-top {
+    display: flex;
+    gap: 30px;
+}
+
+@media screen and (max-width: 1000px) {
+  .return-one-item-top {
+    flex-direction: column-reverse;
+  }
+}
+
+.return-one-item-top.reverse {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+@media screen and (max-width: 1000px) {
+  .return-one-item-top.reverse {
+    flex-direction: column;
+  }
+}
+
+.return-one-item-top img {
+    border-radius: 12px;
+    height: 250px;
+}
+
+@media screen and (max-width: 768px) {
+  .return-one-item-top img {
+    height: 170px;
+  }
+}
+
+.return-one-item-top-text {
+    color: #05060B;
+    font-family: "Proxima Nova";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.return-one-item-top-text p {
+    margin-bottom: 25px;
+    font-family: "Proxima Nova";
+}
+
+.return-one-item h3 {
+    font-weight: 900;
+    font-family: "Proxima Nova";
+}
+
+.return-one-item a {
+    font-weight: 400;
+    color: #05060B;
+    text-decoration: underline;
+}
+
+.return-one-item-bottom {
+    margin-bottom: 27px;
+}
+
+.return-one-item ul {
+    padding: 0;
+    margin-bottom: 27px;
+}
+
+.return-one-item ul li {
+    position: relative;
+    padding-left: 30px;
+}
+
+.return-one-item ul li::after {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    background-image: url({{ "returns-check.svg" | asset_url }});
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 17px;
+    height: 17px;
+    content: '';
+}
+
+.return-one-item-bottom p {
+    margin-bottom: 25px;
+}
+
+.return-one-bottom {
+    padding: 25px 22px;
+    border-radius: 12px;
+    border: 1px solid #40AE00;
+    background: #FFF;
+    box-shadow: 0px 0px 18.6px 0px rgba(0, 0, 0, 0.07);
+}
+
+.return-one-bottom h3 {
+    color: #40AE00;
+    font-family: "Proxima Nova";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+}
+
+.return-one-bottom p {
+    color: #05060B;
+    font-family: "Proxima Nova";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+</style>
+
+<section class='return-one'>
+    <div class='container'>
+        <div class='return-one-title'>
+            <div>{{ section.settings.title_absolute }}</div>
+            <h2>{{ section.settings.title }}</h2>
+        </div>
+        {% for block in section.blocks %}
+        <div class='return-one-item'>
+            <div class='return-one-item-top {% if block.settings.item_top_reverse == true %}reverse{% endif %}'>
+                <div class='return-one-item-top-text'>
+                    {{ block.settings.item_top_text }}
+                </div>
+                <img src='{{ block.settings.item_top_image | img_url: 'master' }}' alt='{{ block.settings.item_top_image_alt }}'>
+            </div>
+            <div class='return-one-item-bottom'>
+                {{ block.settings.item_bottom_text }}
+            </div>
+        </div>
+        {% endfor %}
+        <div class='return-one-bottom'>
+            <h3>{{ section.settings.bottom_title }}</h3>
+            <p>{{ section.settings.bottom_text }}</p>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Custom Return 1",
+    "settings": [
+    {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+    },
+    {
+        "type": "text",
+        "id": "title_absolute",
+        "label": "Title Absolute"
+    },
+    {
+        "type": "text",
+        "id": "bottom_title",
+        "label": "Bottom Title"
+    },
+    {
+        "type": "textarea",
+        "id": "bottom_text",
+        "label": "Bottom Text"
+    },
+    ],
+    "blocks": [
+    {
+      "type": "return_item",
+      "name": "Return item",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "item_top_reverse",
+          "label": "Item Top Reverse",
+        },
+        {
+          "type": "richtext",
+          "id": "item_top_text",
+          "label": "Item Top Text"
+        },
+        {
+          "type": "image_picker",
+          "id": "item_top_image",
+          "label": "Item Top Image"
+        },
+        {
+          "type": "text",
+          "id": "item_top_image_alt",
+          "label": "Item Top Image alt"
+        },
+        {
+          "type": "richtext",
+          "id": "item_bottom_text",
+          "label": "Item Bottom Text"
+        },
+      ]
+    },
+  ],
+     "presets": [
+    {
+      "name": "Custom Return 1"
+    }
+  ]
+  }
+{% endschema %}

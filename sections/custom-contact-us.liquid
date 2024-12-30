@@ -5,17 +5,10 @@
 
     .custom-contact-us-title {
   display: flex;
-  margin-bottom: 17px;
   width: 100%;
   position: relative;
   flex-direction: column;
   align-items: center;
-}
-
-@media screen and (max-width: 768px) {
-  .custom-contact-us-title {
-    margin-bottom: 23px;
-  }
 }
 
 .custom-contact-us-title div {
@@ -39,7 +32,7 @@
 @media screen and (max-width: 768px) {
   .custom-contact-us-title div {
     font-size: 35px;
-    top: -20px;
+    top: -15px;
     left: 50%;
   }
 }
@@ -54,11 +47,13 @@
   text-transform: uppercase;
   position: relative;
   z-index: 1;
+  margin-bottom: 17px;
 }
 
 @media screen and (max-width: 768px) {
   .custom-contact-us-title h2 {
     font-size: 25px;
+    margin-bottom: 23px;
   }
 }
 
@@ -88,6 +83,7 @@
     border-radius: 12px;
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: bottom;
     margin-bottom: 40px;
 }
 
@@ -143,6 +139,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    resize: none;
 }
 
 .custom-contact-input-file {
@@ -220,6 +217,7 @@
 }
 
 .dropdown-options {
+    display: none;
     flex-direction: column;
     gap: 10px;
     padding: 20px 28px;
@@ -403,7 +401,6 @@ document.addEventListener('click', (e) => {
         },
       ]
     },
-   
   ],
      "presets": [
     {

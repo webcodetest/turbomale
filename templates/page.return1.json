@@ -1,0 +1,51 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "custom_return_with_image_rxhpkX": {
+      "type": "custom-return-with-image",
+      "blocks": {
+        "return_item_iVAgr8": {
+          "type": "return_item",
+          "settings": {
+            "item_top_reverse": false,
+            "item_top_text": "<p>For your protection, we suggest all returns should be sent via a traceable carrier. What items do you accept for return? All items that are unopened and unused can be returned for a partial refund. We will deduct shipping costs and pick and pack costs; roughly around USD $22 - USD $25.<\/p><p>We will NOT accept opened or used items for return.<\/p><h3>Amending orders:<\/h3><p>Our warehouses work quickly to pick and pack each order. Due to the quick turnaround, this often means that we are not always able to amend orders, swap products or change address before the products are shipped out.<\/p><p>Please contact our <a href=\"#\" title=\"#\">Customer Support<\/a> Team if you wish to amend your order, but please note that during the weekend our Support Team are not available and therefore may not be able to amend your order before it has shipped.<\/p>",
+            "item_top_image": "shopify:\/\/shop_images\/turbo1_1.webp",
+            "item_top_image_alt": "",
+            "item_bottom_text": "<h3>Cancelling orders:<\/h3><p>In the event that a cancellation is requested, we, as Kiiroo, will attempt to cancel your order if alerted within 1 hour of placing the order. We will cancel it and issue a FULL refund. However, we are unable to guarantee a successful cancellation if the products have shipped already. Please bare in mind that our Customer Support Team working hours are Monday to Thursday 9:30 - 17:00 and Friday 9:30 - 15:00 CEST, therefore, cancellation requests made outside these hours and during the weekend are not guaranteed. If the products have shipped already, you can return unopened orders to our warehouse for a refund. The product(s) need to be returned and in our warehouse within 7 days from the delivery date indicated by the carrier in association with your tracking details. Please contact our <a href=\"#\" title=\"#\">Customer Support Team<\/a> if you wish to return an unopened order.<\/p>"
+          }
+        },
+        "return_item_UALWH7": {
+          "type": "return_item",
+          "settings": {
+            "item_top_reverse": true,
+            "item_top_text": "<h3>If you have already received the order:<\/h3><p>If you want to cancel an order that is out for delivery, or has already been received; contact us immediately via <a href=\"\/pages\/contact\" title=\"Contact\">this contact form.<\/a><\/p><p>Customer Support will provide you with the address when you email.<\/p><h3>You will have to provide us with:<\/h3><ul><li>Customer name<\/li><li>Order number or proof of purchase<\/li><li>Registration code<\/li><li>Reason for cancellation<\/li><\/ul>",
+            "item_top_image": "shopify:\/\/shop_images\/turbo1_2.webp",
+            "item_top_image_alt": "",
+            "item_bottom_text": "<p>Please remember that we will only issue a refund if the item is unopened.<\/p><p>You are 100% responsible for the shipping costs in the event that your device needs to be returned. We will deduct shipping costs and pick and pack costs; roughly around USD $22 - USD $25. If a customer wishes to return some products from a bundle they have purchased, they may do so within the specified return period. However, if they wish to keep any items from the bundle, they will be required to pay the full price for those items and the refund will only be issued for the returned items. This is applicable to all products sold in a bundle and cannot be waived or altered in any way.<\/p><p>Please note that due to high volume of deliveries it may take longer than usual for your order to be processed, but rest assured that by providing us with your tracking number \/ information we will be able to make sure that your order is returned properly. Defective or incorrect item(s):<\/p><p>If you opened the item and it is defective or if it is not the item you purchased, please contact us with your proof of purchase so we can resolve the issue for you. We will need to see pictures and videos to verify the defect or the incorrect item. Once the pictures and videos verify there is a defect or an incorrect item, we will send a replacement at our expense. We do NOT refund defective devices, but we will replace them for the SAME product.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "return_item_iVAgr8",
+        "return_item_UALWH7"
+      ],
+      "settings": {
+        "title": "returns",
+        "title_absolute": "returns",
+        "bottom_title": "I purchased off Amazon\/eBay am I eligible for warranty?",
+        "bottom_text": "Unfortunately, if you have purchased a second-hand Kiiroo product from Amazon, eBay or another third-party that sells Kiiroo products second-hand; we will not be able to honor the 1 (one) year warranty for these products. Please contact the original seller regarding warranty."
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_return_with_image_rxhpkX"
+  ]
+}

@@ -1,0 +1,244 @@
+<style>
+    .custom-faq-all {
+  padding: 60px 0;
+}
+
+@media screen and (max-width: 768px) {
+  .custom-faq-all {
+    padding: 27px 0 30px;
+  }
+}
+
+.custom-faq-all-title {
+  display: flex;
+  margin-bottom: 32px;
+  width: 100%;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  gap: 11px;
+}
+
+@media screen and (max-width: 768px) {
+  .custom-faq-all-title {
+    margin-bottom: 23px;
+  }
+}
+
+.custom-faq-all-title div {
+  position: absolute;
+  width: 100%;
+  top: -70px;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-text-stroke-color: #c6c6c6;
+  -webkit-text-stroke-width: 1px;
+  font-family: Proxima Nova;
+  font-size: 100px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: uppercase;
+  color: transparent;
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .custom-faq-all-title div {
+    font-size: 35px;
+    top: -14px;
+    left: 50%;
+  }
+}
+
+.custom-faq-all-title h2 {
+  color: #05060B;
+  font-family: "Proxima Nova";
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .custom-faq-all-title h2 {
+    font-size: 25px;
+    text-align: center;
+    max-width: 240px;
+  }
+}
+
+.custom-faq-all-list {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 38px;
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-faq-all-list-item {
+    max-width: 200px;
+    width: 100%;
+    height:170px;
+    border-radius: 28px;
+    background: #FFF;
+    box-shadow: 0px 0px 18.6px 0px rgba(0, 0, 0, 0.07);
+}
+
+@media screen and (max-width: 768px) {
+  .custom-faq-all-list-item {
+     height:90px;
+     max-width: 100px;
+  }
+}
+
+.custom-faq-all-list-item a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+    height: 100%;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+  .custom-faq-all-list-item a {
+      gap: 6px;
+  }
+}
+
+.custom-faq-all-list-item a img {
+    width: 60px;
+    height: 60px;
+}
+
+@media screen and (max-width: 768px) {
+  .custom-faq-all-list-item a img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.custom-faq-all-list-item a p {
+   color: #000;
+    text-align: center;
+    font-family: "Proxima Nova";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+@media screen and (max-width: 768px) {
+  .custom-faq-all-list-item a p {
+      font-size: 8px;
+  }
+}
+
+.custom-faq-all-bottom {
+    margin: 0 auto;
+    color: #05060B;
+    text-align: center;
+    font-family: "Proxima Nova";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.custom-faq-all-bottom a {
+    color: #05060B;
+    text-align: center;
+    font-family: "Proxima Nova";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration-line: underline;
+    transition: all 0.3s;
+}
+
+.custom-faq-all-bottom a:hover {
+    color: #40ae00;
+}
+</style>
+
+<section class='custom-faq-all'>
+    <div class='container'>
+        <div class='custom-faq-all-title'>
+            <div>{{ section.settings.title_absolute }}</div>
+            <h2>{{ section.settings.title }}</h2>
+        </div>
+        <ul class='custom-faq-all-list'>
+            {% for block in section.blocks %}
+                <li class='custom-faq-all-list-item'>
+                    <a href='{{ block.settings.item_url }}'>
+                        <img src='{{ block.settings.item_image | img_url: 'master' }}' alt='{{ block.settings.item_title }}'>
+                        <p>{{ block.settings.item_title }}</p>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+        <div class='custom-faq-all-bottom'>{{ section.settings.text_bottom }}</div>
+    </div>
+</section>
+{% schema %}
+  {
+    "name": "Custom Faq all",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "title_absolute",
+        "label": "Title Absolute"
+      },
+      {
+        "type": "richtext",
+        "id": "text_bottom",
+        "label": "Text bottom"
+      },
+    ],
+    "blocks": [
+    {
+      "type": "faq",
+      "name": "Faq",
+      "settings": [
+        {
+          "type": "url",
+          "id": "item_url",
+          "label": "Item url"
+        },
+        {
+          "type": "image_picker",
+          "id": "item_image",
+          "label": "Item image"
+        },
+        {
+          "type": "image_picker",
+          "id": "item_image_mobile",
+          "label": "Item image mobile"
+        },
+        {
+          "type": "text",
+          "id": "item_title",
+          "label": "Item title"
+        },
+      ]
+    },
+  ],
+     "presets": [
+    {
+      "name": "Custom Faq all"
+    }
+  ]
+  }
+{% endschema %}
