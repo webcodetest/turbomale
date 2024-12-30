@@ -1,0 +1,18 @@
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "settings": {
+        "form_bg": "shopify:\/\/shop_images\/Newsletter-bg.webp",
+        "title": "GET OFF AT 15% OFF",
+        "subtitle": "Sign-Up for Exclusive Deals and DiscountsLatest offers, discounts, news, updates",
+        "form_button_text": "join now"
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}

@@ -1,135 +1,145 @@
-{% unless section.settings.title == blank %}
-  <div class="central">
-    <div class="content {% unless settings.coll_content_bg_show %}transparent{% endunless %}">
-      <h1 class="feature-header feature-header__no-gap" data-cc-animate>
-        {{ section.settings.title | escape }}
-      </h1>
-    </div>
-  </div>
-{% endunless %}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'section-collection-list.css' | asset_url | stylesheet_tag }}
 
-<div class="wide-container half-gutter" data-section-type="list-collections" data-cc-animate data-cc-animate-delay="0.2s">
-  {%- if section.settings.layout == 'rows' -%}
-    {%- if section.settings.grid == 2 -%}
-      {%- assign product_class = 'column half' -%}
-    {%- elsif section.settings.grid == 3 -%}
-      {%- assign product_class = 'column third' -%}
-    {%- else -%}
-      {%- assign product_class = 'column quarter' -%}
-    {%- endif -%}
-  {%- endif -%}
+<div class="page-width">
+  <h1 class="title title--primary inline-richtext{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+    {{ section.settings.title }}
+  </h1>
+  {%- liquid
+    case section.settings.sort
+      when 'products_high', 'products_low'
+        assign collections = collections | sort: 'all_products_count'
+      when 'date', 'date_reversed'
+        assign collections = collections | sort: 'published_at'
+    endcase
 
-  {% if section.settings.display_type == 'all' %}
+    if section.settings.sort == 'products_high' or section.settings.sort == 'date_reversed' or section.settings.sort == 'alphabetical_reversed'
+      assign collections = collections | reverse
+    endif
 
-    {%- paginate collections by section.settings.collections_per_page -%}
-      <div data-cc-animate class="product-list product-list--{{ section.settings.layout }} {% if section.settings.layout == 'columns' %}jiggly-split dynamic-col-{{ section.settings.grid }}{% else %}grid--uniform{% endif %}">
-        {%- for collection in collections -%}
-          {%- render 'collection-block', collection: collection, product_class: product_class, i: forloop.index -%}
-        {%- endfor -%}
-      </div>
-
-      {%- if paginate.pages > 1 -%}
-        <div data-cc-animate class="pagination">
-          {{ paginate | default_pagination }}
-        </div>
-      {%- endif -%}
-    {%- endpaginate -%}
-
-  {% else %}
-
-      <div data-cc-animate class="product-list product-list--{{ section.settings.layout }} {% if section.settings.layout == 'columns' %}jiggly-split dynamic-col-{{ section.settings.grid }}{% else %}grid--uniform{% endif %}">
-        {% for block in section.blocks %}
-          {%- assign collection = collections[block.settings.collection] -%}
-          {%- if collection == blank -%}
-            {%- render 'onboarding-collection-block', product_class: product_class, i: forloop.index -%}
-          {% else %}
-            {%- render 'collection-block', collection: collection, product_class: product_class, i: forloop.index -%}
+    assign moduloResult = 28 | modulo: section.settings.columns_desktop
+    assign paginate_by = 30
+    if moduloResult == 0
+      assign paginate_by = 28
+    endif
+  -%}
+  {%- paginate collections by paginate_by -%}
+    <ul
+      class="collection-list grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down"
+      role="list"
+    >
+      {%- for collection in collections -%}
+        <li
+          class="collection-list__item grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          {% if settings.animations_reveal_on_scroll %}
+            data-cascade
+            style="--animation-order: {{ forloop.index }};"
           {% endif %}
-        {%- endfor -%}
-      </div>
-
-  {% endif %}
+        >
+          {% render 'card-collection',
+            card_collection: collection,
+            media_aspect_ratio: section.settings.image_ratio,
+            columns: 3
+          %}
+        </li>
+      {%- endfor -%}
+    </ul>
+    {% render 'pagination', paginate: paginate %}
+  {%- endpaginate -%}
 </div>
-
-
 {% schema %}
-  {
-    "name": "Collection list",
-    "class": "py-medium",
-    "settings": [
-      {
-        "type": "text",
-        "id": "title",
-        "label": "Heading",
-        "default": "Collections"
-      },
-      {
-        "type": "select",
-        "id": "layout",
-        "label": "Collection layout",
-        "options": [
-          {
-            "value": "columns",
-            "label": "Collage"
-          },
-          {
-            "value": "rows",
-            "label": "Grid"
-          }
-        ],
-        "default": "rows",
-        "info": "Collage will only work when the 'Image shape'  is set to Natural - in Collections / Image shape"
-      },
-      {
-        "type": "range",
-        "id": "grid",
-        "label": "Collections per row",
-        "min": 2,
-        "max": 4,
-        "default": 3
-      },
-      {
-        "type": "range",
-        "id": "collections_per_page",
-        "label": "Collections per page",
-        "min": 12,
-        "max": 48,
-        "step": 2,
-        "default": 24
-      },
-      {
-        "type": "radio",
-        "id": "display_type",
-        "label": "Select collections to show",
-        "default": "all",
-        "options": [
-          {
-            "value": "all",
-            "label": "All"
-          },
-          {
-            "value": "selected",
-            "label": "Selected"
-          }
-        ]
-      },
-      {
-        "type": "paragraph",
-        "content": "All of your collections are listed by default. To customize your list, choose 'Selected' and add collections."
-      }
-    ],
-    "blocks": [
-      {
-        "type": "image",
-        "name": "Collection",
-        "settings": [
-          {
-            "type": "collection",
-            "id": "collection",
-            "label": "Collection"
-          }
-        ]
-      }
-    ]
-  }
+{
+  "name": "t:sections.main-list-collections.name",
+  "class": "section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "t:sections.main-list-collections.settings.title.label",
+      "default": "t:sections.main-list-collections.settings.title.default"
+    },
+    {
+      "type": "select",
+      "id": "sort",
+      "options": [
+        {
+          "value": "alphabetical",
+          "label": "t:sections.main-list-collections.settings.sort.options__1.label"
+        },
+        {
+          "value": "alphabetical_reversed",
+          "label": "t:sections.main-list-collections.settings.sort.options__2.label"
+        },
+        {
+          "value": "date_reversed",
+          "label": "t:sections.main-list-collections.settings.sort.options__3.label"
+        },
+        {
+          "value": "date",
+          "label": "t:sections.main-list-collections.settings.sort.options__4.label"
+        },
+        {
+          "value": "products_high",
+          "label": "t:sections.main-list-collections.settings.sort.options__5.label"
+        },
+        {
+          "value": "products_low",
+          "label": "t:sections.main-list-collections.settings.sort.options__6.label"
+        }
+      ],
+      "default": "alphabetical",
+      "label": "t:sections.main-list-collections.settings.sort.label"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.main-list-collections.settings.image_ratio.options__1.label"
+        },
+        {
+          "value": "portrait",
+          "label": "t:sections.main-list-collections.settings.image_ratio.options__2.label"
+        },
+        {
+          "value": "square",
+          "label": "t:sections.main-list-collections.settings.image_ratio.options__3.label"
+        }
+      ],
+      "default": "adapt",
+      "label": "t:sections.main-list-collections.settings.image_ratio.label",
+      "info": "t:sections.main-list-collections.settings.image_ratio.info"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 3,
+      "label": "t:sections.main-list-collections.settings.columns_desktop.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main-list-collections.settings.header_mobile.content"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "options": [
+        {
+          "value": "1",
+          "label": "t:sections.main-list-collections.settings.columns_mobile.options__1.label"
+        },
+        {
+          "value": "2",
+          "label": "t:sections.main-list-collections.settings.columns_mobile.options__2.label"
+        }
+      ],
+      "default": "2",
+      "label": "t:sections.main-list-collections.settings.columns_mobile.label"
+    }
+  ]
+}
 {% endschema %}

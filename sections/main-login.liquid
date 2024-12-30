@@ -1,136 +1,208 @@
-<div class="content" id="template">
-  <div id="customer">
-    <div class="template_header">
-      <h1 class="h2 feature-header" data-cc-animate>{{ 'customer.login.title' | t }}</h1>
-    </div>
+{{ 'customer.css' | asset_url | stylesheet_tag }}
 
-    {% if section.settings.enable_shop_login_button %}
-      <div class="sign-in-with-shop">
-        {{ shop | login_button }}
-        <p>
-          {{ 'customer.login.alternate_provider_separator' | t }}
-        </p>
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- if section.settings.enable_shop_login_button == false -%}
+  {%- assign hide_shop_login_button = true -%}
+{%- endif -%}
+
+<div class="customer login section-{{ section.id }}-padding">
+  <h1 id="recover" tabindex="-1">
+    {{ 'customer.recover_password.title' | t }}
+  </h1>
+  <div>
+    <p>
+      {{ 'customer.recover_password.subtext' | t }}
+    </p>
+
+    {%- form 'recover_customer_password' -%}
+      {% assign recover_success = form.posted_successfully? %}
+      <div class="field">
+        <input
+          type="email"
+          value=""
+          name="email"
+          id="RecoverEmail"
+          autocorrect="off"
+          autocapitalize="off"
+          autocomplete="email"
+          {% if form.errors %}
+            aria-invalid="true"
+            aria-describedby="RecoverEmail-email-error"
+            autofocus
+          {% endif %}
+          placeholder="{{ 'customer.login_page.email' | t }}"
+        >
+        <label for="RecoverEmail">
+          {{ 'customer.login_page.email' | t }}
+        </label>
       </div>
-    {% endif %}
-
-    {% form 'customer_login' %}
-      <div data-cc-animate data-cc-animate-delay="0.2s">
-        {{ form.errors | default_errors }}
-      </div>
-
-      <div class="form">
-        <div id="login_email" class="input-row" data-cc-animate data-cc-animate-delay="0.2s">
-          <input aria-label="{{ 'customer.login.email' | t }}" placeholder="{{ 'customer.login.email' | t }}"
-                 type="email" value="" name="customer[email]" id="customer_email" class="large" size="30"/>
-        </div>
-
-        {% if form.password_needed %}
-
-          {% comment %}
-            Customer Account Login
-          {% endcomment %}
-
-          <div id="login_password" class="input-row">
-            <input aria-label="{{ 'customer.login.password' | t }}" placeholder="{{ 'customer.login.password' | t }}"
-                   type="password" value="" name="customer[password]" id="customer_password" class="large password"
-                   size="16" data-cc-animate data-cc-animate-delay="0.35s"/>
-            <div id="forgot_password" data-cc-animate data-cc-animate-delay="0.5s">
-              <a href="#"
-                 onclick="showRecoverPasswordForm();return false;">{{ 'customer.login.forgot_password' | t }}</a>
-            </div>
-          </div>
-
-        {% endif %}
-
-        <div class="wide-action">
-          <input type="submit" value="{{ 'customer.login.sign_in' | t }}" data-cc-animate data-cc-animate-delay="0.6s"/>
-          <p class="note">
-            <a data-cc-animate-click href="{{ routes.account_register_url }}" data-cc-animate data-cc-animate-delay="0.75s">
-              {{ 'customer.login.register' | t }}
-            </a>
-          </p>
-          <span class="note">
-            <a data-cc-animate-click href="{{ routes.root_url }}" data-cc-animate data-cc-animate-delay="0.9s">
-              {{ 'customer.login.return_to_store' | t }}
-            </a>
+      {%- if form.errors -%}
+        <small id="RecoverEmail-email-error" class="form__message">
+          <span class="svg-wrapper">
+            {{- 'icon-error.svg' | inline_asset_content -}}
           </span>
+          {{ form.errors.messages.form }}
+        </small>
+      {%- endif -%}
+
+      <button>
+        {{ 'customer.login_page.submit' | t }}
+      </button>
+
+      <a href="#login">
+        {{ 'customer.login_page.cancel' | t }}
+      </a>
+    {%- endform -%}
+  </div>
+
+  <h1 id="login" tabindex="-1">
+    {{ 'customer.login_page.title' | t }}
+  </h1>
+  <div>
+    {%- if recover_success == true -%}
+      <h3 class="form__message" tabindex="-1" autofocus>
+        <span class="svg-wrapper">
+          {{- 'icon-success.svg' | inline_asset_content -}}
+        </span>
+        {{ 'customer.recover_password.success' | t }}
+      </h3>
+    {%- endif -%}
+    {%- form 'customer_login', novalidate: 'novalidate' -%}
+      {%- if form.errors -%}
+        <h2 class="form__message" tabindex="-1" autofocus>
+          <span class="visually-hidden">{{ 'accessibility.error' | t }} </span>
+          <span class="svg-wrapper">
+            {{- 'icon-error.svg' | inline_asset_content -}}
+          </span>
+          {{ 'templates.contact.form.error_heading' | t }}
+        </h2>
+        {{ form.errors | default_errors }}
+      {%- endif -%}
+
+      {%- if shop.features.login_with_shop_classic_customer_accounts? -%}
+        <section name="sign-in-with-shop-provider">
+          {{ shop | login_button: hide_button: hide_shop_login_button }}
+
+          {%- unless hide_shop_login_button -%}
+            <p>
+              {{ 'customer.login_page.alternate_provider_separator' | t }}
+            </p>
+          {%- endunless -%}
+        </section>
+      {%- endif -%}
+
+      <div class="field">
+        <input
+          type="email"
+          name="customer[email]"
+          id="CustomerEmail"
+          autocomplete="email"
+          autocorrect="off"
+          autocapitalize="off"
+          {% if form.errors contains 'form' %}
+            aria-invalid="true"
+          {% endif %}
+          placeholder="{{ 'customer.login_page.email' | t }}"
+        >
+        <label for="CustomerEmail">
+          {{ 'customer.login_page.email' | t }}
+        </label>
+      </div>
+
+      {%- if form.password_needed -%}
+        <div class="field">
+          <input
+            type="password"
+            value=""
+            name="customer[password]"
+            id="CustomerPassword"
+            autocomplete="current-password"
+            {% if form.errors contains 'form' %}
+              aria-invalid="true"
+            {% endif %}
+            placeholder="{{ 'customer.login_page.password' | t }}"
+          >
+          <label for="CustomerPassword">
+            {{ 'customer.login_page.password' | t }}
+          </label>
         </div>
-      </div>
-    {% endform %}
+
+        <a href="#recover">
+          {{ 'customer.login_page.forgot_password' | t }}
+        </a>
+      {%- endif -%}
+
+      <button>
+        {{ 'customer.login_page.sign_in' | t }}
+      </button>
+
+      <a href="{{ routes.account_register_url }}">
+        {{ 'customer.login_page.create_account' | t }}
+      </a>
+    {%- endform -%}
   </div>
 
-  {% comment %}
-    Recover Password Form
-  {% endcomment %}
+  {%- if shop.checkout.guest_login -%}
+    <div>
+      <hr>
+      <h2>{{ 'customer.login_page.guest_title' | t }}</h2>
 
-  <div id="recover-password" style='display:none'>
-    <div class="template_header align-center">
-      <h2 class="title">{{ 'customer.recover_password.title' | t }}</h2>
-      <p class="note">{{ 'customer.recover_password.subtext' | t }}</p>
+      {%- form 'guest_login' -%}
+        <button>
+          {{ 'customer.login_page.guest_continue' | t }}
+        </button>
+      {%- endform -%}
     </div>
-
-    {% form 'recover_customer_password' %}
-    {{ form.errors | default_errors }}
-    <div class="form">
-      <div id="recover_email" class="input-row">
-        <input aria-label="{{ 'customer.recover_password.email' | t }}" placeholder="{{ 'customer.recover_password.email' | t }}" type="email" value="" size="30" name="email" id="recover-email" class="large" />
-      </div>
-
-      <div class="wide-action">
-        <input type="submit" value="{{ 'customer.recover_password.submit' | t }}" />
-        <span class="note"><a href="#" onclick="hideRecoverPasswordForm();return false;">{{ 'customer.recover_password.cancel' | t }}</a></span>
-      </div>
-    </div>
-    {% endform %}
-  </div>
-
-
-  {% comment %}
-    Guest Login form for shops with optional customer accounts. This form is displayed only when users click on the checkout link
-    on the cart page.
-  {% endcomment %}
-
-  {% if shop.checkout.guest_login %}
-  <div id="guest">
-    <div class="template_header">
-      <h3 class="title">{{ 'customer.login.guest_title' | t }}</h3>
-    </div>
-    {% form 'guest_login' %}
-      <input type="submit" value="{{ 'customer.login.guest_continue' | t }}" />
-    {% endform %}
-  </div>
-  {% endif %}
+  {%- endif -%}
 </div>
 
-
-<script type="text/javascript">
-  function showRecoverPasswordForm() {
-    document.getElementById('recover-password').style.display = 'inline-block';
-    document.getElementById('customer').style.display='none';
-  }
-
-  function hideRecoverPasswordForm() {
-    document.getElementById('recover-password').style.display = 'none';
-    document.getElementById('customer').style.display = 'inline-block';
-  }
-
-  if (window.location.hash == '#recover') { showRecoverPasswordForm() }
-</script>
-
 {% schema %}
-  {
-    "name": "Login",
-    "settings": [
-      {
-        "type": "header",
-        "content": "Sign in with Shop settings"
-      },
-      {
-        "type": "checkbox",
-        "id": "enable_shop_login_button",
-        "label": "Enable Sign in with Shop",
-        "default": false
-      }
-    ]
-  }
+{
+  "name": "t:sections.main-login.name",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_shop_login_button",
+      "label": "t:sections.main-login.shop_login_button.enable",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ]
+}
 {% endschema %}

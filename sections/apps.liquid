@@ -1,4 +1,4 @@
-<div class="section-spacing {% unless section.settings.skip_container %}container{% endunless %}" data-cc-animate>
+<div class="{% if section.settings.include_margins %}page-width{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
   {%- for block in section.blocks -%}
     {% render block %}
   {%- endfor -%}
@@ -6,13 +6,15 @@
 
 {% schema %}
 {
-  "name": "Apps",
+  "name": "t:sections.apps.name",
+  "tag": "section",
+  "class": "section",
   "settings": [
     {
       "type": "checkbox",
-      "id": "skip_container",
-      "label": "Full page width",
-      "default": false
+      "id": "include_margins",
+      "default": true,
+      "label": "t:sections.apps.settings.include_margins.label"
     }
   ],
   "blocks": [
@@ -22,7 +24,7 @@
   ],
   "presets": [
     {
-      "name": "Apps"
+      "name": "t:sections.apps.presets.name"
     }
   ]
 }

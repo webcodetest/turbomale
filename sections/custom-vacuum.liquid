@@ -1,0 +1,125 @@
+<section class='custom-vacuum'>
+    <div class='custom-vacuum-line'>
+    </div>
+    <div class='custom-vacuum-line'>
+    </div>
+    <div class='custom-vacuum-line'>
+    </div>
+    <div class='custom-vacuum-line'>
+    </div>
+    <div class='container'>
+        <div class='custom-vacuum-wrapper'>
+            <div class='custom-vacuum-left'>
+                <div class='custom-vacuum-left-title'>
+                    <div>{{ section.settings.title_absolute }}</div>
+                    <h2>{{ section.settings.title }}</h2>
+                </div>
+                <ul class='custom-vacuum-left-list'>
+                    {% for block in section.blocks %}
+                        {% if block.type == 'list_text' %}
+                            <li>{{ block.settings.list_item }}</li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+                <a class='custom-vacuum-left-link' href='{{ section.settings.button_url }}'>{{ section.settings.button_text }}</a>
+            </div>
+            <div class='custom-vacuum-right'>
+                <ul class='custom-vacuum-right-list'>
+                    {% for block in section.blocks %}
+                         {% if block.type == 'list_image' %}
+                            <li>
+                                <img class='custom-vacuum-right-list-image-desktop' src='{{ block.settings.list_item_image | img_url: 'master' }}' alt='{{ block.settings.list_item_image_alt }}'>
+                                <img class='custom-vacuum-right-list-image-mobile' src='{{ block.settings.list_item_image_mobile | img_url: 'master' }}' alt='{{ block.settings.list_item_image_alt }}'>
+                                <p>{{ block.settings.list_item_text }}</p>
+                            </li>
+                         {% endif %}
+                    {% endfor %}
+                </ul>
+                <img src='{{ section.settings.big_image | img_url: 'master' }}' alt='{{ section.settings.big_image_alt }}'>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Custom Vacuum",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "title_absolute",
+        "label": "Title Absolute"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text"
+      },
+      {
+        "type": "url",
+        "id": "button_url",
+        "label": "Button Url"
+      },
+      {
+        "type": "image_picker",
+        "id": "big_image",
+        "label": "Big image"
+      },
+      {
+        "type": "text",
+        "id": "big_image_alt",
+        "label": "Big image alt"
+      },
+    ],
+    "blocks": [
+    {
+      "type": "list_text",
+      "name": "List Text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "list_item",
+          "label": "List item"
+        },
+      ]
+    },
+    {
+      "type": "list_image",
+      "name": "List Image Block",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "list_item_image",
+          "label": "List item image"
+        },
+        {
+          "type": "image_picker",
+          "id": "list_item_image_mobile",
+          "label": "List item image mobile"
+        },
+        {
+          "type": "text",
+          "id": "list_item_image_alt",
+          "label": "List item image alt"
+        },
+        {
+          "type": "text",
+          "id": "list_item_text",
+          "label": "List item text"
+        },
+      ]
+    }
+  ],
+     "presets": [
+    {
+      "name": "Custom Vacuum"
+    }
+  ]
+  }
+{% endschema %}

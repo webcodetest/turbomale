@@ -1,0 +1,110 @@
+<style>
+  .custom-home-hero {
+    background-image: url({{ section.settings.background_image | img_url: 'master'}});
+  }
+  @media screen and (max-width: 768px) {
+    .custom-home-hero {
+      background-image: url({{ section.settings.background_image_mobile | img_url: 'master'}});
+    }
+  }
+
+  .custom-home-hero-wrapper-title::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 171px;
+    background-color: #40AE00;
+    content: '';
+  }
+
+  @media screen and (max-width: 768px) {
+    .custom-home-hero-wrapper-title::after {
+      width: 80px;
+      height: 130px;
+    }
+  }
+
+</style>
+
+<section class='custom-home-hero'>
+  <div class='container'>
+    <div class='custom-home-hero-wrapper'>
+      <div class='custom-home-hero-wrapper-title'>{{ section.settings.title }}</div>
+      <p class='custom-home-hero-wrapper-text'>{{ section.settings.text }}</p>
+      <p class='custom-home-hero-wrapper-text-mobile'>{{ section.settings.text_mobile }}</p>
+      <div class='custom-home-hero-wrapper-bottom'>
+        <img class='custom-home-hero-wrapper-bottom-circle' src='{{ section.settings.circle-image | img_url: 'master'}}' alt=''>
+        <img class='custom-home-hero-wrapper-bottom-circle-mobile' src='{{ section.settings.circle-image-mobile | img_url: 'master'}}' alt=''>
+        <ul>
+          {%- for block in section.blocks -%}
+            {% if block.type == "text" %}
+              <li>{{ block.settings.text_item }}</li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Custom Home Hero",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "background_image",
+        "label": "Background image"
+      },
+      {
+        "type": "image_picker",
+        "id": "background_image_mobile",
+        "label": "Background image mobile"
+      },
+      {
+        "type": "richtext",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "textarea",
+        "id": "text",
+        "label": "Text"
+      },
+      {
+        "type": "textarea",
+        "id": "text_mobile",
+        "label": "Text mobile"
+      },
+      {
+        "type": "image_picker",
+        "id": "circle-image",
+        "label": "Circle image"
+      },
+      {
+        "type": "image_picker",
+        "id": "circle-image-mobile",
+        "label": "Circle image mobile"
+      },
+    ],
+    "blocks": [
+    {
+      "type": "text",
+      "name": "List text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text_item",
+          "label": "Text item"
+        }
+      ]
+    }
+  ],
+     "presets": [
+    {
+      "name": "Custom Home Hero"
+    }
+  ]
+  }
+{% endschema %}

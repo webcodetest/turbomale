@@ -1,0 +1,91 @@
+<section class='custom-faq'>
+    <div class='custom-faq-line'>
+    </div>
+    <div class='custom-faq-line'>
+    </div>
+    <div class='custom-faq-line'>
+    </div>
+    <div class='custom-faq-line'>
+    </div>
+    <div class='container'>
+        <div class='custom-faq-title'>
+            <div>{{ section.settings.title_absolute }}</div>
+            <h3>{{ section.settings.subtitle }}</h3>
+            <h2>{{ section.settings.title }}</h2>
+        </div>
+        <ul class='custom-faq-list'>
+            {% for block in section.blocks %}
+                <li class='custom-faq-list-item'>
+                    <div class='custom-faq-list-item-top'>
+                        <h3>{{ block.settings.item_title }}</h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
+                            <path d="M13.0001 15.1482L21.8411 6.65757C22.0595 6.44429 22.42 6.44937 22.6435 6.66773L24.1974 8.18609C24.4208 8.40444 24.4259 8.75991 24.2075 8.97319L13.4063 19.3427C13.2946 19.4544 13.1423 19.5052 12.995 19.4951C12.8427 19.5001 12.6954 19.4494 12.5837 19.3427L1.7876 8.97319C1.56924 8.75991 1.57432 8.40444 1.79776 8.18608L3.35166 6.66773C3.5751 6.44937 3.93565 6.44429 4.15401 6.65757L13.0001 15.1482Z" fill="сurrentColor" style="fill-opacity:1;"/>
+                        </svg>
+                    </div>
+                    <p>{{ block.settings.item_text }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const faqItems = document.querySelectorAll('.custom-faq-list-item');
+
+  faqItems.forEach(item => {
+    const toggle = item.querySelector('.custom-faq-list-item-top');
+
+    toggle.addEventListener('click', () => {
+      // faqItems.forEach(i => i.classList.remove('active'));
+      
+      item.classList.toggle('active');
+    });
+  });
+});
+</script>
+{% schema %}
+  {
+    "name": "Custom Faq",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Subtitle"
+      },
+      {
+        "type": "text",
+        "id": "title_absolute",
+        "label": "Title Absolute"
+      },
+    ],
+    "blocks": [
+    {
+      "type": "faq",
+      "name": "Faq",
+      "settings": [
+        {
+          "type": "text",
+          "id": "item_title",
+          "label": "Item title"
+        },
+        {
+          "type": "text",
+          "id": "item_text",
+          "label": "Item text"
+        },
+      ]
+    },
+  ],
+     "presets": [
+    {
+      "name": "Custom Faq"
+    }
+  ]
+  }
+{% endschema %}

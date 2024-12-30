@@ -1,0 +1,98 @@
+ <section class='custom-home-about' style='background-image: url({{ section.settings.bg_image | img_url: 'master' }});'>
+    <div class='container'>
+        <div class='custom-home-about-top'>
+            <div class='custom-home-about-top-left'>
+                <div class='custom-home-about-title'>
+                    <div>{{ section.settings.title_absolute }}</div>
+                    <h2>{{ section.settings.title }}</h2>
+                </div>
+                <div class='custom-home-about-top-left-texts'>
+                    {{ section.settings.text }}
+                </div>
+            </div>
+            <div class='custom-home-about-top-right'>
+                <img src='{{ section.settings.image | img_url: 'master' }}' alt='{{ section.settings.image_alt }}'>
+            </div>
+        </div>
+        <ul class='custom-home-about-list'>
+            {% for block in section.blocks %}
+                <li>
+                    <h3>{{ block.settings.item_title }}</h3>
+                    <p>{{ block.settings.item_text }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+        <a class='custom-home-about-link' href='{{ section.settings.button_url }}'>{{ section.settings.button_text }}</a>
+    </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Custom Home About",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "bg_image",
+        "label": "BG Image"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "title_absolute",
+        "label": "Title Absolute"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "image_alt",
+        "label": "Image alt"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button text"
+      },
+      {
+        "type": "url",
+        "id": "button_url",
+        "label": "Button url"
+      },
+    ],
+    "blocks": [
+    {
+      "type": "list",
+      "name": "List",
+      "settings": [
+        {
+          "type": "text",
+          "id": "item_title",
+          "label": "Item title"
+        },
+        {
+          "type": "text",
+          "id": "item_text",
+          "label": "Item text"
+        },
+      ]
+    },
+  ],
+     "presets": [
+    {
+      "name": "Custom Home About"
+    }
+  ]
+  }
+{% endschema %}

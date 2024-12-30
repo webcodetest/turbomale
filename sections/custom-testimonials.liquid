@@ -1,0 +1,180 @@
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+<style>
+.custom-testimonials::after {
+  position: absolute;
+  top: 164px;
+  right: 122px;
+  width: 61px;
+  height: 50px;
+  background-image: url('{{ "quotes-top.svg" | asset_url }}');
+  content: '';
+}
+
+.custom-testimonials::before {
+  position: absolute;
+  bottom: 35px;
+  left: 133px;
+  width: 61px;
+  height: 50px;
+  background-image: url('{{ "quotes-bottom.svg" | asset_url }}');
+  content: '';
+}
+
+@media screen and (max-width: 900px) {
+    .custom-testimonials::after {
+        top: 164px;
+        right: 50px;
+    }
+    .custom-testimonials::before {
+        bottom: 35px;
+        left: 50px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .custom-testimonials::after,
+    .custom-testimonials::before {
+        display: none;
+    }
+}
+
+.custom-testimonials-slider-slide-top-image.verified::after {
+  background-image: url('{{ "Verified.svg" | asset_url }}');
+}
+</style>
+<section class='custom-testimonials'>
+    <div class='container'>
+        <div class='custom-testimonials-title'>
+            <div>{{ section.settings.title_absolute }}</div>
+            <h2>{{ section.settings.title }}</h2>
+        </div>
+        <div class="custom-testimonials-slider swiper">
+            <div class="swiper-wrapper">
+                {% for block in section.blocks %}
+                    {% if block.type == 'slider' %}
+                        <div class="swiper-slide">
+                            <div class='custom-testimonials-slider-slide-top'>
+                                <div class='custom-testimonials-slider-slide-top-image {% if block.settings.slider_verified == true %}verified{% endif %}'>
+                                    <img src='{{ block.settings.slider_image | img_url: 'master' }}' alt='{{ block.settings.slider_image_alt }}'>
+                                </div>
+                                <div class='custom-testimonials-slider-slide-top-info'>
+                                    <h3>{{ block.settings.slider_name }}</h3>
+                                    {% if block.settings.slider_verified == true %}
+                                        <p>Verified Buyer</p>
+                                    {% endif %}
+                                    <span>{{ block.settings.slider_date }}</span>
+                                    <div class='custom-testimonials-slider-slide-top-stars'>
+                                        {% for i in (1..block.settings.slider_stars_count) %}
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
+                                                <path d="M13 0L16.7442 7.84656L25.3637 8.98278L19.0582 14.9684L20.6412 23.5172L13 19.37L5.35879 23.5172L6.94177 14.9684L0.636266 8.98278L9.25581 7.84656L13 0Z" fill="#FA9902" style="fill:#FA9902;fill:color(display-p3 0.9804 0.6000 0.0078);fill-opacity:1;"/>
+                                            </svg>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            <p class='custom-testimonials-slider-slide-desc'>{{ block.settings.slider_description }}</p>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</section>
+
+<script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const testimonialsSwiper = new Swiper('.custom-testimonials-slider', {
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 29,
+        pagination: {
+            el: '.swiper-pagination',
+        },
+         breakpoints: {
+        320: {
+          slidesPerView: 1,
+        },
+        600: {
+          slidesPerView: 2,
+        },
+        768: {
+          slidesPerView: 3,
+        },
+        1100: {
+          slidesPerView: 4,
+        },
+      },
+    });
+});
+</script>
+{% schema %}
+  {
+    "name": "Custom Testimonials",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "title_absolute",
+        "label": "Title Absolute"
+      },
+    ],
+    "blocks": [
+    {
+      "type": "slider",
+      "name": "Slider",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "slider_image",
+          "label": "Slider image"
+        },
+        {
+          "type": "text",
+          "id": "slider_image_alt",
+          "label": "Slider image alt"
+        },
+        {
+          "type": "text",
+          "id": "slider_name",
+          "label": "Slider name"
+        },
+        {
+          "type": "checkbox",
+          "id": "slider_verified",
+          "label": "Slider verified",
+          "default": true,
+        },
+        {
+          "type": "text",
+          "id": "slider_date",
+          "label": "Slider date"
+        },
+        {
+          "type": "number",
+          "id": "slider_stars_count",
+          "label": "Slider stars count"
+        },
+        {
+          "type": "textarea",
+          "id": "slider_description",
+          "label": "Slider description"
+        },
+      ]
+    },
+  ],
+     "presets": [
+    {
+      "name": "Custom Testimonials"
+    }
+  ]
+  }
+{% endschema %}

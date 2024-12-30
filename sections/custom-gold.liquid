@@ -1,0 +1,137 @@
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+<section class='custom-gold'>
+    <div class='container'>
+        <div class='custom-gold-title'>
+            <div>{{ section.settings.title_absolute }}</div>
+            <h2>{{ section.settings.title }}</h2>
+            <h3>{{ section.settings.subtitle }}</h3>
+        </div>
+        <ul class='custom-gold-list'>
+            {% for block in section.blocks %}
+                {% if block.type == 'list' %}
+                    <li>
+                        <img src='{{ block.settings.list_item_image | img_url: 'master'}}' alt='{{ block.settings.list_item_image_alt }}'>
+                        <p>{{ block.settings.list_item_text }}</p>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+        <div class="custom-gold-slider swiper">
+            <div class="swiper-wrapper">
+                {% for block in section.blocks %}
+                    {% if block.type == 'slider' %}
+                        <div class="swiper-slide">
+                            <img class='custom-gold-slider-image-desktop' src='{{ block.settings.slider_image | img_url: 'master' }}' alt='{{ block.settings.slider_image_alt }}'>
+                            <img class='custom-gold-slider-image-mobile' src='{{ block.settings.slider_image_mobile | img_url: 'master' }}' alt='{{ block.settings.slider_image_alt }}'>
+                            <p>{{ block.settings.slider_text_mobile }}</p>
+                        </div>
+                    {% endif %}
+            {% endfor %}
+            </div>
+            <a class='custom-gold-link' href='{{ section.settings.button_url }}'>{{ section.settings.button_text }}</a>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</section>
+<script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const goldSwiper = new Swiper('.custom-gold-slider', {
+        loop: true,
+        slidesPerView: 1,
+        pagination: {
+            el: '.swiper-pagination',
+        },
+    });
+});
+</script>
+{% schema %}
+  {
+    "name": "Custom Gold",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "title_absolute",
+        "label": "Title Absolute"
+      },
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Subtitle"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text"
+      },
+      {
+        "type": "url",
+        "id": "button_url",
+        "label": "Button Url"
+      },
+    ],
+    "blocks": [
+    {
+      "type": "list",
+      "name": "List",
+      "limit": 5,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "list_item_image",
+          "label": "List item image"
+        },
+        {
+          "type": "text",
+          "id": "list_item_image_alt",
+          "label": "List item image alt"
+        },
+        {
+          "type": "text",
+          "id": "list_item_text",
+          "label": "List item text"
+        },
+      ]
+    },
+    {
+      "type": "slider",
+      "name": "Slider",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "slider_image",
+          "label": "Slider image"
+        },
+        {
+          "type": "image_picker",
+          "id": "slider_image_mobile",
+          "label": "Slider image mobile"
+        },
+        {
+          "type": "text",
+          "id": "slider_image_alt",
+          "label": "Slider image alt"
+        },
+        {
+          "type": "text",
+          "id": "slider_text_mobile",
+          "label": "Slider text mobile"
+        },
+      ]
+    },
+  ],
+     "presets": [
+    {
+      "name": "Custom Gold"
+    }
+  ]
+  }
+{% endschema %}

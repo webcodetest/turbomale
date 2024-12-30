@@ -1,164 +1,153 @@
-{%- liquid
-  assign columns = 4
+{{ 'component-article-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'section-main-blog.css' | asset_url | stylesheet_tag }}
 
-  if columns == 2
-    assign article_class = 'column half'
-  elsif columns == 3
-    assign article_class = 'column third'
-  else
-    assign article_class = 'column quarter'
-  endif
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
 
-  assign show_blog_filters = false
-  if blog.all_tags.size > 0 and section.settings.blog_show_filter
-    assign show_blog_filters = true
-  endif
--%}
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
 
-<div data-section-type="blog-template" class="{% if section.settings.blog_show_title == false %}sm:pt-medium pb-medium{% else %}py-medium{% endif %}">
-  {% if section.settings.blog_show_title %}
-    <div class="central align-center">
-      <h1 class="feature-header" data-cc-animate>
-        <span>
-          {{ blog.title }}
+{%- paginate blog.articles by 6 -%}
+  <div class="main-blog page-width section-{{ section.id }}-padding">
+    <h1 class="title--primary{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+      {{ blog.title | escape }}
+    </h1>
 
-          {% if show_blog_filters == false and section.settings.blog_show_rss_link %}
-            <a class="rsslink {% if section.settings.blog_show_filter == false or blog.all_tags.size == 0 %}no-filter{% endif %}"
-               href="{{ blog.url }}.atom" title="{{ blog.title | escape }} RSS" aria-label="{{ blog.title | escape }} RSS">
-              {% render 'svg-rss' %}
-            </a>
+    <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
+      {%- for article in blog.articles -%}
+        <div
+          class="blog-articles__article article{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          {% if settings.animations_reveal_on_scroll %}
+            data-cascade
+            style="--animation-order: {{ forloop.index }};"
           {% endif %}
-          </span>
-      </h1>
-    </div>
-  {% endif %}
-
-  {% paginate blog.articles by section.settings.blog_posts_per_page %}
-    <div class="wide-container half-gutter">
-      {% if show_blog_filters %}
-        <div class="blog-toolbar" data-cc-animate data-cc-animate-delay="0.2s">
-          <div>
-            {% if section.settings.blog_show_rss_link %}
-              <a class="rsslink {% if section.settings.blog_show_filter == false or blog.all_tags.size == 0 %}no-filter{% endif %}"
-                 href="{{ blog.url }}.atom" title="{{ blog.title | escape }} RSS" aria-label="{{ blog.title | escape }} RSS">
-                {% render 'svg-rss' %}
-              </a>
-            {% endif %}
-          </div>
-
-          {% if show_blog_filters %}
-            <div class="option option--gap-top">
-              <label for="filter-by">{{ 'blogs.filtering.filter' | t }}</label>
-              <select id="filter-by" class="redirecter">
-                <option value="{{ blog.url }}">{{ 'blogs.filtering.all' | t }}</option>
-                {% for tag in blog.all_tags %}
-                  <option value="{{ blog.url }}/tagged/{{ tag | handle }}" {% if current_tags contains tag %}selected{% endif %}>{{ tag | capitalize }}</option>
-                {% endfor %}
-              </select>
-            </div>
-          {% endif %}
+        >
+          {%- render 'article-card',
+            article: article,
+            media_height: section.settings.image_height,
+            media_aspect_ratio: article.image.aspect_ratio,
+            show_image: section.settings.show_image,
+            show_date: section.settings.show_date,
+            show_author: section.settings.show_author,
+            show_excerpt: true
+          -%}
         </div>
-      {% endif %}
-
-      <div class="product-list-container">
-        <div class="cc-articles product-list grid--uniform{% if section.settings.blog_posts_per_row_mobile == '2' %} mob-two-col{% endif %} product-list--{{ section.settings.blog_layout }}">
-          {% for article in blog.articles %}
-            <div class="{{ article_class }} article-column">
-              {% render 'article-block',
-                  article: article,
-                  show_date: settings.blog_show_date,
-                  show_author: settings.blog_show_author,
-                  image_shape: settings.blog_image_shape,
-                  blog_excerpt: settings.blog_excerpt
-              %}
-            </div>
-          {% else %}
-            <p class="align-centre"><em>{{ 'blogs.general.no_matches' | t }}</em></p>
-          {% endfor %}
-        </div>
-
-        {% if paginate.pages > 1 %}
-          <div class="pagination central content" data-cc-animate>
-            {% comment %}
-            When paginating blog articles, a previous article is actually a newer article, not an older one,
-            because blog articles are shown and paginated in a reversed chronological order.
-            The word 'previous' can be confusing, hence we'll change it.
-            {% endcomment %}
-            {% assign older_articles = 'blogs.pagination.older_articles' | t %}
-            {% assign newer_articles = 'blogs.pagination.newer_articles' | t %}
-            {{ paginate | default_pagination | replace: 'Previous', newer_articles | replace: 'Next', older_articles }}
-          </div>
-        {% endif %}
-      </div>
+      {%- endfor -%}
     </div>
-  {% endpaginate %}
-</div>
 
+    {%- if paginate.pages > 1 -%}
+      {%- render 'pagination', paginate: paginate -%}
+    {%- endif -%}
+  </div>
+{%- endpaginate -%}
 
 {% schema %}
-  {
-    "name": "Blog pages",
-    "settings": [
-      {
-        "type": "select",
-        "id": "blog_layout",
-        "label": "Layout",
-        "options": [
-          {
-            "value": "collage",
-            "label": "Collage"
-          },
-          {
-            "value": "rows",
-            "label": "Grid"
-          }
-        ],
-        "default": "collage",
-        "info": "Collage applies to larger screens only"
-      },
-      {
-        "type": "range",
-        "id": "blog_posts_per_page",
-        "label": "Posts per page",
-        "min": 6,
-        "max": 24,
-        "step": 1,
-        "default": 10
-      },
-      {
-        "type": "select",
-        "id": "blog_posts_per_row_mobile",
-        "label": "Posts per row on mobile",
-        "options": [
-          {
-            "value": "1",
-            "label": "1"
-          },
-          {
-            "value": "2",
-            "label": "2"
-          }
-        ],
-        "default": "2"
-      },
-      {
-        "type": "checkbox",
-        "id": "blog_show_title",
-        "label": "Show page title",
-        "default": true
-      },
-      {
-        "type": "checkbox",
-        "id": "blog_show_filter",
-        "label": "Show tag filter",
-        "default": false
-      },
-      {
-        "type": "checkbox",
-        "id": "blog_show_rss_link",
-        "label": "Show RSS link",
-        "default": false
-      }
-    ]
-  }
+{
+  "name": "t:sections.main-blog.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.main-blog.settings.header.content"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        {
+          "value": "grid",
+          "label": "t:sections.main-blog.settings.layout.options__1.label"
+        },
+        {
+          "value": "collage",
+          "label": "t:sections.main-blog.settings.layout.options__2.label"
+        }
+      ],
+      "default": "collage",
+      "label": "t:sections.main-blog.settings.layout.label",
+      "info": "t:sections.main-blog.settings.layout.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_image",
+      "default": true,
+      "label": "t:sections.main-blog.settings.show_image.label"
+    },
+    {
+      "type": "select",
+      "id": "image_height",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.main-blog.settings.image_height.options__1.label"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.main-blog.settings.image_height.options__2.label"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.main-blog.settings.image_height.options__3.label"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.main-blog.settings.image_height.options__4.label"
+        }
+      ],
+      "default": "medium",
+      "label": "t:sections.main-blog.settings.image_height.label",
+      "info": "t:sections.main-blog.settings.image_height.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "default": true,
+      "label": "t:sections.main-blog.settings.show_date.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author",
+      "default": false,
+      "label": "t:sections.main-blog.settings.show_author.label"
+    },
+    {
+      "type": "paragraph",
+      "content": "t:sections.main-blog.settings.paragraph.content"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ]
+}
 {% endschema %}
