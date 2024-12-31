@@ -1,1 +1,6 @@
-<svg class="icon icon-inventory-status"><circle cx="7.5" cy="7.5" r="7.5" fill="currentColor"/><circle cx="7.5" cy="7.5" r="5" fill="currentColor" stroke="#FFF"/></svg>
+<!-- <svg class="icon icon-inventory-status"><circle cx="7.5" cy="7.5" r="7.5" fill="currentColor"/><circle cx="7.5" cy="7.5" r="5" fill="currentColor" stroke="#FFF"/></svg> -->
+
+<svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none">
+  <path d="M14.768 6C15.5378 4.66667 17.4622 4.66667 18.232 6L29.0574 24.75C29.8272 26.0833 28.8649 27.75 27.3253 27.75H5.67468C4.13508 27.75 3.17283 26.0833 3.94263 24.75L14.768 6Z" fill="#F2C94C" style="fill:#F2C94C;fill:color(display-p3 0.9490 0.7882 0.2980);fill-opacity:1;"/>
+  <path d="M17.5342 20.6411H15.4472L15.0559 12H17.9068L17.5342 20.6411ZM17.5528 24.5391C17.2547 24.8464 16.9006 25 16.4907 25C16.0807 25 15.7267 24.8464 15.4286 24.5391C15.1429 24.2319 15 23.8735 15 23.4638C15 23.0414 15.1429 22.6765 15.4286 22.3693C15.7267 22.062 16.0807 21.9084 16.4907 21.9084C16.9006 21.9084 17.2547 22.062 17.5528 22.3693C17.8509 22.6765 18 23.0414 18 23.4638C18 23.8735 17.8509 24.2319 17.5528 24.5391Z" fill="white" style="fill:white;fill-opacity:1;"/>
+</svg>

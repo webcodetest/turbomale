@@ -12,6 +12,42 @@
   Usage:
   {% render 'price', product: product %}
 {% endcomment %}
+
+<style>
+
+.price--on-sale .price-item--regular{
+  color: #05060B;
+  font-family: "Proxima Nova";
+  font-size: 14px !important;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.price--on-sale .price-item--last{
+  color: #FF0023;
+  font-family: "Proxima Nova";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.badge{
+  background-color: #40AE00;
+  border-radius: 4px;
+
+  color: #FFF;
+  text-align: center;
+  font-family: "Proxima Nova";
+  font-size: 12.606px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+</style>
+
 {%- liquid
   if use_variant
     assign target = product.selected_or_first_available_variant
@@ -91,6 +127,10 @@
         {%- endif -%}
       </div>
       <div class="price__sale">
+        <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.sale_price' | t }}</span>
+        <span class="price-item price-item--sale price-item--last">
+          {{ money_price }}
+        </span>
         {%- unless product.price_varies == false and product.compare_at_price_varies %}
           <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
           <span>
@@ -103,10 +143,6 @@
             </s>
           </span>
         {%- endunless -%}
-        <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.sale_price' | t }}</span>
-        <span class="price-item price-item--sale price-item--last">
-          {{ money_price }}
-        </span>
       </div>
       <small class="unit-price caption{% if product.selected_or_first_available_variant.unit_price_measurement == nil %} hidden{% endif %}">
         <span class="visually-hidden">{{ 'products.product.price.unit_price' | t }}</span>
