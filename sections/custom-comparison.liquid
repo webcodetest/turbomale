@@ -1,0 +1,310 @@
+<section class='custom-comparison'>
+    <div class='container'>
+         <div class='custom-comparison-title'>
+            <div>{{ section.settings.title_absolute }}</div>
+            <h2>{{ section.settings.title }}</h2>
+            <p>{{ section.settings.subtitle }}</p>
+        </div>
+        <div class='custom-comparison-wrapper'>
+            <div class='custom-comparison-wrapper-list'>
+                {% for block in section.blocks %}
+                    {% if block.type == 'comparison_first' %}
+                    <div class='custom-comparison-wrapper-list-item'>
+                        {{ block.settings.item }}
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class='custom-comparison-wrapper-list our'>
+                <div class='custom-comparison-wrapper-list-top'>
+                    <img class='custom-comparison-wrapper-list-top-product' src='{{ section.settings.our_product_image | img_url: 'master' }}' alt='Our Product'>
+                    <img class='custom-comparison-wrapper-list-top-logo' src='{{ section.settings.our_logo | img_url: 'master' }}' alt='Logo'>
+                </div>
+                {% for block in section.blocks %}
+                    {% if block.type == 'comparison_our' %}
+                        {% if block.settings.item != blank %}
+                            <div class='custom-comparison-wrapper-list-item'>
+                                {{ block.settings.item }}
+                            </div>
+                        {% elsif block.settings.item_check == true %}
+                            <div class='custom-comparison-wrapper-list-item'>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="21" viewBox="0 0 22 21" fill="none">
+                                    <g clip-path="url(#clip0_1_1014)">
+                                        <path d="M7.63253 18.0226L0.807525 11.1975C0.397492 10.7875 0.397492 10.1227 0.807525 9.71262L2.29241 8.22769C2.70245 7.81762 3.36731 7.81762 3.77734 8.22769L8.37499 12.8253L18.2226 2.97769C18.6327 2.56766 19.2975 2.56766 19.7076 2.97769L21.1925 4.46262C21.6025 4.87265 21.6025 5.53748 21.1925 5.94755L9.11746 18.0226C8.70738 18.4326 8.04256 18.4326 7.63253 18.0226Z" fill="white" style="fill:white;fill-opacity:1;"/>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_1_1014">
+                                            <rect width="21" height="21" fill="white" style="fill:white;fill-opacity:1;" transform="translate(0.5)"/>
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </div>
+                        {% elsif block.settings.item_stars != blank %}
+                            <div class='custom-comparison-wrapper-list-item'>
+                                {% for i in (1..block.settings.item_stars) %}
+                                <svg xmlns="http://www.w3.org/2000/svg" width="27" height="26" viewBox="0 0 27 26" fill="none">
+                                    <path d="M13.5 0L17.2442 7.84656L25.8637 8.98278L19.5582 14.9684L21.1412 23.5172L13.5 19.37L5.85879 23.5172L7.44177 14.9684L1.13627 8.98278L9.75581 7.84656L13.5 0Z" fill="#FA9902" style="fill:#FA9902;fill:color(display-p3 0.9804 0.6000 0.0078);fill-opacity:1;"/>
+                                </svg>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class='custom-comparison-wrapper-list' style='z-index: 1;'>
+                <div class='custom-comparison-wrapper-list-top'>
+                    <img class='custom-comparison-wrapper-list-top-product' src='{{ section.settings.other_product_image | img_url: 'master' }}' alt='Our Product'>
+                    <p class='custom-comparison-wrapper-list-top-logo'>{{ section.settings.other_logo }}</p>
+                </div>
+                {% for block in section.blocks %}
+                    {% if block.type == 'comparison_other' %}
+                        {% if block.settings.item != blank %}
+                            <div class='custom-comparison-wrapper-list-item'>
+                                {{ block.settings.item }}
+                            </div>
+                        {% elsif block.settings.item_stars != blank %}
+                            <div class='custom-comparison-wrapper-list-item'>
+                                {% assign filled_stars = block.settings.item_stars | plus: 0 %}
+                                {% for i in (1..filled_stars) %}
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="26" viewBox="0 0 27 26" fill="none">
+                                        <path d="M13.5 0L17.2442 7.84656L25.8637 8.98278L19.5582 14.9684L21.1412 23.5172L13.5 19.37L5.85879 23.5172L7.44177 14.9684L1.13627 8.98278L9.75581 7.84656L13.5 0Z" fill="#FA9902" style="fill:#FA9902;fill:color(display-p3 0.9804 0.6000 0.0078);fill-opacity:1;"/>
+                                    </svg>
+                                {% endfor %}
+
+                                {% assign empty_stars = 5 | minus: filled_stars %}
+                                {% for i in (1..empty_stars) %}
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="26" viewBox="0 0 27 26" fill="none">
+                                        <path d="M13.5 0L17.2442 7.84656L25.8637 8.98278L19.5582 14.9684L21.1412 23.5172L13.5 19.37L5.85879 23.5172L7.44177 14.9684L1.13627 8.98278L9.75581 7.84656L13.5 0Z" fill="#D9D9D9" style="fill:#D9D9D9;fill:color(display-p3 0.8510 0.8510 0.8510);fill-opacity:1;"/>
+                                    </svg>
+                                {% endfor %}
+                            </div>
+                       {% elsif block.settings.item_check == "option1" %}
+                            <div class='custom-comparison-wrapper-list-item'>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="21" viewBox="0 0 22 21" fill="none">
+                                <g clip-path="url(#clip0_1_958)">
+                                    <path d="M7.63253 18.0226L0.807525 11.1975C0.397492 10.7875 0.397492 10.1227 0.807525 9.71262L2.29241 8.22769C2.70245 7.81762 3.36731 7.81762 3.77734 8.22769L8.37499 12.8253L18.2226 2.97769C18.6327 2.56766 19.2975 2.56766 19.7076 2.97769L21.1925 4.46262C21.6025 4.87265 21.6025 5.53748 21.1925 5.94755L9.11746 18.0226C8.70738 18.4326 8.04256 18.4326 7.63253 18.0226Z" fill="#60AC22" style="fill:#60AC22;fill:color(display-p3 0.3768 0.6749 0.1322);fill-opacity:1;"/>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_1_958">
+                                    <rect width="21" height="21" fill="white" style="fill:white;fill-opacity:1;" transform="translate(0.5)"/>
+                                    </clipPath>
+                                </defs>
+                                </svg>
+                            </div>
+                        {% elsif block.settings.item_check == "option2" %}
+                            <div class='custom-comparison-wrapper-list-item'>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="21" viewBox="0 0 22 21" fill="none">
+                                    <path d="M18.6945 15.8772L13.3133 10.4755L18.7068 5.14346C18.9283 4.92197 18.9283 4.56104 18.7068 4.33955L17.1728 2.79736C17.0662 2.69072 16.9226 2.6333 16.7709 2.6333C16.6191 2.6333 16.4756 2.69482 16.3689 2.79736L11 8.11299L5.62283 2.80147C5.51619 2.69482 5.37263 2.6374 5.22087 2.6374C5.06912 2.6374 4.92556 2.69893 4.81892 2.80147L3.28904 4.34365C3.06755 4.56514 3.06755 4.92607 3.28904 5.14756L8.68259 10.4796L3.30544 15.8772C3.1988 15.9839 3.13728 16.1274 3.13728 16.2792C3.13728 16.431 3.1947 16.5745 3.30544 16.6812L4.83943 18.2233C4.95017 18.3341 5.09373 18.3915 5.24138 18.3915C5.38494 18.3915 5.53259 18.3382 5.64334 18.2233L11 12.8421L16.3607 18.2192C16.4715 18.33 16.615 18.3874 16.7627 18.3874C16.9062 18.3874 17.0539 18.3341 17.1646 18.2192L18.6986 16.6771C18.8052 16.5704 18.8668 16.4269 18.8668 16.2751C18.8627 16.1274 18.8011 15.9839 18.6945 15.8772Z" fill="#EB5757" style="fill:#EB5757;fill:color(display-p3 0.9216 0.3412 0.3412);fill-opacity:1;"/>
+                                </svg>
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class='custom-comparison-wrapper-list'>
+                <div class='custom-comparison-wrapper-list-top'>
+                    <img class='custom-comparison-wrapper-list-top-product' src='{{ section.settings.chine_product_image | img_url: 'master' }}' alt='Our Product'>
+                    <p class='custom-comparison-wrapper-list-top-logo'>{{ section.settings.chine_logo }}</p>
+                </div>
+                {% for block in section.blocks %}
+                    {% if block.type == 'comparison_chine' %}
+                        {% if block.settings.item != blank %}
+                            <div class='custom-comparison-wrapper-list-item'>
+                                {{ block.settings.item }}
+                            </div>
+                        {% elsif block.settings.item_stars != blank %}
+                            <div class='custom-comparison-wrapper-list-item'>
+                                {% assign filled_stars = block.settings.item_stars | plus: 0 %}
+                                {% for i in (1..filled_stars) %}
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="26" viewBox="0 0 27 26" fill="none">
+                                        <path d="M13.5 0L17.2442 7.84656L25.8637 8.98278L19.5582 14.9684L21.1412 23.5172L13.5 19.37L5.85879 23.5172L7.44177 14.9684L1.13627 8.98278L9.75581 7.84656L13.5 0Z" fill="#FA9902" style="fill:#FA9902;fill:color(display-p3 0.9804 0.6000 0.0078);fill-opacity:1;"/>
+                                    </svg>
+                                {% endfor %}
+
+                                {% assign empty_stars = 5 | minus: filled_stars %}
+                                {% for i in (1..empty_stars) %}
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="26" viewBox="0 0 27 26" fill="none">
+                                        <path d="M13.5 0L17.2442 7.84656L25.8637 8.98278L19.5582 14.9684L21.1412 23.5172L13.5 19.37L5.85879 23.5172L7.44177 14.9684L1.13627 8.98278L9.75581 7.84656L13.5 0Z" fill="#D9D9D9" style="fill:#D9D9D9;fill:color(display-p3 0.8510 0.8510 0.8510);fill-opacity:1;"/>
+                                    </svg>
+                                {% endfor %}
+                            </div>
+                       {% elsif block.settings.item_check == "option1" %}
+                            <div class='custom-comparison-wrapper-list-item'>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="21" viewBox="0 0 22 21" fill="none">
+                                <g clip-path="url(#clip0_1_958)">
+                                    <path d="M7.63253 18.0226L0.807525 11.1975C0.397492 10.7875 0.397492 10.1227 0.807525 9.71262L2.29241 8.22769C2.70245 7.81762 3.36731 7.81762 3.77734 8.22769L8.37499 12.8253L18.2226 2.97769C18.6327 2.56766 19.2975 2.56766 19.7076 2.97769L21.1925 4.46262C21.6025 4.87265 21.6025 5.53748 21.1925 5.94755L9.11746 18.0226C8.70738 18.4326 8.04256 18.4326 7.63253 18.0226Z" fill="#60AC22" style="fill:#60AC22;fill:color(display-p3 0.3768 0.6749 0.1322);fill-opacity:1;"/>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_1_958">
+                                    <rect width="21" height="21" fill="white" style="fill:white;fill-opacity:1;" transform="translate(0.5)"/>
+                                    </clipPath>
+                                </defs>
+                                </svg>
+                            </div>
+                        {% elsif block.settings.item_check == "option2" %}
+                            <div class='custom-comparison-wrapper-list-item'>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="21" viewBox="0 0 22 21" fill="none">
+                                    <path d="M18.6945 15.8772L13.3133 10.4755L18.7068 5.14346C18.9283 4.92197 18.9283 4.56104 18.7068 4.33955L17.1728 2.79736C17.0662 2.69072 16.9226 2.6333 16.7709 2.6333C16.6191 2.6333 16.4756 2.69482 16.3689 2.79736L11 8.11299L5.62283 2.80147C5.51619 2.69482 5.37263 2.6374 5.22087 2.6374C5.06912 2.6374 4.92556 2.69893 4.81892 2.80147L3.28904 4.34365C3.06755 4.56514 3.06755 4.92607 3.28904 5.14756L8.68259 10.4796L3.30544 15.8772C3.1988 15.9839 3.13728 16.1274 3.13728 16.2792C3.13728 16.431 3.1947 16.5745 3.30544 16.6812L4.83943 18.2233C4.95017 18.3341 5.09373 18.3915 5.24138 18.3915C5.38494 18.3915 5.53259 18.3382 5.64334 18.2233L11 12.8421L16.3607 18.2192C16.4715 18.33 16.615 18.3874 16.7627 18.3874C16.9062 18.3874 17.0539 18.3341 17.1646 18.2192L18.6986 16.6771C18.8052 16.5704 18.8668 16.4269 18.8668 16.2751C18.8627 16.1274 18.8011 15.9839 18.6945 15.8772Z" fill="#EB5757" style="fill:#EB5757;fill:color(display-p3 0.9216 0.3412 0.3412);fill-opacity:1;"/>
+                                </svg>
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Custom Comparison",
+    "settings": [
+    {
+    "type": "text",
+    "id": "title",
+    "label": "Title"
+    },
+    {
+    "type": "text",
+    "id": "title_absolute",
+    "label": "Title Absolute"
+    },
+    {
+    "type": "textarea",
+    "id": "subtitle",
+    "label": "Subitle"
+    },
+    {
+    "type": "image_picker",
+    "id": "our_product_image",
+    "label": "Our Product Image"
+    },
+    {
+    "type": "image_picker",
+    "id": "our_logo",
+    "label": "Our Logo"
+    },
+    {
+    "type": "image_picker",
+    "id": "other_product_image",
+    "label": "Other Product Image"
+    },
+    {
+    "type": "text",
+    "id": "other_logo",
+    "label": "Other Logo"
+    },
+    {
+    "type": "image_picker",
+    "id": "chine_product_image",
+    "label": "Chine Product Image"
+    },
+    {
+    "type": "text",
+    "id": "chine_logo",
+    "label": "Chine Logo"
+    },
+    ],
+    "blocks": [
+    {
+      "type": "comparison_first",
+      "name": "Comparison First",
+      "settings": [
+        {
+          "type": "text",
+          "id": "item",
+          "label": "Item"
+        },
+      ]
+    },
+    {
+      "type": "comparison_our",
+      "name": "Comparison Our",
+      "settings": [
+        {
+          "type": "text",
+          "id": "item",
+          "label": "Item"
+        },
+        {
+          "type": "checkbox",
+          "id": "item_check",
+          "label": "Item Check"
+        },
+        {
+          "type": "number",
+          "id": "item_stars",
+          "label": "Item Stars"
+        },
+      ]
+    },
+    {
+      "type": "comparison_other",
+      "name": "Comparison Other",
+      "settings": [
+        {
+          "type": "text",
+          "id": "item",
+          "label": "Item"
+        },
+        {
+        "type": "select",
+        "id": "item_check",
+        "label": "Item Check",
+        "options": [
+            {
+            "value": "option1",
+            "label": "Check Mark"
+            },
+            {
+            "value": "option2",
+            "label": "Cross"
+            }
+        ]
+        },
+        {
+          "type": "number",
+          "id": "item_stars",
+          "label": "Item Stars"
+        },
+      ]
+    },
+    {
+      "type": "comparison_chine",
+      "name": "Comparison Chine",
+      "settings": [
+        {
+          "type": "text",
+          "id": "item",
+          "label": "Item"
+        },
+        {
+        "type": "select",
+        "id": "item_check",
+        "label": "Item Check",
+        "options": [
+            {
+            "value": "option1",
+            "label": "Check Mark"
+            },
+            {
+            "value": "option2",
+            "label": "Cross"
+            }
+        ]
+        },
+        {
+          "type": "number",
+          "id": "item_stars",
+          "label": "Item Stars"
+        },
+      ]
+    },
+  ],
+     "presets": [
+    {
+      "name": "Custom Comparison"
+    }
+  ]
+  }
+{% endschema %}

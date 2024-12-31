@@ -228,6 +228,49 @@
         "button_url": ""
       }
     },
+    "custom_package_AFh6YP": {
+      "type": "custom-package",
+      "blocks": {
+        "adventages_MUmUbC": {
+          "type": "adventages",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/package1.svg",
+            "text": "100% drug-free & Body safe"
+          }
+        },
+        "adventages_QKMHzq": {
+          "type": "adventages",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/package2.svg",
+            "text": "Fast and permanent result"
+          }
+        },
+        "adventages_ry3XtU": {
+          "type": "adventages",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/package3.svg",
+            "text": "PURE PE Expert’s choice №1"
+          }
+        },
+        "adventages_McJVgU": {
+          "type": "adventages",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/package4.svg",
+            "text": "Male enhancement"
+          }
+        }
+      },
+      "block_order": [
+        "adventages_MUmUbC",
+        "adventages_QKMHzq",
+        "adventages_ry3XtU",
+        "adventages_McJVgU"
+      ],
+      "settings": {
+        "product": "turbomale-ultimate-enlargement-package",
+        "description": "Our Ultimate Package includes 10 high-quality products that give you the complete tools you need. Get everything you need in one package at a great price!"
+      }
+    },
     "custom_vacuum_3RAfpJ": {
       "type": "custom-vacuum",
       "blocks": {
@@ -756,6 +799,402 @@
         "button_url": ""
       }
     },
+    "custom_comparison_99fH4M": {
+      "type": "custom-comparison",
+      "blocks": {
+        "comparison_first_Agbd4K": {
+          "type": "comparison_first",
+          "settings": {
+            "item": "Priсe USD"
+          }
+        },
+        "comparison_first_Mhk3TF": {
+          "type": "comparison_first",
+          "settings": {
+            "item": "Enlargement Options"
+          }
+        },
+        "comparison_first_pH6D6J": {
+          "type": "comparison_first",
+          "settings": {
+            "item": "Comfort"
+          }
+        },
+        "comparison_first_wQJwLH": {
+          "type": "comparison_first",
+          "settings": {
+            "item": "Discreet Use"
+          }
+        },
+        "comparison_first_8VFyq3": {
+          "type": "comparison_first",
+          "settings": {
+            "item": "Permanent Gains"
+          }
+        },
+        "comparison_first_FDQC69": {
+          "type": "comparison_first",
+          "settings": {
+            "item": "Stronger Erections"
+          }
+        },
+        "comparison_first_3hgD87": {
+          "type": "comparison_first",
+          "settings": {
+            "item": "Peyronie correction"
+          }
+        },
+        "comparison_first_r3KWF9": {
+          "type": "comparison_first",
+          "settings": {
+            "item": "Overnight Use"
+          }
+        },
+        "comparison_first_mHVUcP": {
+          "type": "comparison_first",
+          "settings": {
+            "item": "Effectiveness"
+          }
+        },
+        "comparison_first_JeJrEz": {
+          "type": "comparison_first",
+          "settings": {
+            "item": "Vacuum System"
+          }
+        },
+        "comparison_first_bUFANV": {
+          "type": "comparison_first",
+          "settings": {
+            "item": "Maximum Tension"
+          }
+        },
+        "comparison_first_6giRpa": {
+          "type": "comparison_first",
+          "settings": {
+            "item": "Daily Using Time"
+          }
+        },
+        "comparison_our_G9XVe6": {
+          "type": "comparison_our",
+          "settings": {
+            "item": "$289.99",
+            "item_check": false
+          }
+        },
+        "comparison_our_MERNVa": {
+          "type": "comparison_our",
+          "settings": {
+            "item": "15",
+            "item_check": false
+          }
+        },
+        "comparison_our_6wRiN8": {
+          "type": "comparison_our",
+          "settings": {
+            "item": "",
+            "item_check": false,
+            "item_stars": 5
+          }
+        },
+        "comparison_our_LWe9Ye": {
+          "type": "comparison_our",
+          "settings": {
+            "item": "",
+            "item_check": true
+          }
+        },
+        "comparison_our_mGGxkM": {
+          "type": "comparison_our",
+          "settings": {
+            "item": "",
+            "item_check": true
+          }
+        },
+        "comparison_our_haxRfL": {
+          "type": "comparison_our",
+          "settings": {
+            "item": "",
+            "item_check": true
+          }
+        },
+        "comparison_our_gW64rJ": {
+          "type": "comparison_our",
+          "settings": {
+            "item": "",
+            "item_check": true
+          }
+        },
+        "comparison_our_AjxUEy": {
+          "type": "comparison_our",
+          "settings": {
+            "item": "",
+            "item_check": true
+          }
+        },
+        "comparison_our_kQMXax": {
+          "type": "comparison_our",
+          "settings": {
+            "item": "",
+            "item_check": false,
+            "item_stars": 5
+          }
+        },
+        "comparison_our_znWr8H": {
+          "type": "comparison_our",
+          "settings": {
+            "item": "",
+            "item_check": true
+          }
+        },
+        "comparison_our_YEd9nd": {
+          "type": "comparison_our",
+          "settings": {
+            "item": " 8000 g",
+            "item_check": false
+          }
+        },
+        "comparison_our_e4QRxm": {
+          "type": "comparison_our",
+          "settings": {
+            "item": "1 hour",
+            "item_check": false
+          }
+        },
+        "comparison_other_fbVFrL": {
+          "type": "comparison_other",
+          "settings": {
+            "item": "$350",
+            "item_check": "option1"
+          }
+        },
+        "comparison_other_Eagmb8": {
+          "type": "comparison_other",
+          "settings": {
+            "item": "2",
+            "item_check": "option1"
+          }
+        },
+        "comparison_other_Q6GmbN": {
+          "type": "comparison_other",
+          "settings": {
+            "item": "",
+            "item_check": "option1",
+            "item_stars": 2
+          }
+        },
+        "comparison_other_R8J8WF": {
+          "type": "comparison_other",
+          "settings": {
+            "item": "",
+            "item_check": "option2"
+          }
+        },
+        "comparison_other_g7qLBr": {
+          "type": "comparison_other",
+          "settings": {
+            "item": "",
+            "item_check": "option2"
+          }
+        },
+        "comparison_other_DRPBHi": {
+          "type": "comparison_other",
+          "settings": {
+            "item": "",
+            "item_check": "option2"
+          }
+        },
+        "comparison_other_A4nALa": {
+          "type": "comparison_other",
+          "settings": {
+            "item": "",
+            "item_check": "option2"
+          }
+        },
+        "comparison_other_YLmmMh": {
+          "type": "comparison_other",
+          "settings": {
+            "item": "",
+            "item_check": "option2"
+          }
+        },
+        "comparison_other_UejXbm": {
+          "type": "comparison_other",
+          "settings": {
+            "item": "",
+            "item_check": "option1",
+            "item_stars": 2
+          }
+        },
+        "comparison_other_9MMeCj": {
+          "type": "comparison_other",
+          "settings": {
+            "item": "",
+            "item_check": "option2"
+          }
+        },
+        "comparison_other_bUGJQ8": {
+          "type": "comparison_other",
+          "settings": {
+            "item": "1000 g",
+            "item_check": "option1"
+          }
+        },
+        "comparison_other_VMfxQ8": {
+          "type": "comparison_other",
+          "settings": {
+            "item": "8 hour",
+            "item_check": "option1"
+          }
+        },
+        "comparison_chine_jq8eXQ": {
+          "type": "comparison_chine",
+          "settings": {
+            "item": "$1200",
+            "item_check": "option1"
+          }
+        },
+        "comparison_chine_yGnNt4": {
+          "type": "comparison_chine",
+          "settings": {
+            "item": "6",
+            "item_check": "option1"
+          }
+        },
+        "comparison_chine_BzcFzG": {
+          "type": "comparison_chine",
+          "settings": {
+            "item": "",
+            "item_check": "option1",
+            "item_stars": 2
+          }
+        },
+        "comparison_chine_9wLHx6": {
+          "type": "comparison_chine",
+          "settings": {
+            "item": "",
+            "item_check": "option2"
+          }
+        },
+        "comparison_chine_KNaLhC": {
+          "type": "comparison_chine",
+          "settings": {
+            "item": "",
+            "item_check": "option1"
+          }
+        },
+        "comparison_chine_XW7btQ": {
+          "type": "comparison_chine",
+          "settings": {
+            "item": "",
+            "item_check": "option1"
+          }
+        },
+        "comparison_chine_aJKXHQ": {
+          "type": "comparison_chine",
+          "settings": {
+            "item": "",
+            "item_check": "option2"
+          }
+        },
+        "comparison_chine_jt8BTq": {
+          "type": "comparison_chine",
+          "settings": {
+            "item": "",
+            "item_check": "option2"
+          }
+        },
+        "comparison_chine_DhdCGw": {
+          "type": "comparison_chine",
+          "settings": {
+            "item": "",
+            "item_check": "option1",
+            "item_stars": 2
+          }
+        },
+        "comparison_chine_JmzmJp": {
+          "type": "comparison_chine",
+          "settings": {
+            "item": "",
+            "item_check": "option2"
+          }
+        },
+        "comparison_chine_TLWVV8": {
+          "type": "comparison_chine",
+          "settings": {
+            "item": "-",
+            "item_check": "option1"
+          }
+        },
+        "comparison_chine_WtVEGj": {
+          "type": "comparison_chine",
+          "settings": {
+            "item": "3 hour",
+            "item_check": "option1"
+          }
+        }
+      },
+      "block_order": [
+        "comparison_first_Agbd4K",
+        "comparison_first_Mhk3TF",
+        "comparison_first_pH6D6J",
+        "comparison_first_wQJwLH",
+        "comparison_first_8VFyq3",
+        "comparison_first_FDQC69",
+        "comparison_first_3hgD87",
+        "comparison_first_r3KWF9",
+        "comparison_first_mHVUcP",
+        "comparison_first_JeJrEz",
+        "comparison_first_bUFANV",
+        "comparison_first_6giRpa",
+        "comparison_our_G9XVe6",
+        "comparison_our_MERNVa",
+        "comparison_our_6wRiN8",
+        "comparison_our_LWe9Ye",
+        "comparison_our_mGGxkM",
+        "comparison_our_haxRfL",
+        "comparison_our_gW64rJ",
+        "comparison_our_AjxUEy",
+        "comparison_our_kQMXax",
+        "comparison_our_znWr8H",
+        "comparison_our_YEd9nd",
+        "comparison_our_e4QRxm",
+        "comparison_other_fbVFrL",
+        "comparison_other_Eagmb8",
+        "comparison_other_Q6GmbN",
+        "comparison_other_R8J8WF",
+        "comparison_other_g7qLBr",
+        "comparison_other_DRPBHi",
+        "comparison_other_A4nALa",
+        "comparison_other_YLmmMh",
+        "comparison_other_UejXbm",
+        "comparison_other_9MMeCj",
+        "comparison_other_bUGJQ8",
+        "comparison_other_VMfxQ8",
+        "comparison_chine_jq8eXQ",
+        "comparison_chine_yGnNt4",
+        "comparison_chine_BzcFzG",
+        "comparison_chine_9wLHx6",
+        "comparison_chine_KNaLhC",
+        "comparison_chine_XW7btQ",
+        "comparison_chine_aJKXHQ",
+        "comparison_chine_jt8BTq",
+        "comparison_chine_DhdCGw",
+        "comparison_chine_JmzmJp",
+        "comparison_chine_TLWVV8",
+        "comparison_chine_WtVEGj"
+      ],
+      "settings": {
+        "title": "COMPARISON REPORT",
+        "title_absolute": "comparison",
+        "subtitle": "TurboMale VS Top Known Brands",
+        "our_product_image": "shopify:\/\/shop_images\/TurboMale_Gold_Extender.webp",
+        "our_logo": "shopify:\/\/shop_images\/logo.svg",
+        "other_product_image": "shopify:\/\/shop_images\/Other.webp",
+        "other_logo": "Other brands",
+        "chine_product_image": "shopify:\/\/shop_images\/Chine.webp",
+        "chine_logo": "Chinese Copies"
+      }
+    },
     "custom_faq_9zWDzf": {
       "type": "custom-faq",
       "blocks": {
@@ -821,12 +1260,14 @@
     "custom_home_hero_NN6AFJ",
     "custom_best_seller_Ybg3m8",
     "custom_discovery_WtUfYJ",
+    "custom_package_AFh6YP",
     "custom_vacuum_3RAfpJ",
     "custom_gold_KLcJGF",
     "custom_featured_nabryn",
     "custom_testimonials_8e6YP7",
     "custom_adventages_wYwFFe",
     "custom_home_about_6UTWn7",
+    "custom_comparison_99fH4M",
     "custom_faq_9zWDzf"
   ]
 }

@@ -1,0 +1,93 @@
+<section class='custom-announcement'>
+    <div class='container'>
+        <div class='custom-announcement-wrapper'>
+            <img src="{{ section.settings.image | img_url: 'master' }}" alt='flag'>
+            <p class='custom-announcement-sale'>{{ section.settings.text_sale }}</p>
+            <p class='custom-announcement-code'>{{ section.settings.text_code }} <span>{{ section.settings.code }}</span></p>
+            <div class='custom-announcement-timer' data-deadline="{{ section.settings.timer_deadline }}">
+                <p class='hour'>00</p>
+                <span>h :</span>
+                <p class='minute'>00</p>
+                <span>m :</span>
+                <p class='second'>00</p>
+                <span>s</span>
+            </div>
+            <a href='{{ section.settings.link_url }}'>{{ section.settings.link_text }}</a>
+        </div>
+    </div>
+</section>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const timerElement = document.querySelector(".custom-announcement-timer");
+    const deadline = new Date(timerElement.dataset.deadline);
+
+    function updateTimer() {
+        const now = new Date();
+        const timeRemaining = deadline - now;
+
+        if (timeRemaining <= 0) {
+            clearInterval(timerInterval);
+            document.querySelector(".custom-announcement-timer").textContent = "Time's up!";
+            return;
+        }
+
+        const hours = Math.floor((timeRemaining / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((timeRemaining / (1000 * 60)) % 60);
+        const seconds = Math.floor((timeRemaining / 1000) % 60);
+
+        timerElement.querySelector(".hour").textContent = String(hours).padStart(2, "0");
+        timerElement.querySelector(".minute").textContent = String(minutes).padStart(2, "0");
+        timerElement.querySelector(".second").textContent = String(seconds).padStart(2, "0");
+    }
+
+    const timerInterval = setInterval(updateTimer, 1000);
+    updateTimer();
+});
+</script>
+{% schema %}
+  {
+    "name": "Custom Announcement",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        },
+        {
+            "type": "text",
+            "id": "text_sale",
+            "label": "Text Sale"
+        },
+        {
+            "type": "text",
+            "id": "text_code",
+            "label": "Text Code"
+        },
+        {
+            "type": "text",
+            "id": "code",
+            "label": "Code"
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link text"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Link url"
+        },
+        {
+          "type": "text",
+          "id": "timer_deadline",
+          "label": "Timer Deadline format(2024-12-31T23:59:59)"
+        },
+    ],
+     "presets": [
+    {
+      "name": "Custom Announcement"
+    }
+  ]
+  }
+{% endschema %}
