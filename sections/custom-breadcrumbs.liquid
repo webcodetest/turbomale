@@ -1,0 +1,79 @@
+<style>
+    
+
+.breadcrumbs{
+    padding: 21px 0 0px 0;
+}
+.breadcrumbs ul{
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.breadcrumbs ul li, .breadcrumbs ul li a{
+    text-decoration: none;
+    color: #05060B;
+    font-family: "Proxima Nova";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.breadcrumbs ul li a:hover{
+    text-decoration: underline;
+}
+
+</style>
+
+
+
+<nav class="breadcrumbs" aria-label="breadcrumb">
+    <div class="container">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li class="divider">/</li>
+
+            {% if template contains 'collection' %}
+            <li><a href="/collections">Collections</a></li>
+            <li class="divider">/</li>
+            <li aria-current="page">{{ collection.title }}</li>
+            {% elsif template contains 'product' %}
+            {% if product.collections.first %}
+                <li><a href="{{ product.collections.first.url }}">{{ product.collections.first.title }}</a></li>
+                <li class="divider">/</li>
+            {% endif %}
+            <li aria-current="page">{{ product.title }}</li>
+            {% elsif template contains 'page' %}
+            <li aria-current="page">{{ page.title }}</li>
+            {% elsif template contains 'blog' %}
+            <li><a href="/blogs">Blog</a></li>
+            <li class="divider">/</li>
+            {% if article %}
+                <li><a href="{{ blog.url }}">{{ blog.title }}</a></li>
+                <li class="divider">/</li>
+                <li aria-current="page">{{ article.title }}</li>
+            {% else %}
+                <li aria-current="page">{{ blog.title }}</li>
+            {% endif %}
+            {% elsif template contains 'cart' %}
+            <li aria-current="page">Cart</li>
+            {% elsif template contains 'search' %}
+            <li aria-current="page">Search</li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+
+
+
+{% schema %}
+  {
+    "name": "Custom breadcrumbs",
+    "settings": [],
+     "presets": [
+    {
+      "name": "Custom breadcrumbs"
+    }
+  ]
+  }
+{% endschema %}

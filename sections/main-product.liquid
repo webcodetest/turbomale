@@ -1,3 +1,141 @@
+<style>
+.product__description{
+  color: #727272;
+  font-family: "Proxima Nova";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0 !important;
+}
+.product__title h1{
+  color: #05060B;
+  font-family: "Proxima Nova";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.product__tax{
+  display: none;
+}
+
+.product-features{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.product-features li{
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.product-features li span {
+  color: #000;
+  font-family: "Proxima Nova";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.product-form__input .form__label{
+  color: #000;
+  font-family: "Proxima Nova";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.product-form__input--pill input[type='radio']:checked + label{
+  background-color: #40AE00 !important;
+  border: 1px solid #E4E4E4;
+}
+.product-form__input--pill input[type='radio'] + label{
+  border: 1px solid #E4E4E4 !important;
+}
+
+.product__inventory .svg-wrapper, .product__inventory svg{
+    width: 33px !important;
+    height: 33px !important;
+}
+
+.product__inventory{
+  color: #000;
+  font-family: "Proxima Nova";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.price-per-item__container .product-form__submit{
+  width: unset;
+}
+.product-form__input price-per-item, .price-per-item__container{
+  justify-content: space-between;
+}
+
+.product-form__submit{
+  margin-bottom: 0 !important;
+  width: 66% !important;
+  border-radius: 12px;
+  background:#40AE00;
+  color: #FFF;
+  font-family: "Proxima Nova";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.button:after, .shopify-challenge__button:after, .customer button:after, .shopify-payment-button__button--unbranded:after{
+  display: none;
+}
+
+.quantity{
+  width: 34%;
+}
+
+.product-form__input{
+  margin: 0 !important;
+}
+
+#more-payment-options-link{
+  display: none;
+}
+
+</style>
+
+{% if template == "product" %}
+
+  <style>
+    .custom-adventages{
+      background: #fff;
+    }
+    .custom-adventages-list{
+      grid-template-columns: repeat(3, 1fr);
+    }
+    {% comment %} .custom-adventages-list-item{
+      align-items: center;
+    } {% endcomment %}
+    .custom-adventages-list-item-texts h3{
+      color: #000;
+    }
+    .custom-adventages-list-item-texts p{
+      color: #000;
+    }
+  </style>
+
+{% endif %}
+
+
 <product-info
   id="MainProduct-{{ section.id }}"
   class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
@@ -165,7 +303,7 @@
                         {%- endif -%}
                       {%- else -%}
                         <span class="svg-wrapper" style="color: rgb(62, 214, 96)">
-                          {{- 'icon-inventory-status.svg' | inline_asset_content -}}
+                          {{- 'custom-item-inventory-status-green.svg' | inline_asset_content -}}
                         </span>
                         {%- if block.settings.show_inventory_quantity -%}
                           {{-
@@ -176,10 +314,24 @@
                           {{- 'products.product.inventory_in_stock' | t -}}
                         {%- endif -%}
                       {%- endif -%}
+
+                      <div style="margin-top: 10px;">
+                        <div style="height: 9px; background-color: #e0e0e0; border-radius: 5px; overflow: hidden;">
+                          <div
+                            style="
+                              height: 100%;
+                              width: 20%;
+                              background-color: #FF9433;
+                              transition: width 0.3s ease;
+                            "
+                          >123</div>
+                        </div>
+                      </div>
+
                     {%- else -%}
                       {%- if product.selected_or_first_available_variant.inventory_policy == 'continue' -%}
                         <span class="svg-wrapper" style="color: rgb(62, 214, 96)">
-                          {{- 'icon-inventory-status.svg' | inline_asset_content -}}
+                          {{- 'custom-item-inventory-status-green.svg' | inline_asset_content -}}
                         </span>
                         {{- 'products.product.inventory_out_of_stock_continue_selling' | t -}}
                       {%- else -%}
@@ -194,7 +346,7 @@
               {%- when 'description' -%}
                 {%- if product.description != blank -%}
                   <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
-                    {{ product.description }}
+                    {{ product.description | strip_html | truncate: 100, "..." }}
                   </div>
                 {%- endif -%}
               {%- when 'sku' -%}
@@ -239,7 +391,7 @@
                     | item_count_for_variant: product.selected_or_first_available_variant.id
                   -%}
                   {% # theme-check-enable %}
-                  <label class="quantity__label form__label" for="Quantity-{{ section.id }}">
+                  <label style="display: none;" class="quantity__label form__label" for="Quantity-{{ section.id }}">
                     {{ 'products.product.quantity.label' | t }}
                     <span class="quantity__rules-cart{% if cart_qty == 0 %} hidden{% endif %}">
                       {%- render 'loading-spinner' -%}
@@ -369,6 +521,29 @@
                         {%- endif -%}
                       </price-per-item>
                     {%- endif -%}
+                    <button
+                      id="ProductSubmitButton-{{ section_id }}"
+                      type="submit"
+                      name="add"
+                      class="product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
+                      {% if product.selected_or_first_available_variant.available == false
+                        or quantity_rule_soldout
+                        or product.selected_or_first_available_variant == null
+                      %}
+                        disabled
+                      {% endif %}
+                    >
+                      <span>
+                        {%- if product.selected_or_first_available_variant == null -%}
+                          {{ 'products.product.unavailable' | t }}
+                        {%- elsif product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
+                          {{ 'products.product.sold_out' | t }}
+                        {%- else -%}
+                          {{ 'products.product.add_to_cart' | t }}
+                        {%- endif -%}
+                      </span>
+                      {%- render 'loading-spinner' -%}
+                    </button>
                   </div>
                   <div class="quantity__rules caption" id="Quantity-Rules-{{ section.id }}">
                     {%- if product.selected_or_first_available_variant.quantity_rule.increment > 1 -%}
@@ -463,6 +638,7 @@
 
               {%- when 'variant_picker' -%}
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
+                
               {%- when 'buy_buttons' -%}
                 {%- render 'buy-buttons',
                   block: block,
@@ -2254,7 +2430,8 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
-    }
+    },
+
   ]
 }
 {% endschema %}

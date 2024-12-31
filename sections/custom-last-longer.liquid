@@ -1,0 +1,96 @@
+<style>
+
+    .custom-last-longer .custom-best-seller-top div{
+        left: 0;
+        width: 100%;
+    }
+    .custom-last-longer .custom-best-seller-top{
+        text-align: center;
+    }
+    .custom-last-longer{
+        padding: 117px 0 57px 0;
+    }
+    .custom-last-longer-body-text{
+        padding-top: 14px;
+    }
+
+</style>
+
+<section class='custom-last-longer'>
+  <div class='container'>
+    <div class='custom-best-seller-top'>
+        <div>{{ section.settings.title_absolute }}</div>
+        <h2>{{ section.settings.title }}</h2>
+    </div>
+    <div class="custom-last-longer-body">
+        <div class="custom-last-longer-body-wrap">
+            <p class="custom-last-longer-body-text">
+                {{ section.settings.custom_textarea | newline_to_br }}
+            </p>
+            <p class="custom-last-longer-body-text">
+                {{ section.settings.custom_textarea_2 | newline_to_br }}
+            </p>
+            {% for block in section.blocks %}
+            <p class="custom-last-longer-body-text-with-svg">
+                <span>{{ block.settings.custom_field }}</span>
+                <span>{{ block.settings.custom_text | newline_to_br }}</span>
+            </p>
+            {% endfor %}
+        </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Custom last longer",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title_absolute",
+            "label": "Title absolute",
+            "default": "last longer"
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Last Longer, Get Bigger with a Cock Ring"
+        },
+        {
+            "type": "textarea",
+            "id": "custom_textarea",
+            "label": "Custom Textarea"
+        },
+        {
+            "type": "textarea",
+            "id": "custom_textarea_2",
+            "label": "Custom Textarea 2",
+            "default": "<b>You will have to provide us with:</b>"
+        }
+    ],
+    "blocks": [
+        {
+        "type": "text",
+        "name": "Item of text",
+        "settings":[
+            {
+                "type": "liquid",
+                "id": "custom_field",
+                "label": "Custom Field"
+            },
+            {
+                "type": "text",
+                "id": "custom_text",
+                "label": "Custom Text"
+            }
+        ] 
+        }
+    ],
+     "presets": [
+    {
+      "name": "Custom last longer"
+    }
+  ]
+  }
+{% endschema %}
