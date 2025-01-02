@@ -1,4 +1,9 @@
 <style>
+
+.product__info-container > * + *{
+  margin: 0 0 0 0 !important;
+}
+
 .product__description{
   color: #727272;
   font-family: "Proxima Nova";
@@ -6,7 +11,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  margin: 0 !important;
+  padding-bottom: 8px;
 }
 .product__title h1{
   color: #05060B;
@@ -32,6 +37,10 @@
   display: flex;
   align-items: center;
   gap: 13px;
+}
+.product-features li svg{
+  width: 17px;
+  height: 17px;
 }
 
 .product-features li span {
@@ -75,15 +84,11 @@
 }
 
 .price-per-item__container .product-form__submit{
-  width: unset;
-}
-.product-form__input price-per-item, .price-per-item__container{
-  justify-content: space-between;
+  width: 100%;
 }
 
 .product-form__submit{
   margin-bottom: 0 !important;
-  width: 66% !important;
   border-radius: 12px;
   background:#40AE00;
   color: #FFF;
@@ -100,7 +105,13 @@
 }
 
 .quantity{
-  width: 34%;
+  width: 95px;
+  max-width: 34%;
+  border-radius: 12px;
+  border: 1px solid #E0E0E0;
+}
+.quantity__button{
+  width: 18px;
 }
 
 .product-form__input{
@@ -109,6 +120,72 @@
 
 #more-payment-options-link{
   display: none;
+}
+
+.product-form__input price-per-item, .price-per-item__container{
+  gap: 8px !important;
+  justify-content: space-between;
+  padding-bottom: 4px;
+  padding-top: 16px;
+}
+.quantity:after{
+  box-shadow: none;
+}
+.product__info-container .product-form, .product__info-container .product__description, .product__info-container .icon-with-text{
+  width: 100%;
+  margin: 0 0 !important;
+}
+
+.quantity__button:last-child{
+  margin-right: 4px;
+}
+.quantity__button:first-child{
+  margin-left: 4px;
+}
+.product--large:not(.product--no-media) .product__info-wrapper{
+  padding: 0 0 0 32px !important;
+}
+
+.product--large:not(.product--no-media) .product__media-wrapper{
+  max-width: 61% !important;
+  width: 100% !important;
+}
+.product--large:not(.product--no-media) .product__info-wrapper{
+  max-width: 39% !important;
+  width: 100% !important;
+}
+
+slider-component{
+  width: 100%;
+  height: 650px;
+}
+
+.thumbnail-slider .thumbnail-list.slider--tablet-up{
+  flex-direction: column;
+}
+.thumbnail-slider{
+  flex-direction: column;
+  max-width: 150px;
+  max-height: 650px;
+  align-items: flex-start !important;
+}
+
+.thumbnail-list.slider--tablet-up .thumbnail-list__item.slider__slide {
+  width: 100px !important;
+}
+
+.product--thumbnail_slider .slider-mobile-gutter .slider-button{
+  display: none !important;
+}
+.slider{
+  height: 100%;
+}
+
+.product__media-list .media > *{
+  object-fit: contain;
+}
+.thumbnail img{
+  object-fit: contain !important;
 }
 
 </style>
@@ -211,7 +288,7 @@
   {%- endif -%}
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
-  <div class="page-width">
+  <div class="container">
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
       <div class="grid__item product__media-wrapper">
         {% render 'product-media-gallery', variant_images: variant_images %}
@@ -404,12 +481,12 @@
                   </label>
                   <div class="price-per-item__container">
                     <quantity-input class="quantity" data-url="{{ product.url }}" data-section="{{ section.id }}">
-                      <button class="quantity__button" name="minus" type="button">
+                      <button class="quantity__button" name="plus" type="button" style="color: #60AC22">
                         <span class="visually-hidden">
-                          {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
+                          {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
                         </span>
                         <span class="svg-wrapper">
-                          {{- 'icon-minus.svg' | inline_asset_content -}}
+                          {{- 'icon-plus.svg' | inline_asset_content -}}
                         </span>
                       </button>
                       <input
@@ -428,12 +505,12 @@
                         value="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
                         form="{{ product_form_id }}"
                       >
-                      <button class="quantity__button" name="plus" type="button">
+                      <button class="quantity__button" name="minus" type="button" style="color: #05060B">
                         <span class="visually-hidden">
-                          {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
+                          {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
                         </span>
                         <span class="svg-wrapper">
-                          {{- 'icon-plus.svg' | inline_asset_content -}}
+                          {{- 'icon-minus.svg' | inline_asset_content -}}
                         </span>
                       </button>
                     </quantity-input>
@@ -521,29 +598,81 @@
                         {%- endif -%}
                       </price-per-item>
                     {%- endif -%}
-                    <button
-                      id="ProductSubmitButton-{{ section_id }}"
-                      type="submit"
-                      name="add"
-                      class="product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
-                      {% if product.selected_or_first_available_variant.available == false
-                        or quantity_rule_soldout
-                        or product.selected_or_first_available_variant == null
-                      %}
-                        disabled
-                      {% endif %}
-                    >
-                      <span>
-                        {%- if product.selected_or_first_available_variant == null -%}
-                          {{ 'products.product.unavailable' | t }}
-                        {%- elsif product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
-                          {{ 'products.product.sold_out' | t }}
-                        {%- else -%}
-                          {{ 'products.product.add_to_cart' | t }}
-                        {%- endif -%}
+                    <product-form
+                    class="product-form"
+                    data-hide-errors="{{ gift_card_recipient_feature_active }}"
+                    data-section-id="{{ section.id }}"
+                  >
+                    <div class="product-form__error-message-wrapper" role="alert" hidden>
+                      <span class="svg-wrapper">
+                        {{- 'icon-error.svg' | inline_asset_content -}}
                       </span>
-                      {%- render 'loading-spinner' -%}
-                    </button>
+                      <span class="product-form__error-message"></span>
+                    </div>
+
+                    {%- form 'product',
+                      product,
+                      id: product_form_id,
+                      class: 'form',
+                      novalidate: 'novalidate',
+                      data-type: 'add-to-cart-form'
+                    -%}
+                      <input
+                        type="hidden"
+                        name="id"
+                        value="{{ product.selected_or_first_available_variant.id }}"
+                        {% if product.selected_or_first_available_variant.available == false
+                          or quantity_rule_soldout
+                          or product.selected_or_first_available_variant == null
+                        %}
+                          disabled
+                        {% endif %}
+                        class="product-variant-id"
+                      >
+
+                      {%- if gift_card_recipient_feature_active -%}
+                        {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
+                      {%- endif -%}
+
+                      <div class="product-form__buttons">
+                        {%- liquid
+                          assign check_against_inventory = true
+                          if product.selected_or_first_available_variant.inventory_management != 'shopify' or product.selected_or_first_available_variant.inventory_policy == 'continue'
+                            assign check_against_inventory = false
+                          endif
+                          if product.selected_or_first_available_variant.quantity_rule.min > product.selected_or_first_available_variant.inventory_quantity and check_against_inventory
+                            assign quantity_rule_soldout = true
+                          endif
+                        -%}
+                        <button
+                          id="ProductSubmitButton-{{ section_id }}"
+                          type="submit"
+                          name="add"
+                          class="product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
+                          {% if product.selected_or_first_available_variant.available == false
+                            or quantity_rule_soldout
+                            or product.selected_or_first_available_variant == null
+                          %}
+                            disabled
+                          {% endif %}
+                        >
+                          <span>
+                            {%- if product.selected_or_first_available_variant == null -%}
+                              {{ 'products.product.unavailable' | t }}
+                            {%- elsif product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
+                              {{ 'products.product.sold_out' | t }}
+                            {%- else -%}
+                              {{ 'products.product.add_to_cart' | t }}
+                            {%- endif -%}
+                          </span>
+                          {%- render 'loading-spinner' -%}
+                        </button>
+                        {%- if show_dynamic_checkout -%}
+                          {{ form | payment_button }}
+                        {%- endif -%}
+                      </div>
+                    {%- endform -%}
+                  </product-form>
                   </div>
                   <div class="quantity__rules caption" id="Quantity-Rules-{{ section.id }}">
                     {%- if product.selected_or_first_available_variant.quantity_rule.increment > 1 -%}

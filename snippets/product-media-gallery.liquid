@@ -1,4 +1,4 @@
-{% comment %}
+{% comment %} 
   Renders a product media gallery. Should be used with 'media-gallery.js'
   Also see 'product-media-modal'
 
@@ -43,6 +43,7 @@
 -%}
 
 <media-gallery
+  style="display: flex; flex-direction: row-reverse;"
   id="MediaGallery-{{ section.id }}"
   role="region"
   {% if section.settings.enable_sticky_info %}
@@ -330,3 +331,5 @@
     </slider-component>
   {%- endif -%}
 </media-gallery>
+
+
