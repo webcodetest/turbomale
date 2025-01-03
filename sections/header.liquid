@@ -1,644 +1,624 @@
-<link rel="stylesheet" href="{{ 'component-list-menu.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-menu-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-cart-notification.css' | asset_url }}" media="print" onload="this.media='all'">
-
-{%- if settings.predictive_search_enabled -%}
-  <link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="print" onload="this.media='all'">
-{%- endif -%}
-
-{%- if section.settings.menu_type_desktop == 'mega' -%}
-  <link rel="stylesheet" href="{{ 'component-mega-menu.css' | asset_url }}" media="print" onload="this.media='all'">
-{%- endif -%}
-
-
-<style>
-  header-drawer {
-    justify-self: start;
-    margin-left: -1.2rem;
-  }
-
-  {%- if section.settings.sticky_header_type == 'reduce-logo-size' -%}
-    .scrolled-past-header .header__heading-logo-wrapper {
-      width: 75%;
-    }
-  {%- endif -%}
-
-  {%- if section.settings.menu_type_desktop != "drawer" -%}
-    @media screen and (min-width: 990px) {
-      header-drawer {
-        display: none;
-      }
-    }
-  {%- endif -%}
-
-  .menu-drawer-container {
-    display: flex;
-  }
-
-  .list-menu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .list-menu--inline {
-    display: inline-flex;
-    flex-wrap: wrap;
-  }
-
-  summary.list-menu__item {
-    padding-right: 2.7rem;
-  }
-
-  .list-menu__item {
-    display: flex;
-    align-items: center;
-    line-height: calc(1 + 0.3 / var(--font-body-scale));
-  }
-
-  .list-menu__item--link {
-    text-decoration: none;
-    padding-bottom: 1rem;
-    padding-top: 1rem;
-    line-height: calc(1 + 0.8 / var(--font-body-scale));
-  }
-
-  @media screen and (min-width: 750px) {
-    .list-menu__item--link {
-      padding-bottom: 0.5rem;
-      padding-top: 0.5rem;
-    }
-  }
-</style>
-
-{%- style -%}
-  .header {
-    padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 3rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 3rem;
-  }
-
-  .section-header {
-    position: sticky; /* This is for fixing a Safari z-index issue. PR #2147 */
-    margin-bottom: {{ section.settings.margin_bottom | times: 0.75 | round: 0 }}px;
-  }
-
-  @media screen and (min-width: 750px) {
-    .section-header {
-      margin-bottom: {{ section.settings.margin_bottom }}px;
-    }
-  }
-
-  @media screen and (min-width: 990px) {
-    .header {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  }
-{%- endstyle -%}
-
-<script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
-
-{%- liquid
-  for block in section.blocks
-    if block.type == '@app'
-      assign has_app_block = true
-    endif
-  endfor
--%}
-
-<{% if section.settings.sticky_header_type != 'none' %}sticky-header data-sticky-type="{{ section.settings.sticky_header_type }}"{% else %}div{% endif %} class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}">
-  {%- liquid
-    assign social_links = false
-    assign localization_forms = false
-
-    if settings.social_twitter_link != blank or settings.social_facebook_link != blank or settings.social_pinterest_link != blank or settings.social_instagram_link != blank or settings.social_youtube_link != blank or settings.social_vimeo_link != blank or settings.social_tiktok_link != blank or settings.social_tumblr_link != blank or settings.social_snapchat_link != blank
-      assign social_links = true
-    endif
-
-    if localization.available_countries.size > 1 and section.settings.enable_country_selector or section.settings.enable_language_selector and localization.available_languages.size > 1
-      assign localization_forms = true
-    endif
-  -%}
-  <header class="header header--{{ section.settings.logo_position }} header--mobile-{{ section.settings.mobile_logo_position }} page-width{% if section.settings.menu_type_desktop == 'drawer' %} drawer-menu{% endif %}{% if section.settings.menu != blank %} header--has-menu{% endif %}{% if has_app_block %} header--has-app{% endif %}{% if social_links %} header--has-social{% endif %}{% if shop.customer_accounts_enabled %} header--has-account{% endif %}{% if localization_forms %} header--has-localizations{% endif %}">
-    {%- liquid
-      if section.settings.menu != blank
-        render 'header-drawer'
-      endif
-
-      if section.settings.logo_position == 'top-center' or section.settings.menu == blank
-        render 'header-search', input_id: 'Search-In-Modal-1'
-      endif
-    -%}
-
-    {%- if section.settings.logo_position != 'middle-center' -%}
-      {%- if request.page_type == 'index' -%}
-        <h1 class="header__heading">
-      {%- endif -%}
-          <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
-            {%- if settings.logo != blank -%}
-              <div class="header__heading-logo-wrapper">
-                {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
-                {%- assign logo_height = settings.logo_width | divided_by: settings.logo.aspect_ratio -%}
-                {% capture sizes %}(max-width: {{ settings.logo_width | times: 2 }}px) 50vw, {{ settings.logo_width }}px{% endcapture %}
-                {% capture widths %}{{ settings.logo_width }}, {{ settings.logo_width | times: 1.5 | round }}, {{ settings.logo_width | times: 2 }}{% endcapture %}
-                {{ settings.logo | image_url: width: 600 | image_tag:
-                  class: 'header__heading-logo motion-reduce',
-                  widths: widths,
-                  height: logo_height,
-                  width: settings.logo_width,
-                  alt: logo_alt,
-                  sizes: sizes,
-                  preload: true
-                }}
-              </div>
-            {%- else -%}
-              <span class="h2">{{ shop.name }}</span>
-            {%- endif -%}
-          </a>
-      {%- if request.page_type == 'index' -%}
-        </h1>
-      {%- endif -%}
-    {%- endif -%}
-
-    {%- liquid
-      if section.settings.menu != blank
-        if section.settings.menu_type_desktop == 'dropdown'
-          render 'header-dropdown-menu'
-        elsif section.settings.menu_type_desktop != 'drawer'
-          render 'header-mega-menu'
-        endif
-      endif
-    %}
-
-    {%- if section.settings.logo_position == 'middle-center' -%}
-      {%- if request.page_type == 'index' -%}
-        <h1 class="header__heading">
-      {%- endif -%}
-          <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
-            {%- if settings.logo != blank -%}
-              <div class="header__heading-logo-wrapper">
-                {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
-                {%- assign logo_height = settings.logo_width | divided_by: settings.logo.aspect_ratio -%}
-                {% capture sizes %}(min-width: 750px) {{ settings.logo_width }}px, 50vw{% endcapture %}
-                {% capture widths %}{{ settings.logo_width }}, {{ settings.logo_width | times: 1.5 | round }}, {{ settings.logo_width | times: 2 }}{% endcapture %}
-                {{ settings.logo | image_url: width: 600 | image_tag:
-                  class: 'header__heading-logo',
-                  widths: widths,
-                  height: logo_height,
-                  width: settings.logo_width,
-                  alt: logo_alt,
-                  sizes: sizes,
-                  preload: true
-                }}
-              </div>
-            {%- else -%}
-              <span class="h2">{{ shop.name }}</span>
-            {%- endif -%}
-          </a>
-      {%- if request.page_type == 'index' -%}
-        </h1>
-      {%- endif -%}
-    {%- endif -%}
-
-    <div class="header__icons{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %}">
-      <div class="desktop-localization-wrapper">
-        {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
-          <localization-form class="small-hide medium-hide" data-prevent-hide>
-            {%- form 'localization', id: 'HeaderCountryForm', class: 'localization-form' -%}
-              <div>
-                <h2 class="visually-hidden" id="HeaderCountryLabel">{{ 'localization.country_label' | t }}</h2>
-                {%- render 'country-localization', localPosition: 'HeaderCountry' -%}
-              </div>
-            {%- endform -%}
-          </localization-form>
-        {% endif %}
-
-        {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
-          <localization-form class="small-hide medium-hide" data-prevent-hide>
-            {%- form 'localization', id: 'HeaderLanguageForm', class: 'localization-form' -%}
-              <div>
-                <h2 class="visually-hidden" id="HeaderLanguageLabel">{{ 'localization.language_label' | t }}</h2>
-                {%- render 'language-localization', localPosition: 'HeaderLanguage' -%}
-              </div>
-            {%- endform -%}
-          </localization-form>
-        {%- endif -%}
-      </div>
-      {% render 'header-search', input_id: 'Search-In-Modal' %}
-
-      {%- if shop.customer_accounts_enabled -%}
-        <a
-          href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
-          class="header__icon header__icon--account link focus-inset{% if section.settings.menu != blank %} small-hide{% endif %}"
-          rel="nofollow"
-        >
-          {%- if section.settings.enable_customer_avatar -%}
-            <account-icon>
-              {%- if customer and customer.has_avatar? -%}
-                {{ customer | avatar }}
-              {%- else -%}
-                <span class="svg-wrapper">{{ 'icon-account.svg' | inline_asset_content }}</span>
-              {%- endif -%}
-            </account-icon>
-          {%- else -%}
-            <span class="svg-wrapper">{{ 'icon-account.svg' | inline_asset_content }}</span>
-          {%- endif -%}
-          <span class="visually-hidden">
-            {%- liquid
-              if customer
-                echo 'customer.account_fallback' | t
-              else
-                echo 'customer.log_in' | t
-              endif
-            -%}
-          </span>
-        </a>
-      {%- endif -%}
-
-      {%- for block in section.blocks -%}
-        {%- case block.type -%}
-          {%- when '@app' -%}
-            {% render block %}
-        {%- endcase -%}
-      {%- endfor -%}
-
-      <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
-          {% if cart == empty %}
-            <span class="svg-wrapper">{{'icon-cart-empty.svg' | inline_asset_content }}</span>
-          {% else %}
-            <span class="svg-wrapper">{{'icon-cart.svg' | inline_asset_content }}</span>
-          {% endif %}
-        <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
-        {%- if cart != empty -%}
-          <div class="cart-count-bubble">
-            {%- if cart.item_count < 100 -%}
-              <span aria-hidden="true">{{ cart.item_count }}</span>
-            {%- endif -%}
-            <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
-          </div>
-        {%- endif -%}
-      </a>
+<header class='custom-header'>
+    <div class='container'>
+        <div class='custom-header-wrapper'>
+            <div class='custom-header-left'>
+                <button type="button" class='burger-button'>
+                    <svg class='burger-button-open active' width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="menu 2 1">
+                            <path id="Vector" d="M11.3531 7.9999C11.3531 7.64365 11.0625 7.35303 10.7063 7.35303H0.64375C0.290625 7.35303 0 7.64365 0 7.9999C0 8.35615 0.290625 8.64678 0.646875 8.64678H10.7094C11.0656 8.64678 11.3531 8.35615 11.3531 7.9999Z" fill="currentColor" style="fill-opacity:1;"/>
+                            <g id="Group">
+                                <g id="Group_2">
+                                    <path id="Vector_2" d="M15.3531 2.4502H0.646875C0.290625 2.4502 0 2.74082 0 3.09707C0 3.45332 0.290625 3.74395 0.646875 3.74395H15.3531C15.7094 3.74395 16 3.45332 16 3.09707C16 2.74082 15.7094 2.4502 15.3531 2.4502Z" fill="currentColor" style="fill-opacity:1;"/>
+                                </g>
+                            </g>
+                            <g id="Group_3">
+                                <g id="Group_4">
+                                    <path id="Vector_3" d="M15.3531 12.2563H0.646875C0.290625 12.2563 0 12.547 0 12.9032C0 13.2595 0.290625 13.5501 0.646875 13.5501H15.3531C15.7094 13.5501 16 13.2595 16 12.9032C16 12.547 15.7094 12.2563 15.3531 12.2563Z" fill="currentColor" style="fill-opacity:1;"/>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                    <svg class='burger-button-close' width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="menu 2 1">
+                            <g id="Group">
+                                <g id="Group_2">
+                                    <path id="Vector" d="M12.742 2.45718L2.34315 12.8561C2.09125 13.108 2.09125 13.519 2.34315 13.7709C2.59506 14.0228 3.00606 14.0228 3.25797 13.7709L13.6569 3.372C13.9088 3.12009 13.9088 2.70908 13.6569 2.45718C13.405 2.20527 12.9939 2.20527 12.742 2.45718Z" fill="currentColor" style="fill-opacity:1;"/>
+                                    <path id="Vector_2" d="M3.25796 2.45718L13.6568 12.8561C13.9088 13.108 13.9088 13.519 13.6568 13.7709C13.4049 14.0228 12.9939 14.0228 12.742 13.7709L2.34314 3.372C2.09124 3.12009 2.09123 2.70908 2.34314 2.45718C2.59505 2.20527 3.00605 2.20527 3.25796 2.45718Z" fill="currentColor" style="fill-opacity:1;"/>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                </button>
+                <a href='{{  shop.url }}'>
+                    <img src='{{ section.settings.logo | img_url: 'master' }}' alt='Logo'>
+                </a>
+            </div>
+            <nav class='custom-header-menu'>
+                <ul class='custom-header-menu-list'>
+                    <li class='custom-header-menu-list-item big'>
+                        <p>
+                            {{ section.settings.menu_name1 }}
+                            <svg xmlns="http://www.w3.org/2000/svg" width="4" height="8" viewBox="0 0 4 8" fill="none">
+                                <path d="M4 4L0.25 7.03109L0.25 0.968911L4 4Z" fill="currentColor" style="fill-opacity:1;"/>
+                            </svg>
+                        </p>
+                    </li>
+                    <li class='custom-header-menu-list-item'>
+                        <p class="menu-toggle">
+                            {{ section.settings.menu_name2 }}
+                             <svg xmlns="http://www.w3.org/2000/svg" width="4" height="8" viewBox="0 0 4 8" fill="none">
+                                <path d="M4 4L0.25 7.03109L0.25 0.968911L4 4Z" fill="currentColor" style="fill-opacity:1;"/>
+                            </svg>
+                        </p>
+                        <ul class='custom-header-menu-list-item-submenu'>
+                            {% for block in section.blocks %}
+                                {% if block.type == 'submenu2' %}
+                                    <li>
+                                        <a href='{{ block.settings.url }}'>{{ block.settings.text }}{% if block.settings.soon == true %} <span>Soon</span>{% endif %}</a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li class='custom-header-menu-list-item'>
+                        <p class="menu-toggle">
+                            {{ section.settings.menu_name3 }}
+                             <svg xmlns="http://www.w3.org/2000/svg" width="4" height="8" viewBox="0 0 4 8" fill="none">
+                                <path d="M4 4L0.25 7.03109L0.25 0.968911L4 4Z" fill="currentColor" style="fill-opacity:1;"/>
+                            </svg>
+                        </p>
+                        <ul class='custom-header-menu-list-item-submenu'>
+                            {% for block in section.blocks %}
+                                {% if block.type == 'submenu3' %}
+                                    <li>
+                                        <a href='{{ block.settings.url }}'>{{ block.settings.text }}{% if block.settings.soon == true %} <span>Soon</span>{% endif %}</a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li class='custom-header-menu-list-item'>
+                        <p class="menu-toggle">
+                            {{ section.settings.menu_name4 }}
+                             <svg xmlns="http://www.w3.org/2000/svg" width="4" height="8" viewBox="0 0 4 8" fill="none">
+                                <path d="M4 4L0.25 7.03109L0.25 0.968911L4 4Z" fill="currentColor" style="fill-opacity:1;"/>
+                            </svg>
+                        </p>
+                        <ul class='custom-header-menu-list-item-submenu'>
+                            {% for block in section.blocks %}
+                                {% if block.type == 'submenu4' %}
+                                    <li>
+                                        <a href='{{ block.settings.url }}'>{{ block.settings.text }}{% if block.settings.soon == true %} <span>Soon</span>{% endif %}</a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li class='custom-header-menu-list-item'>
+                        <p class="menu-toggle">
+                            {{ section.settings.menu_name5 }}
+                             <svg xmlns="http://www.w3.org/2000/svg" width="4" height="8" viewBox="0 0 4 8" fill="none">
+                                <path d="M4 4L0.25 7.03109L0.25 0.968911L4 4Z" fill="currentColor" style="fill-opacity:1;"/>
+                            </svg>
+                        </p>
+                        <ul class='custom-header-menu-list-item-submenu'>
+                            {% for block in section.blocks %}
+                                {% if block.type == 'submenu5' %}
+                                    <li>
+                                        <a href='{{ block.settings.url }}'>{{ block.settings.text }}{% if block.settings.soon == true %} <span>Soon</span>{% endif %}</a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class='custom-header-right'>
+                <form action="{{ routes.search_url }}" method="get" role="search" class="search search-modal__form">
+                    <div class="field">
+                        <input
+                        class="search__input field__input"
+                        id="custom-search"
+                        type="search"
+                        name="q"
+                        value="{{ search.terms | escape }}"
+                        placeholder="Search"
+                        >
+                        <input type="hidden" name="options[prefix]" value="last">
+                        <button
+                        type="reset"
+                        class="reset__button field__button{% if search.terms == blank %} hidden{% endif %}"
+                        aria-label="{{ 'general.search.reset' | t }}"
+                        >
+                        <span class="svg-wrapper">
+                            {{- 'icon-reset.svg' | inline_asset_content -}}
+                        </span>
+                        </button>
+                        <button class="search__button field__button" aria-label="{{ 'general.search.search' | t }}">
+                        <span class="svg-wrapper">
+                            {{- 'icon-search.svg' | inline_asset_content -}}
+                        </span>
+                        </button>
+                    </div>
+                </form>
+                <button type="button" class='custom-header-right-search'>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M8.32137 0.0674152C3.95624 0.658228 0.556972 4.14214 0.0365321 8.5451C0.00371155 8.84051 -0.0103544 9.37036 0.0084002 9.97524C0.0412207 11.2553 0.210012 12.0947 0.660122 13.2294C1.71038 15.8927 3.8906 17.9465 6.61002 18.8374C7.64152 19.175 8.50423 19.311 9.63888 19.311C11.655 19.311 13.4179 18.7812 15.0871 17.6605L15.5747 17.3323L18.8146 20.5724C21.2996 23.0528 22.1013 23.8312 22.2654 23.9015C22.5561 24.0328 23.0531 24.0328 23.3251 23.9015C23.5548 23.7937 23.8408 23.4983 23.9346 23.2685C24.033 23.0341 24.019 22.5183 23.9018 22.2651C23.8314 22.101 23.0578 21.3038 20.5728 18.814L17.333 15.5739L17.633 15.1331C18.4817 13.8905 19.049 12.4182 19.2412 10.9412C19.3303 10.2472 19.3303 9.0562 19.2412 8.3763C18.8052 5.0565 16.6672 2.18215 13.6289 0.82703C12.7475 0.433155 11.941 0.203396 10.9423 0.0627251C10.3562 -0.0216751 8.94965 -0.0216751 8.32137 0.0674152ZM11.083 2.56196C12.5505 2.88081 13.6711 3.49506 14.7448 4.56415C15.42 5.23937 15.7904 5.75047 16.1702 6.53353C17.7221 9.75486 16.6437 13.6795 13.6617 15.663C12.5036 16.432 11.3221 16.8071 9.91083 16.8587C7.76343 16.9337 5.9161 16.1741 4.39698 14.5892C3.478 13.628 2.8591 12.451 2.54965 11.0584C2.43243 10.5285 2.39961 9.1828 2.49338 8.59199C2.84503 6.40224 4.11097 4.5454 6.05207 3.39191C6.74599 2.97927 7.6931 2.64636 8.59801 2.49631C9.14189 2.40722 10.5344 2.44473 11.083 2.56196Z" fill="currentColor" style="fill-opacity:1;"/>
+                    </svg>
+                </button>
+                <img src='{{ section.settings.flag | img_url: 'master'}}' alt='Flag'>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M10.8281 0.0326557C8.57812 0.267031 6.45469 1.12953 4.69219 2.51703C4.11562 2.97172 3.20156 3.89047 2.78906 4.42953C2.61094 4.65922 2.45156 4.87016 2.43281 4.88891C2.41875 4.91234 2.23594 4.85609 2.03906 4.76234C1.60781 4.56547 1.41562 4.54672 1.275 4.70141C1.13906 4.84672 1.13906 4.92172 1.3125 6.78734C1.48125 8.62016 1.47656 8.60141 1.60781 8.69516C1.78594 8.81703 1.98281 8.77953 2.30156 8.55922C3.56719 7.69203 4.95469 6.67484 5.00625 6.57641C5.07187 6.45453 5.04844 6.26234 4.95469 6.14516C4.92656 6.11234 4.74375 6.00922 4.55625 5.92484L4.20937 5.76547L4.36875 5.56859C4.64062 5.21234 5.30625 4.54203 5.73281 4.19047C9.70312 0.86703 15.5953 1.23734 19.1203 5.03422C20.2266 6.22484 20.925 7.45297 21.4219 9.08422C21.5391 9.48266 21.6 9.59984 21.75 9.74984C22.2234 10.2233 23.0203 10.0733 23.3016 9.44984C23.4234 9.18266 23.4141 9.01391 23.2453 8.41391C22.9125 7.24203 22.2703 5.91547 21.5437 4.89828C20.9344 4.04516 19.8797 2.96703 19.0594 2.34828C17.4 1.10141 15.5391 0.346718 13.4297 0.0748425C12.9187 0.00452995 11.3156 -0.0189075 10.8281 0.0326557Z" fill="white" style="fill:white;fill-opacity:1;"/>
+                    <path d="M10.6875 3.98447C8.93436 4.29385 7.54686 5.01103 6.32342 6.22978C4.78123 7.77666 3.97967 9.70791 3.97967 11.8876C3.97498 12.6751 4.03123 13.1579 4.20467 13.8517C4.55154 15.272 5.23592 16.4907 6.27186 17.5501C7.53279 18.8345 9.11717 19.6267 10.8984 19.8798C11.4422 19.9548 12.5578 19.9548 13.1015 19.8798C16.0219 19.4673 18.5062 17.4892 19.5187 14.7563C19.8703 13.8095 20.025 12.947 20.0203 11.8876C20.0203 9.70791 19.2187 7.77666 17.6765 6.22978C16.4297 4.9876 14.9578 4.24697 13.1906 3.96572C12.5344 3.8626 11.3344 3.87197 10.6875 3.98447ZM11.025 6.61885C11.039 7.24228 11.0578 7.35947 11.1422 7.52822C11.4469 8.10947 12.1734 8.23603 12.6609 7.79541C12.9187 7.56103 12.9844 7.30791 12.9844 6.52978C12.9844 5.8126 12.9375 5.85478 13.5094 6.0001C14.6203 6.28603 15.5719 6.84853 16.4062 7.71572C17.189 8.53135 17.714 9.50166 17.9531 10.5798L18.0375 10.9688H17.3062C16.6594 10.9688 16.5515 10.9782 16.3687 11.0673C15.8156 11.3392 15.6937 12.136 16.139 12.5813C16.4062 12.8438 16.5937 12.8907 17.3812 12.8907H18.0375L17.9719 13.1813C17.5547 15.0188 16.3734 16.5423 14.7328 17.3626C14.2594 17.597 13.739 17.7845 13.2984 17.8782L12.9937 17.9392L12.9797 17.2079C12.9609 16.5095 12.9562 16.4673 12.8297 16.2563C12.4594 15.6235 11.5406 15.6235 11.1703 16.2563C11.0437 16.4673 11.039 16.5095 11.0203 17.2079L11.0062 17.9392L10.7015 17.8782C8.62498 17.4423 6.84842 15.8251 6.19686 13.7813C6.11717 13.5376 6.04217 13.2376 6.02342 13.111L5.99061 12.8907H6.63279C7.40154 12.8907 7.59842 12.8438 7.85623 12.586C8.18904 12.2532 8.23123 11.7938 7.96873 11.3767C7.74842 11.0298 7.56561 10.9688 6.69373 10.9688H5.96248L6.02811 10.6595C6.13123 10.1767 6.30936 9.6751 6.56717 9.15947C7.31248 7.65947 8.81248 6.44072 10.4297 6.01885C11.0625 5.85478 11.0015 5.79385 11.025 6.61885Z" fill="white" style="fill:white;fill-opacity:1;"/>
+                    <path d="M1.12031 14.0999C0.918743 14.203 0.843743 14.278 0.740618 14.4796C0.571868 14.803 0.576555 14.9624 0.768743 15.6139C1.31718 17.4514 2.23124 19.0264 3.54843 20.3952C5.50312 22.4155 7.80468 23.5686 10.6172 23.9342C11.4562 24.0421 13.1344 24.0046 13.9453 23.8639C15.9328 23.5124 17.6906 22.7389 19.2656 21.5249C19.9594 20.9858 21.0469 19.8514 21.5953 19.0827C21.6 19.0733 21.7687 19.1436 21.9656 19.2374C22.3922 19.4389 22.5797 19.453 22.7344 19.2889C22.875 19.1436 22.8703 19.1249 22.6875 17.1796C22.5187 15.3796 22.5234 15.3983 22.3922 15.3046C22.1437 15.1311 22.0687 15.1733 20.5172 16.2655C19.6687 16.8655 19.0312 17.3483 18.9937 17.4186C18.9281 17.5452 18.9516 17.7374 19.0406 17.8499C19.0687 17.8827 19.2516 17.9811 19.4437 18.0702L19.7906 18.2342L19.6359 18.4311C19.3734 18.7686 18.7031 19.4483 18.2578 19.8186C16.9406 20.9249 15.3 21.6655 13.5281 21.9655C12.9047 22.0686 11.7937 22.1014 11.1328 22.0358C8.51249 21.7686 6.34218 20.6436 4.56562 18.6186C3.77343 17.7186 3.07968 16.4577 2.66718 15.1733C2.45156 14.503 2.40468 14.3952 2.24531 14.2405C1.93124 13.9405 1.52343 13.8889 1.12031 14.0999Z" fill="white" style="fill:white;fill-opacity:1;"/>
+                </svg>
+                <svg class='wishlist' xmlns="http://www.w3.org/2000/svg" width="24" height="20" viewBox="0 0 24 20" fill="none">
+                    <path d="M6.1172 0.020401C3.07032 0.245401 0.539074 2.55634 0.0656363 5.55634C-0.0374887 6.20321 -0.00467624 7.50165 0.131261 8.0829C0.440636 9.40477 1.02189 10.4735 2.04845 11.6079C3.13126 12.8032 6.08439 15.4516 9.53907 18.3251C11.1375 19.6516 11.3484 19.8204 11.5313 19.9141C11.7656 20.036 12.2484 20.0266 12.4922 19.9001C12.7734 19.7595 16.5984 16.5579 18.4688 14.9032C20.3109 13.272 21.8625 11.772 22.3641 11.1391C23.1328 10.1688 23.6016 9.21727 23.8688 8.0829C24.0047 7.48759 24.0375 6.18915 23.9297 5.53759C23.4563 2.6829 21.2063 0.489151 18.3047 0.0625877C17.7938 -0.0124111 16.7016 -0.0030365 16.2188 0.0813389C15.2578 0.250088 14.3016 0.639149 13.5 1.18759C13.2703 1.34696 12.8391 1.7079 12.5391 1.99384L12 2.50946L11.4609 1.99384C11.1609 1.7079 10.7344 1.35165 10.5047 1.19227C9.19689 0.296963 7.72501 -0.0967865 6.1172 0.020401ZM7.89845 2.33134C8.37657 2.47665 8.94376 2.74852 9.30001 3.00165C9.43126 3.0954 9.9422 3.56884 10.4297 4.05165C10.9219 4.53446 11.3906 4.96102 11.4797 5.0079C11.5688 5.05009 11.7609 5.10165 11.9156 5.11102C12.4031 5.1579 12.5156 5.0829 13.5469 4.07509C14.0484 3.57821 14.5688 3.0954 14.7 3.00165C15.0469 2.75321 15.6141 2.47665 16.1016 2.33134C16.4953 2.20946 16.5797 2.20009 17.3438 2.20009C18.1031 2.20009 18.1969 2.20946 18.5766 2.32665C20.0484 2.78134 21.1453 3.82196 21.6047 5.20009C22.1016 6.6954 21.7922 8.30321 20.7516 9.67196C20.3297 10.2204 18.8297 11.6735 17.1094 13.1876C15.2344 14.8423 12.0844 17.5001 12 17.5001C11.9438 17.5001 10.2609 16.0985 8.53126 14.6126C5.40001 11.922 3.6047 10.2157 3.03751 9.37665C1.12032 6.55477 2.48439 2.9829 5.77032 2.24228C5.98126 2.1954 6.27657 2.17665 6.77345 2.19071C7.36876 2.20477 7.5422 2.22352 7.89845 2.33134Z" fill="white" style="fill:white;fill-opacity:1;"/>
+                </svg>
+                <a href='/account'>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="24" viewBox="0 0 22 24" fill="none">
+                        <path d="M10.0391 0.0515614C8.93281 0.262499 8.13594 0.599998 7.31094 1.20937C6.06875 2.13281 5.19688 3.54375 4.925 5.0625C4.82188 5.64844 4.82188 6.67969 4.925 7.24219C5.20156 8.72812 5.96094 10.0078 7.15156 10.9828C7.23594 11.0531 7.30156 11.1187 7.29219 11.1281C7.28281 11.1375 7.0625 11.2359 6.80938 11.3437C5.58125 11.8828 4.24531 12.8719 3.33594 13.9312C1.92969 15.5672 1.10469 17.4656 0.875002 19.6031C0.757815 20.7094 0.84219 21.4125 1.17969 22.1016C1.625 23.0203 2.40313 23.6578 3.37813 23.9062C3.74375 24 3.89844 24 11 24C18.1016 24 18.2563 24 18.6219 23.9062C19.5969 23.6578 20.375 23.0203 20.8203 22.1016C21.1578 21.4125 21.2422 20.7094 21.125 19.6031C20.8953 17.4656 20.0703 15.5672 18.6641 13.9312C17.7547 12.8719 16.4188 11.8828 15.1906 11.3437C14.9375 11.2359 14.7172 11.1375 14.7078 11.1281C14.6984 11.1187 14.7641 11.0531 14.8484 10.9828C16.0391 10.0078 16.7984 8.72812 17.075 7.24219C17.1781 6.67969 17.1781 5.64844 17.075 5.0625C16.6438 2.62969 14.7547 0.670311 12.3125 0.117188C11.9 0.0234375 10.4094 -0.0187511 10.0391 0.0515614ZM12.1391 2.03437C13.7188 2.50312 14.8766 3.75469 15.2 5.34375C15.3125 5.92031 15.2703 6.81562 15.1016 7.35938C14.7359 8.52656 13.9719 9.42656 12.8984 9.96094C12.2234 10.2984 11.7172 10.4203 11 10.4203C10.2828 10.4203 9.77656 10.2984 9.10156 9.96094C8.02813 9.42656 7.26406 8.52656 6.89844 7.35938C6.72969 6.81562 6.6875 5.92031 6.8 5.34375C7.11406 3.79219 8.26719 2.51719 9.76719 2.0625C10.2875 1.90781 10.5125 1.87969 11.1406 1.89844C11.5953 1.90781 11.8156 1.94062 12.1391 2.03437ZM12.3125 12.4453C14.6797 12.8297 16.7609 14.2312 18.0781 16.3359C18.5188 17.0437 18.9313 18.0984 19.1094 18.9797C19.2313 19.5938 19.3063 20.5687 19.25 20.8687C19.1563 21.3422 18.8422 21.7594 18.4156 21.9703L18.1484 22.1016H11H3.85156L3.58438 21.9703C3.15781 21.7594 2.84375 21.3422 2.75 20.8687C2.69375 20.5687 2.76875 19.5938 2.89063 18.9797C3.51406 15.8812 5.9 13.3828 8.98438 12.5953C9.36875 12.4922 9.72031 12.4359 10.4375 12.3562C10.7422 12.3187 11.8672 12.375 12.3125 12.4453Z" fill="currentColor" style="fill-opacity:1;"/>
+                    </svg>
+                </a>
+                <a href='/cart'>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="23" viewBox="0 0 20 23" fill="none">
+                        <path d="M8.92456 0.0243473C8.15105 0.166836 7.34193 0.487432 6.73636 0.894539C6.25801 1.21514 5.54048 1.97337 5.24533 2.4619C4.80769 3.19978 4.55325 4.14121 4.55325 5.04194V5.41342L3.57619 5.43378C2.6144 5.44904 2.58896 5.45413 2.31416 5.59153C1.82564 5.84597 1.47959 6.25308 1.30149 6.79758C1.24551 6.97569 0.329519 19.5349 0.314252 20.3135C0.304075 21.0972 0.690826 21.7333 1.388 22.0743L1.72895 22.2422H9.74386H17.7588L18.0488 22.1048C18.634 21.83 19.0615 21.2804 19.1582 20.6748C19.2193 20.283 18.2778 7.13345 18.1608 6.74669C18.0081 6.23781 17.6723 5.84597 17.1736 5.59153C16.8988 5.45413 16.8733 5.44904 15.9217 5.43378L14.9497 5.41851L14.9141 4.91471C14.8632 4.09541 14.7055 3.47966 14.3747 2.82829C13.7081 1.5052 12.5376 0.548498 11.1128 0.151569C10.726 0.0447025 10.497 0.0192585 9.89652 0.00399208C9.48942 -0.00618553 9.05178 0.00399208 8.92456 0.0243473ZM10.4817 1.7342C10.6802 1.77491 11.0517 1.9123 11.3112 2.03953C12.4155 2.58912 13.1483 3.70357 13.2399 4.97069L13.2704 5.4236H9.74386H6.2173L6.24783 4.97069C6.31398 4.06488 6.65494 3.31682 7.3114 2.66545C7.96277 2.01917 8.79733 1.66804 9.71841 1.66295C9.94232 1.66295 10.2884 1.69349 10.4817 1.7342ZM4.59905 9.23513C4.57869 11.3877 4.57869 11.4233 4.68556 11.5658C4.87893 11.8253 5.09775 11.9373 5.41326 11.9373C5.75421 11.9373 5.9425 11.8304 6.11552 11.5455L6.23256 11.3521V9.19951V7.05202H9.74386H13.2552V9.18933C13.2552 11.2198 13.2602 11.3419 13.3569 11.5251C13.6317 12.0696 14.4154 12.09 14.8022 11.5658C14.9039 11.4233 14.909 11.3623 14.9243 9.23513L14.9396 7.04694L15.6723 7.0622C16.2677 7.07238 16.4204 7.09274 16.4916 7.15889C16.6138 7.28611 17.5501 20.3033 17.4433 20.4713L17.3771 20.5883H9.74386H2.11061L2.04446 20.4713C1.98339 20.3746 2.03428 19.4993 2.44138 13.81C2.70091 10.2122 2.92991 7.24031 2.95027 7.20469C3.02151 7.08765 3.21489 7.05711 3.91206 7.05711L4.61432 7.05202L4.59905 9.23513Z" fill="currentColor" style="fill-opacity:1;"/>
+                    </svg>
+                </a>
+            </div>
+            <div class='custom-header-menu-list-item-submenu big'>
+                <ul class='custom-header-menu-list-item-submenu-big-left'>
+                    {% for block in section.blocks %}
+                        {% if block.type == 'submenu_left' %}
+                            <li>
+                                <a href='{{ block.settings.url }}'>{{ block.settings.text }}</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+                <div class='custom-header-menu-list-item-submenu-big-center'>
+                    {% for block in section.blocks %}
+                        {% if block.type == 'submenu_center' %}
+                            <div class='custom-header-menu-list-item-submenu-big-center-item'>
+                                <img src='{{ block.settings.image | img_url: 'master' }}' alt='{{ block.settings.image_alt }}'>
+                                <div class='custom-header-menu-list-item-submenu-big-center-item-info'>
+                                    <h3>{{ block.settings.title }}</h3>
+                                    <ul>
+                                        {% for link in linklists[block.settings.item_menu].links %}
+                                            <li>
+                                                <a href='{{ link.url }}'>{{ link.title }}</a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <ul class='custom-header-menu-list-item-submenu-big-right'>
+                    {% for block in section.blocks %}
+                        {% if block.type == 'submenu_right' %}
+                            <li>
+                                <a href='{{ block.settings.url }}'>
+                                    <img src='{{block.settings.image | img_url: 'master' }}' alt='{{ block.settings.image_alt }}'>
+                                </a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class='mobile-menu'>
+                <ul>
+                    <li>
+                        <p class="menu-toggle">
+                            {{ section.settings.menu_name1 }}
+                            <svg xmlns="http://www.w3.org/2000/svg" width="4" height="8" viewBox="0 0 4 8" fill="none">
+                                <path d="M4 4L0.25 7.03109L0.25 0.968911L4 4Z" fill="currentColor" style="fill-opacity:1;"/>
+                            </svg>
+                        </p>
+                        <ul class='mobile-menu-submenu'>
+                            {% for block in section.blocks %}
+                                {% if block.type == 'submenu_center' %}
+                                    <div class='mobile-menu-submenu-big'>
+                                        <img src='{{ block.settings.image | img_url: 'master' }}' alt='{{ block.settings.image_alt }}'>
+                                        <div class='mobile-menu-submenu-big-info'>
+                                            <h3>{{ block.settings.title }}</h3>
+                                            <ul>
+                                                {% for link in linklists[block.settings.item_menu].links %}
+                                                    <li>
+                                                        <a href='{{ link.url }}'>{{ link.title }}</a>
+                                                    </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li>
+                        <p class="menu-toggle">
+                            {{ section.settings.menu_name2 }}
+                            <svg xmlns="http://www.w3.org/2000/svg" width="4" height="8" viewBox="0 0 4 8" fill="none">
+                                <path d="M4 4L0.25 7.03109L0.25 0.968911L4 4Z" fill="currentColor" style="fill-opacity:1;"/>
+                            </svg>
+                        </p>
+                        <ul class='mobile-menu-submenu'>
+                            {% for block in section.blocks %}
+                                {% if block.type == 'submenu2' %}
+                                    <li>
+                                        <a href='{{ block.settings.url }}'>{{ block.settings.text }}{% if block.settings.soon == true %} <span>Soon</span>{% endif %}</a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li>
+                        <p class="menu-toggle"> 
+                            {{ section.settings.menu_name3 }}
+                            <svg xmlns="http://www.w3.org/2000/svg" width="4" height="8" viewBox="0 0 4 8" fill="none">
+                                <path d="M4 4L0.25 7.03109L0.25 0.968911L4 4Z" fill="currentColor" style="fill-opacity:1;"/>
+                            </svg>
+                        </p>
+                        <ul class='mobile-menu-submenu'>
+                            {% for block in section.blocks %}
+                                {% if block.type == 'submenu3' %}
+                                    <li>
+                                        <a href='{{ block.settings.url }}'>{{ block.settings.text }}{% if block.settings.soon == true %} <span>Soon</span>{% endif %}</a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li>
+                        <p class="menu-toggle">
+                            {{ section.settings.menu_name4 }}
+                            <svg xmlns="http://www.w3.org/2000/svg" width="4" height="8" viewBox="0 0 4 8" fill="none">
+                                <path d="M4 4L0.25 7.03109L0.25 0.968911L4 4Z" fill="currentColor" style="fill-opacity:1;"/>
+                            </svg>
+                        </p>
+                        <ul class='mobile-menu-submenu'>
+                            {% for block in section.blocks %}
+                                {% if block.type == 'submenu4' %}
+                                    <li>
+                                        <a href='{{ block.settings.url }}'>{{ block.settings.text }}{% if block.settings.soon == true %} <span>Soon</span>{% endif %}</a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li>
+                        <p class="menu-toggle">
+                            {{ section.settings.menu_name5 }}
+                            <svg xmlns="http://www.w3.org/2000/svg" width="4" height="8" viewBox="0 0 4 8" fill="none">
+                                <path d="M4 4L0.25 7.03109L0.25 0.968911L4 4Z" fill="currentColor" style="fill-opacity:1;"/>
+                            </svg>
+                        </p>
+                        <ul class='mobile-menu-submenu'>
+                            {% for block in section.blocks %}
+                                {% if block.type == 'submenu5' %}
+                                    <li>
+                                        <a href='{{ block.settings.url }}'>{{ block.settings.text }}{% if block.settings.soon == true %} <span>Soon</span>{% endif %}</a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="overlay"></div>
+        </div>
     </div>
-  </header>
-</{% if section.settings.sticky_header_type != 'none' %}sticky-header{% else %}div{% endif %}>
+</header>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const searchButton = document.querySelector('.custom-header-right-search');
+  const searchForm = document.querySelector('.search-modal__form');
 
-{%- if settings.cart_type == "notification" -%}
-  {%- render 'cart-notification', color_scheme: section.settings.color_scheme, desktop_menu_type: section.settings.menu_type_desktop -%}
-{%- endif -%}
+  searchButton.addEventListener('click', () => {
+    searchForm.classList.add('active');
+    searchButton.style.display = 'none';
+  });
 
-{% javascript %}
-  class StickyHeader extends HTMLElement {
-    constructor() {
-      super();
+  document.addEventListener('click', (event) => {
+    if (!searchForm.contains(event.target) && !searchButton.contains(event.target)) {
+      searchForm.classList.remove('active');
+      searchButton.style.display = 'block';
     }
+  });
+});
 
-    connectedCallback() {
-      this.header = document.querySelector('.section-header');
-      this.headerIsAlwaysSticky = this.getAttribute('data-sticky-type') === 'always' || this.getAttribute('data-sticky-type') === 'reduce-logo-size';
-      this.headerBounds = {};
+document.addEventListener('DOMContentLoaded', () => {
+    const menuItems = document.querySelectorAll('.custom-header-menu-list-item .menu-toggle');
 
-      this.setHeaderHeight();
+    menuItems.forEach(toggle => {
+        toggle.addEventListener('click', (event) => {
+            const parentItem = toggle.closest('.custom-header-menu-list-item');
+            
+            document.querySelectorAll('.custom-header-menu-list-item').forEach(item => {
+                if (item !== parentItem) {
+                    item.classList.remove('open');
+                }
+            });
 
-      window.matchMedia('(max-width: 990px)').addEventListener('change', this.setHeaderHeight.bind(this));
+            parentItem.classList.toggle('open');
+        });
+    });
 
-      if (this.headerIsAlwaysSticky) {
-        this.header.classList.add('shopify-section-header-sticky');
-      };
-
-      this.currentScrollTop = 0;
-      this.preventReveal = false;
-      this.predictiveSearch = this.querySelector('predictive-search');
-
-      this.onScrollHandler = this.onScroll.bind(this);
-      this.hideHeaderOnScrollUp = () => this.preventReveal = true;
-
-      this.addEventListener('preventHeaderReveal', this.hideHeaderOnScrollUp);
-      window.addEventListener('scroll', this.onScrollHandler, false);
-
-      this.createObserver();
-    }
-
-    setHeaderHeight() {
-      document.documentElement.style.setProperty('--header-height', `${this.header.offsetHeight}px`);
-    }
-
-    disconnectedCallback() {
-      this.removeEventListener('preventHeaderReveal', this.hideHeaderOnScrollUp);
-      window.removeEventListener('scroll', this.onScrollHandler);
-    }
-
-    createObserver() {
-      let observer = new IntersectionObserver((entries, observer) => {
-        this.headerBounds = entries[0].intersectionRect;
-        observer.disconnect();
-      });
-
-      observer.observe(this.header);
-    }
-
-    onScroll() {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-      if (this.predictiveSearch && this.predictiveSearch.isOpen) return;
-
-      if (scrollTop > this.currentScrollTop && scrollTop > this.headerBounds.bottom) {
-        this.header.classList.add('scrolled-past-header');
-        if (this.preventHide) return;
-        requestAnimationFrame(this.hide.bind(this));
-      } else if (scrollTop < this.currentScrollTop && scrollTop > this.headerBounds.bottom) {
-        this.header.classList.add('scrolled-past-header');
-        if (!this.preventReveal) {
-          requestAnimationFrame(this.reveal.bind(this));
-        } else {
-          window.clearTimeout(this.isScrolling);
-
-          this.isScrolling = setTimeout(() => {
-            this.preventReveal = false;
-          }, 66);
-
-          requestAnimationFrame(this.hide.bind(this));
+    document.addEventListener('click', (event) => {
+        if (!event.target.closest('.custom-header-menu-list-item')) {
+            document.querySelectorAll('.custom-header-menu-list-item').forEach(item => {
+                item.classList.remove('open');
+            });
         }
-      } else if (scrollTop <= this.headerBounds.top) {
-        this.header.classList.remove('scrolled-past-header');
-        requestAnimationFrame(this.reset.bind(this));
-      }
+    });
+});
 
-      this.currentScrollTop = scrollTop;
+document.addEventListener("DOMContentLoaded", () => {
+    const menuItem = document.querySelector(".custom-header-menu-list-item.big");
+    const submenu = document.querySelector(".custom-header-menu-list-item-submenu.big");
+
+    if (menuItem && submenu) {
+
+        menuItem.addEventListener("click", (event) => {
+            event.stopPropagation();
+            menuItem.classList.toggle("open");
+            submenu.classList.toggle("active");
+        });
+
+        document.addEventListener("click", (event) => {
+            if (!menuItem.contains(event.target) && !submenu.contains(event.target)) {
+                menuItem.classList.remove("open");
+                submenu.classList.remove("active");
+            }
+        });
     }
+});
 
-    hide() {
-      if (this.headerIsAlwaysSticky) return;
-      this.header.classList.add('shopify-section-header-hidden', 'shopify-section-header-sticky');
-      this.closeMenuDisclosure();
-      this.closeSearchModal();
+document.addEventListener("DOMContentLoaded", () => {
+    const burgerButton = document.querySelector(".burger-button");
+    const burgerOpen = document.querySelector(".burger-button-open");
+    const burgerClose = document.querySelector(".burger-button-close");
+    const mobileMenu = document.querySelector(".mobile-menu");
+    const overlay = document.querySelector(".overlay");
+
+    if (burgerButton && mobileMenu && overlay) {
+        const toggleMenu = () => {
+            const isActive = mobileMenu.classList.toggle("active");
+            overlay.classList.toggle("active", isActive);
+            burgerOpen.classList.toggle("active", !isActive);
+            burgerClose.classList.toggle("active", isActive);
+        };
+
+        burgerButton.addEventListener("click", toggleMenu);
+
+        overlay.addEventListener("click", () => {
+            if (mobileMenu.classList.contains("active")) {
+                toggleMenu();
+            }
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape" && mobileMenu.classList.contains("active")) {
+                toggleMenu();
+            }
+        });
     }
+});
 
-    reveal() {
-      if (this.headerIsAlwaysSticky) return;
-      this.header.classList.add('shopify-section-header-sticky', 'animate');
-      this.header.classList.remove('shopify-section-header-hidden');
-    }
-
-    reset() {
-      if (this.headerIsAlwaysSticky) return;
-      this.header.classList.remove('shopify-section-header-hidden', 'shopify-section-header-sticky', 'animate');
-    }
-
-    closeMenuDisclosure() {
-      this.disclosures = this.disclosures || this.header.querySelectorAll('header-menu');
-      this.disclosures.forEach(disclosure => disclosure.close());
-    }
-
-    closeSearchModal() {
-      this.searchModal = this.searchModal || this.header.querySelector('details-modal');
-      this.searchModal.close(false);
-    }
-  }
-
-  customElements.define('sticky-header', StickyHeader);
-{% endjavascript %}
-
-<script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "Organization",
-    "name": {{ shop.name | json }},
-    {% if settings.logo %}
-      "logo": {{ settings.logo | image_url: width: 500 | prepend: "https:" | json }},
-    {% endif %}
-    "sameAs": [
-      {{ settings.social_twitter_link | json }},
-      {{ settings.social_facebook_link | json }},
-      {{ settings.social_pinterest_link | json }},
-      {{ settings.social_instagram_link | json }},
-      {{ settings.social_tiktok_link | json }},
-      {{ settings.social_tumblr_link | json }},
-      {{ settings.social_snapchat_link | json }},
-      {{ settings.social_youtube_link | json }},
-      {{ settings.social_vimeo_link | json }}
-    ],
-    "url": {{ request.origin | append: page.url | json }}
-  }
+document.addEventListener('DOMContentLoaded', function () {
+    const menuToggles = document.querySelectorAll('.menu-toggle');
+    
+    menuToggles.forEach(toggle => {
+        toggle.addEventListener('click', function () {
+            const submenu = this.nextElementSibling;
+            
+            if (submenu.classList.contains('open')) {
+                submenu.classList.remove('open');
+            } else {
+                submenu.classList.add('open');
+            }
+        });
+    });
+});
 </script>
-
-{%- if request.page_type == 'index' -%}
-  {% assign potential_action_target = request.origin | append: routes.search_url | append: "?q={search_term_string}" %}
-  <script type="application/ld+json">
-    {
-      "@context": "http://schema.org",
-      "@type": "WebSite",
-      "name": {{ shop.name | json }},
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": {{ potential_action_target | json }},
-        "query-input": "required name=search_term_string"
-      },
-      "url": {{ request.origin | append: page.url | json }}
-    }
-  </script>
-{%- endif -%}
-
 {% schema %}
-{
-  "name": "t:sections.header.name",
-  "class": "section-header",
-  "max_blocks": 3,
-  "settings": [
+  {
+    "name": "Custom Header",
+    "settings": [
     {
-      "type": "select",
-      "id": "logo_position",
-      "options": [
+    "type": "image_picker",
+    "id": "logo",
+    "label": "Logo"
+    },
+    {
+    "type": "text",
+    "id": "menu_name1",
+    "label": "Menu name 1"
+    },
+    {
+    "type": "text",
+    "id": "menu_name2",
+    "label": "Menu name 2"
+    },
+    {
+    "type": "text",
+    "id": "menu_name3",
+    "label": "Menu name 3"
+    },
+    {
+    "type": "text",
+    "id": "menu_name4",
+    "label": "Menu name 4"
+    },
+    {
+    "type": "text",
+    "id": "menu_name5",
+    "label": "Menu name 5"
+    },
+    {
+    "type": "image_picker",
+    "id": "flag",
+    "label": "Flag"
+    },
+    ],
+    "blocks": [
+    {
+      "type": "submenu_left",
+      "name": "Submenu left",
+      "settings": [
         {
-          "value": "top-left",
-          "label": "t:sections.header.settings.logo_position.options__2.label"
+          "type": "text",
+          "id": "text",
+          "label": "Text"
         },
         {
-          "value": "top-center",
-          "label": "t:sections.header.settings.logo_position.options__3.label"
+          "type": "url",
+          "id": "url",
+          "label": "Url"
+        },
+      ]
+    },
+    {
+      "type": "submenu_center",
+      "name": "Submenu center",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
         },
         {
-          "value": "middle-left",
-          "label": "t:sections.header.settings.logo_position.options__1.label"
+          "type": "text",
+          "id": "image_alt",
+          "label": "Image alt"
         },
         {
-          "value": "middle-center",
-          "label": "t:sections.header.settings.logo_position.options__4.label"
-        }
-      ],
-      "default": "middle-left",
-      "label": "t:sections.header.settings.logo_position.label",
-      "info": "t:sections.header.settings.logo_help.content"
-    },
-    {
-      "type": "link_list",
-      "id": "menu",
-      "default": "main-menu",
-      "label": "t:sections.header.settings.menu.label"
-    },
-    {
-      "type": "select",
-      "id": "menu_type_desktop",
-      "options": [
-        {
-          "value": "dropdown",
-          "label": "t:sections.header.settings.menu_type_desktop.options__1.label"
+          "type": "text",
+          "id": "title",
+          "label": "Title"
         },
         {
-          "value": "mega",
-          "label": "t:sections.header.settings.menu_type_desktop.options__2.label"
+          "type": "link_list",
+          "id": "item_menu",
+          "label": "Menu"
+        },
+      ]
+    },
+    {
+      "type": "submenu_right",
+      "name": "Submenu right",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
         },
         {
-          "value": "drawer",
-          "label": "t:sections.header.settings.menu_type_desktop.options__3.label"
-        }
-      ],
-      "default": "dropdown",
-      "label": "t:sections.header.settings.menu_type_desktop.label",
-      "info": "t:sections.header.settings.menu_type_desktop.info"
-    },
-    {
-      "type": "select",
-      "id": "sticky_header_type",
-      "options": [
-        {
-          "value": "none",
-          "label": "t:sections.header.settings.sticky_header_type.options__1.label"
+          "type": "text",
+          "id": "image_alt",
+          "label": "Image Alt"
         },
         {
-          "value": "on-scroll-up",
-          "label": "t:sections.header.settings.sticky_header_type.options__2.label"
+          "type": "url",
+          "id": "url",
+          "label": "Url"
+        },
+      ]
+    },
+    {
+      "type": "submenu2",
+      "name": "Submenu 2",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
         },
         {
-          "value": "always",
-          "label": "t:sections.header.settings.sticky_header_type.options__3.label"
+          "type": "url",
+          "id": "url",
+          "label": "Url"
         },
         {
-          "value": "reduce-logo-size",
-          "label": "t:sections.header.settings.sticky_header_type.options__4.label"
-        }
-      ],
-      "default": "on-scroll-up",
-      "label": "t:sections.header.settings.sticky_header_type.label"
+          "type": "checkbox",
+          "id": "soon",
+          "label": "Soon?",
+          "default": false
+        },
+      ]
     },
     {
-      "type": "checkbox",
-      "id": "show_line_separator",
-      "default": true,
-      "label": "t:sections.header.settings.show_line_separator.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.header.settings.header__1.content"
-    },
-    {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
-      "default": "scheme-1"
-    },
-    {
-      "type": "color_scheme",
-      "id": "menu_color_scheme",
-      "label": "t:sections.header.settings.menu_color_scheme.label",
-      "default": "scheme-1"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.header.settings.header__3.content",
-      "info": "t:sections.header.settings.header__4.info"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_country_selector",
-      "default": false,
-      "label": "t:sections.header.settings.enable_country_selector.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.header.settings.header__5.content",
-      "info": "t:sections.header.settings.header__6.info"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_language_selector",
-      "default": false,
-      "label": "t:sections.header.settings.enable_language_selector.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.header.settings.header__7.content",
-      "info": "t:sections.header.settings.header__7.info"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_customer_avatar",
-      "default": true,
-      "label": "t:sections.header.settings.enable_customer_avatar.label",
-      "info": "t:sections.header.settings.enable_customer_avatar.info"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.header.settings.mobile_layout.content"
-    },
-    {
-      "type": "select",
-      "id": "mobile_logo_position",
-      "options": [
+      "type": "submenu3",
+      "name": "Submenu 3",
+      "settings": [
         {
-          "value": "center",
-          "label": "t:sections.header.settings.mobile_logo_position.options__1.label"
+          "type": "text",
+          "id": "text",
+          "label": "Text"
         },
         {
-          "value": "left",
-          "label": "t:sections.header.settings.mobile_logo_position.options__2.label"
-        }
-      ],
-      "default": "center",
-      "label": "t:sections.header.settings.mobile_logo_position.label"
+          "type": "url",
+          "id": "url",
+          "label": "Url"
+        },
+        {
+          "type": "checkbox",
+          "id": "soon",
+          "label": "Soon?",
+          "default": false
+        },
+      ]
     },
     {
-      "type": "header",
-      "content": "t:sections.all.spacing"
+      "type": "submenu4",
+      "name": "Submenu 4",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Url"
+        },
+        {
+          "type": "checkbox",
+          "id": "soon",
+          "label": "Soon?",
+          "default": false
+        },
+      ]
     },
     {
-      "type": "range",
-      "id": "margin_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.header.settings.margin_bottom.label",
-      "default": 0
+      "type": "submenu5",
+      "name": "Submenu 5",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Url"
+        },
+        {
+          "type": "checkbox",
+          "id": "soon",
+          "label": "Soon?",
+          "default": false
+        },
+      ]
     },
-    {
-      "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 36,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
-      "default": 20
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 36,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
-      "default": 20
-    }
   ],
-  "blocks": [
+     "presets": [
     {
-      "type": "@app"
+      "name": "Custom Header"
     }
   ]
-}
+  }
 {% endschema %}

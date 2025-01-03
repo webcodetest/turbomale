@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "custom_breadcrumbs_4EJGHk": {
@@ -48,7 +39,7 @@
         "list_cPckqL": {
           "type": "list",
           "settings": {
-            "item_image": "shopify://shop_images/adventages1.svg",
+            "item_image": "shopify:\/\/shop_images\/adventages1.svg",
             "item_image_alt": "",
             "item_title": "Premium Quality & Effectiveness",
             "item_text": "Best Enlargement Systemsin  the marke"
@@ -57,7 +48,7 @@
         "list_WqeQXW": {
           "type": "list",
           "settings": {
-            "item_image": "shopify://shop_images/adventages2.svg",
+            "item_image": "shopify:\/\/shop_images\/adventages2.svg",
             "item_image_alt": "",
             "item_title": "Body-safe Materials",
             "item_text": "We use only the highest quality materials from US"
@@ -66,7 +57,7 @@
         "list_7TE4Ch": {
           "type": "list",
           "settings": {
-            "item_image": "shopify://shop_images/adventages3.svg",
+            "item_image": "shopify:\/\/shop_images\/adventages3.svg",
             "item_image_alt": "",
             "item_title": "Free Shipping From 100$",
             "item_text": "Fast’n’ Free Delivery"
@@ -75,7 +66,7 @@
         "list_RU6DVk": {
           "type": "list",
           "settings": {
-            "item_image": "shopify://shop_images/adventages4.svg",
+            "item_image": "shopify:\/\/shop_images\/adventages4.svg",
             "item_image_alt": "",
             "item_title": "100% Secure Сheckout",
             "item_text": "And 100% Secure Payment & Billing"
@@ -84,7 +75,7 @@
         "list_Jd3RQL": {
           "type": "list",
           "settings": {
-            "item_image": "shopify://shop_images/adventages5.svg",
+            "item_image": "shopify:\/\/shop_images\/adventages5.svg",
             "item_image_alt": "",
             "item_title": "Highest Customers Reviews",
             "item_text": "15000+  satisfied customers worldwide"
@@ -106,28 +97,28 @@
         "text_bVhbGa": {
           "type": "text",
           "settings": {
-            "custom_field": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"17\" height=\"17\" viewBox=\"0 0 17 17\" fill=\"none\">\n  <g clip-path=\"url(#clip0_213_4241)\">\n    <path d=\"M8.5 0C3.81281 0 0 3.81281 0 8.5C0 13.1872 3.81281 17 8.5 17C13.1872 17 17 13.1865 17 8.5C17 3.81348 13.1872 0 8.5 0ZM8.5 15.6832C4.5397 15.6832 1.3168 12.461 1.3168 8.5C1.3168 4.53903 4.5397 1.3168 8.5 1.3168C12.461 1.3168 15.6832 4.53903 15.6832 8.5C15.6832 12.461 12.4603 15.6832 8.5 15.6832Z\" fill=\"#60AC22\" style=\"fill:#60AC22;fill:color(display-p3 0.3768 0.6749 0.1322);fill-opacity:1;\"/>\n    <path d=\"M12.4 5.54375C12.1321 5.30013 11.7153 5.31923 11.4704 5.5885L7.45411 10.011L5.51378 8.03846C5.25765 7.77905 4.84155 7.7751 4.5828 8.03056C4.32338 8.28536 4.31943 8.70213 4.5749 8.96154L7.00374 11.4306C7.12818 11.557 7.29672 11.6274 7.47316 11.6274C7.47712 11.6274 7.48173 11.6274 7.48568 11.6281C7.6674 11.6241 7.8386 11.5464 7.96039 11.4121L12.4448 6.4741C12.6891 6.20412 12.6693 5.78802 12.4 5.54375Z\" fill=\"#60AC22\" style=\"fill:#60AC22;fill:color(display-p3 0.3768 0.6749 0.1322);fill-opacity:1;\"/>\n  </g>\n  <defs>\n    <clipPath id=\"clip0_213_4241\">\n      <rect width=\"17\" height=\"17\" fill=\"white\" style=\"fill:white;fill-opacity:1;\"/>\n    </clipPath>\n  </defs>\n</svg>",
+            "custom_field": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"17\" height=\"17\" viewBox=\"0 0 17 17\" fill=\"none\">\n  <g clip-path=\"url(#clip0_213_4241)\">\n    <path d=\"M8.5 0C3.81281 0 0 3.81281 0 8.5C0 13.1872 3.81281 17 8.5 17C13.1872 17 17 13.1865 17 8.5C17 3.81348 13.1872 0 8.5 0ZM8.5 15.6832C4.5397 15.6832 1.3168 12.461 1.3168 8.5C1.3168 4.53903 4.5397 1.3168 8.5 1.3168C12.461 1.3168 15.6832 4.53903 15.6832 8.5C15.6832 12.461 12.4603 15.6832 8.5 15.6832Z\" fill=\"#60AC22\" style=\"fill:#60AC22;fill:color(display-p3 0.3768 0.6749 0.1322);fill-opacity:1;\"\/>\n    <path d=\"M12.4 5.54375C12.1321 5.30013 11.7153 5.31923 11.4704 5.5885L7.45411 10.011L5.51378 8.03846C5.25765 7.77905 4.84155 7.7751 4.5828 8.03056C4.32338 8.28536 4.31943 8.70213 4.5749 8.96154L7.00374 11.4306C7.12818 11.557 7.29672 11.6274 7.47316 11.6274C7.47712 11.6274 7.48173 11.6274 7.48568 11.6281C7.6674 11.6241 7.8386 11.5464 7.96039 11.4121L12.4448 6.4741C12.6891 6.20412 12.6693 5.78802 12.4 5.54375Z\" fill=\"#60AC22\" style=\"fill:#60AC22;fill:color(display-p3 0.3768 0.6749 0.1322);fill-opacity:1;\"\/>\n  <\/g>\n  <defs>\n    <clipPath id=\"clip0_213_4241\">\n      <rect width=\"17\" height=\"17\" fill=\"white\" style=\"fill:white;fill-opacity:1;\"\/>\n    <\/clipPath>\n  <\/defs>\n<\/svg>",
             "custom_text": "Customer name"
           }
         },
         "text_33WgQY": {
           "type": "text",
           "settings": {
-            "custom_field": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"17\" height=\"17\" viewBox=\"0 0 17 17\" fill=\"none\">\n  <g clip-path=\"url(#clip0_213_4241)\">\n    <path d=\"M8.5 0C3.81281 0 0 3.81281 0 8.5C0 13.1872 3.81281 17 8.5 17C13.1872 17 17 13.1865 17 8.5C17 3.81348 13.1872 0 8.5 0ZM8.5 15.6832C4.5397 15.6832 1.3168 12.461 1.3168 8.5C1.3168 4.53903 4.5397 1.3168 8.5 1.3168C12.461 1.3168 15.6832 4.53903 15.6832 8.5C15.6832 12.461 12.4603 15.6832 8.5 15.6832Z\" fill=\"#60AC22\" style=\"fill:#60AC22;fill:color(display-p3 0.3768 0.6749 0.1322);fill-opacity:1;\"/>\n    <path d=\"M12.4 5.54375C12.1321 5.30013 11.7153 5.31923 11.4704 5.5885L7.45411 10.011L5.51378 8.03846C5.25765 7.77905 4.84155 7.7751 4.5828 8.03056C4.32338 8.28536 4.31943 8.70213 4.5749 8.96154L7.00374 11.4306C7.12818 11.557 7.29672 11.6274 7.47316 11.6274C7.47712 11.6274 7.48173 11.6274 7.48568 11.6281C7.6674 11.6241 7.8386 11.5464 7.96039 11.4121L12.4448 6.4741C12.6891 6.20412 12.6693 5.78802 12.4 5.54375Z\" fill=\"#60AC22\" style=\"fill:#60AC22;fill:color(display-p3 0.3768 0.6749 0.1322);fill-opacity:1;\"/>\n  </g>\n  <defs>\n    <clipPath id=\"clip0_213_4241\">\n      <rect width=\"17\" height=\"17\" fill=\"white\" style=\"fill:white;fill-opacity:1;\"/>\n    </clipPath>\n  </defs>\n</svg>",
+            "custom_field": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"17\" height=\"17\" viewBox=\"0 0 17 17\" fill=\"none\">\n  <g clip-path=\"url(#clip0_213_4241)\">\n    <path d=\"M8.5 0C3.81281 0 0 3.81281 0 8.5C0 13.1872 3.81281 17 8.5 17C13.1872 17 17 13.1865 17 8.5C17 3.81348 13.1872 0 8.5 0ZM8.5 15.6832C4.5397 15.6832 1.3168 12.461 1.3168 8.5C1.3168 4.53903 4.5397 1.3168 8.5 1.3168C12.461 1.3168 15.6832 4.53903 15.6832 8.5C15.6832 12.461 12.4603 15.6832 8.5 15.6832Z\" fill=\"#60AC22\" style=\"fill:#60AC22;fill:color(display-p3 0.3768 0.6749 0.1322);fill-opacity:1;\"\/>\n    <path d=\"M12.4 5.54375C12.1321 5.30013 11.7153 5.31923 11.4704 5.5885L7.45411 10.011L5.51378 8.03846C5.25765 7.77905 4.84155 7.7751 4.5828 8.03056C4.32338 8.28536 4.31943 8.70213 4.5749 8.96154L7.00374 11.4306C7.12818 11.557 7.29672 11.6274 7.47316 11.6274C7.47712 11.6274 7.48173 11.6274 7.48568 11.6281C7.6674 11.6241 7.8386 11.5464 7.96039 11.4121L12.4448 6.4741C12.6891 6.20412 12.6693 5.78802 12.4 5.54375Z\" fill=\"#60AC22\" style=\"fill:#60AC22;fill:color(display-p3 0.3768 0.6749 0.1322);fill-opacity:1;\"\/>\n  <\/g>\n  <defs>\n    <clipPath id=\"clip0_213_4241\">\n      <rect width=\"17\" height=\"17\" fill=\"white\" style=\"fill:white;fill-opacity:1;\"\/>\n    <\/clipPath>\n  <\/defs>\n<\/svg>",
             "custom_text": "Order number or proof of purchase"
           }
         },
         "text_76PAF8": {
           "type": "text",
           "settings": {
-            "custom_field": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"17\" height=\"17\" viewBox=\"0 0 17 17\" fill=\"none\">\n  <g clip-path=\"url(#clip0_213_4241)\">\n    <path d=\"M8.5 0C3.81281 0 0 3.81281 0 8.5C0 13.1872 3.81281 17 8.5 17C13.1872 17 17 13.1865 17 8.5C17 3.81348 13.1872 0 8.5 0ZM8.5 15.6832C4.5397 15.6832 1.3168 12.461 1.3168 8.5C1.3168 4.53903 4.5397 1.3168 8.5 1.3168C12.461 1.3168 15.6832 4.53903 15.6832 8.5C15.6832 12.461 12.4603 15.6832 8.5 15.6832Z\" fill=\"#60AC22\" style=\"fill:#60AC22;fill:color(display-p3 0.3768 0.6749 0.1322);fill-opacity:1;\"/>\n    <path d=\"M12.4 5.54375C12.1321 5.30013 11.7153 5.31923 11.4704 5.5885L7.45411 10.011L5.51378 8.03846C5.25765 7.77905 4.84155 7.7751 4.5828 8.03056C4.32338 8.28536 4.31943 8.70213 4.5749 8.96154L7.00374 11.4306C7.12818 11.557 7.29672 11.6274 7.47316 11.6274C7.47712 11.6274 7.48173 11.6274 7.48568 11.6281C7.6674 11.6241 7.8386 11.5464 7.96039 11.4121L12.4448 6.4741C12.6891 6.20412 12.6693 5.78802 12.4 5.54375Z\" fill=\"#60AC22\" style=\"fill:#60AC22;fill:color(display-p3 0.3768 0.6749 0.1322);fill-opacity:1;\"/>\n  </g>\n  <defs>\n    <clipPath id=\"clip0_213_4241\">\n      <rect width=\"17\" height=\"17\" fill=\"white\" style=\"fill:white;fill-opacity:1;\"/>\n    </clipPath>\n  </defs>\n</svg>",
+            "custom_field": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"17\" height=\"17\" viewBox=\"0 0 17 17\" fill=\"none\">\n  <g clip-path=\"url(#clip0_213_4241)\">\n    <path d=\"M8.5 0C3.81281 0 0 3.81281 0 8.5C0 13.1872 3.81281 17 8.5 17C13.1872 17 17 13.1865 17 8.5C17 3.81348 13.1872 0 8.5 0ZM8.5 15.6832C4.5397 15.6832 1.3168 12.461 1.3168 8.5C1.3168 4.53903 4.5397 1.3168 8.5 1.3168C12.461 1.3168 15.6832 4.53903 15.6832 8.5C15.6832 12.461 12.4603 15.6832 8.5 15.6832Z\" fill=\"#60AC22\" style=\"fill:#60AC22;fill:color(display-p3 0.3768 0.6749 0.1322);fill-opacity:1;\"\/>\n    <path d=\"M12.4 5.54375C12.1321 5.30013 11.7153 5.31923 11.4704 5.5885L7.45411 10.011L5.51378 8.03846C5.25765 7.77905 4.84155 7.7751 4.5828 8.03056C4.32338 8.28536 4.31943 8.70213 4.5749 8.96154L7.00374 11.4306C7.12818 11.557 7.29672 11.6274 7.47316 11.6274C7.47712 11.6274 7.48173 11.6274 7.48568 11.6281C7.6674 11.6241 7.8386 11.5464 7.96039 11.4121L12.4448 6.4741C12.6891 6.20412 12.6693 5.78802 12.4 5.54375Z\" fill=\"#60AC22\" style=\"fill:#60AC22;fill:color(display-p3 0.3768 0.6749 0.1322);fill-opacity:1;\"\/>\n  <\/g>\n  <defs>\n    <clipPath id=\"clip0_213_4241\">\n      <rect width=\"17\" height=\"17\" fill=\"white\" style=\"fill:white;fill-opacity:1;\"\/>\n    <\/clipPath>\n  <\/defs>\n<\/svg>",
             "custom_text": "Registration code"
           }
         },
         "text_QzgHLq": {
           "type": "text",
           "settings": {
-            "custom_field": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"17\" height=\"17\" viewBox=\"0 0 17 17\" fill=\"none\">\n  <g clip-path=\"url(#clip0_213_4241)\">\n    <path d=\"M8.5 0C3.81281 0 0 3.81281 0 8.5C0 13.1872 3.81281 17 8.5 17C13.1872 17 17 13.1865 17 8.5C17 3.81348 13.1872 0 8.5 0ZM8.5 15.6832C4.5397 15.6832 1.3168 12.461 1.3168 8.5C1.3168 4.53903 4.5397 1.3168 8.5 1.3168C12.461 1.3168 15.6832 4.53903 15.6832 8.5C15.6832 12.461 12.4603 15.6832 8.5 15.6832Z\" fill=\"#60AC22\" style=\"fill:#60AC22;fill:color(display-p3 0.3768 0.6749 0.1322);fill-opacity:1;\"/>\n    <path d=\"M12.4 5.54375C12.1321 5.30013 11.7153 5.31923 11.4704 5.5885L7.45411 10.011L5.51378 8.03846C5.25765 7.77905 4.84155 7.7751 4.5828 8.03056C4.32338 8.28536 4.31943 8.70213 4.5749 8.96154L7.00374 11.4306C7.12818 11.557 7.29672 11.6274 7.47316 11.6274C7.47712 11.6274 7.48173 11.6274 7.48568 11.6281C7.6674 11.6241 7.8386 11.5464 7.96039 11.4121L12.4448 6.4741C12.6891 6.20412 12.6693 5.78802 12.4 5.54375Z\" fill=\"#60AC22\" style=\"fill:#60AC22;fill:color(display-p3 0.3768 0.6749 0.1322);fill-opacity:1;\"/>\n  </g>\n  <defs>\n    <clipPath id=\"clip0_213_4241\">\n      <rect width=\"17\" height=\"17\" fill=\"white\" style=\"fill:white;fill-opacity:1;\"/>\n    </clipPath>\n  </defs>\n</svg>",
+            "custom_field": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"17\" height=\"17\" viewBox=\"0 0 17 17\" fill=\"none\">\n  <g clip-path=\"url(#clip0_213_4241)\">\n    <path d=\"M8.5 0C3.81281 0 0 3.81281 0 8.5C0 13.1872 3.81281 17 8.5 17C13.1872 17 17 13.1865 17 8.5C17 3.81348 13.1872 0 8.5 0ZM8.5 15.6832C4.5397 15.6832 1.3168 12.461 1.3168 8.5C1.3168 4.53903 4.5397 1.3168 8.5 1.3168C12.461 1.3168 15.6832 4.53903 15.6832 8.5C15.6832 12.461 12.4603 15.6832 8.5 15.6832Z\" fill=\"#60AC22\" style=\"fill:#60AC22;fill:color(display-p3 0.3768 0.6749 0.1322);fill-opacity:1;\"\/>\n    <path d=\"M12.4 5.54375C12.1321 5.30013 11.7153 5.31923 11.4704 5.5885L7.45411 10.011L5.51378 8.03846C5.25765 7.77905 4.84155 7.7751 4.5828 8.03056C4.32338 8.28536 4.31943 8.70213 4.5749 8.96154L7.00374 11.4306C7.12818 11.557 7.29672 11.6274 7.47316 11.6274C7.47712 11.6274 7.48173 11.6274 7.48568 11.6281C7.6674 11.6241 7.8386 11.5464 7.96039 11.4121L12.4448 6.4741C12.6891 6.20412 12.6693 5.78802 12.4 5.54375Z\" fill=\"#60AC22\" style=\"fill:#60AC22;fill:color(display-p3 0.3768 0.6749 0.1322);fill-opacity:1;\"\/>\n  <\/g>\n  <defs>\n    <clipPath id=\"clip0_213_4241\">\n      <rect width=\"17\" height=\"17\" fill=\"white\" style=\"fill:white;fill-opacity:1;\"\/>\n    <\/clipPath>\n  <\/defs>\n<\/svg>",
             "custom_text": "Reason for cancellation"
           }
         }
@@ -141,8 +132,8 @@
       "settings": {
         "title_absolute": "last longer",
         "title": "Last Longer, Get Bigger with a Cock Ring",
-        "custom_textarea": "For your protection, we suggest all returns should be sent via a traceable carrier.\nWhat items do you accept for return?\nAll items that are unopened and unused can be returned for a partial refund.\nWe will deduct shipping costs and pick and pack costs; roughly around USD $22 - USD $25.\n\n\nWe will NOT accept opened or used items for return. \n<b>Amending orders:</b>\nOur warehouses work quickly to pick and pack each order. Due to the quick turnaround, this often means that we are not always able to amend orders, swap products or change address before the products are shipped out.\n\n<b>If you have already received the order: </b>\nIf you want to cancel an order that is out for delivery, or has already been received; contact us immediately via this contact form.\n\nCustomer Support will provide you with the address when you email.",
-        "custom_textarea_2": "<b>You will have to provide us with:</b>"
+        "custom_textarea": "For your protection, we suggest all returns should be sent via a traceable carrier.\nWhat items do you accept for return?\nAll items that are unopened and unused can be returned for a partial refund.\nWe will deduct shipping costs and pick and pack costs; roughly around USD $22 - USD $25.\n\n\nWe will NOT accept opened or used items for return.\u2028\n<b>Amending orders:<\/b>\nOur warehouses work quickly to pick and pack each order. Due to the quick turnaround, this often means that we are not always able to amend orders, swap products or change address before the products are shipped out.\n\n<b>If you have already received the order: <\/b>\nIf you want to cancel an order that is out for delivery, or has already been received; contact us immediately via this contact form.\n\nCustomer Support will provide you with the address when you email.",
+        "custom_textarea_2": "<b>You will have to provide us with:<\/b>"
       }
     },
     "custom_faq_PmmfPD": {

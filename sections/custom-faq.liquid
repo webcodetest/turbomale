@@ -34,11 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const faqItems = document.querySelectorAll('.custom-faq-list-item');
 
   faqItems.forEach(item => {
-    const toggle = item.querySelector('.custom-faq-list-item-top');
-
-    toggle.addEventListener('click', () => {
-      // faqItems.forEach(i => i.classList.remove('active'));
-      
+    item.addEventListener('click', () => {
       item.classList.toggle('active');
     });
   });

@@ -1,3 +1,16 @@
+<style>
+  .custom-adventages {
+    background: {{ section.settings.bg_color }};
+  }
+
+  .custom-adventages-list-item-texts h3 {
+  color: {{ section.settings.item_title_color }};
+}
+  .custom-adventages-list-item-texts p {
+  color: {{ section.settings.item_text_color }};
+}
+</style>
+
 <section class='custom-adventages'>
     <div class='container'>
         <div class='custom-adventages-list'>
@@ -17,7 +30,23 @@
 {% schema %}
   {
     "name": "Custom Adventages",
-    "settings": [],
+    "settings": [
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "BG color"
+      },
+      {
+        "type": "color",
+        "id": "item_title_color",
+        "label": "Item Title Color"
+      },
+      {
+        "type": "color",
+        "id": "item_text_color",
+        "label": "Item Text Color"
+      },
+    ],
     "blocks": [
     {
       "type": "list",

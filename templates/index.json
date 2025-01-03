@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "custom_home_hero_NN6AFJ": {
@@ -277,7 +268,29 @@
       ],
       "settings": {
         "product": "turbomale-ultimate-enlargement-package",
-        "description": "Our Ultimate Package includes 10 high-quality products that give you the complete tools you need. Get everything you need in one package at a great price!"
+        "description": "Our Ultimate Package includes 10 high-quality products that give you the complete tools you need. Get everything you need in one package at a great price!",
+        "popap_product1": "turbomale-shoulder-stretcher",
+        "popap_text1": "<p><strong>Ultimate Package:<\/strong> Everything you need in one package!<\/p>",
+        "popap_product2": "waist-belt-for-stretcher",
+        "popap_text2": "<p><strong>Ultimate Package:<\/strong> Everything you need in one package!<\/p>",
+        "popap_product3": "leg-band-for-stretcher",
+        "popap_text3": "<p><strong>Ultimate Package:<\/strong> Everything you need in one package!<\/p>",
+        "popap_product4": "leg-band-for-stretcher",
+        "popap_text4": "<p><strong>Ultimate Package:<\/strong> Everything you need in one package!<\/p>",
+        "popap_product5": "turbomale-pump-cylinder",
+        "popap_text5": "<p><strong>Ultimate Package:<\/strong> Everything you need in one package!<\/p>",
+        "popap_product6": "turbomale-silicone-sleeve",
+        "popap_text6": "<p><strong>Ultimate Package:<\/strong> Everything you need in one package!<\/p>",
+        "popap_product7": "turbomale-metal-hand-pump",
+        "popap_text7": "<p><strong>Ultimate Package:<\/strong> Everything you need in one package!<\/p>",
+        "popap_product8": "turbomale-silicone-protector-cap",
+        "popap_text8": "<p><strong>Ultimate Package:<\/strong> Everything you need in one package!<\/p>",
+        "popap_product9": "turbomale-multi-type-stretchers-set",
+        "popap_text9": "<p><strong>Ultimate Package:<\/strong> Everything you need in one package!<\/p>",
+        "popap_product10": "turbomale-light-extender",
+        "popap_text10": "<p><strong>Ultimate Package:<\/strong> Everything you need in one package!<\/p>",
+        "popap_product11": "turbomale-vacuum-handle",
+        "popap_text11": "<p><strong>Ultimate Package:<\/strong> Everything you need in one package!<\/p>"
       }
     },
     "custom_vacuum_3RAfpJ": {
@@ -765,7 +778,11 @@
         "list_t6dWGC",
         "list_WB69ga"
       ],
-      "settings": {}
+      "settings": {
+        "bg_color": "#07080d",
+        "item_title_color": "#ffffff",
+        "item_text_color": "#e0e0e0"
+      }
     },
     "custom_home_about_6UTWn7": {
       "type": "custom-home-about",
@@ -887,14 +904,16 @@
           "type": "comparison_our",
           "settings": {
             "item": "$289.99",
-            "item_check": false
+            "item_check": false,
+            "item_text_mobile": "Priсe USD"
           }
         },
         "comparison_our_MERNVa": {
           "type": "comparison_our",
           "settings": {
             "item": "15",
-            "item_check": false
+            "item_check": false,
+            "item_text_mobile": "Enlargement Options"
           }
         },
         "comparison_our_6wRiN8": {
@@ -902,42 +921,48 @@
           "settings": {
             "item": "",
             "item_check": false,
-            "item_stars": 5
+            "item_stars": 5,
+            "item_text_mobile": "Comfort"
           }
         },
         "comparison_our_LWe9Ye": {
           "type": "comparison_our",
           "settings": {
             "item": "",
-            "item_check": true
+            "item_check": true,
+            "item_text_mobile": "Discreet Use"
           }
         },
         "comparison_our_mGGxkM": {
           "type": "comparison_our",
           "settings": {
             "item": "",
-            "item_check": true
+            "item_check": true,
+            "item_text_mobile": "Permanent Gains"
           }
         },
         "comparison_our_haxRfL": {
           "type": "comparison_our",
           "settings": {
             "item": "",
-            "item_check": true
+            "item_check": true,
+            "item_text_mobile": "Stronger Erections"
           }
         },
         "comparison_our_gW64rJ": {
           "type": "comparison_our",
           "settings": {
             "item": "",
-            "item_check": true
+            "item_check": true,
+            "item_text_mobile": "Peyronie correction"
           }
         },
         "comparison_our_AjxUEy": {
           "type": "comparison_our",
           "settings": {
             "item": "",
-            "item_check": true
+            "item_check": true,
+            "item_text_mobile": "Overnight Use"
           }
         },
         "comparison_our_kQMXax": {
@@ -945,42 +970,48 @@
           "settings": {
             "item": "",
             "item_check": false,
-            "item_stars": 5
+            "item_stars": 5,
+            "item_text_mobile": "Effectiveness"
           }
         },
         "comparison_our_znWr8H": {
           "type": "comparison_our",
           "settings": {
             "item": "",
-            "item_check": true
+            "item_check": true,
+            "item_text_mobile": "Vacuum System"
           }
         },
         "comparison_our_YEd9nd": {
           "type": "comparison_our",
           "settings": {
             "item": " 8000 g",
-            "item_check": false
+            "item_check": false,
+            "item_text_mobile": "Maximum Tension"
           }
         },
         "comparison_our_e4QRxm": {
           "type": "comparison_our",
           "settings": {
             "item": "1 hour",
-            "item_check": false
+            "item_check": false,
+            "item_text_mobile": "Daily Using Time"
           }
         },
         "comparison_other_fbVFrL": {
           "type": "comparison_other",
           "settings": {
             "item": "$350",
-            "item_check": "option1"
+            "item_check": "option1",
+            "item_text_mobile": "Priсe USD"
           }
         },
         "comparison_other_Eagmb8": {
           "type": "comparison_other",
           "settings": {
             "item": "2",
-            "item_check": "option1"
+            "item_check": "option1",
+            "item_text_mobile": "Enlargement Options"
           }
         },
         "comparison_other_Q6GmbN": {
@@ -988,42 +1019,48 @@
           "settings": {
             "item": "",
             "item_check": "option1",
-            "item_stars": 2
+            "item_stars": 2,
+            "item_text_mobile": "Comfort"
           }
         },
         "comparison_other_R8J8WF": {
           "type": "comparison_other",
           "settings": {
             "item": "",
-            "item_check": "option2"
+            "item_check": "option2",
+            "item_text_mobile": "Discreet Use"
           }
         },
         "comparison_other_g7qLBr": {
           "type": "comparison_other",
           "settings": {
             "item": "",
-            "item_check": "option2"
+            "item_check": "option2",
+            "item_text_mobile": "Permanent Gains"
           }
         },
         "comparison_other_DRPBHi": {
           "type": "comparison_other",
           "settings": {
             "item": "",
-            "item_check": "option2"
+            "item_check": "option2",
+            "item_text_mobile": "Stronger Erections"
           }
         },
         "comparison_other_A4nALa": {
           "type": "comparison_other",
           "settings": {
             "item": "",
-            "item_check": "option2"
+            "item_check": "option2",
+            "item_text_mobile": "Peyronie correction"
           }
         },
         "comparison_other_YLmmMh": {
           "type": "comparison_other",
           "settings": {
             "item": "",
-            "item_check": "option2"
+            "item_check": "option2",
+            "item_text_mobile": "Overnight Use"
           }
         },
         "comparison_other_UejXbm": {
@@ -1031,42 +1068,48 @@
           "settings": {
             "item": "",
             "item_check": "option1",
-            "item_stars": 2
+            "item_stars": 2,
+            "item_text_mobile": "Effectiveness"
           }
         },
         "comparison_other_9MMeCj": {
           "type": "comparison_other",
           "settings": {
             "item": "",
-            "item_check": "option2"
+            "item_check": "option2",
+            "item_text_mobile": "Vacuum System"
           }
         },
         "comparison_other_bUGJQ8": {
           "type": "comparison_other",
           "settings": {
             "item": "1000 g",
-            "item_check": "option1"
+            "item_check": "option1",
+            "item_text_mobile": "Maximum Tension"
           }
         },
         "comparison_other_VMfxQ8": {
           "type": "comparison_other",
           "settings": {
             "item": "8 hour",
-            "item_check": "option1"
+            "item_check": "option1",
+            "item_text_mobile": "Daily Using Time"
           }
         },
         "comparison_chine_jq8eXQ": {
           "type": "comparison_chine",
           "settings": {
             "item": "$1200",
-            "item_check": "option1"
+            "item_check": "option1",
+            "item_text_mobile": "Daily Using Time"
           }
         },
         "comparison_chine_yGnNt4": {
           "type": "comparison_chine",
           "settings": {
             "item": "6",
-            "item_check": "option1"
+            "item_check": "option1",
+            "item_text_mobile": "Enlargement Options"
           }
         },
         "comparison_chine_BzcFzG": {
@@ -1074,42 +1117,48 @@
           "settings": {
             "item": "",
             "item_check": "option1",
-            "item_stars": 2
+            "item_stars": 2,
+            "item_text_mobile": "Comfort"
           }
         },
         "comparison_chine_9wLHx6": {
           "type": "comparison_chine",
           "settings": {
             "item": "",
-            "item_check": "option2"
+            "item_check": "option2",
+            "item_text_mobile": "Discreet Use"
           }
         },
         "comparison_chine_KNaLhC": {
           "type": "comparison_chine",
           "settings": {
             "item": "",
-            "item_check": "option1"
+            "item_check": "option1",
+            "item_text_mobile": "Permanent Gains"
           }
         },
         "comparison_chine_XW7btQ": {
           "type": "comparison_chine",
           "settings": {
             "item": "",
-            "item_check": "option1"
+            "item_check": "option1",
+            "item_text_mobile": "Stronger Erections"
           }
         },
         "comparison_chine_aJKXHQ": {
           "type": "comparison_chine",
           "settings": {
             "item": "",
-            "item_check": "option2"
+            "item_check": "option2",
+            "item_text_mobile": "Peyronie correction"
           }
         },
         "comparison_chine_jt8BTq": {
           "type": "comparison_chine",
           "settings": {
             "item": "",
-            "item_check": "option2"
+            "item_check": "option2",
+            "item_text_mobile": "Overnight Use"
           }
         },
         "comparison_chine_DhdCGw": {
@@ -1117,28 +1166,32 @@
           "settings": {
             "item": "",
             "item_check": "option1",
-            "item_stars": 2
+            "item_stars": 2,
+            "item_text_mobile": "Effectiveness"
           }
         },
         "comparison_chine_JmzmJp": {
           "type": "comparison_chine",
           "settings": {
             "item": "",
-            "item_check": "option2"
+            "item_check": "option2",
+            "item_text_mobile": "Vacuum System"
           }
         },
         "comparison_chine_TLWVV8": {
           "type": "comparison_chine",
           "settings": {
             "item": "-",
-            "item_check": "option1"
+            "item_check": "option1",
+            "item_text_mobile": "Maximum Tension"
           }
         },
         "comparison_chine_WtVEGj": {
           "type": "comparison_chine",
           "settings": {
             "item": "3 hour",
-            "item_check": "option1"
+            "item_check": "option1",
+            "item_text_mobile": "Daily Using Time"
           }
         }
       },

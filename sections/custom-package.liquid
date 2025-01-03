@@ -1,3 +1,5 @@
+{%- assign product_form_id = 'product-form-' | append: section.id -%}
+
 <section class='custom-package'>
     <div class='container'>
         {% assign package_product = section.settings.product %}
@@ -5,29 +7,942 @@
             <div class='custom-package-left'>
                 <img src="{{ package_product.featured_image | img_url: 'master' }}" slt='{{ package_product.title }}'>
                 <svg width="418" height="325" viewBox="0 0 418 325" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect data-tooltip="one" width="28" height="29" rx="14" fill="#05060B" style="fill:#05060B;fill:color(display-p3 0.0196 0.0235 0.0431);fill-opacity:1;"/>
+                    <rect class="one" width="28" height="29" rx="14" fill="#05060B" style="fill:#05060B;fill:color(display-p3 0.0196 0.0235 0.0431);fill-opacity:1;"/>
                         <path d="M14.3 9.626C13.9533 9.626 13.65 9.50467 13.39 9.262C13.13 9.002 13 8.69 13 8.326C13 7.962 13.13 7.65 13.39 7.39C13.65 7.13 13.9533 7 14.3 7C14.664 7 14.976 7.13 15.236 7.39C15.496 7.65 15.626 7.962 15.626 8.326C15.626 8.69 15.496 9.002 15.236 9.262C14.976 9.50467 14.664 9.626 14.3 9.626ZM15.288 23.978H13.338V11.42H15.288V23.978Z" fill="#60AC22" style="fill:#60AC22;fill:color(display-p3 0.3768 0.6749 0.1322);fill-opacity:1;"/>
-                    <rect data-tooltip="two" x="93" width="29" height="29" rx="14.5" fill="#05060B" style="fill:#05060B;fill:color(display-p3 0.0196 0.0235 0.0431);fill-opacity:1;"/>
+                    <rect class="two" x="93" width="29" height="29" rx="14.5" fill="#05060B" style="fill:#05060B;fill:color(display-p3 0.0196 0.0235 0.0431);fill-opacity:1;"/>
                         <path d="M108.3 9.626C107.953 9.626 107.65 9.50467 107.39 9.262C107.13 9.002 107 8.69 107 8.326C107 7.962 107.13 7.65 107.39 7.39C107.65 7.13 107.953 7 108.3 7C108.664 7 108.976 7.13 109.236 7.39C109.496 7.65 109.626 7.962 109.626 8.326C109.626 8.69 109.496 9.002 109.236 9.262C108.976 9.50467 108.664 9.626 108.3 9.626ZM109.288 23.978H107.338V11.42H109.288V23.978Z" fill="#60AC22" style="fill:#60AC22;fill:color(display-p3 0.3768 0.6749 0.1322);fill-opacity:1;"/>
-                    <rect data-tooltip="three" x="186" width="29" height="29" rx="14.5" fill="#05060B" style="fill:#05060B;fill:color(display-p3 0.0196 0.0235 0.0431);fill-opacity:1;"/>
+                    <rect class="three" x="186" width="29" height="29" rx="14.5" fill="#05060B" style="fill:#05060B;fill:color(display-p3 0.0196 0.0235 0.0431);fill-opacity:1;"/>
                         <path d="M201.3 9.626C200.953 9.626 200.65 9.50467 200.39 9.262C200.13 9.002 200 8.69 200 8.326C200 7.962 200.13 7.65 200.39 7.39C200.65 7.13 200.953 7 201.3 7C201.664 7 201.976 7.13 202.236 7.39C202.496 7.65 202.626 7.962 202.626 8.326C202.626 8.69 202.496 9.002 202.236 9.262C201.976 9.50467 201.664 9.626 201.3 9.626ZM202.288 23.978H200.338V11.42H202.288V23.978Z" fill="#60AC22" style="fill:#60AC22;fill:color(display-p3 0.3768 0.6749 0.1322);fill-opacity:1;"/>
-                    <rect data-tooltip="four" x="296" width="28" height="29" rx="14" fill="#05060B" style="fill:#05060B;fill:color(display-p3 0.0196 0.0235 0.0431);fill-opacity:1;"/>
+                    <rect class="four" x="296" width="28" height="29" rx="14" fill="#05060B" style="fill:#05060B;fill:color(display-p3 0.0196 0.0235 0.0431);fill-opacity:1;"/>
                         <path d="M310.3 9.626C309.953 9.626 309.65 9.50467 309.39 9.262C309.13 9.002 309 8.69 309 8.326C309 7.962 309.13 7.65 309.39 7.39C309.65 7.13 309.953 7 310.3 7C310.664 7 310.976 7.13 311.236 7.39C311.496 7.65 311.626 7.962 311.626 8.326C311.626 8.69 311.496 9.002 311.236 9.262C310.976 9.50467 310.664 9.626 310.3 9.626ZM311.288 23.978H309.338V11.42H311.288V23.978Z" fill="#60AC22" style="fill:#60AC22;fill:color(display-p3 0.3768 0.6749 0.1322);fill-opacity:1;"/>
-                    <rect data-tooltip="five" x="389" width="29" height="29" rx="14.5" fill="#05060B" style="fill:#05060B;fill:color(display-p3 0.0196 0.0235 0.0431);fill-opacity:1;"/>
+                    <rect class="five" x="389" width="29" height="29" rx="14.5" fill="#05060B" style="fill:#05060B;fill:color(display-p3 0.0196 0.0235 0.0431);fill-opacity:1;"/>
                         <path d="M404.3 9.626C403.953 9.626 403.65 9.50467 403.39 9.262C403.13 9.002 403 8.69 403 8.326C403 7.962 403.13 7.65 403.39 7.39C403.65 7.13 403.953 7 404.3 7C404.664 7 404.976 7.13 405.236 7.39C405.496 7.65 405.626 7.962 405.626 8.326C405.626 8.69 405.496 9.002 405.236 9.262C404.976 9.50467 404.664 9.626 404.3 9.626ZM405.288 23.978H403.338V11.42H405.288V23.978Z" fill="#60AC22" style="fill:#60AC22;fill:color(display-p3 0.3768 0.6749 0.1322);fill-opacity:1;"/>
-                    <rect data-tooltip="eith" x="367" y="190" width="29" height="29" rx="14.5" fill="#05060B" style="fill:#05060B;fill:color(display-p3 0.0196 0.0235 0.0431);fill-opacity:1;"/>
+                    <rect class="eith" x="367" y="190" width="29" height="29" rx="14.5" fill="#05060B" style="fill:#05060B;fill:color(display-p3 0.0196 0.0235 0.0431);fill-opacity:1;"/>
                         <path d="M382.3 199.626C381.953 199.626 381.65 199.505 381.39 199.262C381.13 199.002 381 198.69 381 198.326C381 197.962 381.13 197.65 381.39 197.39C381.65 197.13 381.953 197 382.3 197C382.664 197 382.976 197.13 383.236 197.39C383.496 197.65 383.626 197.962 383.626 198.326C383.626 198.69 383.496 199.002 383.236 199.262C382.976 199.505 382.664 199.626 382.3 199.626ZM383.288 213.978H381.338V201.42H383.288V213.978Z" fill="#60AC22" style="fill:#60AC22;fill:color(display-p3 0.3768 0.6749 0.1322);fill-opacity:1;"/>
-                    <rect data-tooltip="seven" x="245" y="104" width="32" height="32" rx="16" fill="#05060B" style="fill:#05060B;fill:color(display-p3 0.0196 0.0235 0.0431);fill-opacity:1;"/>
+                    <rect class="seven" x="245" y="104" width="32" height="32" rx="16" fill="#05060B" style="fill:#05060B;fill:color(display-p3 0.0196 0.0235 0.0431);fill-opacity:1;"/>
                         <path d="M261.3 114.626C260.953 114.626 260.65 114.505 260.39 114.262C260.13 114.002 260 113.69 260 113.326C260 112.962 260.13 112.65 260.39 112.39C260.65 112.13 260.953 112 261.3 112C261.664 112 261.976 112.13 262.236 112.39C262.496 112.65 262.626 112.962 262.626 113.326C262.626 113.69 262.496 114.002 262.236 114.262C261.976 114.505 261.664 114.626 261.3 114.626ZM262.288 128.978H260.338V116.42H262.288V128.978Z" fill="#60AC22" style="fill:#60AC22;fill:color(display-p3 0.3768 0.6749 0.1322);fill-opacity:1;"/>
-                    <rect data-tooltip="six" y="150" width="28" height="28" rx="14" fill="#05060B" style="fill:#05060B;fill:color(display-p3 0.0196 0.0235 0.0431);fill-opacity:1;"/>
+                    <rect class="six" y="150" width="28" height="28" rx="14" fill="#05060B" style="fill:#05060B;fill:color(display-p3 0.0196 0.0235 0.0431);fill-opacity:1;"/>
                         <path d="M14.3 158.626C13.9533 158.626 13.65 158.505 13.39 158.262C13.13 158.002 13 157.69 13 157.326C13 156.962 13.13 156.65 13.39 156.39C13.65 156.13 13.9533 156 14.3 156C14.664 156 14.976 156.13 15.236 156.39C15.496 156.65 15.626 156.962 15.626 157.326C15.626 157.69 15.496 158.002 15.236 158.262C14.976 158.505 14.664 158.626 14.3 158.626ZM15.288 172.978H13.338V160.42H15.288V172.978Z" fill="#60AC22" style="fill:#60AC22;fill:color(display-p3 0.3768 0.6749 0.1322);fill-opacity:1;"/>
-                    <rect data-tooltip="nine" x="45" y="267" width="29" height="29" rx="14.5" fill="#05060B" style="fill:#05060B;fill:color(display-p3 0.0196 0.0235 0.0431);fill-opacity:1;"/>
+                    <rect class="nine" x="45" y="267" width="29" height="29" rx="14.5" fill="#05060B" style="fill:#05060B;fill:color(display-p3 0.0196 0.0235 0.0431);fill-opacity:1;"/>
                         <path d="M60.3 276.626C59.9533 276.626 59.65 276.505 59.39 276.262C59.13 276.002 59 275.69 59 275.326C59 274.962 59.13 274.65 59.39 274.39C59.65 274.13 59.9533 274 60.3 274C60.664 274 60.976 274.13 61.236 274.39C61.496 274.65 61.626 274.962 61.626 275.326C61.626 275.69 61.496 276.002 61.236 276.262C60.976 276.505 60.664 276.626 60.3 276.626ZM61.288 290.978H59.338V278.42H61.288V290.978Z" fill="#60AC22" style="fill:#60AC22;fill:color(display-p3 0.3768 0.6749 0.1322);fill-opacity:1;"/>
-                    <rect data-tooltip="ten" x="212" y="289" width="29" height="28" rx="14" fill="#05060B" style="fill:#05060B;fill:color(display-p3 0.0196 0.0235 0.0431);fill-opacity:1;"/>
+                    <rect class="ten" x="212" y="289" width="29" height="28" rx="14" fill="#05060B" style="fill:#05060B;fill:color(display-p3 0.0196 0.0235 0.0431);fill-opacity:1;"/>
                         <path d="M227.3 297.626C226.953 297.626 226.65 297.505 226.39 297.262C226.13 297.002 226 296.69 226 296.326C226 295.962 226.13 295.65 226.39 295.39C226.65 295.13 226.953 295 227.3 295C227.664 295 227.976 295.13 228.236 295.39C228.496 295.65 228.626 295.962 228.626 296.326C228.626 296.69 228.496 297.002 228.236 297.262C227.976 297.505 227.664 297.626 227.3 297.626ZM228.288 311.978H226.338V299.42H228.288V311.978Z" fill="#60AC22" style="fill:#60AC22;fill:color(display-p3 0.3768 0.6749 0.1322);fill-opacity:1;"/>
-                    <rect data-tooltip="eleven" x="367" y="296" width="29" height="29" rx="14.5" fill="#05060B" style="fill:#05060B;fill:color(display-p3 0.0196 0.0235 0.0431);fill-opacity:1;"/>
+                    <rect class="eleven" x="367" y="296" width="29" height="29" rx="14.5" fill="#05060B" style="fill:#05060B;fill:color(display-p3 0.0196 0.0235 0.0431);fill-opacity:1;"/>
                         <path d="M382.3 305.626C381.953 305.626 381.65 305.505 381.39 305.262C381.13 305.002 381 304.69 381 304.326C381 303.962 381.13 303.65 381.39 303.39C381.65 303.13 381.953 303 382.3 303C382.664 303 382.976 303.13 383.236 303.39C383.496 303.65 383.626 303.962 383.626 304.326C383.626 304.69 383.496 305.002 383.236 305.262C382.976 305.505 382.664 305.626 382.3 305.626ZM383.288 319.978H381.338V307.42H383.288V319.978Z" fill="#60AC22" style="fill:#60AC22;fill:color(display-p3 0.3768 0.6749 0.1322);fill-opacity:1;"/>
                 </svg>
+                {% assign popap_product_one = section.settings.popap_product1 %}
+                <div class='custom-package-left-popap one'>
+                    <div class='custom-package-left-popap-desktop'>
+                    <h3>{{ popap_product_one.title }}</h3>
+                    <div class="custom-package-left-popap-info">
+                        <div class='custom-package-left-popap-info-price'>
+                            <p class='custom-package-left-popap-info-price-old'>{{ popap_product_one.compare_at_price | money }} USD</p>
+                            <p class='custom-package-left-popap-info-price-new'>{{ popap_product_one.price | money }} USD</p>
+                        </div>
+                        <product-form
+                        class="product-form"
+                        data-hide-errors="{{ gift_card_recipient_feature_active }}"
+                        data-section-id="{{ section.id }}"
+                        >
+                        <div class="product-form__error-message-wrapper" role="alert" hidden>
+                            <span class="svg-wrapper">
+                            {{- 'icon-error.svg' | inline_asset_content -}}
+                            </span>
+                            <span class="product-form__error-message"></span>
+                        </div>
+                        {%- form 'product',
+                            popap_product_one,
+                            id: product_form_id,
+                            class: 'form',
+                            novalidate: 'novalidate',
+                            data-type: 'add-to-cart-form'
+                        -%}
+
+                            <input
+                            type="hidden"
+                            name="id"
+                            value="{{ popap_product_one.selected_or_first_available_variant.id }}"
+                            {% if popap_product_one.selected_or_first_available_variant.available == false
+                                or quantity_rule_soldout
+                                or popap_product_one.selected_or_first_available_variant == null
+                            %}
+                                disabled
+                            {% endif %}
+                            class="product-variant-id"
+                            >
+                            <div class="product-form__buttons">
+                            {%- liquid
+                                assign check_against_inventory = true
+                                if popap_product_one.selected_or_first_available_variant.inventory_management != 'shopify' or popap_product_one.selected_or_first_available_variant.inventory_policy == 'continue'
+                                assign check_against_inventory = false
+                                endif
+                                if popap_product_one.selected_or_first_available_variant.quantity_rule.min > popap_product_one.selected_or_first_available_variant.inventory_quantity and check_against_inventory
+                                assign quantity_rule_soldout = true
+                                endif
+                            -%}
+                            <button
+                                id="ProductSubmitButton-{{ section_id }}"
+                                type="submit"
+                                name="add"
+                                class="product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
+                                {% if popap_product_one.selected_or_first_available_variant.available == false
+                                or quantity_rule_soldout
+                                or popap_product_one.selected_or_first_available_variant == null
+                                %}
+                                disabled
+                                {% endif %}
+                            >
+                                <span>
+                                {%- if popap_product_one.selected_or_first_available_variant == null -%}
+                                    {{ 'products.product.unavailable' | t }}
+                                {%- elsif popap_product_one.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
+                                    {{ 'products.product.sold_out' | t }}
+                                {%- else -%}
+                                    Save
+                                {%- endif -%}
+                                </span>
+                                {%- render 'loading-spinner' -%}
+                            </button>
+                            </div>
+                        {%- endform -%}
+                        </product-form>
+                    </div>
+                    <a href='{{ popap_product_one.url }}' class='custom-package-left-popap-1-more'>Read More</a>
+                    </div>
+                    <div class='custom-package-left-popap-mobile'>
+                        {{ section.settings.popap_text1 }}
+                    </div>
+                </div>
+                {% assign popap_product_two = section.settings.popap_product2 %}
+                <div class='custom-package-left-popap two'>
+                    <div class='custom-package-left-popap-desktop'>
+                    <h3>{{ popap_product_two.title }}</h3>
+                    <div class="custom-package-left-popap-info">
+                        <div class='custom-package-left-popap-info-price'>
+                            <p class='custom-package-left-popap-info-price-old'>{{ popap_product_two.compare_at_price | money }} USD</p>
+                            <p class='custom-package-left-popap-info-price-new'>{{ popap_product_two.price | money }} USD</p>
+                        </div>
+                        <product-form
+                        class="product-form"
+                        data-hide-errors="{{ gift_card_recipient_feature_active }}"
+                        data-section-id="{{ section.id }}"
+                        >
+                        <div class="product-form__error-message-wrapper" role="alert" hidden>
+                            <span class="svg-wrapper">
+                            {{- 'icon-error.svg' | inline_asset_content -}}
+                            </span>
+                            <span class="product-form__error-message"></span>
+                        </div>
+                        {%- form 'product',
+                            popap_product_two,
+                            id: product_form_id,
+                            class: 'form',
+                            novalidate: 'novalidate',
+                            data-type: 'add-to-cart-form'
+                        -%}
+
+                            <input
+                            type="hidden"
+                            name="id"
+                            value="{{ popap_product_two.selected_or_first_available_variant.id }}"
+                            {% if popap_product_two.selected_or_first_available_variant.available == false
+                                or quantity_rule_soldout
+                                or popap_product_two.selected_or_first_available_variant == null
+                            %}
+                                disabled
+                            {% endif %}
+                            class="product-variant-id"
+                            >
+                            <div class="product-form__buttons">
+                            {%- liquid
+                                assign check_against_inventory = true
+                                if popap_product_two.selected_or_first_available_variant.inventory_management != 'shopify' or popap_product_two.selected_or_first_available_variant.inventory_policy == 'continue'
+                                assign check_against_inventory = false
+                                endif
+                                if popap_product_two.selected_or_first_available_variant.quantity_rule.min > popap_product_two.selected_or_first_available_variant.inventory_quantity and check_against_inventory
+                                assign quantity_rule_soldout = true
+                                endif
+                            -%}
+                            <button
+                                id="ProductSubmitButton-{{ section_id }}"
+                                type="submit"
+                                name="add"
+                                class="product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
+                                {% if popap_product_two.selected_or_first_available_variant.available == false
+                                or quantity_rule_soldout
+                                or popap_product_two.selected_or_first_available_variant == null
+                                %}
+                                disabled
+                                {% endif %}
+                            >
+                                <span>
+                                {%- if popap_product_two.selected_or_first_available_variant == null -%}
+                                    {{ 'products.product.unavailable' | t }}
+                                {%- elsif popap_product_two.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
+                                    {{ 'products.product.sold_out' | t }}
+                                {%- else -%}
+                                    Save
+                                {%- endif -%}
+                                </span>
+                                {%- render 'loading-spinner' -%}
+                            </button>
+                            </div>
+                        {%- endform -%}
+                        </product-form>
+                    </div>
+                    <a href='{{ popap_product_two.url }}' class='custom-package-left-popap-1-more'>Read More</a>
+                    </div>
+                    <div class='custom-package-left-popap-mobile'>
+                        {{ section.settings.popap_text2 }}
+                    </div>
+                </div>
+                {% assign popap_product_three = section.settings.popap_product3 %}
+                <div class='custom-package-left-popap three'>
+                    <div class='custom-package-left-popap-desktop'>
+                    <h3>{{ popap_product_three.title }}</h3>
+                    <div class="custom-package-left-popap-info">
+                        <div class='custom-package-left-popap-info-price'>
+                            <p class='custom-package-left-popap-info-price-old'>{{ popap_product_three.compare_at_price | money }} USD</p>
+                            <p class='custom-package-left-popap-info-price-new'>{{ popap_product_three.price | money }} USD</p>
+                        </div>
+                        <product-form
+                        class="product-form"
+                        data-hide-errors="{{ gift_card_recipient_feature_active }}"
+                        data-section-id="{{ section.id }}"
+                        >
+                        <div class="product-form__error-message-wrapper" role="alert" hidden>
+                            <span class="svg-wrapper">
+                            {{- 'icon-error.svg' | inline_asset_content -}}
+                            </span>
+                            <span class="product-form__error-message"></span>
+                        </div>
+                        {%- form 'product',
+                            popap_product_three,
+                            id: product_form_id,
+                            class: 'form',
+                            novalidate: 'novalidate',
+                            data-type: 'add-to-cart-form'
+                        -%}
+
+                            <input
+                            type="hidden"
+                            name="id"
+                            value="{{ popap_product_three.selected_or_first_available_variant.id }}"
+                            {% if popap_product_three.selected_or_first_available_variant.available == false
+                                or quantity_rule_soldout
+                                or popap_product_three.selected_or_first_available_variant == null
+                            %}
+                                disabled
+                            {% endif %}
+                            class="product-variant-id"
+                            >
+                            <div class="product-form__buttons">
+                            {%- liquid
+                                assign check_against_inventory = true
+                                if popap_product_three.selected_or_first_available_variant.inventory_management != 'shopify' or popap_product_three.selected_or_first_available_variant.inventory_policy == 'continue'
+                                assign check_against_inventory = false
+                                endif
+                                if popap_product_three.selected_or_first_available_variant.quantity_rule.min > popap_product_three.selected_or_first_available_variant.inventory_quantity and check_against_inventory
+                                assign quantity_rule_soldout = true
+                                endif
+                            -%}
+                            <button
+                                id="ProductSubmitButton-{{ section_id }}"
+                                type="submit"
+                                name="add"
+                                class="product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
+                                {% if popap_product_three.selected_or_first_available_variant.available == false
+                                or quantity_rule_soldout
+                                or popap_product_three.selected_or_first_available_variant == null
+                                %}
+                                disabled
+                                {% endif %}
+                            >
+                                <span>
+                                {%- if popap_product_three.selected_or_first_available_variant == null -%}
+                                    {{ 'products.product.unavailable' | t }}
+                                {%- elsif popap_product_three.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
+                                    {{ 'products.product.sold_out' | t }}
+                                {%- else -%}
+                                    Save
+                                {%- endif -%}
+                                </span>
+                                {%- render 'loading-spinner' -%}
+                            </button>
+                            </div>
+                        {%- endform -%}
+                        </product-form>
+                    </div>
+                    <a href='{{ popap_product_three.url }}' class='custom-package-left-popap-1-more'>Read More</a>
+                    </div>
+                    <div class='custom-package-left-popap-mobile'>
+                        {{ section.settings.popap_text3 }}
+                    </div>
+                </div>
+                {% assign popap_product_four = section.settings.popap_product4 %}
+                <div class='custom-package-left-popap four'>
+                    <div class='custom-package-left-popap-desktop'>
+                    <h3>{{ popap_product_four.title }}</h3>
+                    <div class="custom-package-left-popap-info">
+                        <div class='custom-package-left-popap-info-price'>
+                            <p class='custom-package-left-popap-info-price-old'>{{ popap_product_four.compare_at_price | money }} USD</p>
+                            <p class='custom-package-left-popap-info-price-new'>{{ popap_product_four.price | money }} USD</p>
+                        </div>
+                        <product-form
+                        class="product-form"
+                        data-hide-errors="{{ gift_card_recipient_feature_active }}"
+                        data-section-id="{{ section.id }}"
+                        >
+                        <div class="product-form__error-message-wrapper" role="alert" hidden>
+                            <span class="svg-wrapper">
+                            {{- 'icon-error.svg' | inline_asset_content -}}
+                            </span>
+                            <span class="product-form__error-message"></span>
+                        </div>
+                        {%- form 'product',
+                            popap_product_four,
+                            id: product_form_id,
+                            class: 'form',
+                            novalidate: 'novalidate',
+                            data-type: 'add-to-cart-form'
+                        -%}
+
+                            <input
+                            type="hidden"
+                            name="id"
+                            value="{{ popap_product_four.selected_or_first_available_variant.id }}"
+                            {% if popap_product_four.selected_or_first_available_variant.available == false
+                                or quantity_rule_soldout
+                                or popap_product_four.selected_or_first_available_variant == null
+                            %}
+                                disabled
+                            {% endif %}
+                            class="product-variant-id"
+                            >
+                            <div class="product-form__buttons">
+                            {%- liquid
+                                assign check_against_inventory = true
+                                if popap_product_four.selected_or_first_available_variant.inventory_management != 'shopify' or popap_product_four.selected_or_first_available_variant.inventory_policy == 'continue'
+                                assign check_against_inventory = false
+                                endif
+                                if popap_product_four.selected_or_first_available_variant.quantity_rule.min > popap_product_four.selected_or_first_available_variant.inventory_quantity and check_against_inventory
+                                assign quantity_rule_soldout = true
+                                endif
+                            -%}
+                            <button
+                                id="ProductSubmitButton-{{ section_id }}"
+                                type="submit"
+                                name="add"
+                                class="product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
+                                {% if popap_product_four.selected_or_first_available_variant.available == false
+                                or quantity_rule_soldout
+                                or popap_product_four.selected_or_first_available_variant == null
+                                %}
+                                disabled
+                                {% endif %}
+                            >
+                                <span>
+                                {%- if popap_product_four.selected_or_first_available_variant == null -%}
+                                    {{ 'products.product.unavailable' | t }}
+                                {%- elsif popap_product_four.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
+                                    {{ 'products.product.sold_out' | t }}
+                                {%- else -%}
+                                    Save
+                                {%- endif -%}
+                                </span>
+                                {%- render 'loading-spinner' -%}
+                            </button>
+                            </div>
+                        {%- endform -%}
+                        </product-form>
+                    </div>
+                    <a href='{{ popap_product_four.url }}' class='custom-package-left-popap-1-more'>Read More</a>
+                    </div>
+                    <div class='custom-package-left-popap-mobile'>
+                        {{ section.settings.popap_text4 }}
+                    </div>
+                </div>
+                {% assign popap_product_five = section.settings.popap_product5 %}
+                <div class='custom-package-left-popap five'>
+                    <div class='custom-package-left-popap-desktop'>
+                    <h3>{{ popap_product_five.title }}</h3>
+                    <div class="custom-package-left-popap-info">
+                        <div class='custom-package-left-popap-info-price'>
+                            <p class='custom-package-left-popap-info-price-old'>{{ popap_product_five.compare_at_price | money }} USD</p>
+                            <p class='custom-package-left-popap-info-price-new'>{{ popap_product_five.price | money }} USD</p>
+                        </div>
+                        <product-form
+                        class="product-form"
+                        data-hide-errors="{{ gift_card_recipient_feature_active }}"
+                        data-section-id="{{ section.id }}"
+                        >
+                        <div class="product-form__error-message-wrapper" role="alert" hidden>
+                            <span class="svg-wrapper">
+                            {{- 'icon-error.svg' | inline_asset_content -}}
+                            </span>
+                            <span class="product-form__error-message"></span>
+                        </div>
+                        {%- form 'product',
+                            popap_product_five,
+                            id: product_form_id,
+                            class: 'form',
+                            novalidate: 'novalidate',
+                            data-type: 'add-to-cart-form'
+                        -%}
+
+                            <input
+                            type="hidden"
+                            name="id"
+                            value="{{ popap_product_five.selected_or_first_available_variant.id }}"
+                            {% if popap_product_five.selected_or_first_available_variant.available == false
+                                or quantity_rule_soldout
+                                or popap_product_five.selected_or_first_available_variant == null
+                            %}
+                                disabled
+                            {% endif %}
+                            class="product-variant-id"
+                            >
+                            <div class="product-form__buttons">
+                            {%- liquid
+                                assign check_against_inventory = true
+                                if popap_product_five.selected_or_first_available_variant.inventory_management != 'shopify' or popap_product_five.selected_or_first_available_variant.inventory_policy == 'continue'
+                                assign check_against_inventory = false
+                                endif
+                                if popap_product_five.selected_or_first_available_variant.quantity_rule.min > popap_product_five.selected_or_first_available_variant.inventory_quantity and check_against_inventory
+                                assign quantity_rule_soldout = true
+                                endif
+                            -%}
+                            <button
+                                id="ProductSubmitButton-{{ section_id }}"
+                                type="submit"
+                                name="add"
+                                class="product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
+                                {% if popap_product_five.selected_or_first_available_variant.available == false
+                                or quantity_rule_soldout
+                                or popap_product_five.selected_or_first_available_variant == null
+                                %}
+                                disabled
+                                {% endif %}
+                            >
+                                <span>
+                                {%- if popap_product_five.selected_or_first_available_variant == null -%}
+                                    {{ 'products.product.unavailable' | t }}
+                                {%- elsif popap_product_five.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
+                                    {{ 'products.product.sold_out' | t }}
+                                {%- else -%}
+                                    Save
+                                {%- endif -%}
+                                </span>
+                                {%- render 'loading-spinner' -%}
+                            </button>
+                            </div>
+                        {%- endform -%}
+                        </product-form>
+                    </div>
+                    <a href='{{ popap_product_five.url }}' class='custom-package-left-popap-1-more'>Read More</a>
+                    </div>
+                    <div class='custom-package-left-popap-mobile'>
+                        {{ section.settings.popap_text5 }}
+                    </div>
+                </div>
+                {% assign popap_product_six = section.settings.popap_product6 %}
+                <div class='custom-package-left-popap six'>
+                    <div class='custom-package-left-popap-desktop'>
+                    <h3>{{ popap_product_six.title }}</h3>
+                    <div class="custom-package-left-popap-info">
+                        <div class='custom-package-left-popap-info-price'>
+                            <p class='custom-package-left-popap-info-price-old'>{{ popap_product_six.compare_at_price | money }} USD</p>
+                            <p class='custom-package-left-popap-info-price-new'>{{ popap_product_six.price | money }} USD</p>
+                        </div>
+                        <product-form
+                        class="product-form"
+                        data-hide-errors="{{ gift_card_recipient_feature_active }}"
+                        data-section-id="{{ section.id }}"
+                        >
+                        <div class="product-form__error-message-wrapper" role="alert" hidden>
+                            <span class="svg-wrapper">
+                            {{- 'icon-error.svg' | inline_asset_content -}}
+                            </span>
+                            <span class="product-form__error-message"></span>
+                        </div>
+                        {%- form 'product',
+                            popap_product_six,
+                            id: product_form_id,
+                            class: 'form',
+                            novalidate: 'novalidate',
+                            data-type: 'add-to-cart-form'
+                        -%}
+
+                            <input
+                            type="hidden"
+                            name="id"
+                            value="{{ popap_product_six.selected_or_first_available_variant.id }}"
+                            {% if popap_product_six.selected_or_first_available_variant.available == false
+                                or quantity_rule_soldout
+                                or popap_product_six.selected_or_first_available_variant == null
+                            %}
+                                disabled
+                            {% endif %}
+                            class="product-variant-id"
+                            >
+                            <div class="product-form__buttons">
+                            {%- liquid
+                                assign check_against_inventory = true
+                                if popap_product_six.selected_or_first_available_variant.inventory_management != 'shopify' or popap_product_six.selected_or_first_available_variant.inventory_policy == 'continue'
+                                assign check_against_inventory = false
+                                endif
+                                if popap_product_six.selected_or_first_available_variant.quantity_rule.min > popap_product_six.selected_or_first_available_variant.inventory_quantity and check_against_inventory
+                                assign quantity_rule_soldout = true
+                                endif
+                            -%}
+                            <button
+                                id="ProductSubmitButton-{{ section_id }}"
+                                type="submit"
+                                name="add"
+                                class="product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
+                                {% if popap_product_six.selected_or_first_available_variant.available == false
+                                or quantity_rule_soldout
+                                or popap_product_six.selected_or_first_available_variant == null
+                                %}
+                                disabled
+                                {% endif %}
+                            >
+                                <span>
+                                {%- if popap_product_six.selected_or_first_available_variant == null -%}
+                                    {{ 'products.product.unavailable' | t }}
+                                {%- elsif popap_product_six.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
+                                    {{ 'products.product.sold_out' | t }}
+                                {%- else -%}
+                                    Save
+                                {%- endif -%}
+                                </span>
+                                {%- render 'loading-spinner' -%}
+                            </button>
+                            </div>
+                        {%- endform -%}
+                        </product-form>
+                    </div>
+                    <a href='{{ popap_product_six.url }}' class='custom-package-left-popap-1-more'>Read More</a>
+                    </div>
+                    <div class='custom-package-left-popap-mobile'>
+                        {{ section.settings.popap_text6 }}
+                    </div>
+                </div>
+                {% assign popap_product_seven = section.settings.popap_product7 %}
+                <div class='custom-package-left-popap seven'>
+                    <div class='custom-package-left-popap-desktop'>
+                    <h3>{{ popap_product_seven.title }}</h3>
+                    <div class="custom-package-left-popap-info">
+                        <div class='custom-package-left-popap-info-price'>
+                            <p class='custom-package-left-popap-info-price-old'>{{ popap_product_seven.compare_at_price | money }} USD</p>
+                            <p class='custom-package-left-popap-info-price-new'>{{ popap_product_seven.price | money }} USD</p>
+                        </div>
+                        <product-form
+                        class="product-form"
+                        data-hide-errors="{{ gift_card_recipient_feature_active }}"
+                        data-section-id="{{ section.id }}"
+                        >
+                        <div class="product-form__error-message-wrapper" role="alert" hidden>
+                            <span class="svg-wrapper">
+                            {{- 'icon-error.svg' | inline_asset_content -}}
+                            </span>
+                            <span class="product-form__error-message"></span>
+                        </div>
+                        {%- form 'product',
+                            popap_product_seven,
+                            id: product_form_id,
+                            class: 'form',
+                            novalidate: 'novalidate',
+                            data-type: 'add-to-cart-form'
+                        -%}
+
+                            <input
+                            type="hidden"
+                            name="id"
+                            value="{{ popap_product_seven.selected_or_first_available_variant.id }}"
+                            {% if popap_product_seven.selected_or_first_available_variant.available == false
+                                or quantity_rule_soldout
+                                or popap_product_seven.selected_or_first_available_variant == null
+                            %}
+                                disabled
+                            {% endif %}
+                            class="product-variant-id"
+                            >
+                            <div class="product-form__buttons">
+                            {%- liquid
+                                assign check_against_inventory = true
+                                if popap_product_seven.selected_or_first_available_variant.inventory_management != 'shopify' or popap_product_seven.selected_or_first_available_variant.inventory_policy == 'continue'
+                                assign check_against_inventory = false
+                                endif
+                                if popap_product_seven.selected_or_first_available_variant.quantity_rule.min > popap_product_seven.selected_or_first_available_variant.inventory_quantity and check_against_inventory
+                                assign quantity_rule_soldout = true
+                                endif
+                            -%}
+                            <button
+                                id="ProductSubmitButton-{{ section_id }}"
+                                type="submit"
+                                name="add"
+                                class="product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
+                                {% if popap_product_seven.selected_or_first_available_variant.available == false
+                                or quantity_rule_soldout
+                                or popap_product_seven.selected_or_first_available_variant == null
+                                %}
+                                disabled
+                                {% endif %}
+                            >
+                                <span>
+                                {%- if popap_product_seven.selected_or_first_available_variant == null -%}
+                                    {{ 'products.product.unavailable' | t }}
+                                {%- elsif popap_product_seven.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
+                                    {{ 'products.product.sold_out' | t }}
+                                {%- else -%}
+                                    Save
+                                {%- endif -%}
+                                </span>
+                                {%- render 'loading-spinner' -%}
+                            </button>
+                            </div>
+                        {%- endform -%}
+                        </product-form>
+                    </div>
+                    <a href='{{ popap_product_seven.url }}' class='custom-package-left-popap-1-more'>Read More</a>
+                    </div>
+                    <div class='custom-package-left-popap-mobile'>
+                        {{ section.settings.popap_text7 }}
+                    </div>
+                </div>
+                {% assign popap_product_eith = section.settings.popap_product8 %}
+                <div class='custom-package-left-popap eith'>
+                    <div class='custom-package-left-popap-desktop'>
+                    <h3>{{ popap_product_eith.title }}</h3>
+                    <div class="custom-package-left-popap-info">
+                        <div class='custom-package-left-popap-info-price'>
+                            <p class='custom-package-left-popap-info-price-old'>{{ popap_product_eith.compare_at_price | money }} USD</p>
+                            <p class='custom-package-left-popap-info-price-new'>{{ popap_product_eith.price | money }} USD</p>
+                        </div>
+                        <product-form
+                        class="product-form"
+                        data-hide-errors="{{ gift_card_recipient_feature_active }}"
+                        data-section-id="{{ section.id }}"
+                        >
+                        <div class="product-form__error-message-wrapper" role="alert" hidden>
+                            <span class="svg-wrapper">
+                            {{- 'icon-error.svg' | inline_asset_content -}}
+                            </span>
+                            <span class="product-form__error-message"></span>
+                        </div>
+                        {%- form 'product',
+                            popap_product_eith,
+                            id: product_form_id,
+                            class: 'form',
+                            novalidate: 'novalidate',
+                            data-type: 'add-to-cart-form'
+                        -%}
+
+                            <input
+                            type="hidden"
+                            name="id"
+                            value="{{ popap_product_eith.selected_or_first_available_variant.id }}"
+                            {% if popap_product_eith.selected_or_first_available_variant.available == false
+                                or quantity_rule_soldout
+                                or popap_product_eith.selected_or_first_available_variant == null
+                            %}
+                                disabled
+                            {% endif %}
+                            class="product-variant-id"
+                            >
+                            <div class="product-form__buttons">
+                            {%- liquid
+                                assign check_against_inventory = true
+                                if popap_product_eith.selected_or_first_available_variant.inventory_management != 'shopify' or popap_product_eith.selected_or_first_available_variant.inventory_policy == 'continue'
+                                assign check_against_inventory = false
+                                endif
+                                if popap_product_eith.selected_or_first_available_variant.quantity_rule.min > popap_product_eith.selected_or_first_available_variant.inventory_quantity and check_against_inventory
+                                assign quantity_rule_soldout = true
+                                endif
+                            -%}
+                            <button
+                                id="ProductSubmitButton-{{ section_id }}"
+                                type="submit"
+                                name="add"
+                                class="product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
+                                {% if popap_product_eith.selected_or_first_available_variant.available == false
+                                or quantity_rule_soldout
+                                or popap_product_eith.selected_or_first_available_variant == null
+                                %}
+                                disabled
+                                {% endif %}
+                            >
+                                <span>
+                                {%- if popap_product_eith.selected_or_first_available_variant == null -%}
+                                    {{ 'products.product.unavailable' | t }}
+                                {%- elsif popap_product_eith.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
+                                    {{ 'products.product.sold_out' | t }}
+                                {%- else -%}
+                                    Save
+                                {%- endif -%}
+                                </span>
+                                {%- render 'loading-spinner' -%}
+                            </button>
+                            </div>
+                        {%- endform -%}
+                        </product-form>
+                    </div>
+                    <a href='{{ popap_product_eith.url }}' class='custom-package-left-popap-1-more'>Read More</a>
+                    </div>
+                    <div class='custom-package-left-popap-mobile'>
+                        {{ section.settings.popap_text8 }}
+                    </div>
+                </div>
+                {% assign popap_product_nine = section.settings.popap_product9 %}
+                <div class='custom-package-left-popap nine'>
+                    <div class='custom-package-left-popap-desktop'>
+                    <h3>{{ popap_product_nine.title }}</h3>
+                    <div class="custom-package-left-popap-info">
+                        <div class='custom-package-left-popap-info-price'>
+                            <p class='custom-package-left-popap-info-price-old'>{{ popap_product_nine.compare_at_price | money }} USD</p>
+                            <p class='custom-package-left-popap-info-price-new'>{{ popap_product_nine.price | money }} USD</p>
+                        </div>
+                        <product-form
+                        class="product-form"
+                        data-hide-errors="{{ gift_card_recipient_feature_active }}"
+                        data-section-id="{{ section.id }}"
+                        >
+                        <div class="product-form__error-message-wrapper" role="alert" hidden>
+                            <span class="svg-wrapper">
+                            {{- 'icon-error.svg' | inline_asset_content -}}
+                            </span>
+                            <span class="product-form__error-message"></span>
+                        </div>
+                        {%- form 'product',
+                            popap_product_nine,
+                            id: product_form_id,
+                            class: 'form',
+                            novalidate: 'novalidate',
+                            data-type: 'add-to-cart-form'
+                        -%}
+
+                            <input
+                            type="hidden"
+                            name="id"
+                            value="{{ popap_product_nine.selected_or_first_available_variant.id }}"
+                            {% if popap_product_nine.selected_or_first_available_variant.available == false
+                                or quantity_rule_soldout
+                                or popap_product_nine.selected_or_first_available_variant == null
+                            %}
+                                disabled
+                            {% endif %}
+                            class="product-variant-id"
+                            >
+                            <div class="product-form__buttons">
+                            {%- liquid
+                                assign check_against_inventory = true
+                                if popap_product_nine.selected_or_first_available_variant.inventory_management != 'shopify' or popap_product_nine.selected_or_first_available_variant.inventory_policy == 'continue'
+                                assign check_against_inventory = false
+                                endif
+                                if popap_product_nine.selected_or_first_available_variant.quantity_rule.min > popap_product_nine.selected_or_first_available_variant.inventory_quantity and check_against_inventory
+                                assign quantity_rule_soldout = true
+                                endif
+                            -%}
+                            <button
+                                id="ProductSubmitButton-{{ section_id }}"
+                                type="submit"
+                                name="add"
+                                class="product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
+                                {% if popap_product_nine.selected_or_first_available_variant.available == false
+                                or quantity_rule_soldout
+                                or popap_product_nine.selected_or_first_available_variant == null
+                                %}
+                                disabled
+                                {% endif %}
+                            >
+                                <span>
+                                {%- if popap_product_nine.selected_or_first_available_variant == null -%}
+                                    {{ 'products.product.unavailable' | t }}
+                                {%- elsif popap_product_nine.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
+                                    {{ 'products.product.sold_out' | t }}
+                                {%- else -%}
+                                    Save
+                                {%- endif -%}
+                                </span>
+                                {%- render 'loading-spinner' -%}
+                            </button>
+                            </div>
+                        {%- endform -%}
+                        </product-form>
+                    </div>
+                    <a href='{{ popap_product_nine.url }}' class='custom-package-left-popap-1-more'>Read More</a>
+                    </div>
+                    <div class='custom-package-left-popap-mobile'>
+                        {{ section.settings.popap_text9 }}
+                    </div>
+                </div>
+                {% assign popap_product_ten = section.settings.popap_product10 %}
+                <div class='custom-package-left-popap ten'>
+                    <div class='custom-package-left-popap-desktop'>
+                    <h3>{{ popap_product_ten.title }}</h3>
+                    <div class="custom-package-left-popap-info">
+                        <div class='custom-package-left-popap-info-price'>
+                            <p class='custom-package-left-popap-info-price-old'>{{ popap_product_ten.compare_at_price | money }} USD</p>
+                            <p class='custom-package-left-popap-info-price-new'>{{ popap_product_ten.price | money }} USD</p>
+                        </div>
+                        <product-form
+                        class="product-form"
+                        data-hide-errors="{{ gift_card_recipient_feature_active }}"
+                        data-section-id="{{ section.id }}"
+                        >
+                        <div class="product-form__error-message-wrapper" role="alert" hidden>
+                            <span class="svg-wrapper">
+                            {{- 'icon-error.svg' | inline_asset_content -}}
+                            </span>
+                            <span class="product-form__error-message"></span>
+                        </div>
+                        {%- form 'product',
+                            popap_product_ten,
+                            id: product_form_id,
+                            class: 'form',
+                            novalidate: 'novalidate',
+                            data-type: 'add-to-cart-form'
+                        -%}
+
+                            <input
+                            type="hidden"
+                            name="id"
+                            value="{{ popap_product_ten.selected_or_first_available_variant.id }}"
+                            {% if popap_product_ten.selected_or_first_available_variant.available == false
+                                or quantity_rule_soldout
+                                or popap_product_ten.selected_or_first_available_variant == null
+                            %}
+                                disabled
+                            {% endif %}
+                            class="product-variant-id"
+                            >
+                            <div class="product-form__buttons">
+                            {%- liquid
+                                assign check_against_inventory = true
+                                if popap_product_ten.selected_or_first_available_variant.inventory_management != 'shopify' or popap_product_ten.selected_or_first_available_variant.inventory_policy == 'continue'
+                                assign check_against_inventory = false
+                                endif
+                                if popap_product_ten.selected_or_first_available_variant.quantity_rule.min > popap_product_ten.selected_or_first_available_variant.inventory_quantity and check_against_inventory
+                                assign quantity_rule_soldout = true
+                                endif
+                            -%}
+                            <button
+                                id="ProductSubmitButton-{{ section_id }}"
+                                type="submit"
+                                name="add"
+                                class="product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
+                                {% if popap_product_ten.selected_or_first_available_variant.available == false
+                                or quantity_rule_soldout
+                                or popap_product_ten.selected_or_first_available_variant == null
+                                %}
+                                disabled
+                                {% endif %}
+                            >
+                                <span>
+                                {%- if popap_product_ten.selected_or_first_available_variant == null -%}
+                                    {{ 'products.product.unavailable' | t }}
+                                {%- elsif popap_product_ten.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
+                                    {{ 'products.product.sold_out' | t }}
+                                {%- else -%}
+                                    Save
+                                {%- endif -%}
+                                </span>
+                                {%- render 'loading-spinner' -%}
+                            </button>
+                            </div>
+                        {%- endform -%}
+                        </product-form>
+                    </div>
+                    <a href='{{ popap_product_ten.url }}' class='custom-package-left-popap-1-more'>Read More</a>
+                    </div>
+                    <div class='custom-package-left-popap-mobile'>
+                        {{ section.settings.popap_text10 }}
+                    </div>
+                </div>
+                {% assign popap_product_eleven = section.settings.popap_product11 %}
+                <div class='custom-package-left-popap eleven'>
+                    <div class='custom-package-left-popap-desktop'>
+                    <h3>{{ popap_product_eleven.title }}</h3>
+                    <div class="custom-package-left-popap-info">
+                        <div class='custom-package-left-popap-info-price'>
+                            <p class='custom-package-left-popap-info-price-old'>{{ popap_product_eleven.compare_at_price | money }} USD</p>
+                            <p class='custom-package-left-popap-info-price-new'>{{ popap_product_eleven.price | money }} USD</p>
+                        </div>
+                        <product-form
+                        class="product-form"
+                        data-hide-errors="{{ gift_card_recipient_feature_active }}"
+                        data-section-id="{{ section.id }}"
+                        >
+                        <div class="product-form__error-message-wrapper" role="alert" hidden>
+                            <span class="svg-wrapper">
+                            {{- 'icon-error.svg' | inline_asset_content -}}
+                            </span>
+                            <span class="product-form__error-message"></span>
+                        </div>
+                        {%- form 'product',
+                            popap_product_eleven,
+                            id: product_form_id,
+                            class: 'form',
+                            novalidate: 'novalidate',
+                            data-type: 'add-to-cart-form'
+                        -%}
+
+                            <input
+                            type="hidden"
+                            name="id"
+                            value="{{ popap_product_eleven.selected_or_first_available_variant.id }}"
+                            {% if popap_product_eleven.selected_or_first_available_variant.available == false
+                                or quantity_rule_soldout
+                                or popap_product_eleven.selected_or_first_available_variant == null
+                            %}
+                                disabled
+                            {% endif %}
+                            class="product-variant-id"
+                            >
+                            <div class="product-form__buttons">
+                            {%- liquid
+                                assign check_against_inventory = true
+                                if popap_product_eleven.selected_or_first_available_variant.inventory_management != 'shopify' or popap_product_eleven.selected_or_first_available_variant.inventory_policy == 'continue'
+                                assign check_against_inventory = false
+                                endif
+                                if popap_product_eleven.selected_or_first_available_variant.quantity_rule.min > popap_product_eleven.selected_or_first_available_variant.inventory_quantity and check_against_inventory
+                                assign quantity_rule_soldout = true
+                                endif
+                            -%}
+                            <button
+                                id="ProductSubmitButton-{{ section_id }}"
+                                type="submit"
+                                name="add"
+                                class="product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
+                                {% if popap_product_eleven.selected_or_first_available_variant.available == false
+                                or quantity_rule_soldout
+                                or popap_product_eleven.selected_or_first_available_variant == null
+                                %}
+                                disabled
+                                {% endif %}
+                            >
+                                <span>
+                                {%- if popap_product_eleven.selected_or_first_available_variant == null -%}
+                                    {{ 'products.product.unavailable' | t }}
+                                {%- elsif popap_product_eleven.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
+                                    {{ 'products.product.sold_out' | t }}
+                                {%- else -%}
+                                    Save
+                                {%- endif -%}
+                                </span>
+                                {%- render 'loading-spinner' -%}
+                            </button>
+                            </div>
+                        {%- endform -%}
+                        </product-form>
+                    </div>
+                    <a href='{{ popap_product_eleven.url }}' class='custom-package-left-popap-1-more'>Read More</a>
+                    </div>
+                    <div class='custom-package-left-popap-mobile'>
+                        {{ section.settings.popap_text11 }}
+                    </div>
+                </div>
             </div>
             <div class='custom-package-right'>
                 <h2>{{ package_product.title }}</h2>
@@ -45,12 +960,154 @@
                     <p class='custom-package-right-price-new'>{{ package_product.price | money}} USD</p>
                     <p class='custom-package-right-price-old'>{{ package_product.compare_at_price | money}} USD</p>
                 </div>
+                <div class='custom-package-right-buttons'>
+                    <product-form
+                    class="product-form"
+                    data-hide-errors="{{ gift_card_recipient_feature_active }}"
+                    data-section-id="{{ section.id }}"
+                    >
+                    <div class="product-form__error-message-wrapper" role="alert" hidden>
+                        <span class="svg-wrapper">
+                        {{- 'icon-error.svg' | inline_asset_content -}}
+                        </span>
+                        <span class="product-form__error-message"></span>
+                    </div>
+                    {%- form 'product',
+                        package_product,
+                        id: product_form_id,
+                        class: 'form',
+                        novalidate: 'novalidate',
+                        data-type: 'add-to-cart-form'
+                    -%}
+
+                        <input
+                        type="hidden"
+                        name="id"
+                        value="{{ package_product.selected_or_first_available_variant.id }}"
+                        {% if package_product.selected_or_first_available_variant.available == false
+                            or quantity_rule_soldout
+                            or package_product.selected_or_first_available_variant == null
+                        %}
+                            disabled
+                        {% endif %}
+                        class="product-variant-id"
+                        >
+                        <quantity-input class="quantity cart-quantity">
+                            <button class="quantity__button" name="minus" type="button">
+                                <span class="visually-hidden">
+                                {{- 'products.product.quantity.decrease' | t: product: package_product.title | escape -}}
+                                </span>
+                                <span class="svg-wrapper">{{ 'icon-minus.svg' | inline_asset_content }}</span>
+                            </button>
+                            <input
+                                class="quantity__input"
+                                data-quantity-variant-id="{{ package_product.id }}"
+                                type="number"
+                                name="quantity"
+                                {% # theme-check-disable %}
+                                value="{{ cart | item_count_for_variant: package_product.id }}"
+                                data-cart-quantity="{{ cart | item_count_for_variant: package_product.id }}"
+                                min="{{ min }}"
+                                data-min="{{ package_product.quantity_rule.min }}"
+                                {% if package_product.quantity_rule.max != null %}
+                                max="{{ package_product.quantity_rule.max }}"
+                                {% endif %}
+                                step="{{ package_product.quantity_rule.increment }}"
+                                {% # theme-check-enable %}
+                                aria-label="{{ 'products.product.quantity.input_label' | t: product: package_product.title | escape }}"
+                                id="Quantity-{{ package_product.id }}"
+                                data-index="{{ package_product.id }}"
+                            >
+                            <button class="quantity__button" name="plus" type="button">
+                                <span class="visually-hidden">
+                                {{- 'products.product.quantity.increase' | t: product: package_product.title | escape -}}
+                                </span>
+                                <span class="svg-wrapper">{{ 'icon-plus.svg' | inline_asset_content }}</span>
+                            </button>
+                            {%- render 'progress-bar' -%}
+                        </quantity-input>
+                        <div class="product-form__buttons">
+                        {%- liquid
+                            assign check_against_inventory = true
+                            if package_product.selected_or_first_available_variant.inventory_management != 'shopify' or package_product.selected_or_first_available_variant.inventory_policy == 'continue'
+                            assign check_against_inventory = false
+                            endif
+                            if package_product.selected_or_first_available_variant.quantity_rule.min > package_product.selected_or_first_available_variant.inventory_quantity and check_against_inventory
+                            assign quantity_rule_soldout = true
+                            endif
+                        -%}
+                        <button
+                            style="display: none;"
+                            id="ProductSubmitButton-{{ section_id }}"
+                            type="submit"
+                            name="add"
+                            class="product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
+                            {% if package_product.selected_or_first_available_variant.available == false
+                            or quantity_rule_soldout
+                            or package_product.selected_or_first_available_variant == null
+                            %}
+                            disabled
+                            {% endif %}
+                        >
+                            <span>
+                            {%- if package_product.selected_or_first_available_variant == null -%}
+                                {{ 'products.product.unavailable' | t }}
+                            {%- elsif package_product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
+                                {{ 'products.product.sold_out' | t }}
+                            {%- else -%}
+                                {{ 'products.product.add_to_cart' | t }}
+                            {%- endif -%}
+                            </span>
+                            {%- render 'loading-spinner' -%}
+                        </button>
+                        </div>
+                    {%- endform -%}
+                    </product-form>
+                </div>
                 <a class='custom-package-right-link' href='{{ package_product.url }}'>View product details</a>
             </div>
         </div>
     </div>
 </section>
+<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const rects = document.querySelectorAll('rect');
+  const popups = document.querySelectorAll('.custom-package-left-popap');
 
+  rects.forEach(rect => {
+    rect.addEventListener('mouseenter', () => {
+      popups.forEach(popup => popup.classList.remove('active'));
+
+      const rectClass = rect.classList[0];
+      const targetPopup = document.querySelector(`.custom-package-left-popap.${rectClass}`);
+      if (targetPopup) {
+        targetPopup.classList.add('active');
+      }
+    });
+
+    rect.addEventListener('mouseleave', () => {
+      const rectClass = rect.classList[0];
+      const targetPopup = document.querySelector(`.custom-package-left-popap.${rectClass}`);
+      if (targetPopup) {
+        targetPopup.classList.remove('active');
+      }
+    });
+
+    const targetPopup = document.querySelector(`.custom-package-left-popap.${rect.classList[0]}`);
+    if (targetPopup) {
+      targetPopup.addEventListener('mouseenter', () => {
+        targetPopup.classList.add('active');
+      });
+
+      targetPopup.addEventListener('mouseleave', () => {
+        targetPopup.classList.remove('active');
+      });
+    }
+  });
+});
+
+</script>
 {% schema %}
   {
     "name": "Custom Package",
@@ -64,6 +1121,116 @@
     "type": "textarea",
     "id": "description",
     "label": "Description"
+    },
+    {
+    "type": "product",
+    "id": "popap_product1",
+    "label": "Popap Product 1"
+    },
+    {
+    "type": "richtext",
+    "id": "popap_text1",
+    "label": "Popap Text 1"
+    },
+    {
+    "type": "product",
+    "id": "popap_product2",
+    "label": "Popap Product 2"
+    },
+    {
+    "type": "richtext",
+    "id": "popap_text2",
+    "label": "Popap Text 2"
+    },
+    {
+    "type": "product",
+    "id": "popap_product3",
+    "label": "Popap Product 3"
+    },
+    {
+    "type": "richtext",
+    "id": "popap_text3",
+    "label": "Popap Text 3"
+    },
+    {
+    "type": "product",
+    "id": "popap_product4",
+    "label": "Popap Product 4"
+    },
+    {
+    "type": "richtext",
+    "id": "popap_text4",
+    "label": "Popap Text 4"
+    },
+    {
+    "type": "product",
+    "id": "popap_product5",
+    "label": "Popap Product 5"
+    },
+    {
+    "type": "richtext",
+    "id": "popap_text5",
+    "label": "Popap Text 5"
+    },
+    {
+    "type": "product",
+    "id": "popap_product6",
+    "label": "Popap Product 6"
+    },
+    {
+    "type": "richtext",
+    "id": "popap_text6",
+    "label": "Popap Text 6"
+    },
+    {
+    "type": "product",
+    "id": "popap_product7",
+    "label": "Popap Product 7"
+    },
+    {
+    "type": "richtext",
+    "id": "popap_text7",
+    "label": "Popap Text 7"
+    },
+    {
+    "type": "product",
+    "id": "popap_product8",
+    "label": "Popap Product 8"
+    },
+    {
+    "type": "richtext",
+    "id": "popap_text8",
+    "label": "Popap Text 8"
+    },
+    {
+    "type": "product",
+    "id": "popap_product9",
+    "label": "Popap Product 9"
+    },
+    {
+    "type": "richtext",
+    "id": "popap_text9",
+    "label": "Popap Text 9"
+    },
+    {
+    "type": "product",
+    "id": "popap_product10",
+    "label": "Popap Product 10"
+    },
+    {
+    "type": "richtext",
+    "id": "popap_text10",
+    "label": "Popap Text 10"
+    },
+    {
+    "type": "product",
+    "id": "popap_product11",
+    "label": "Popap Product 11"
+    },
+    {
+    "type": "richtext",
+    "id": "popap_text11",
+    "label": "Popap Text 11"
     },
     ],
     "blocks": [

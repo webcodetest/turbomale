@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "name": "t:sections.header.name",
   "type": "header",
@@ -20,26 +11,391 @@
         "code": "TURBOPROMO",
         "link_text": "shop now",
         "link_url": "",
-        "timer_deadline": "2024-12-31T23:59:59"
+        "timer_deadline": "2025-01-06T23:59:59"
       }
     },
     "header": {
       "type": "header",
+      "blocks": {
+        "submenu_left_NyxCjC": {
+          "type": "submenu_left",
+          "settings": {
+            "text": "#SHOP ALL",
+            "url": "shopify:\/\/collections"
+          }
+        },
+        "submenu_left_QGkAeh": {
+          "type": "submenu_left",
+          "settings": {
+            "text": "#BEST SELLERS",
+            "url": ""
+          }
+        },
+        "submenu_left_8gXPWM": {
+          "type": "submenu_left",
+          "settings": {
+            "text": "#TRENDING",
+            "url": ""
+          }
+        },
+        "submenu_left_EpVd9J": {
+          "type": "submenu_left",
+          "settings": {
+            "text": "#SALE",
+            "url": ""
+          }
+        },
+        "submenu_left_bPn6PM": {
+          "type": "submenu_left",
+          "settings": {
+            "text": "#FOR BEGINNERS",
+            "url": ""
+          }
+        },
+        "submenu_left_9cYMRD": {
+          "type": "submenu_left",
+          "settings": {
+            "text": "#FOR PROFESSIONALS",
+            "url": ""
+          }
+        },
+        "submenu_left_wRGgPF": {
+          "type": "submenu_left",
+          "settings": {
+            "text": "#FOR PROFESSIONALS",
+            "url": ""
+          }
+        },
+        "submenu_center_qVgfxc": {
+          "type": "submenu_center",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/box_5_1.svg",
+            "image_alt": "",
+            "title": "Enlargement Packages",
+            "item_menu": "big-submenu-1"
+          }
+        },
+        "submenu_center_NT7a8X": {
+          "type": "submenu_center",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/submenu2.svg",
+            "image_alt": "",
+            "title": "Extenders",
+            "item_menu": "big-submenu-2"
+          }
+        },
+        "submenu_center_WQ3YGP": {
+          "type": "submenu_center",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/submenu3.svg",
+            "image_alt": "",
+            "title": "Stretchers",
+            "item_menu": "big-submenu-3"
+          }
+        },
+        "submenu_center_tMMb7C": {
+          "type": "submenu_center",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/submenu4.svg",
+            "image_alt": "",
+            "title": "Sexual Wellness",
+            "item_menu": "big-submenu-4"
+          }
+        },
+        "submenu_center_6NDLmW": {
+          "type": "submenu_center",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/submenu5.svg",
+            "image_alt": "",
+            "title": "Pumps",
+            "item_menu": "big-submenu-5"
+          }
+        },
+        "submenu_center_TymCCk": {
+          "type": "submenu_center",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/submenu6.svg",
+            "image_alt": "",
+            "title": "Accessories",
+            "item_menu": "big-submenu-6"
+          }
+        },
+        "submenu_right_kMfLF3": {
+          "type": "submenu_right",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_62.webp",
+            "image_alt": "",
+            "url": "#"
+          }
+        },
+        "submenu_right_L6Gdh3": {
+          "type": "submenu_right",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_69_50416a3b-1c5b-4f8d-8de0-876d33c58fa0.webp",
+            "image_alt": "",
+            "url": "#"
+          }
+        },
+        "submenu2_nAe9yf": {
+          "type": "submenu2",
+          "settings": {
+            "text": "About Us \/ Our Story",
+            "url": "shopify:\/\/pages\/about-us",
+            "soon": false
+          }
+        },
+        "submenu2_z7r8hW": {
+          "type": "submenu2",
+          "settings": {
+            "text": "Why TurboMale?",
+            "url": "",
+            "soon": true
+          }
+        },
+        "submenu2_KzCKAz": {
+          "type": "submenu2",
+          "settings": {
+            "text": "Our Quality",
+            "url": "#",
+            "soon": false
+          }
+        },
+        "submenu2_neHQGz": {
+          "type": "submenu2",
+          "settings": {
+            "text": "Our Process",
+            "url": "#",
+            "soon": false
+          }
+        },
+        "submenu2_mg7XNC": {
+          "type": "submenu2",
+          "settings": {
+            "text": "Our Ambassadors",
+            "url": "#",
+            "soon": false
+          }
+        },
+        "submenu3_M43CkP": {
+          "type": "submenu3",
+          "settings": {
+            "text": "How it works",
+            "url": "#",
+            "soon": false
+          }
+        },
+        "submenu3_BJFjfj": {
+          "type": "submenu3",
+          "settings": {
+            "text": "FAQ",
+            "url": "shopify:\/\/pages\/faq",
+            "soon": false
+          }
+        },
+        "submenu3_MMqBWg": {
+          "type": "submenu3",
+          "settings": {
+            "text": "Buyer`s Guide",
+            "url": "#",
+            "soon": false
+          }
+        },
+        "submenu3_mx3pWb": {
+          "type": "submenu3",
+          "settings": {
+            "text": "Product Instructions",
+            "url": "",
+            "soon": false
+          }
+        },
+        "submenu3_P8Ewnb": {
+          "type": "submenu3",
+          "settings": {
+            "text": "Privacy Policy",
+            "url": "shopify:\/\/pages\/privacy-policy",
+            "soon": false
+          }
+        },
+        "submenu3_fFMCd4": {
+          "type": "submenu3",
+          "settings": {
+            "text": "Terms and Conditions",
+            "url": "shopify:\/\/pages\/terms-of-service",
+            "soon": false
+          }
+        },
+        "submenu3_xa7tEV": {
+          "type": "submenu3",
+          "settings": {
+            "text": "Shipping info",
+            "url": "shopify:\/\/pages\/shipping-policy",
+            "soon": false
+          }
+        },
+        "submenu3_Jf9UyV": {
+          "type": "submenu3",
+          "settings": {
+            "text": "Reddit Users Sharing",
+            "url": "",
+            "soon": true
+          }
+        },
+        "submenu4_kgr3Gr": {
+          "type": "submenu4",
+          "settings": {
+            "text": "Blog",
+            "url": "",
+            "soon": true
+          }
+        },
+        "submenu4_UL8N3g": {
+          "type": "submenu4",
+          "settings": {
+            "text": "Customer Reviews (+1700)",
+            "url": "",
+            "soon": true
+          }
+        },
+        "submenu4_eBYyrA": {
+          "type": "submenu4",
+          "settings": {
+            "text": "Proof",
+            "url": "",
+            "soon": true
+          }
+        },
+        "submenu4_ArJi98": {
+          "type": "submenu4",
+          "settings": {
+            "text": "Reddit Users Sharing",
+            "url": "",
+            "soon": true
+          }
+        },
+        "submenu4_JUYPBa": {
+          "type": "submenu4",
+          "settings": {
+            "text": "What you can gain",
+            "url": "",
+            "soon": true
+          }
+        },
+        "submenu4_njPRen": {
+          "type": "submenu4",
+          "settings": {
+            "text": "TurboMale Club",
+            "url": "",
+            "soon": true
+          }
+        },
+        "submenu4_CCreLx": {
+          "type": "submenu4",
+          "settings": {
+            "text": "TurboMale`s Knowledge",
+            "url": "#",
+            "soon": false
+          }
+        },
+        "submenu4_GhjYm3": {
+          "type": "submenu4",
+          "settings": {
+            "text": "Center",
+            "url": "",
+            "soon": true
+          }
+        },
+        "submenu5_3ikgLg": {
+          "type": "submenu5",
+          "settings": {
+            "text": "Contact Us",
+            "url": "shopify:\/\/pages\/contact",
+            "soon": false
+          }
+        },
+        "submenu5_DUKcPy": {
+          "type": "submenu5",
+          "settings": {
+            "text": "Privacy Policy",
+            "url": "shopify:\/\/pages\/privacy-policy",
+            "soon": false
+          }
+        },
+        "submenu5_fUAWFU": {
+          "type": "submenu5",
+          "settings": {
+            "text": "Terms and Conditions",
+            "url": "shopify:\/\/pages\/terms-of-service",
+            "soon": false
+          }
+        },
+        "submenu5_hNPTQk": {
+          "type": "submenu5",
+          "settings": {
+            "text": "Affialiate Program",
+            "url": "#",
+            "soon": false
+          }
+        },
+        "submenu5_DMhTqY": {
+          "type": "submenu5",
+          "settings": {
+            "text": "Become and Ambassador",
+            "url": "#",
+            "soon": false
+          }
+        }
+      },
+      "block_order": [
+        "submenu_left_NyxCjC",
+        "submenu_left_QGkAeh",
+        "submenu_left_8gXPWM",
+        "submenu_left_EpVd9J",
+        "submenu_left_bPn6PM",
+        "submenu_left_9cYMRD",
+        "submenu_left_wRGgPF",
+        "submenu_center_qVgfxc",
+        "submenu_center_NT7a8X",
+        "submenu_center_WQ3YGP",
+        "submenu_center_tMMb7C",
+        "submenu_center_6NDLmW",
+        "submenu_center_TymCCk",
+        "submenu_right_kMfLF3",
+        "submenu_right_L6Gdh3",
+        "submenu2_nAe9yf",
+        "submenu2_z7r8hW",
+        "submenu2_KzCKAz",
+        "submenu2_neHQGz",
+        "submenu2_mg7XNC",
+        "submenu3_M43CkP",
+        "submenu3_BJFjfj",
+        "submenu3_MMqBWg",
+        "submenu3_mx3pWb",
+        "submenu3_P8Ewnb",
+        "submenu3_fFMCd4",
+        "submenu3_xa7tEV",
+        "submenu3_Jf9UyV",
+        "submenu4_kgr3Gr",
+        "submenu4_UL8N3g",
+        "submenu4_eBYyrA",
+        "submenu4_ArJi98",
+        "submenu4_JUYPBa",
+        "submenu4_njPRen",
+        "submenu4_CCreLx",
+        "submenu4_GhjYm3",
+        "submenu5_3ikgLg",
+        "submenu5_DUKcPy",
+        "submenu5_fUAWFU",
+        "submenu5_hNPTQk",
+        "submenu5_DMhTqY"
+      ],
       "settings": {
-        "logo_position": "middle-left",
-        "menu": "main-menu",
-        "menu_type_desktop": "dropdown",
-        "sticky_header_type": "on-scroll-up",
-        "show_line_separator": true,
-        "color_scheme": "scheme-1",
-        "menu_color_scheme": "scheme-1",
-        "enable_country_selector": true,
-        "enable_language_selector": true,
-        "enable_customer_avatar": true,
-        "mobile_logo_position": "center",
-        "margin_bottom": 0,
-        "padding_top": 20,
-        "padding_bottom": 20
+        "logo": "shopify:\/\/shop_images\/Logo_b37fd625-0870-4bdd-8ecc-75ac1ab1fa72.svg",
+        "menu_name1": "Shop",
+        "menu_name2": "Brand",
+        "menu_name3": "Learn more",
+        "menu_name4": "Community",
+        "menu_name5": "Support",
+        "flag": "shopify:\/\/shop_images\/Flag_USA.svg"
       }
     }
   },

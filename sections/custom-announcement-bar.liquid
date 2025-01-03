@@ -3,7 +3,7 @@
         <div class='custom-announcement-wrapper'>
             <img src="{{ section.settings.image | img_url: 'master' }}" alt='flag'>
             <p class='custom-announcement-sale'>{{ section.settings.text_sale }}</p>
-            <p class='custom-announcement-code'>{{ section.settings.text_code }} <span>{{ section.settings.code }}</span></p>
+            <p class='custom-announcement-code'>{{ section.settings.text_code }} <span class='copy-text'>{{ section.settings.code }}</span></p>
             <div class='custom-announcement-timer' data-deadline="{{ section.settings.timer_deadline }}">
                 <p class='hour'>00</p>
                 <span>h :</span>
@@ -31,17 +31,30 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        const hours = Math.floor((timeRemaining / (1000 * 60 * 60)) % 24);
+        const totalHours = Math.floor(timeRemaining / (1000 * 60 * 60));
         const minutes = Math.floor((timeRemaining / (1000 * 60)) % 60);
         const seconds = Math.floor((timeRemaining / 1000) % 60);
 
-        timerElement.querySelector(".hour").textContent = String(hours).padStart(2, "0");
+        timerElement.querySelector(".hour").textContent = String(totalHours).padStart(2, "0");
         timerElement.querySelector(".minute").textContent = String(minutes).padStart(2, "0");
         timerElement.querySelector(".second").textContent = String(seconds).padStart(2, "0");
     }
 
     const timerInterval = setInterval(updateTimer, 1000);
     updateTimer();
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const copyText = document.querySelector('.copy-text');
+
+    copyText.addEventListener('click', () => {
+        const textToCopy = copyText.textContent || copyText.innerText;
+        navigator.clipboard.writeText(textToCopy).then(() => {
+            alert('Copy!');
+        }).catch(err => {
+            console.error('Error: ', err);
+        });
+    });
 });
 </script>
 {% schema %}
