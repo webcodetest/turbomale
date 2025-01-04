@@ -2426,6 +2426,10 @@ ul {
   }
 }
 
+.custom-package-right {
+  max-width: 560px;
+}
+
 .custom-package-right h2 {
   color: #05060b;
   font-family: "Proxima Nova";
