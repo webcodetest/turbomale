@@ -9,12 +9,12 @@
                     <div id="notification" style="display: none; opacity: 0; transform: translateX(-50%) scale(0.9);">Copied!</div>
                 </div>
             </div>
-            <div class='custom-announcement-timer' data-deadline="{{ section.settings.timer_deadline }}">
-                <p class='hour'>00</p>
+            <div class='custom-announcement-timer'>
+                <p class='hour'>{{ section.settings.hour }}</p>
                 <span>h :</span>
-                <p class='minute'>00</p>
+                <p class='minute'>{{ section.settings.minute }}</p>
                 <span>m :</span>
-                <p class='second'>00</p>
+                <p class='second'>{{ section.settings.second }}</p>
                 <span>s</span>
             </div>
             <a href='{{ section.settings.link_url }}'>{{ section.settings.link_text }}</a>
@@ -23,30 +23,79 @@
 </section>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-    const timerElement = document.querySelector(".custom-announcement-timer");
-    const deadline = new Date(timerElement.dataset.deadline);
+    const timerSelector = ".custom-announcement-timer";
+    const hourElement = document.querySelector(`${timerSelector} .hour`);
+    const minuteElement = document.querySelector(`${timerSelector} .minute`);
+    const secondElement = document.querySelector(`${timerSelector} .second`);
+
+    let hours, minutes, seconds;
+
+    const initialHours = 23; 
+    const initialMinutes = 59;
+    const initialSeconds = 59;
+
+    function saveEndTime() {
+        const totalMilliseconds = (hours * 60 * 60 + minutes * 60 + seconds) * 1000;
+        localStorage.setItem("timerEndTime", Date.now() + totalMilliseconds);
+    }
+
+    function resetTimer() {
+        hours = initialHours;
+        minutes = initialMinutes;
+        seconds = initialSeconds;
+        saveEndTime();
+        updateDOM();
+    }
+
+    function updateDOM() {
+        hourElement.textContent = String(hours).padStart(2, "0");
+        minuteElement.textContent = String(minutes).padStart(2, "0");
+        secondElement.textContent = String(seconds).padStart(2, "0");
+    }
+
+    const savedTime = localStorage.getItem("timerEndTime");
+
+    if (savedTime) {
+        const now = Date.now();
+        const timeLeft = Math.max(0, savedTime - now);
+
+        if (timeLeft === 0) {
+            resetTimer();
+        } else {
+            hours = Math.floor(timeLeft / (1000 * 60 * 60));
+            minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+        }
+    } else {
+        resetTimer();
+    }
 
     function updateTimer() {
-        const now = new Date();
-        const timeRemaining = deadline - now;
-
-        if (timeRemaining <= 0) {
-            clearInterval(timerInterval);
-            document.querySelector(".custom-announcement-timer").textContent = "Time's up!";
+        if (hours === 0 && minutes === 0 && seconds === 0) {
+            resetTimer();
             return;
         }
 
-        const totalHours = Math.floor(timeRemaining / (1000 * 60 * 60));
-        const minutes = Math.floor((timeRemaining / (1000 * 60)) % 60);
-        const seconds = Math.floor((timeRemaining / 1000) % 60);
+        if (seconds === 0) {
+            if (minutes === 0) {
+                if (hours > 0) {
+                    hours--;
+                    minutes = 59;
+                    seconds = 59;
+                }
+            } else {
+                minutes--;
+                seconds = 59;
+            }
+        } else {
+            seconds--;
+        }
 
-        timerElement.querySelector(".hour").textContent = String(totalHours).padStart(2, "0");
-        timerElement.querySelector(".minute").textContent = String(minutes).padStart(2, "0");
-        timerElement.querySelector(".second").textContent = String(seconds).padStart(2, "0");
+        saveEndTime();
+        updateDOM();
     }
 
     const timerInterval = setInterval(updateTimer, 1000);
-    updateTimer();
 });
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -117,8 +166,18 @@ function copyPromoCode() {
         },
         {
           "type": "text",
-          "id": "timer_deadline",
-          "label": "Timer Deadline format(2024-12-31T23:59:59)"
+          "id": "hour",
+          "label": "Timer Hour"
+        },
+        {
+          "type": "text",
+          "id": "minute",
+          "label": "Timer Minute"
+        },
+        {
+          "type": "text",
+          "id": "second",
+          "label": "Timer Second"
         },
     ],
      "presets": [
