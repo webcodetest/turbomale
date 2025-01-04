@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
 <style>
 
 .product__info-container > * + *{
@@ -127,6 +129,7 @@
   justify-content: space-between;
   padding-bottom: 4px;
   padding-top: 16px;
+  display: flex;
 }
 .quantity:after{
   box-shadow: none;
@@ -149,6 +152,9 @@
 .product--large:not(.product--no-media) .product__media-wrapper{
   max-width: 61% !important;
   width: 100% !important;
+  max-height: 650px;
+  display: flex;
+  gap: 32px;
 }
 .product--large:not(.product--no-media) .product__info-wrapper{
   max-width: 39% !important;
@@ -187,6 +193,217 @@ slider-component{
 .thumbnail img{
   object-fit: contain !important;
 }
+
+  .product__vertical-swiper__container{
+    max-width: 100px;
+    width: 100%;
+    height: 100%;
+  }
+  .product__horizontal-swiper__item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .product__vertical-swiper__container .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    border: 1px solid #EAEAEA;
+  }
+
+  .product__horizontal-swiper__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  .product__horizontal-swiper__container .swiper-slide{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .product__vertical-swiper__container .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+
+  .product__vertical-swiper__item{
+    overflow-y: hidden;
+    height: 650px;
+  }
+
+  .swiper-button-next, .swiper-button-prev{
+    display: flex !important;
+  }
+
+  .product__horizontal-swiper__container .swiper-button-next, .product__horizontal-swiper__container .swiper-button-prev{
+    background: #40AE00;
+    color: #fff;
+    width: 59px;
+    height: 59px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .product__horizontal-swiper__container .swiper-button-next:after, .product__horizontal-swiper__container .swiper-button-prev:after{
+    font-size: 22px;
+    font-weight: 600;
+  }
+
+  .swiper-vertical-slide-wrap{
+    height: 100%;
+    width: 100%;
+  }
+  .swiper-vertical-slide-wrap img{
+    cursor: pointer;
+    object-fit: contain !important;
+  }
+
+  .swiper-horizontal-slide-wrap{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #EAEAEA;
+  }
+
+  .swiper-slide-thumb-active{
+    border: 1px solid rgb(148, 144, 144) !important;
+  }
+
+  .collections-list__wrapper{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 11;
+  }
+  .collections-list__wrapper ul {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .collections-list__wrapper ul li{
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    background: #FFC800;
+    padding: 7px 20px;
+    border-radius: 5px; 
+  }
+  .collections-list__wrapper ul li a{
+    color: #05060B;
+    text-align: center;
+    font-family: "Proxima Nova";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration: none;
+  }
+
+  .icon-before-collection-name{
+    display: flex;
+  }
+
+  .payment-methods{
+    width: 100%;
+    height: 41px;
+    padding-top: 5px;
+    margin-bottom: 10px;
+  }
+  .payment-methods img{
+    width: 100%;
+  }
+
+  .icon-with-text{
+    padding-top: 10px;
+  }
+
+  .icon-with-text img{
+    height: 30px !important;
+    width: 30px !important;
+  }
+
+  .icon-with-text p {
+    color: #000;
+    font-family: "Proxima Nova";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .wishlist-product__icon{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 12;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .product__info-container variant-selects .product-form__input--pill:last-of-type{
+    display: none !important;
+  }
+  .product__info-container variant-selects .product-form__input--dropdown:first-of-type{
+    display: none !important;
+  }
+  .product__info-container variant-selects{
+    padding-bottom: 10px;
+  }
+  .field:after, .select:after, .customer .field:after, .customer select:after, .localization-form__select:after{
+    border-radius: 12px;
+    border: 1px solid #E0E0E0;
+  }
+  .select__select:focus{
+    border-radius: 12px;
+    border: 1px solid #E0E0E0;
+  }
+  .select:hover.select:after{
+    border-radius: 12px;
+    border: 1px solid #E0E0E0;
+  }
+  .select__select{
+    color:#828282;
+    font-family: "Proxima Nova";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border-radius: 12px;
+    border: 1px solid #E0E0E0;
+  }
+
+  .shopify-section-group-header-group{
+    z-index: 995 !important;
+  }
 
 </style>
 
@@ -291,7 +508,94 @@ slider-component{
   <div class="container">
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
       <div class="grid__item product__media-wrapper">
-        {% render 'product-media-gallery', variant_images: variant_images %}
+
+       
+        <div class="product__vertical-swiper__container">
+          <!-- Swiper -->
+          <div class="swiper product__vertical-swiper__item">
+            <div class="swiper-wrapper">
+              {% for image in product.images %}
+                <div class="swiper-slide">
+                  <div class="swiper-vertical-slide-wrap">
+                    <img src="{{ image | img_url: '100x100' }}" alt="{{ image.alt | escape }}">
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+
+        <div class="product__horizontal-swiper__container">
+
+          {% if product.collections.size > 0 %}
+            <div class="collections-list__wrapper">
+              <ul>
+                {% for collection in product.collections %}
+                  <li>
+                    <div class="icon-before-collection-name">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="15" viewBox="0 0 13 15" fill="none">
+                        <path d="M5.32628 0.0491362C5.31338 0.0755253 5.32305 0.178149 5.34241 0.277842C5.40046 0.544663 5.39079 1.20439 5.32305 1.48294C5.20372 1.99313 4.99407 2.43001 4.62638 2.91968C4.3361 3.30965 4.02646 3.64391 3.26205 4.4004C2.07512 5.56738 1.66228 6.06877 1.23653 6.83992C0.468897 8.23561 0.326982 9.93037 0.859165 11.3612C1.53971 13.188 3.22335 14.5279 5.35531 14.9326C5.66817 14.9912 5.80041 15 6.46805 15C7.13248 15 7.27117 14.9912 7.59048 14.9326C8.88062 14.6951 10.0869 14.0617 10.9352 13.1762C11.606 12.4754 12.135 11.5166 12.3382 10.6399C12.6962 9.07419 12.235 7.15072 11.1803 5.843C11.0513 5.6788 11.0223 5.65828 10.9352 5.66707L10.8384 5.67587L10.8223 6.02772C10.8062 6.34146 10.7933 6.4001 10.7062 6.57016C10.561 6.84871 10.3191 7.07449 10.0256 7.20643C9.82242 7.29733 9.74501 7.31492 9.51924 7.32665C9.05801 7.35011 8.7258 7.22109 8.39682 6.89856C8.30651 6.80473 8.18717 6.6464 8.13234 6.54084C8.0388 6.36198 8.03235 6.32973 8.0388 6.04238C8.04203 5.82541 8.07428 5.59377 8.14524 5.26537C8.31941 4.47663 8.31296 3.84036 8.12589 3.13372C7.8227 1.9902 7.01637 0.972753 5.78751 0.172285C5.51658 -0.00364208 5.36498 -0.044692 5.32628 0.0491362ZM5.80686 8.21215C5.81008 8.91586 5.81653 9.00969 5.88104 9.21787C5.98425 9.56092 6.15842 9.83654 6.41967 10.074C6.79382 10.4171 7.19698 10.5666 7.7582 10.5666C8.23877 10.5666 8.57421 10.4669 8.95158 10.2089C9.04834 10.1415 9.15155 10.0916 9.17735 10.0946C9.24831 10.1092 9.3612 10.3936 9.42248 10.7074C9.58052 11.5313 9.28701 12.3728 8.62582 13.0062C7.50017 14.0822 5.66172 14.1292 4.49091 13.1117C4.18128 12.842 3.99743 12.6162 3.82326 12.2849C3.60394 11.8656 3.55234 11.6457 3.55234 11.0856C3.55556 10.6986 3.56846 10.5403 3.62329 10.3027C3.83294 9.42018 4.28772 8.72527 5.2779 7.78992C5.83266 7.26508 5.80363 7.24162 5.80686 8.21215Z" fill="#05060B" style="fill:#05060B;fill:color(display-p3 0.0196 0.0235 0.0431);fill-opacity:1;"/>
+                      </svg>
+                    </div>
+                    <a href="{{ collection.url }}">{{ collection.title }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+
+          <button type="button"class="wishlist-product__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="20" viewBox="0 0 24 20" fill="none">
+              <path d="M6.11802 0.0204007C3.07115 0.245401 0.539898 2.55634 0.0664602 5.55634C-0.0366648 6.20321 -0.00385227 7.50165 0.132085 8.0829C0.44146 9.40477 1.02271 10.4735 2.04927 11.6079C3.13209 12.8032 6.08521 15.4516 9.5399 18.3251C11.1383 19.6516 11.3493 19.8204 11.5321 19.9141C11.7665 20.036 12.2493 20.0266 12.493 19.9001C12.7743 19.7595 16.5993 16.5579 18.4696 14.9032C20.3118 13.272 21.8633 11.772 22.3649 11.1391C23.1336 10.1688 23.6024 9.21727 23.8696 8.0829C24.0055 7.48759 24.0383 6.18915 23.9305 5.53759C23.4571 2.6829 21.2071 0.489151 18.3055 0.0625882C17.7946 -0.0124118 16.7024 -0.00303683 16.2196 0.0813382C15.2586 0.250088 14.3024 0.639149 13.5008 1.18759C13.2711 1.34696 12.8399 1.7079 12.5399 1.99384L12.0008 2.50946L11.4618 1.99384C11.1618 1.7079 10.7352 1.35165 10.5055 1.19227C9.19771 0.296962 7.72583 -0.0967868 6.11802 0.0204007ZM7.89927 2.33134C8.3774 2.47665 8.94458 2.74852 9.30083 3.00165C9.43208 3.0954 9.94302 3.56884 10.4305 4.05165C10.9227 4.53446 11.3915 4.96102 11.4805 5.0079C11.5696 5.05009 11.7618 5.10165 11.9165 5.11102C12.404 5.1579 12.5165 5.0829 13.5477 4.07509C14.0493 3.57821 14.5696 3.0954 14.7008 3.00165C15.0477 2.75321 15.6149 2.47665 16.1024 2.33134C16.4961 2.20946 16.5805 2.20009 17.3446 2.20009C18.104 2.20009 18.1977 2.20946 18.5774 2.32665C20.0493 2.78134 21.1461 3.82196 21.6055 5.20009C22.1024 6.6954 21.793 8.30321 20.7524 9.67196C20.3305 10.2204 18.8305 11.6735 17.1102 13.1876C15.2352 14.8423 12.0852 17.5001 12.0008 17.5001C11.9446 17.5001 10.2618 16.0985 8.53208 14.6126C5.40084 11.922 3.60552 10.2157 3.03833 9.37665C1.12115 6.55477 2.48521 2.9829 5.77115 2.24227C5.98209 2.1954 6.2774 2.17665 6.77427 2.19071C7.36958 2.20477 7.54302 2.22352 7.89927 2.33134Z" fill="#05060B" style="fill:#05060B;fill:color(display-p3 0.0196 0.0235 0.0431);fill-opacity:1;"/>
+            </svg>
+          </button>
+
+          <!-- Swiper -->
+          <div class="swiper product__horizontal-swiper__item">
+            <div class="swiper-wrapper">
+              {% for image in product.images %}
+                <div class="swiper-slide">
+                  <div class="swiper-horizontal-slide-wrap">
+                    <img src="{{ image | img_url: '650x650' }}" alt="{{ image.alt | escape }}">
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+        </div>
+
+        <script>
+          document.addEventListener('DOMContentLoaded', () => {
+            var swiperProductMainVertical = new Swiper(".product__vertical-swiper__item", {
+              direction: "vertical",
+              mousewheel: true,
+              slidesPerView: 6,
+              spaceBetween: 10,
+              watchSlidesVisibility: true,
+              watchSlidesProgress: true,
+            });
+
+            var swiperProductMainHorizontal = new Swiper(".product__horizontal-swiper__item", {
+              slidesPerView: 1,
+              spaceBetween: 10,
+              autoplay: {
+                delay: 3500,
+                disableOnInteraction: false,
+              },
+              navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+              },
+              thumbs: {
+                swiper: swiperProductMainVertical,
+              },
+            });
+          });
+        </script>
+
+        {% comment %} {% render 'product-media-gallery', variant_images: variant_images %} {% endcomment %}
       </div>
       <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <section
@@ -392,13 +696,31 @@ slider-component{
                         {%- endif -%}
                       {%- endif -%}
 
+                      {% assign total_quantity = 0 %}
+
+                      {% for variant in product.variants %}
+                        {% assign total_quantity = total_quantity | plus: variant.inventory_quantity %}
+                      {% endfor %}
+
+                      {% assign selected_quantity = product.selected_or_first_available_variant.inventory_quantity %}
+                      {% assign percentage = 0 %}
+
+                      {%- if total_quantity > 0 -%}
+                        {% assign percentage = selected_quantity | times: 100 | divided_by: total_quantity %}
+                      {%- endif -%}
+
                       <div style="margin-top: 10px;">
                         <div style="height: 9px; background-color: #e0e0e0; border-radius: 5px; overflow: hidden;">
                           <div
                             style="
                               height: 100%;
-                              width: 20%;
+                              width: {{ percentage }}%;
+                              {%- if product.selected_or_first_available_variant.inventory_quantity <= block.settings.inventory_threshold -%}
                               background-color: #FF9433;
+                              {%- else -%}
+                              background-color: #40AE00;
+                              {%- endif -%}
+
                               transition: width 0.3s ease;
                             "
                           >123</div>
@@ -971,6 +1293,8 @@ slider-component{
             {{ 'products.product.view_full_details' | t }}
             {{- 'icon-arrow.svg' | inline_asset_content -}}
           </a>
+          
+
         </section>
       </div>
     </div>
@@ -1158,7 +1482,7 @@ slider-component{
     {
       "type": "variant_picker",
       "name": "t:sections.main-product.blocks.variant_picker.name",
-      "limit": 1,
+      "limit": 2,
       "settings": [
         {
           "type": "select",
@@ -1980,7 +2304,7 @@ slider-component{
           "label": "t:sections.main-product.blocks.icon_with_text.settings.image_1.label"
         },
         {
-          "type": "inline_richtext",
+          "type": "richtext",
           "id": "heading_1",
           "default": "t:sections.main-product.blocks.icon_with_text.settings.heading_1.default",
           "label": "t:sections.main-product.blocks.icon_with_text.settings.heading_1.label",
@@ -2377,7 +2701,7 @@ slider-component{
           "default": "t:sections.main-product.blocks.icon_with_text.settings.heading_3.default",
           "label": "t:sections.main-product.blocks.icon_with_text.settings.heading_3.label",
           "info": "t:sections.main-product.blocks.icon_with_text.settings.heading.info"
-        }
+        },
       ]
     }
   ],
@@ -2564,3 +2888,6 @@ slider-component{
   ]
 }
 {% endschema %}
+
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>

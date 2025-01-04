@@ -146,7 +146,16 @@
         </pickup-availability-preview>
       </template>
     </pickup-availability>
-
+<div class="payment-methods">
+            {% comment %} <ul>
+              {% for type in shop.enabled_payment_types %}
+                <li>
+                  {{ type }}
+                </li>
+              {% endfor %}
+            </ul> {% endcomment %}
+            <img src="https://cdn.shopify.com/s/files/1/0551/0728/9186/files/image_12.png?v=1735915557">
+          </div>
     <script src="{{ 'pickup-availability.js' | asset_url }}" defer="defer"></script>
   {%- endif -%}
 </div>

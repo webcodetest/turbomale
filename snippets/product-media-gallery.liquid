@@ -154,6 +154,11 @@
         </span>
       </button>
     </div>
+    
+      <button class="alt-slider-button--prev" aria-label="Previous Slide">←</button>
+      <button class="alt-slider-button--next" aria-label="Next Slide">→</button>
+    
+
   </slider-component>
   {%- if first_3d_model -%}
     <button
@@ -333,3 +338,61 @@
 </media-gallery>
 
 
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+  const gallery = document.querySelector("media-gallery");
+  const prevButton = document.querySelector(".alt-slider-button--prev");
+  const nextButton = document.querySelector(".alt-slider-button--next");
+
+  if (!gallery || !prevButton || !nextButton) {
+    console.error("Required elements (gallery, prevButton, nextButton) are missing.");
+    return;
+  }
+
+  const viewer = gallery.querySelector('[id^="GalleryViewer"]');
+  if (!viewer) {
+    console.error("Gallery viewer not found.");
+    return;
+  }
+
+  const slides = Array.from(viewer.querySelectorAll("[data-media-id]"));
+  if (!slides.length) {
+    console.error("No slides found in the viewer.");
+    return;
+  }
+
+  let currentIndex = 0;
+
+  const updateSlide = (direction) => {
+    currentIndex = (currentIndex + direction + slides.length) % slides.length;
+
+    const targetSlide = slides[currentIndex];
+    if (!targetSlide) {
+      console.error("Target slide is null or undefined.");
+      return;
+    }
+
+    const newMediaId = targetSlide.dataset.mediaId;
+    if (!newMediaId) {
+      console.error("Target slide has no data-media-id.");
+      return;
+    }
+
+    try {
+      if (typeof gallery.setActiveMedia === "function") {
+        gallery.setActiveMedia(newMediaId, false);
+      } else {
+        console.error("setActiveMedia is not a function on gallery.");
+      }
+    } catch (error) {
+      console.error("Error while setting active media:", error);
+    }
+  };
+
+  prevButton.addEventListener("click", () => updateSlide(-1));
+  nextButton.addEventListener("click", () => updateSlide(1));
+});
+
+
+</script>

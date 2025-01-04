@@ -1,16 +1,6 @@
-{% comment %}
-  Renders product variant-picker
-
-  Accepts:
-  - product: {Object} product object.
-  - block: {Object} passing the block information.
-  - product_form_id: {String} Id of the product form to which the variant picker is associated.
-  Usage:
-  {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
-{% endcomment %}
 {%- unless product.has_only_default_variant -%}
   <variant-selects
-    id="variant-selects-{{ section.id }}"
+    id="variant-selects-{{ section.id }}-{{ block.id }}"
     data-section="{{ section.id }}"
     {{ block.shopify_attributes }}
   >
@@ -54,7 +44,7 @@
         </fieldset>
       {%- else -%}
         <div class="product-form__input product-form__input--dropdown">
-          <label class="form__label" for="Option-{{ section.id }}-{{ forloop.index0 }}">
+          <label class="form__label" for="Option-{{ section.id }}-{{ block.id }}-{{ forloop.index0 }}">
             {{ option.name }}
           </label>
           <div class="select">
@@ -67,7 +57,7 @@
               </span>
             {%- endif -%}
             <select
-              id="Option-{{ section.id }}-{{ forloop.index0 }}"
+              id="Option-{{ section.id }}-{{ block.id }}-{{ forloop.index0 }}"
               class="select__select"
               name="options[{{ option.name | escape }}]"
               form="{{ product_form_id }}"

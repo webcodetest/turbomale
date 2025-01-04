@@ -1,0 +1,83 @@
+<style>
+
+    .often-bought-together {
+  margin: 20px 0;
+}
+
+.products-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.product-item {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.total-container {
+  margin-top: 20px;
+}
+
+.add-to-cart-btn {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #45a049;
+}
+
+
+</style>
+
+<section class='often-bought-together'>
+    <div class='container'>
+
+    </div>
+</section>
+
+
+
+
+<script></script>
+
+{% schema %}
+  {
+    "name": "Often bought together",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title_absolute",
+            "label": "Title absolute",
+            "default": "last longer"
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Last Longer, Get Bigger with a Cock Ring"
+        },
+        {
+            "type": "textarea",
+            "id": "custom_textarea",
+            "label": "Custom Textarea"
+        },
+        {
+            "type": "textarea",
+            "id": "custom_textarea_2",
+            "label": "Custom Textarea 2",
+            "default": "<b>You will have to provide us with:</b>"
+        }
+    ],
+     "presets": [
+    {
+      "name": "Often bought together"
+    }
+  ]
+  }
+{% endschema %}
