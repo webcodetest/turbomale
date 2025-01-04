@@ -1,25 +1,37 @@
 <div class="product-tabs-section">
     <div class="container">
         <div class="tabs">
-            <button class="tab-button active" data-tab="tab-1">Details</button>
-            <button class="tab-button" data-tab="tab-2">Descriptions</button>
-            <button class="tab-button" data-tab="tab-3">Key Features</button>
-            <button class="tab-button" data-tab="tab-4">What's on the Box</button>
-            <button class="tab-button" data-tab="tab-5">Sizing Guide</button>
-            <button class="tab-button" data-tab="tab-6">Instructions</button>
-            <button class="tab-button" data-tab="tab-7">Reviews</button>
+            <button class="tab-button active" data-tab="tab-1">{{ section.settings.tab_1_name }}</button>
+            <button class="tab-button" data-tab="tab-2">{{ section.settings.tab_2_name }}</button>
+            <button class="tab-button" data-tab="tab-3">{{ section.settings.tab_3_name }}</button>
+            <button class="tab-button" data-tab="tab-4">{{ section.settings.tab_4_name }}</button>
+            <button class="tab-button" data-tab="tab-5">{{ section.settings.tab_5_name }}</button>
+            <button class="tab-button" data-tab="tab-6">{{ section.settings.tab_6_name }}</button>
+            <button class="tab-button" data-tab="tab-7">{{ section.settings.tab_7_name }}</button>
         </div>
+        <select class="tab-select" aria-label="Select Tab">
+            <option value="tab-1" selected>{{ section.settings.tab_1_name }}</option>
+            <option value="tab-2">{{ section.settings.tab_2_name }}</option>
+            <option value="tab-3">{{ section.settings.tab_3_name }}</option>
+            <option value="tab-4">{{ section.settings.tab_4_name }}</option>
+            <option value="tab-5">{{ section.settings.tab_5_name }}</option>
+            <option value="tab-6">{{ section.settings.tab_6_name }}</option>
+            <option value="tab-7">{{ section.settings.tab_7_name }}</option>
+        </select>
     </div>
 
-        <!-- Контент вкладок -->
         <div class="tab-content active" id="tab-1">
             <div class="details-tab">
+                <div class="custom-discovery-line"></div>
+                <div class="custom-discovery-line"></div>
+                <div class="custom-discovery-line"></div>
+                <div class="custom-discovery-line"></div>
                 <div class="container">
                     <div class="details-wrap">
                         <div class="details-head">
                             <div class='custom-best-seller-top tab-details-top'>
-                                <div>Proven Result</div>
-                                <h2>Proven Result</h2>
+                                <div>{{ section.settings.details_absolute }}</div>
+                                <h2>{{ section.settings.details_heading }}</h2>
                             </div>
                         </div>
                         <div class="details-body">
@@ -29,10 +41,10 @@
                                 </div>
                                 <div class="details-body-content-right">
                                     <div class="details-body-content-right-head">
-                                        60 day money back guarantee, no quibbles!
+                                        {{ section.settings.details_heading_right }}
                                     </div>
                                     <div class="details-body-content-right-content">
-                                        Even if you have done a 100 washes – no problem. If you don’t like it – we will collect it and arrange a full refund. We want you to be absolutely happy with your purchase. You can see how happy our customers are from our EXCELLENT Trust Pilot rating. <br/> <br/> If you change your mind, don’t like the product or even if your circumstances just change – we will collect the machine and process your full refund at any time in the first 60 days.
+                                        {{ section.settings.details_text_right | newline_to_br }}
                                     </div>
                                     <div class="details-body-content-right-icons">
                                         <div class="details-body-content-right-icons-wrap">
@@ -159,16 +171,15 @@
     font-family: Arial, sans-serif;
   }
 
-  /* Стили кнопок вкладок */
   .tabs {
     display: flex;
+    justify-content: space-around;
     border-bottom: 1px solid #e0e0e0;
     gap: 44px;
     height: 50px;
   }
 
   .tab-button {
-    flex: 1;
     padding: 10px 0px;
     background: none;
     border: none;
@@ -196,7 +207,6 @@
     margin-bottom: -2px;
   }
 
-  /* Стили контента вкладок */
   .tab-content {
     display: none;
     border-top: none;
@@ -225,37 +235,201 @@
 .details-tab{
     background: #000;
     width: 100%;
+    position: relative;
 }
 .tab-content.active{
     padding-top: 55px;
 }
+
+.tab-select {
+    display: none;
+    width: 100%;
+    max-width: 500px;
+    padding: 18px 16px;
+    border-radius: 12px;
+    border: 1px solid #E0E0E0;
+
+    color: #40AE00;
+    font-family: "Proxima Nova";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1120px) {
+  .tabs {
+    display: none;
+  }
+
+  .tab-select {
+    display: block;
+  }
+}
+@media screen and (max-width: 768px) {
+    .product--thumbnail_slider{
+        display: flex;
+        flex-direction: column;
+    }
+    .product--large:not(.product--no-media) .product__media-wrapper{
+        max-width: 100% !important;
+        max-height: 100% !important;
+        flex-direction: column-reverse;
+    }
+    .product__vertical-swiper__container{
+        max-width: 100%;
+    }
+    .product__vertical-swiper__item{
+        height: 100%;
+    }
+    .product--large:not(.product--no-media) .product__info-wrapper{
+        max-width: 100% !important;
+        padding-top: 41px !important;
+    }
+    .details-body-content{
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    .details-body-content-right-icons-wrap{
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 16px;
+    }
+    .details-body-content-right-btn{
+        display: none;
+    }
+    .custom-result-body-wrap{
+        flex-direction: column;
+    }
+    .alt-result-body-wrap{
+        flex-direction: column;
+    }
+    .breadcrumbs{
+        display: none;
+    }
+}
+
+
+
 </style>
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const tabs = document.querySelectorAll(".tab-button");
     const contents = document.querySelectorAll(".tab-content");
+    const tabSelect = document.querySelector(".tab-select");
 
+    // Обработчик для кнопок
     tabs.forEach((tab) => {
       tab.addEventListener("click", function () {
-        // Удаляем активный класс со всех вкладок и контента
+        const target = this.getAttribute("data-tab");
+
+        // Удалить классы "active"
         tabs.forEach((t) => t.classList.remove("active"));
         contents.forEach((c) => c.classList.remove("active"));
 
-        // Добавляем активный класс для текущей вкладки и контента
-        const target = this.getAttribute("data-tab");
+        // Добавить активный класс
         document.getElementById(target).classList.add("active");
         this.classList.add("active");
+
+        // Синхронизировать с select
+        tabSelect.value = target;
       });
+    });
+
+    // Обработчик для выпадающего меню
+    tabSelect.addEventListener("change", function () {
+      const target = this.value;
+
+      // Удалить классы "active"
+      tabs.forEach((t) => t.classList.remove("active"));
+      contents.forEach((c) => c.classList.remove("active"));
+
+      // Добавить активный класс
+      document.getElementById(target).classList.add("active");
+
+      // Синхронизировать с кнопками
+      const activeButton = document.querySelector(`.tab-button[data-tab="${target}"]`);
+      if (activeButton) {
+        activeButton.classList.add("active");
+      }
     });
   });
 </script>
 
 
+
 {% schema %}
   {
     "name": "Product tabs",
-    "settings": [],
+    "settings": [
+        {
+            "type": "text",
+            "id": "tab_1_name",
+            "label": "Name of tab 1",
+            "default": "Details"
+        },
+        {
+            "type": "text",
+            "id": "tab_2_name",
+            "label": "Name of tab 2",
+            "default": "Descriptions"
+        },
+        {
+            "type": "text",
+            "id": "tab_3_name",
+            "label": "Name of tab 3",
+            "default": "KEY FEATURES"
+        },
+        {
+            "type": "text",
+            "id": "tab_4_name",
+            "label": "Name of tab 4",
+            "default": "WHAT'S ON THE BOX"
+        },
+        {
+            "type": "text",
+            "id": "tab_5_name",
+            "label": "Name of tab 5",
+            "default": "SIZING GUIDE"
+        },
+        {
+            "type": "text",
+            "id": "tab_6_name",
+            "label": "Name of tab 6",
+            "default": "INSTRUCTIONS"
+        },
+        {
+            "type": "text",
+            "id": "tab_7_name",
+            "label": "Name of tab 7",
+            "default": "REVIEWS"
+        },
+        {
+            "type": "text",
+            "id": "details_absolute",
+            "label": "Absolute text of details-tab",
+            "default": "Proven Result"
+        },
+        {
+            "type": "text",
+            "id": "details_heading",
+            "label": "Heading of details-tab",
+            "default": "Proven Result"
+        },
+        {
+            "type": "text",
+            "id": "details_heading_right",
+            "label": "Heading of right inside details-tab",
+            "default": "60 day money back guarantee, no quibbles!"
+        },
+        {
+            "type": "richtext",
+            "id": "details_text_right",
+            "label": "Text of right inside details-tab"
+        },
+    ],
      "presets": [
     {
       "name": "Product tabs"

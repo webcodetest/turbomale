@@ -3,76 +3,30 @@
         <div class="custom-result-wrap">
             <div class="custom-result-head">
                 <div class='custom-best-seller-top custom-result-top'>
-                    <div>Real Result</div>
-                    <h2>Real Result</h2>
+                    <div>{{ section.settings.title_absolute }}</div>
+                    <h2>{{ section.settings.title }}</h2>
                 </div>
             </div>
             <div class="custom-result-body">
                 <div class="custom-result-body-wrap">
                     <div class="custom-result-body-left">
-                        <img src="https://cdn.shopify.com/s/files/1/0551/0728/9186/files/turbo1_1.webp?v=1735579732" alt="">
+                        <img src="{{ section.settings.section_image | img_url: 'master' }}" alt="">
                     </div>
                     <div class="custom-result-body-right">
-                        <div class="custom-result-body-card-item">
-                            <div class="custom-result-body-card-item-minus">
-                                <span class="custom-result-minus"></span>
+                        {% for block in section.blocks %}
+                            <div class="custom-result-body-card-item">
+                                <div class="custom-result-body-card-item-minus">
+                                    <span class="custom-result-minus"></span>
+                                </div>
+                                <div class="custom-result-body-card-item-column-two">
+                                    <span class="custom-result-body-card-item-column-two-span-one">{{ block.settings.card_percentage }}</span>
+                                    <span class="custom-result-body-card-item-column-two-span-two">{{ block.settings.card_under }}</span>
+                                </div>
+                                <p class="custom-result-body-card-item-text">
+                                    {{ block.settings.card_content }}
+                                </p>
                             </div>
-                            <div class="custom-result-body-card-item-column-two">
-                                <span class="custom-result-body-card-item-column-two-span-one">100%</span>
-                                <span class="custom-result-body-card-item-column-two-span-two">say</span>
-                            </div>
-                            <p class="custom-result-body-card-item-text">
-                                it effectively enhances length and girth.
-                            </p>
-                        </div>
-                        <div class="custom-result-body-card-item">
-                            <div class="custom-result-body-card-item-minus">
-                                <span class="custom-result-minus"></span>
-                            </div>
-                            <div class="custom-result-body-card-item-column-two">
-                                <span class="custom-result-body-card-item-column-two-span-one">100%</span>
-                                <span class="custom-result-body-card-item-column-two-span-two">say</span>
-                            </div>
-                            <p class="custom-result-body-card-item-text">
-                                it effectively enhances length and girth.
-                            </p>
-                        </div>
-                        <div class="custom-result-body-card-item">
-                            <div class="custom-result-body-card-item-minus">
-                                <span class="custom-result-minus"></span>
-                            </div>
-                            <div class="custom-result-body-card-item-column-two">
-                                <span class="custom-result-body-card-item-column-two-span-one">100%</span>
-                                <span class="custom-result-body-card-item-column-two-span-two">say</span>
-                            </div>
-                            <p class="custom-result-body-card-item-text">
-                                it effectively enhances length and girth.
-                            </p>
-                        </div>
-                        <div class="custom-result-body-card-item">
-                            <div class="custom-result-body-card-item-minus">
-                                <span class="custom-result-minus"></span>
-                            </div>
-                            <div class="custom-result-body-card-item-column-two">
-                                <span class="custom-result-body-card-item-column-two-span-one">100%</span>
-                                <span class="custom-result-body-card-item-column-two-span-two">say</span>
-                            </div>
-                            <p class="custom-result-body-card-item-text">
-                                it effectively enhances length and girth.
-                            </p>
-                        </div>
-                        <div class="custom-result-body-card-item">
-                            <div class="custom-result-body-card-item-minus">
-                                <span class="custom-result-minus"></span>
-                            </div>
-                            <div class="custom-result-body-card-item-column-two">
-                                <span class="custom-result-body-card-item-column-two-span-one">100%</span>
-                                <span class="custom-result-body-card-item-column-two-span-two">say</span>
-                            </div>
-                            <p class="custom-result-body-card-item-text">
-                                it effectively enhances length and girth.
-                            </p>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -80,13 +34,7 @@
     </div>
 </div>
 
-
-
-
-
-
 <style>
-
 
 .custom-result-body {
     padding-top: 91px;
@@ -98,6 +46,8 @@
     gap: 75px;
 }
 .custom-result-body-left {
+    border-radius: 12px;
+    overflow: hidden;
 }
 .custom-result-body-right {
     display: flex;
@@ -180,13 +130,55 @@
 
 </style>
 
-
-
-
 {% schema %}
   {
     "name": "Custom result",
-    "settings": [],
+    "settings": [
+        {
+            "type": "text",
+            "id": "title_absolute",
+            "label": "Title absolute",
+            "default": "Real Result"
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Real Result"
+        },
+        {
+            "type": "image_picker",
+            "id": "section_image",
+            "label": "Image of section"
+        }
+    ],
+    "blocks":[
+        {
+            "type": "text",
+            "name": "Item of text",
+            "settings":
+            [
+                {
+                    "type": "text",
+                    "id": "card_percentage",
+                    "label": "Percentage value",
+                    "default": "100%"
+                },
+                {
+                    "type": "text",
+                    "id": "card_under",
+                    "label": "Text under percentage",
+                    "default": "say"
+                },
+                {
+                    "type": "text",
+                    "id": "card_content",
+                    "label": "Text of card",
+                    "default": "it effectively enhances length and girth."
+                }
+            ]
+        }
+    ],
      "presets": [
     {
       "name": "Custom result"
