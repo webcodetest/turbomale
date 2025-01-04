@@ -31,14 +31,14 @@
         "submenu_left_NyxCjC": {
           "type": "submenu_left",
           "settings": {
-            "text": "#SHOP ALL",
+            "text": "SHOP ALL",
             "url": "shopify://collections"
           }
         },
         "submenu_left_QGkAeh": {
           "type": "submenu_left",
           "settings": {
-            "text": "#BEST SELLERS",
+            "text": "BEST SELLERS",
             "url": ""
           }
         },
