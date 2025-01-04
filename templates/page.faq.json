@@ -8,6 +8,10 @@
         "padding_bottom": 28
       }
     },
+    "custom_breadcrumbs_LDtACy": {
+      "type": "custom-breadcrumbs",
+      "settings": {}
+    },
     "custom_faq_all_4AJeDd": {
       "type": "custom-faq-all",
       "blocks": {
@@ -50,6 +54,7 @@
   },
   "order": [
     "main",
+    "custom_breadcrumbs_LDtACy",
     "custom_faq_all_4AJeDd"
   ]
 }

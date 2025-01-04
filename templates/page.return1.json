@@ -8,6 +8,10 @@
         "padding_bottom": 28
       }
     },
+    "custom_breadcrumbs_JHha7C": {
+      "type": "custom-breadcrumbs",
+      "settings": {}
+    },
     "custom_return_with_image_rxhpkX": {
       "type": "custom-return-with-image",
       "blocks": {
@@ -46,6 +50,7 @@
   },
   "order": [
     "main",
+    "custom_breadcrumbs_JHha7C",
     "custom_return_with_image_rxhpkX"
   ]
 }
