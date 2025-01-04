@@ -46,35 +46,35 @@
           "type": "submenu_left",
           "settings": {
             "text": "TRENDING",
-            "url": ""
+            "url": "shopify://collections"
           }
         },
         "submenu_left_EpVd9J": {
           "type": "submenu_left",
           "settings": {
             "text": "SALE",
-            "url": ""
+            "url": "shopify://collections"
           }
         },
         "submenu_left_bPn6PM": {
           "type": "submenu_left",
           "settings": {
-            "text": "#FOR BEGINNERS",
-            "url": ""
+            "text": "FOR BEGINNERS",
+            "url": "shopify://collections"
           }
         },
         "submenu_left_9cYMRD": {
           "type": "submenu_left",
           "settings": {
-            "text": "#FOR PROFESSIONALS",
-            "url": ""
+            "text": "FOR PROFESSIONALS",
+            "url": "shopify://collections"
           }
         },
         "submenu_left_wRGgPF": {
           "type": "submenu_left",
           "settings": {
-            "text": "#FOR PROFESSIONALS",
-            "url": ""
+            "text": "FOR PROFESSIONALS",
+            "url": "shopify://collections"
           }
         },
         "submenu_center_qVgfxc": {
