@@ -156,15 +156,124 @@
     },
     "product_tabs_WaATEW": {
       "type": "product-tabs",
-      "settings": {}
+      "settings": {
+        "tab_1_name": "Details",
+        "tab_2_name": "Descriptions",
+        "tab_3_name": "KEY FEATURES",
+        "tab_4_name": "WHAT'S ON THE BOX",
+        "tab_5_name": "SIZING GUIDE",
+        "tab_6_name": "INSTRUCTIONS",
+        "tab_7_name": "REVIEWS",
+        "details_absolute": "Proven Result",
+        "details_heading": "Proven Result",
+        "details_heading_right": "60 day money back guarantee, no quibbles!",
+        "details_text_right": "<p>Even if you have done a <strong>100 washes</strong> – no problem. If you don’t like it – we will collect it and arrange a full refund. We want you to be absolutely happy with your purchase. You can see how happy our customers are from our <strong>EXCELLENT Trust Pilot</strong> rating.<br/><br/>If you change your mind, don’t like the product or even if your circumstances just change – we will collect the machine and process your full refund at any time in the first 60 days.</p>"
+      }
     },
     "custom_result_WXA86c": {
       "type": "custom-result",
-      "settings": {}
+      "blocks": {
+        "text_RgmPQE": {
+          "type": "text",
+          "settings": {
+            "card_percentage": "100%",
+            "card_under": "say",
+            "card_content": "it effectively enhances length and girth."
+          }
+        },
+        "text_LfpAt7": {
+          "type": "text",
+          "settings": {
+            "card_percentage": "100%",
+            "card_under": "say",
+            "card_content": "it effectively enhances length and girth."
+          }
+        },
+        "text_i6FCgh": {
+          "type": "text",
+          "settings": {
+            "card_percentage": "100%",
+            "card_under": "say",
+            "card_content": "it effectively enhances length and girth."
+          }
+        },
+        "text_ADfWHK": {
+          "type": "text",
+          "settings": {
+            "card_percentage": "100%",
+            "card_under": "say",
+            "card_content": "it effectively enhances length and girth."
+          }
+        },
+        "text_wVjzJt": {
+          "type": "text",
+          "settings": {
+            "card_percentage": "100%",
+            "card_under": "say",
+            "card_content": "it effectively enhances length and girth."
+          }
+        }
+      },
+      "block_order": [
+        "text_RgmPQE",
+        "text_LfpAt7",
+        "text_i6FCgh",
+        "text_ADfWHK",
+        "text_wVjzJt"
+      ],
+      "settings": {
+        "title_absolute": "Real Result",
+        "title": "Real Result",
+        "section_image": "shopify://shop_images/turbo1_1.png"
+      }
     },
     "custom_alt_results_QrJfF3": {
       "type": "custom-alt-results",
-      "settings": {}
+      "blocks": {
+        "card_d9dBKd": {
+          "type": "card",
+          "settings": {
+            "card_icon": "shopify://shop_images/svg_3_6645fc97-f9df-4028-8bac-e33e07544bcf.svg",
+            "card_heading": "Tantaly's Exclusive Soft Breast Technology - Tantabosom",
+            "card_description": ""
+          }
+        },
+        "card_hzePTh": {
+          "type": "card",
+          "settings": {
+            "card_icon": "shopify://shop_images/Black.svg",
+            "card_heading": "Tantaly's Exclusive Soft Butt Technology - Tantabutt",
+            "card_description": ""
+          }
+        },
+        "card_bj7erD": {
+          "type": "card",
+          "settings": {
+            "card_icon": "shopify://shop_images/Black_dc196927-f0fa-433c-a976-10a6509ca839.svg",
+            "card_heading": "Authentic Tactile Experience",
+            "card_description": "Monroe's soft body, sensual curves and realistic weight make for a sex, cuddling, and sleep experience that’s almost as satisfying as the real thing."
+          }
+        },
+        "card_6rieYK": {
+          "type": "card",
+          "settings": {
+            "card_icon": "shopify://shop_images/Black_1.svg",
+            "card_heading": "Suitable for a Wide Range of Positions",
+            "card_description": ""
+          }
+        }
+      },
+      "block_order": [
+        "card_d9dBKd",
+        "card_hzePTh",
+        "card_bj7erD",
+        "card_6rieYK"
+      ],
+      "settings": {
+        "title_absolute": "desired results",
+        "title": "why is it so effective?",
+        "section_image": "shopify://shop_images/Mobile.png"
+      }
     },
     "custom_adventages_YNxQKx": {
       "type": "custom-adventages",

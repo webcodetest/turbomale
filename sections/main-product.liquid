@@ -218,6 +218,9 @@ slider-component{
     height: 100px;
     border: 1px solid #EAEAEA;
   }
+  .custom-discovery-line{
+    display: block !important;
+  }
 
   .product__horizontal-swiper__container{
     display: flex;
@@ -569,13 +572,32 @@ slider-component{
         <script>
           document.addEventListener('DOMContentLoaded', () => {
             var swiperProductMainVertical = new Swiper(".product__vertical-swiper__item", {
-              direction: "vertical",
+              direction: getDirection(),
+              on: {
+                resize: function () {
+                  swiperProductMainVertical.changeDirection(getDirection());
+                },
+              },
               mousewheel: true,
               slidesPerView: 6,
               spaceBetween: 10,
+              breakpoints: {
+                0: {
+                  slidesPerView: 3,
+                },
+                1024: {
+                  slidesPerView: 6,
+                },
+              },
               watchSlidesVisibility: true,
               watchSlidesProgress: true,
             });
+            function getDirection() {
+              var windowWidth = window.innerWidth;
+              var direction = window.innerWidth <= 768 ? 'horizontal' : 'vertical';
+
+              return direction;
+            }
 
             var swiperProductMainHorizontal = new Swiper(".product__horizontal-swiper__item", {
               slidesPerView: 1,
