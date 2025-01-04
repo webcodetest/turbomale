@@ -3,7 +3,12 @@
         <div class='custom-announcement-wrapper'>
             <img src="{{ section.settings.image | img_url: 'master' }}" alt='flag'>
             <p class='custom-announcement-sale'>{{ section.settings.text_sale }}</p>
-            <p class='custom-announcement-code'>{{ section.settings.text_code }} <span class='copy-text'>{{ section.settings.code }}</span></p>
+            <div class='custom-announcement-code'>{{ section.settings.text_code }} 
+                <div class='copy-text' onclick="copyPromoCode()">
+                    {{ section.settings.code }}
+                    <div id="notification" style="display: none; opacity: 0; transform: translateX(-50%) scale(0.9);">Copied!</div>
+                </div>
+            </div>
             <div class='custom-announcement-timer' data-deadline="{{ section.settings.timer_deadline }}">
                 <p class='hour'>00</p>
                 <span>h :</span>
@@ -44,18 +49,37 @@ document.addEventListener("DOMContentLoaded", function () {
     updateTimer();
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const copyText = document.querySelector('.copy-text');
-
-    copyText.addEventListener('click', () => {
-        const textToCopy = copyText.textContent || copyText.innerText;
-        navigator.clipboard.writeText(textToCopy).then(() => {
-            alert('Copy!');
-        }).catch(err => {
-            console.error('Error: ', err);
-        });
-    });
+document.addEventListener('DOMContentLoaded', function () {
+  const customAnnouncement = document.querySelector('.custom-announcement');
+  if (customAnnouncement && customAnnouncement.parentElement) {
+    customAnnouncement.parentElement.style.position = 'relative';
+    customAnnouncement.parentElement.style.zIndex = '5';
+  }
 });
+
+function copyPromoCode() {
+            const promoCode = document.querySelector(".copy-text").innerText;
+            navigator.clipboard.writeText(promoCode).then(() => {
+                showNotification();
+            }).catch(err => {
+                console.error('Copy error:', err);
+            });
+        }
+
+        function showNotification() {
+            const notification = document.getElementById("notification");
+            notification.style.display = "block";
+            notification.style.opacity = "1";
+            notification.style.transform = "translateX(-50%) scale(1)";
+
+            setTimeout(() => {
+                notification.style.opacity = "0";
+                notification.style.transform = "translateX(-50%) scale(0.9)";
+                setTimeout(() => {
+                    notification.style.display = "none";
+                }, 300);
+            }, 2000);
+        }
 </script>
 {% schema %}
   {
