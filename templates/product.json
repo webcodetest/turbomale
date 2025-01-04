@@ -50,6 +50,13 @@
             "swatch_shape": "none"
           }
         },
+        "variant_picker_gPkMcY": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "dropdown",
+            "swatch_shape": "circle"
+          }
+        },
         "kiwi_size_chart_recommender_kiwi_sizing_hLrhHt": {
           "type": "shopify://apps/kiwi-size-chart-recommender/blocks/kiwiSizing/b7369922-bf15-44ce-a121-a22a8fcbc4b0",
           "settings": {
@@ -74,6 +81,19 @@
             "show_dynamic_checkout": true,
             "show_gift_card_recipient": true
           }
+        },
+        "icon_with_text_iqUK9T": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "vertical",
+            "icon_1": "none",
+            "image_1": "shopify://shop_images/svg_3_3b520c23-8746-4b69-b314-b6e96e4eaaf8.svg",
+            "heading_1": "<p><strong>Free Shipping (USD $125+)</strong><br/>Estimated Delivery: Tue, Aug 6</p>",
+            "icon_2": "none",
+            "heading_2": "",
+            "icon_3": "none",
+            "heading_3": ""
+          }
         }
       },
       "block_order": [
@@ -83,10 +103,12 @@
         "price",
         "custom_liquid_cBHiqJ",
         "variant_picker",
+        "variant_picker_gPkMcY",
         "kiwi_size_chart_recommender_kiwi_sizing_hLrhHt",
         "inventory_6JwMYF",
         "quantity_selector",
-        "buy_buttons"
+        "buy_buttons",
+        "icon_with_text_iqUK9T"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -106,6 +128,7 @@
     },
     "related-products": {
       "type": "related-products",
+      "disabled": true,
       "settings": {
         "heading": "You may also like",
         "heading_size": "h2",
@@ -120,6 +143,15 @@
         "columns_mobile": "2",
         "padding_top": 36,
         "padding_bottom": 28
+      }
+    },
+    "often_bought_together_DEd6my": {
+      "type": "often-bought-together",
+      "settings": {
+        "title_absolute": "last longer",
+        "title": "Last Longer, Get Bigger with a Cock Ring",
+        "custom_textarea": "",
+        "custom_textarea_2": "<b>You will have to provide us with:</b>"
       }
     },
     "product_tabs_WaATEW": {
@@ -241,6 +273,7 @@
     "custom_breadcrumbs_B9zdGW",
     "main",
     "related-products",
+    "often_bought_together_DEd6my",
     "product_tabs_WaATEW",
     "custom_result_WXA86c",
     "custom_alt_results_QrJfF3",
