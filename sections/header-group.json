@@ -39,7 +39,7 @@
           "type": "submenu_left",
           "settings": {
             "text": "BEST SELLERS",
-            "url": ""
+            "url": "shopify://collections/bestsellers"
           }
         },
         "submenu_left_8gXPWM": {
