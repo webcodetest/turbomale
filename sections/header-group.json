@@ -45,7 +45,7 @@
         "submenu_left_8gXPWM": {
           "type": "submenu_left",
           "settings": {
-            "text": "#TRENDING",
+            "text": "TRENDING",
             "url": ""
           }
         },
