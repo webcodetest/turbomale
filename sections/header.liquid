@@ -37,7 +37,7 @@
                 <ul class='custom-header-menu-list'>
                     <li class='custom-header-menu-list-item big'>
                         <p>
-                            {{ section.settings.menu_name1 }}
+                            <a href='{{ section.settings.menu_url1 }}'>{{ section.settings.menu_name1 }}</a>
                             <svg xmlns="http://www.w3.org/2000/svg" width="4" height="8" viewBox="0 0 4 8" fill="none">
                                 <path d="M4 4L0.25 7.03109L0.25 0.968911L4 4Z" fill="currentColor" style="fill-opacity:1;"/>
                             </svg>
@@ -45,7 +45,7 @@
                     </li>
                     <li class='custom-header-menu-list-item'>
                         <p class="menu-toggle">
-                            {{ section.settings.menu_name2 }}
+                            <a href='{{ section.settings.menu_url2 }}'>{{ section.settings.menu_name2 }}</a>
                              <svg xmlns="http://www.w3.org/2000/svg" width="4" height="8" viewBox="0 0 4 8" fill="none">
                                 <path d="M4 4L0.25 7.03109L0.25 0.968911L4 4Z" fill="currentColor" style="fill-opacity:1;"/>
                             </svg>
@@ -62,7 +62,7 @@
                     </li>
                     <li class='custom-header-menu-list-item'>
                         <p class="menu-toggle">
-                            {{ section.settings.menu_name3 }}
+                            <a href='{{ section.settings.menu_url3 }}'>{{ section.settings.menu_name3 }}</a>
                              <svg xmlns="http://www.w3.org/2000/svg" width="4" height="8" viewBox="0 0 4 8" fill="none">
                                 <path d="M4 4L0.25 7.03109L0.25 0.968911L4 4Z" fill="currentColor" style="fill-opacity:1;"/>
                             </svg>
@@ -79,7 +79,7 @@
                     </li>
                     <li class='custom-header-menu-list-item'>
                         <p class="menu-toggle">
-                            {{ section.settings.menu_name4 }}
+                            <a href='{{ section.settings.menu_url4 }}'>{{ section.settings.menu_name4 }}</a>
                              <svg xmlns="http://www.w3.org/2000/svg" width="4" height="8" viewBox="0 0 4 8" fill="none">
                                 <path d="M4 4L0.25 7.03109L0.25 0.968911L4 4Z" fill="currentColor" style="fill-opacity:1;"/>
                             </svg>
@@ -96,7 +96,7 @@
                     </li>
                     <li class='custom-header-menu-list-item'>
                         <p class="menu-toggle">
-                            {{ section.settings.menu_name5 }}
+                            <a href='{{ section.settings.menu_url5 }}'>{{ section.settings.menu_name5 }}</a>
                              <svg xmlns="http://www.w3.org/2000/svg" width="4" height="8" viewBox="0 0 4 8" fill="none">
                                 <path d="M4 4L0.25 7.03109L0.25 0.968911L4 4Z" fill="currentColor" style="fill-opacity:1;"/>
                             </svg>
@@ -211,7 +211,7 @@
                 <ul>
                     <li>
                         <p class="menu-toggle">
-                            {{ section.settings.menu_name1 }}
+                            <a href='{{ section.settings.menu_url1 }}'>{{ section.settings.menu_name1 }}</a>
                             <svg xmlns="http://www.w3.org/2000/svg" width="4" height="8" viewBox="0 0 4 8" fill="none">
                                 <path d="M4 4L0.25 7.03109L0.25 0.968911L4 4Z" fill="currentColor" style="fill-opacity:1;"/>
                             </svg>
@@ -238,7 +238,7 @@
                     </li>
                     <li>
                         <p class="menu-toggle">
-                            {{ section.settings.menu_name2 }}
+                            <a href='{{ section.settings.menu_url2 }}'>{{ section.settings.menu_name2 }}</a>
                             <svg xmlns="http://www.w3.org/2000/svg" width="4" height="8" viewBox="0 0 4 8" fill="none">
                                 <path d="M4 4L0.25 7.03109L0.25 0.968911L4 4Z" fill="currentColor" style="fill-opacity:1;"/>
                             </svg>
@@ -255,7 +255,7 @@
                     </li>
                     <li>
                         <p class="menu-toggle"> 
-                            {{ section.settings.menu_name3 }}
+                            <a href='{{ section.settings.menu_url3 }}'>{{ section.settings.menu_name3 }}</a>
                             <svg xmlns="http://www.w3.org/2000/svg" width="4" height="8" viewBox="0 0 4 8" fill="none">
                                 <path d="M4 4L0.25 7.03109L0.25 0.968911L4 4Z" fill="currentColor" style="fill-opacity:1;"/>
                             </svg>
@@ -272,7 +272,7 @@
                     </li>
                     <li>
                         <p class="menu-toggle">
-                            {{ section.settings.menu_name4 }}
+                            <a href='{{ section.settings.menu_url4 }}'>{{ section.settings.menu_name4 }}</a>
                             <svg xmlns="http://www.w3.org/2000/svg" width="4" height="8" viewBox="0 0 4 8" fill="none">
                                 <path d="M4 4L0.25 7.03109L0.25 0.968911L4 4Z" fill="currentColor" style="fill-opacity:1;"/>
                             </svg>
@@ -289,7 +289,7 @@
                     </li>
                     <li>
                         <p class="menu-toggle">
-                            {{ section.settings.menu_name5 }}
+                            <a href='{{ section.settings.menu_url5 }}'>{{ section.settings.menu_name5 }}</a>
                             <svg xmlns="http://www.w3.org/2000/svg" width="4" height="8" viewBox="0 0 4 8" fill="none">
                                 <path d="M4 4L0.25 7.03109L0.25 0.968911L4 4Z" fill="currentColor" style="fill-opacity:1;"/>
                             </svg>
@@ -330,19 +330,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
     const menuItems = document.querySelectorAll('.custom-header-menu-list-item .menu-toggle');
-
+    
     menuItems.forEach(toggle => {
-        toggle.addEventListener('click', (event) => {
-            const parentItem = toggle.closest('.custom-header-menu-list-item');
-            
+        const parentItem = toggle.closest('.custom-header-menu-list-item');
+        const submenu = parentItem.querySelector('.custom-header-menu-list-item-submenu');
+
+        toggle.addEventListener('mouseover', () => {
             document.querySelectorAll('.custom-header-menu-list-item').forEach(item => {
-                if (item !== parentItem) {
-                    item.classList.remove('open');
-                }
+                item.classList.remove('open');
             });
 
-            parentItem.classList.toggle('open');
+            parentItem.classList.add('open');
+            if (submenu) {
+                submenu.classList.add('active');
+            }
         });
+
+        parentItem.addEventListener('mouseout', (event) => {
+            if (!parentItem.contains(event.relatedTarget)) {
+                parentItem.classList.remove('open');
+                if (submenu) {
+                    submenu.classList.remove('active');
+                }
+            }
+        });
+
+        if (submenu) {
+            submenu.addEventListener('mouseover', () => {
+                parentItem.classList.add('open');
+                submenu.classList.add('active');
+            });
+
+            submenu.addEventListener('mouseout', (event) => {
+                if (!submenu.contains(event.relatedTarget)) {
+                    parentItem.classList.remove('open');
+                    submenu.classList.remove('active');
+                }
+            });
+        }
     });
 
     document.addEventListener('click', (event) => {
@@ -354,22 +379,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-    const menuItem = document.querySelector(".custom-header-menu-list-item.big");
-    const submenu = document.querySelector(".custom-header-menu-list-item-submenu.big");
+document.addEventListener('DOMContentLoaded', () => {
+    const menuItemBig = document.querySelector('.custom-header-menu-list-item.big');
+    const submenuBig = document.querySelector('.custom-header-menu-list-item-submenu.big');
 
-    if (menuItem && submenu) {
-
-        menuItem.addEventListener("click", (event) => {
-            event.stopPropagation();
-            menuItem.classList.toggle("open");
-            submenu.classList.toggle("active");
+    if (menuItemBig && submenuBig) {
+        menuItemBig.addEventListener('mouseover', () => {
+            menuItemBig.classList.add('open');
+            submenuBig.classList.add('active');
         });
 
-        document.addEventListener("click", (event) => {
-            if (!menuItem.contains(event.target) && !submenu.contains(event.target)) {
-                menuItem.classList.remove("open");
-                submenu.classList.remove("active");
+        menuItemBig.addEventListener('mouseout', (event) => {
+            if (!menuItemBig.contains(event.relatedTarget) && !submenuBig.contains(event.relatedTarget)) {
+                menuItemBig.classList.remove('open');
+                submenuBig.classList.remove('active');
+            }
+        });
+
+        submenuBig.addEventListener('mouseover', () => {
+            menuItemBig.classList.add('open');
+            submenuBig.classList.add('active');
+        });
+
+        submenuBig.addEventListener('mouseout', (event) => {
+            if (!submenuBig.contains(event.relatedTarget)) {
+                menuItemBig.classList.remove('open');
+                submenuBig.classList.remove('active');
             }
         });
     }
@@ -437,9 +472,19 @@ document.addEventListener('DOMContentLoaded', function () {
     "label": "Menu name 1"
     },
     {
+    "type": "url",
+    "id": "menu_url1",
+    "label": "Menu url 1"
+    },
+    {
     "type": "text",
     "id": "menu_name2",
     "label": "Menu name 2"
+    },
+    {
+    "type": "url",
+    "id": "menu_url2",
+    "label": "Menu url 2"
     },
     {
     "type": "text",
@@ -447,14 +492,29 @@ document.addEventListener('DOMContentLoaded', function () {
     "label": "Menu name 3"
     },
     {
+    "type": "url",
+    "id": "menu_url3",
+    "label": "Menu url 3"
+    },
+    {
     "type": "text",
     "id": "menu_name4",
     "label": "Menu name 4"
     },
     {
+    "type": "url",
+    "id": "menu_url4",
+    "label": "Menu url 4"
+    },
+    {
     "type": "text",
     "id": "menu_name5",
     "label": "Menu name 5"
+    },
+    {
+    "type": "url",
+    "id": "menu_url5",
+    "label": "Menu url 5"
     },
     {
     "type": "image_picker",

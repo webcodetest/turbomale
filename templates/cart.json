@@ -1,16 +1,56 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
+    "custom_basket_bBtrxc": {
+      "type": "custom-basket",
+      "blocks": {
+        "basket_icons_CVMgAw": {
+          "type": "basket_icons",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/adventages1.svg",
+            "image_alt": "",
+            "text": "Premium Quality & Effectiveness"
+          }
+        },
+        "basket_icons_XcC8f9": {
+          "type": "basket_icons",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/adventages2.svg",
+            "image_alt": "",
+            "text": "Body-safe Materials"
+          }
+        },
+        "basket_icons_d6MfgJ": {
+          "type": "basket_icons",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/adventages3.svg",
+            "image_alt": "",
+            "text": "Free Shipping From 100$"
+          }
+        },
+        "basket_icons_iKa8Mt": {
+          "type": "basket_icons",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/svg_1.svg",
+            "image_alt": "",
+            "text": "100% Secure Сheckout"
+          }
+        }
+      },
+      "block_order": [
+        "basket_icons_CVMgAw",
+        "basket_icons_XcC8f9",
+        "basket_icons_d6MfgJ",
+        "basket_icons_iKa8Mt"
+      ],
+      "settings": {
+        "shipping_popap": "Shipping progress bar info",
+        "basket_payments": "shopify:\/\/shop_images\/basket-payments.webp",
+        "basket_verified": "shopify:\/\/shop_images\/basket-bottom.webp"
+      }
+    },
     "cart-items": {
       "type": "main-cart-items",
+      "disabled": true,
       "settings": {
         "color_scheme": "scheme-1",
         "padding_top": 36,
@@ -19,11 +59,6 @@
     },
     "cart-footer": {
       "type": "main-cart-footer",
-      "settings": {
-        "color_scheme": "scheme-1",
-        "padding_top": 20,
-        "padding_bottom": 40
-      },
       "blocks": {
         "subtotal": {
           "type": "subtotal",
@@ -37,10 +72,17 @@
       "block_order": [
         "subtotal",
         "buttons"
-      ]
+      ],
+      "disabled": true,
+      "settings": {
+        "color_scheme": "scheme-1",
+        "padding_top": 20,
+        "padding_bottom": 40
+      }
     }
   },
   "order": [
+    "custom_basket_bBtrxc",
     "cart-items",
     "cart-footer"
   ]

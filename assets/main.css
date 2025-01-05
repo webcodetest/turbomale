@@ -425,6 +425,12 @@ ul {
   justify-content: space-between;
 }
 
+@media screen and (max-width: 768px) {
+  .custom-header {
+    padding: 6px 0;
+  }
+}
+
 .custom-header-left {
   display: flex;
   align-items: center;
@@ -434,6 +440,12 @@ ul {
 @media screen and (max-width: 768px) {
   .custom-header-left img {
     width: 102px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .custom-header-left a {
+    margin-right: 10px;
   }
 }
 
@@ -473,6 +485,10 @@ ul {
   color: #40ae00;
 }
 
+.custom-header-menu {
+  height: 89px;
+}
+
 @media screen and (max-width: 1000px) {
   .custom-header-menu {
     display: none;
@@ -486,10 +502,41 @@ ul {
 .custom-header-menu-list {
   display: flex;
   gap: 28px;
+  height: 100%;
 }
 
 .custom-header-menu-list-item {
   position: relative;
+}
+
+.custom-header-menu-list-item p > a {
+  color: #fff;
+  font-family: "Proxima Nova";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  transition: color 0.3s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 100%;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 1100px) {
+  .custom-header-menu-list-item p > a {
+    font-size: 14px;
+  }
+}
+
+.custom-header-menu-list-item p > a:hover {
+  color: #40ae00;
+}
+
+.custom-header-menu-list-item.open p > a {
+  color: #40ae00;
 }
 
 .custom-header-menu-list-item p {
@@ -504,6 +551,7 @@ ul {
   display: flex;
   align-items: center;
   gap: 6px;
+  height: 100%;
 }
 
 @media screen and (max-width: 1100px) {
@@ -536,7 +584,7 @@ ul {
   border-radius: 12px;
   background: linear-gradient(0deg, #393939 0%, #000 100%);
   padding: 20px;
-  top: 50px;
+  top: 80px;
   left: -100%;
   max-width: fit-content;
   transition: all 0.3s;
@@ -597,6 +645,7 @@ ul {
 
 .custom-header-menu-list-item-submenu.big.active {
   display: flex;
+  justify-content: space-between;
   opacity: 1;
   visibility: visible;
 }
@@ -707,8 +756,13 @@ ul {
   }
 }
 
+.custom-header-right > svg {
+  width: 24px;
+  height: 24px;
+}
+
 @media screen and (max-width: 500px) {
-  .custom-header-right svg {
+  .custom-header-right > svg {
     width: 13px;
     height: 13px;
   }
@@ -722,6 +776,13 @@ ul {
 .custom-header-right a {
   display: flex;
   align-items: center;
+}
+
+@media screen and (max-width: 500px) {
+  .custom-header-right a {
+    width: 14px;
+    height: 14px;
+  }
 }
 
 .custom-header-right a svg {
@@ -741,13 +802,24 @@ ul {
   transition: all 0.3s;
 }
 
+@media screen and (max-width: 500px) {
+  .custom-header-right-search {
+    padding: 0;
+  }
+
+  .custom-header-right-search svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
 .custom-header-right-search:hover {
   color: #40ae00;
 }
 
 .custom-header-right .search-modal__form {
   max-width: 185px;
-  width: 100%;
+  width: auto;
   display: none;
 }
 
@@ -843,6 +915,22 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 34px;
+}
+
+.mobile-menu ul li p a {
+  color: #fff;
+  font-family: "Proxima Nova";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.mobile-menu ul li p:hover a {
+  color: #40ae00;
 }
 
 .mobile-menu ul li p {
@@ -943,7 +1031,7 @@ ul {
 
 @media screen and (max-width: 768px) {
   .custom-home-hero {
-    padding-top: 69px;
+    padding-top: 81px;
     padding-bottom: 30px;
   }
 }
@@ -1987,7 +2075,8 @@ ul {
   line-height: normal;
 }
 
-.custom-package-left-popap-info button {
+.custom-package-left-popap-info span {
+  display: flex;
   width: 66px;
   height: 26px;
   border-radius: 4px;
@@ -2004,15 +2093,8 @@ ul {
   min-height: auto;
   padding: 0;
   transition: all 0.3s;
-}
-
-.custom-package-left-popap-info button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-.custom-package-left-popap-info button::after {
-  display: none;
+  align-items: center;
+  justify-content: center;
 }
 
 .custom-package-left-popap a {
@@ -2022,6 +2104,11 @@ ul {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  text-decoration: none;
+}
+
+.custom-package-left-popap a:hover {
+  text-decoration: underline;
 }
 
 .custom-package-left-popap.active {
@@ -2634,6 +2721,10 @@ ul {
   font-weight: 400;
   line-height: normal;
   text-decoration: none;
+}
+
+.custom-package-right-link:hover {
+  text-decoration: underline;
 }
 
 /* custom-vacuum */
