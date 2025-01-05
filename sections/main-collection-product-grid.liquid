@@ -76,6 +76,7 @@
           <div class="product-count-vertical light" role="status">
             <h2 class="product-count__text text-body">
               <span id="ProductCountDesktop">
+                <span style="color: #05060B;" class="items-count-text-bold">Items per page</span>
                 {%- if collection.results_count -%}
                   {{
                     'templates.search.results_with_count'
@@ -92,6 +93,18 @@
               </span>
             </h2>
             {%- render 'loading-spinner' -%}
+          </div>
+          <div class="change-view-block-btns">
+            <div class="change-view-block-text">
+              View as
+            </div>
+            <div class="change-view-block-btns-list">
+              <button class="horizontal-align-btn"></button>
+              <button class="vertical-align-btn-2-columns"></button>
+              <button class="vertical-align-btn-3-columns"></button>
+              <button class="vertical-align-btn-4-columns"></button>
+              <button class="vertical-align-btn-5-columns"></button>
+            </div>
           </div>
         </form>
       </facet-filters-form>

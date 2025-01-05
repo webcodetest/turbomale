@@ -1,0 +1,88 @@
+<style>
+    
+.collection-breadcrumbs{
+    height: 225px;
+    padding: 17px 0 21px 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+
+
+.collection-breadcrumbs ul{
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.collection-breadcrumbs-heading{
+    color: #FFF;
+    font-family: "Proxima Nova";
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    text-transform: uppercase;
+    padding: 31px 0px 10px 0px;
+}
+
+.collection-breadcrumbs-description{
+    color: #FFF;
+    font-family: "Proxima Nova";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    max-width: 415px;
+    width: 100%;
+}
+
+.collection-breadcrumbs ul li, .collection-breadcrumbs ul li a{
+    text-decoration: none;
+    color: #fff;
+    font-family: "Proxima Nova";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.collection-breadcrumbs ul li a:hover{
+    text-decoration: underline;
+}
+
+</style>
+
+<nav class="collection-breadcrumbs" aria-label="breadcrumb" style="background-image: url('{{ section.settings.background | img_url: 'master' }}');">
+    <div class="container">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li class="divider">/</li>
+            {% if template contains 'collection' %}
+                <li aria-current="page">{{ collection.title }}</li>
+            {% endif %}
+        </ul>
+        <h2 class="collection-breadcrumbs-heading">{{ collection.title }}</h2>
+        <p class="collection-breadcrumbs-description">{{ collection.description | strip_html | escape }}</p>
+    </div>
+</nav>
+
+
+
+{% schema %}
+  {
+    "name": "Collection breadcrumbs",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "background",
+            "label": "Background image"
+        }
+    ],
+     "presets": [
+    {
+      "name": "Collection breadcrumbs"
+    }
+  ]
+  }
+{% endschema %}

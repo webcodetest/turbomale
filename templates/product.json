@@ -147,12 +147,7 @@
     },
     "often_bought_together_DEd6my": {
       "type": "often-bought-together",
-      "settings": {
-        "title_absolute": "last longer",
-        "title": "Last Longer, Get Bigger with a Cock Ring",
-        "custom_textarea": "",
-        "custom_textarea_2": "<b>You will have to provide us with:</b>"
-      }
+      "settings": {}
     },
     "product_tabs_WaATEW": {
       "type": "product-tabs",
@@ -275,43 +270,49 @@
         "section_image": "shopify://shop_images/Mobile.png"
       }
     },
-    "custom_adventages_YNxQKx": {
-      "type": "custom-adventages",
+    "custom_why_turbomale_dpHrpf": {
+      "type": "custom-why-turbomale",
       "blocks": {
-        "list_EbkC4t": {
-          "type": "list",
+        "text_3zDVAe": {
+          "type": "text",
           "settings": {
-            "item_image": "shopify://shop_images/box_1_traced.svg",
-            "item_image_alt": "",
-            "item_title": "Our Products",
-            "item_text": "Best Enlargement Systems with premium quality, proudly made in EU with best prices"
+            "icon": "shopify://shop_images/box_1_traced.svg",
+            "card_title": "Our Products",
+            "card_description": "Best Enlargement Systems with premium quality, proudly made in EU with best prices",
+            "card_link_text": "View ALL",
+            "card_link": "#"
           }
         },
-        "list_yHmqWN": {
-          "type": "list",
+        "text_XfBkXg": {
+          "type": "text",
           "settings": {
-            "item_image": "shopify://shop_images/star_2_traced.svg",
-            "item_image_alt": "",
-            "item_title": "Our Reputation",
-            "item_text": "4.8 stars and 1500+reviews, more than 10 000 happy customers."
+            "icon": "shopify://shop_images/star_2_traced.svg",
+            "card_title": "Our Reputation",
+            "card_description": "4.8 stars and 1500+reviews, more than 10 000 happy customers.",
+            "card_link_text": "Read Reviews",
+            "card_link": "#"
           }
         },
-        "list_bqjtjJ": {
-          "type": "list",
+        "text_UEzY88": {
+          "type": "text",
           "settings": {
-            "item_image": "shopify://shop_images/google-docs_1_traced.svg",
-            "item_image_alt": "",
-            "item_title": "Our Service",
-            "item_text": "Fast worldwide shipping,, 3 years warranty, 24/7 support from our experienced experts"
+            "icon": "shopify://shop_images/google-docs_1_traced.svg",
+            "card_title": "Our Service",
+            "card_description": "Fast worldwide shipping,, 3 years warranty, 24/7 support from our experienced experts",
+            "card_link_text": "View",
+            "card_link": "#"
           }
         }
       },
       "block_order": [
-        "list_EbkC4t",
-        "list_yHmqWN",
-        "list_bqjtjJ"
+        "text_3zDVAe",
+        "text_XfBkXg",
+        "text_UEzY88"
       ],
-      "settings": {}
+      "settings": {
+        "title_absolute": "Why turbomale?",
+        "title": "Why turbomale?"
+      }
     },
     "custom_testimonials_KrUcd4": {
       "type": "custom-testimonials",
@@ -386,7 +387,7 @@
     "product_tabs_WaATEW",
     "custom_result_WXA86c",
     "custom_alt_results_QrJfF3",
-    "custom_adventages_YNxQKx",
+    "custom_why_turbomale_dpHrpf",
     "custom_testimonials_KrUcd4",
     "custom_best_seller_fUyTVD"
   ]

@@ -1,0 +1,162 @@
+<style>
+
+    .custom-why-turbomale .custom-best-seller-top div{
+        width: 100%;
+        text-align: center;
+    }
+    .custom-why-turbomale .custom-best-seller-top h2{
+        text-align: center;
+    }
+
+    .custom-why-turbomale {
+        padding-top: 86px;
+    }
+    .container {
+    }
+    .custom-best-seller-top {
+    }
+    .custom-why-turbomale-body {
+    }
+    .custom-why-turbomale-body-wrap {
+        display: flex;
+        justify-content: space-between;
+        gap: 77px;
+        align-items: flex-start;
+        padding-top: 89px;
+    }
+    .custom-why-turbomale__card {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        max-width: 341px;
+        width: 100%;
+    }
+    .custom-why-turbomale__card__icon {
+    }
+    .custom-why-turbomale__card__heading h4{
+        color: #000;
+        font-family: "Proxima Nova";
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+    .custom-why-turbomale__card__heading p{
+        color: #000;
+        font-family: "Proxima Nova";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+    .custom-why-turbomale__card__heading a{
+        text-decoration: none;
+        color: #727272;
+        font-family: "Proxima Nova";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        transition: all 0.3s ease;
+    }
+    .custom-why-turbomale__card__heading a:hover{
+        color: #000;
+    }
+
+    @media screen and (max-width: 768px){
+        .custom-why-turbomale-body-wrap{
+            flex-direction: column;
+        }
+        .custom-why-turbomale__card{
+            max-width: 100%;
+        }
+    }
+
+</style>
+
+<section class='custom-why-turbomale'>
+  <div class='container'>
+    <div class='custom-best-seller-top'>
+        <div>{{ section.settings.title_absolute }}</div>
+        <h2>{{ section.settings.title }}</h2>
+    </div>
+    <div class="custom-why-turbomale-body">
+        <div class="custom-why-turbomale-body-wrap">
+            {% for block in section.blocks %}
+                <div class="custom-why-turbomale__card">
+                    <div class="custom-why-turbomale__card__icon">
+                        <img src="{{ block.settings.icon | img_url: 'master' }}" alt="">
+                    </div>
+                    <div class="custom-why-turbomale__card__heading">
+                        <h4>{{ block.settings.card_title }}</h4>
+                    </div>
+                    <div class="custom-why-turbomale__card__heading">
+                        <p>{{ block.settings.card_description }}</p>
+                    </div>
+                    <div class="custom-why-turbomale__card__heading">
+                        <a href="{{ block.settings.card_link }}">{{ block.settings.card_link_text }}</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Custom why turbomale",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title_absolute",
+            "label": "Title absolute",
+            "default": "Why turbomale?"
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Why turbomale?"
+        }
+    ],
+    "blocks": [
+        {
+        "type": "text",
+        "name": "Item of text",
+        "settings":[
+            {
+                "type": "image_picker",
+                "id": "icon",
+                "label": "Icon"
+            },
+            {
+                "type": "text",
+                "id": "card_title",
+                "label": "Card title"
+            },
+            {
+                "type": "textarea",
+                "id": "card_description",
+                "label": "Card title"
+            },
+            {
+                "type": "text",
+                "id": "card_link_text",
+                "label": "Card link text"
+            },
+            {
+                "type": "url",
+                "id": "card_link",
+                "label": "Card link url"
+            }
+        ] 
+        }
+    ],
+     "presets": [
+    {
+      "name": "Custom why turbomale"
+    }
+  ]
+  }
+{% endschema %}
