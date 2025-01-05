@@ -1,384 +1,370 @@
 {
-  "sections": {
-    "custom_breadcrumbs_B9zdGW": {
-      "type": "custom-breadcrumbs",
-      "settings": {}
-    },
-    "main": {
-      "type": "main-product",
-      "blocks": {
-        "title": {
-          "type": "title",
-          "settings": {}
+    "sections": {
+        "custom_breadcrumbs_B9zdGW": {
+            "type": "custom-breadcrumbs",
+            "settings": {}
         },
-        "description_ExktNm": {
-          "type": "description",
-          "settings": {}
+        "main": {
+            "type": "main-product",
+            "blocks": {
+                "title": {
+                    "type": "title",
+                    "settings": {}
+                },
+                "description_ExktNm": {
+                    "type": "description",
+                    "settings": {}
+                },
+                "stamped_reviews_star_rating_badge_kUzPiN": {
+                    "type": "shopify://apps/stamped-reviews/blocks/star-rating-badge/a103faaf-2125-4b0e-89fa-de5149736723",
+                    "settings": {
+                        "use_metafields": false,
+                        "sku_tagtype": "sku",
+                        "is_featured_product": false,
+                        "featured_product_handle": ""
+                    }
+                },
+                "price": {
+                    "type": "price",
+                    "settings": {}
+                },
+                "custom_liquid_cBHiqJ": {
+                    "type": "custom_liquid",
+                    "settings": {
+                        "custom_liquid": "{% if product.metafields.custom.product_features and product.metafields.custom.product_features.value %}\n  <ul class=\"product-features\" style=\"padding-bottom: 20px;\">\n    {% assign features = product.metafields.custom.product_features.value | split: ',' %}\n    {% for feature in features %}\n      <li class=\"product-feature\">\n        <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"19\" viewBox=\"0 0 18 19\" fill=\"none\">\n          <path d=\"M16.7135 0.960307C15.9225 1.03062 14.6604 1.24859 14.4038 1.35757C14.0909 1.49117 13.2436 2.28218 12.6354 3.01343C11.6089 4.24742 10.0866 6.44117 9.04245 8.18492C8.05456 9.83726 6.82058 12.2033 6.02605 13.9646C5.95222 14.1298 5.8573 14.3337 5.81862 14.4146L5.7448 14.5693L5.44948 14.0982C4.71823 12.938 4.13815 12.3052 3.39636 11.8623C2.98503 11.6162 2.80573 11.5599 2.42605 11.5599C2.1237 11.5564 2.07097 11.5669 1.86003 11.6654C1.3362 11.915 0.79128 12.3615 0.661202 12.6568C0.48542 13.0505 0.601436 13.3177 1.27644 14.049C2.08855 14.9349 2.72487 15.7505 3.49831 16.9002C4.06081 17.7369 4.20495 17.9127 4.39128 17.9654C4.89401 18.1166 6.11394 18.0919 6.67292 17.9162C7.01042 17.8072 7.16159 17.5541 7.80495 16.0388C8.65222 14.0279 8.76472 13.7748 9.29206 12.699C11.0182 9.16578 13.5389 5.37593 15.803 2.89039C15.9999 2.67242 16.5975 2.07476 17.0757 1.61421C17.2514 1.44546 17.4026 1.26968 17.4096 1.22398C17.4342 1.10445 17.3815 0.995463 17.2796 0.956791C17.1776 0.91812 17.1776 0.91812 16.7135 0.960307Z\" fill=\"#60AC22\" style=\"fill:#60AC22;fill:color(display-p3 0.3768 0.6749 0.1322);fill-opacity:1;\"/>\n          </svg>\n        <span>{{ feature | strip }}</span>\n      </li>\n    {% endfor %}\n  </ul>\n{% endif %}"
+                    }
+                },
+                "variant_picker": {
+                    "type": "variant_picker",
+                    "settings": {
+                        "picker_type": "button",
+                        "swatch_shape": "none"
+                    }
+                },
+                "variant_picker_gPkMcY": {
+                    "type": "variant_picker",
+                    "settings": {
+                        "picker_type": "dropdown",
+                        "swatch_shape": "circle"
+                    }
+                },
+                "kiwi_size_chart_recommender_kiwi_sizing_hLrhHt": {
+                    "type": "shopify://apps/kiwi-size-chart-recommender/blocks/kiwiSizing/b7369922-bf15-44ce-a121-a22a8fcbc4b0",
+                    "settings": {
+                        "product": "{{ product }}"
+                    }
+                },
+                "inventory_6JwMYF": {
+                    "type": "inventory",
+                    "settings": {
+                        "text_style": "body",
+                        "inventory_threshold": 10,
+                        "show_inventory_quantity": true
+                    }
+                },
+                "quantity_selector": {
+                    "type": "quantity_selector",
+                    "settings": {}
+                },
+                "buy_buttons": {
+                    "type": "buy_buttons",
+                    "settings": {
+                        "show_dynamic_checkout": true,
+                        "show_gift_card_recipient": true
+                    }
+                },
+                "icon_with_text_iqUK9T": {
+                    "type": "icon-with-text",
+                    "settings": {
+                        "layout": "vertical",
+                        "icon_1": "none",
+                        "image_1": "shopify://shop_images/svg_3_3b520c23-8746-4b69-b314-b6e96e4eaaf8.svg",
+                        "heading_1": "<p><strong>Free Shipping (USD $125+)</strong><br/>Estimated Delivery: Tue, Aug 6</p>",
+                        "icon_2": "none",
+                        "heading_2": "",
+                        "icon_3": "none",
+                        "heading_3": ""
+                    }
+                }
+            },
+            "block_order": [
+                "title",
+                "description_ExktNm",
+                "stamped_reviews_star_rating_badge_kUzPiN",
+                "price",
+                "custom_liquid_cBHiqJ",
+                "variant_picker",
+                "variant_picker_gPkMcY",
+                "kiwi_size_chart_recommender_kiwi_sizing_hLrhHt",
+                "inventory_6JwMYF",
+                "quantity_selector",
+                "buy_buttons",
+                "icon_with_text_iqUK9T"
+            ],
+            "settings": {
+                "enable_sticky_info": true,
+                "color_scheme": "scheme-1",
+                "media_size": "large",
+                "constrain_to_viewport": false,
+                "media_fit": "cover",
+                "gallery_layout": "thumbnail_slider",
+                "media_position": "left",
+                "image_zoom": "lightbox",
+                "mobile_thumbnails": "hide",
+                "hide_variants": true,
+                "enable_video_looping": false,
+                "padding_top": 36,
+                "padding_bottom": 12
+            }
         },
-        "stamped_reviews_star_rating_badge_kUzPiN": {
-          "type": "shopify:\/\/apps\/stamped-reviews\/blocks\/star-rating-badge\/a103faaf-2125-4b0e-89fa-de5149736723",
-          "settings": {
-            "use_metafields": false,
-            "sku_tagtype": "sku",
-            "is_featured_product": false,
-            "featured_product_handle": ""
-          }
+        "related-products": {
+            "type": "related-products",
+            "disabled": true,
+            "settings": {
+                "heading": "You may also like",
+                "heading_size": "h2",
+                "products_to_show": 3,
+                "columns_desktop": 6,
+                "color_scheme": "scheme-1",
+                "image_ratio": "square",
+                "image_shape": "default",
+                "show_secondary_image": true,
+                "show_vendor": false,
+                "show_rating": false,
+                "columns_mobile": "2",
+                "padding_top": 36,
+                "padding_bottom": 28
+            }
         },
-        "price": {
-          "type": "price",
-          "settings": {}
+        "often_bought_together_DEd6my": {
+            "type": "often-bought-together",
+            "settings": {
+                "title_absolute": "last longer",
+                "title": "Last Longer, Get Bigger with a Cock Ring",
+                "custom_textarea": "",
+                "custom_textarea_2": "<b>You will have to provide us with:</b>"
+            }
         },
-        "custom_liquid_cBHiqJ": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "{% if product.metafields.custom.product_features and product.metafields.custom.product_features.value %}\n  <ul class=\"product-features\" style=\"padding-bottom: 20px;\">\n    {% assign features = product.metafields.custom.product_features.value | split: ',' %}\n    {% for feature in features %}\n      <li class=\"product-feature\">\n        <svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"18\" height=\"19\" viewBox=\"0 0 18 19\" fill=\"none\">\n          <path d=\"M16.7135 0.960307C15.9225 1.03062 14.6604 1.24859 14.4038 1.35757C14.0909 1.49117 13.2436 2.28218 12.6354 3.01343C11.6089 4.24742 10.0866 6.44117 9.04245 8.18492C8.05456 9.83726 6.82058 12.2033 6.02605 13.9646C5.95222 14.1298 5.8573 14.3337 5.81862 14.4146L5.7448 14.5693L5.44948 14.0982C4.71823 12.938 4.13815 12.3052 3.39636 11.8623C2.98503 11.6162 2.80573 11.5599 2.42605 11.5599C2.1237 11.5564 2.07097 11.5669 1.86003 11.6654C1.3362 11.915 0.79128 12.3615 0.661202 12.6568C0.48542 13.0505 0.601436 13.3177 1.27644 14.049C2.08855 14.9349 2.72487 15.7505 3.49831 16.9002C4.06081 17.7369 4.20495 17.9127 4.39128 17.9654C4.89401 18.1166 6.11394 18.0919 6.67292 17.9162C7.01042 17.8072 7.16159 17.5541 7.80495 16.0388C8.65222 14.0279 8.76472 13.7748 9.29206 12.699C11.0182 9.16578 13.5389 5.37593 15.803 2.89039C15.9999 2.67242 16.5975 2.07476 17.0757 1.61421C17.2514 1.44546 17.4026 1.26968 17.4096 1.22398C17.4342 1.10445 17.3815 0.995463 17.2796 0.956791C17.1776 0.91812 17.1776 0.91812 16.7135 0.960307Z\" fill=\"#60AC22\" style=\"fill:#60AC22;fill:color(display-p3 0.3768 0.6749 0.1322);fill-opacity:1;\"\/>\n          <\/svg>\n        <span>{{ feature | strip }}<\/span>\n      <\/li>\n    {% endfor %}\n  <\/ul>\n{% endif %}"
-          }
+        "product_tabs_WaATEW": {
+            "type": "product-tabs",
+            "settings": {
+                "tab_1_name": "Details",
+                "tab_2_name": "Descriptions",
+                "tab_3_name": "KEY FEATURES",
+                "tab_4_name": "WHAT'S ON THE BOX",
+                "tab_5_name": "SIZING GUIDE",
+                "tab_6_name": "INSTRUCTIONS",
+                "tab_7_name": "REVIEWS",
+                "details_absolute": "Proven Result",
+                "details_heading": "Proven Result",
+                "details_heading_right": "60 day money back guarantee, no quibbles!",
+                "details_text_right": "<p>Even if you have done a <strong>100 washes</strong> – no problem. If you don’t like it – we will collect it and arrange a full refund. We want you to be absolutely happy with your purchase. You can see how happy our customers are from our <strong>EXCELLENT Trust Pilot</strong> rating.<br/><br/>If you change your mind, don’t like the product or even if your circumstances just change – we will collect the machine and process your full refund at any time in the first 60 days.</p>"
+            }
         },
-        "variant_picker": {
-          "type": "variant_picker",
-          "settings": {
-            "picker_type": "button",
-            "swatch_shape": "none"
-          }
+        "custom_result_WXA86c": {
+            "type": "custom-result",
+            "blocks": {
+                "text_RgmPQE": {
+                    "type": "text",
+                    "settings": {
+                        "card_percentage": "100%",
+                        "card_under": "say",
+                        "card_content": "it effectively enhances length and girth."
+                    }
+                },
+                "text_LfpAt7": {
+                    "type": "text",
+                    "settings": {
+                        "card_percentage": "100%",
+                        "card_under": "say",
+                        "card_content": "it effectively enhances length and girth."
+                    }
+                },
+                "text_i6FCgh": {
+                    "type": "text",
+                    "settings": {
+                        "card_percentage": "100%",
+                        "card_under": "say",
+                        "card_content": "it effectively enhances length and girth."
+                    }
+                },
+                "text_ADfWHK": {
+                    "type": "text",
+                    "settings": {
+                        "card_percentage": "100%",
+                        "card_under": "say",
+                        "card_content": "it effectively enhances length and girth."
+                    }
+                },
+                "text_wVjzJt": {
+                    "type": "text",
+                    "settings": {
+                        "card_percentage": "100%",
+                        "card_under": "say",
+                        "card_content": "it effectively enhances length and girth."
+                    }
+                }
+            },
+            "block_order": ["text_RgmPQE", "text_LfpAt7", "text_i6FCgh", "text_ADfWHK", "text_wVjzJt"],
+            "settings": {
+                "title_absolute": "Real Result",
+                "title": "Real Result",
+                "section_image": "shopify://shop_images/turbo1_1.png"
+            }
         },
-        "variant_picker_gPkMcY": {
-          "type": "variant_picker",
-          "settings": {
-            "picker_type": "dropdown",
-            "swatch_shape": "circle"
-          }
+        "custom_alt_results_QrJfF3": {
+            "type": "custom-alt-results",
+            "blocks": {
+                "card_d9dBKd": {
+                    "type": "card",
+                    "settings": {
+                        "card_icon": "shopify://shop_images/svg_3_6645fc97-f9df-4028-8bac-e33e07544bcf.svg",
+                        "card_heading": "Tantaly's Exclusive Soft Breast Technology - Tantabosom",
+                        "card_description": ""
+                    }
+                },
+                "card_hzePTh": {
+                    "type": "card",
+                    "settings": {
+                        "card_icon": "shopify://shop_images/Black.svg",
+                        "card_heading": "Tantaly's Exclusive Soft Butt Technology - Tantabutt",
+                        "card_description": ""
+                    }
+                },
+                "card_bj7erD": {
+                    "type": "card",
+                    "settings": {
+                        "card_icon": "shopify://shop_images/Black_dc196927-f0fa-433c-a976-10a6509ca839.svg",
+                        "card_heading": "Authentic Tactile Experience",
+                        "card_description": "Monroe's soft body, sensual curves and realistic weight make for a sex, cuddling, and sleep experience that’s almost as satisfying as the real thing."
+                    }
+                },
+                "card_6rieYK": {
+                    "type": "card",
+                    "settings": {
+                        "card_icon": "shopify://shop_images/Black_1.svg",
+                        "card_heading": "Suitable for a Wide Range of Positions",
+                        "card_description": ""
+                    }
+                }
+            },
+            "block_order": ["card_d9dBKd", "card_hzePTh", "card_bj7erD", "card_6rieYK"],
+            "settings": {
+                "title_absolute": "desired results",
+                "title": "why is it so effective?",
+                "section_image": "shopify://shop_images/Mobile.png"
+            }
         },
-        "kiwi_size_chart_recommender_kiwi_sizing_hLrhHt": {
-          "type": "shopify:\/\/apps\/kiwi-size-chart-recommender\/blocks\/kiwiSizing\/b7369922-bf15-44ce-a121-a22a8fcbc4b0",
-          "settings": {
-            "product": "{{ product }}"
-          }
+        "custom_why_turbomale_dpHrpf": {
+            "type": "custom-why-turbomale",
+            "blocks": {
+                "text_3zDVAe": {
+                    "type": "text",
+                    "settings": {
+                        "icon": "shopify://shop_images/box_1_traced.svg",
+                        "card_title": "Our Products",
+                        "card_description": "Best Enlargement Systems with premium quality, proudly made in EU with best prices",
+                        "card_link_text": "View ALL",
+                        "card_link": "#"
+                    }
+                },
+                "text_XfBkXg": {
+                    "type": "text",
+                    "settings": {
+                        "icon": "shopify://shop_images/star_2_traced.svg",
+                        "card_title": "Our Reputation",
+                        "card_description": "4.8 stars and 1500+reviews, more than 10 000 happy customers.",
+                        "card_link_text": "Read Reviews",
+                        "card_link": "#"
+                    }
+                },
+                "text_UEzY88": {
+                    "type": "text",
+                    "settings": {
+                        "icon": "shopify://shop_images/google-docs_1_traced.svg",
+                        "card_title": "Our Service",
+                        "card_description": "Fast worldwide shipping,, 3 years warranty, 24/7 support from our experienced experts",
+                        "card_link_text": "View",
+                        "card_link": "#"
+                    }
+                }
+            },
+            "block_order": ["text_3zDVAe", "text_XfBkXg", "text_UEzY88"],
+            "settings": {
+                "title_absolute": "Why turbomale?",
+                "title": "Why turbomale?"
+            }
         },
-        "inventory_6JwMYF": {
-          "type": "inventory",
-          "settings": {
-            "text_style": "body",
-            "inventory_threshold": 10,
-            "show_inventory_quantity": true
-          }
+        "custom_testimonials_KrUcd4": {
+            "type": "custom-testimonials",
+            "settings": {
+                "title": "Personal Experiences",
+                "title_absolute": "Why turbomale?"
+            }
         },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {}
-        },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
-          }
-        },
-        "icon_with_text_iqUK9T": {
-          "type": "icon-with-text",
-          "settings": {
-            "layout": "vertical",
-            "icon_1": "none",
-            "image_1": "shopify:\/\/shop_images\/svg_3_3b520c23-8746-4b69-b314-b6e96e4eaaf8.svg",
-            "heading_1": "<p><strong>Free Shipping (USD $125+)<\/strong><br\/>Estimated Delivery: Tue, Aug 6<\/p>",
-            "icon_2": "none",
-            "heading_2": "",
-            "icon_3": "none",
-            "heading_3": ""
-          }
+        "custom_best_seller_fUyTVD": {
+            "type": "custom-best-seller",
+            "blocks": {
+                "products_kQR9F8": {
+                    "type": "products",
+                    "settings": {
+                        "product": "turbomale-gold-extender",
+                        "stars_count": 5,
+                        "review_count": "",
+                        "product_description": "",
+                        "product_cart_button": ""
+                    }
+                },
+                "products_6b84p9": {
+                    "type": "products",
+                    "settings": {
+                        "product": "erect-rings-set",
+                        "stars_count": 5,
+                        "review_count": "",
+                        "product_description": "",
+                        "product_cart_button": ""
+                    }
+                },
+                "products_EBapmn": {
+                    "type": "products",
+                    "settings": {
+                        "product": "shoulder-band-for-stretcher",
+                        "stars_count": 5,
+                        "review_count": "",
+                        "product_description": "",
+                        "product_cart_button": ""
+                    }
+                },
+                "products_JVjN9J": {
+                    "type": "products",
+                    "settings": {
+                        "product": "turbomale-extender-cushion",
+                        "stars_count": 5,
+                        "review_count": "",
+                        "product_description": "",
+                        "product_cart_button": ""
+                    }
+                }
+            },
+            "block_order": ["products_kQR9F8", "products_6b84p9", "products_EBapmn", "products_JVjN9J"],
+            "settings": {
+                "title": "Trending our Best sellers",
+                "title_absolute": "best seller",
+                "button_text": "SHOP ALL",
+                "button_url": ""
+            }
         }
-      },
-      "block_order": [
-        "title",
-        "description_ExktNm",
-        "stamped_reviews_star_rating_badge_kUzPiN",
-        "price",
-        "custom_liquid_cBHiqJ",
-        "variant_picker",
-        "variant_picker_gPkMcY",
-        "kiwi_size_chart_recommender_kiwi_sizing_hLrhHt",
-        "inventory_6JwMYF",
-        "quantity_selector",
-        "buy_buttons",
-        "icon_with_text_iqUK9T"
-      ],
-      "settings": {
-        "enable_sticky_info": true,
-        "color_scheme": "scheme-1",
-        "media_size": "large",
-        "constrain_to_viewport": false,
-        "media_fit": "cover",
-        "gallery_layout": "thumbnail_slider",
-        "media_position": "left",
-        "image_zoom": "lightbox",
-        "mobile_thumbnails": "hide",
-        "hide_variants": true,
-        "enable_video_looping": false,
-        "padding_top": 36,
-        "padding_bottom": 12
-      }
     },
-    "related-products": {
-      "type": "related-products",
-      "disabled": true,
-      "settings": {
-        "heading": "You may also like",
-        "heading_size": "h2",
-        "products_to_show": 3,
-        "columns_desktop": 6,
-        "color_scheme": "scheme-1",
-        "image_ratio": "square",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "columns_mobile": "2",
-        "padding_top": 36,
-        "padding_bottom": 28
-      }
-    },
-    "often_bought_together_DEd6my": {
-      "type": "often-bought-together",
-      "settings": {
-        "title_absolute": "last longer",
-        "title": "Last Longer, Get Bigger with a Cock Ring",
-        "custom_textarea": "",
-        "custom_textarea_2": "<b>You will have to provide us with:<\/b>"
-      }
-    },
-    "product_tabs_WaATEW": {
-      "type": "product-tabs",
-      "settings": {
-        "tab_1_name": "Details",
-        "tab_2_name": "Descriptions",
-        "tab_3_name": "KEY FEATURES",
-        "tab_4_name": "WHAT'S ON THE BOX",
-        "tab_5_name": "SIZING GUIDE",
-        "tab_6_name": "INSTRUCTIONS",
-        "tab_7_name": "REVIEWS",
-        "details_absolute": "Proven Result",
-        "details_heading": "Proven Result",
-        "details_heading_right": "60 day money back guarantee, no quibbles!",
-        "details_text_right": "<p>Even if you have done a <strong>100 washes<\/strong> – no problem. If you don’t like it – we will collect it and arrange a full refund. We want you to be absolutely happy with your purchase. You can see how happy our customers are from our <strong>EXCELLENT Trust Pilot<\/strong> rating.<br\/><br\/>If you change your mind, don’t like the product or even if your circumstances just change – we will collect the machine and process your full refund at any time in the first 60 days.<\/p>"
-      }
-    },
-    "custom_result_WXA86c": {
-      "type": "custom-result",
-      "blocks": {
-        "text_RgmPQE": {
-          "type": "text",
-          "settings": {
-            "card_percentage": "100%",
-            "card_under": "say",
-            "card_content": "it effectively enhances length and girth."
-          }
-        },
-        "text_LfpAt7": {
-          "type": "text",
-          "settings": {
-            "card_percentage": "100%",
-            "card_under": "say",
-            "card_content": "it effectively enhances length and girth."
-          }
-        },
-        "text_i6FCgh": {
-          "type": "text",
-          "settings": {
-            "card_percentage": "100%",
-            "card_under": "say",
-            "card_content": "it effectively enhances length and girth."
-          }
-        },
-        "text_ADfWHK": {
-          "type": "text",
-          "settings": {
-            "card_percentage": "100%",
-            "card_under": "say",
-            "card_content": "it effectively enhances length and girth."
-          }
-        },
-        "text_wVjzJt": {
-          "type": "text",
-          "settings": {
-            "card_percentage": "100%",
-            "card_under": "say",
-            "card_content": "it effectively enhances length and girth."
-          }
-        }
-      },
-      "block_order": [
-        "text_RgmPQE",
-        "text_LfpAt7",
-        "text_i6FCgh",
-        "text_ADfWHK",
-        "text_wVjzJt"
-      ],
-      "settings": {
-        "title_absolute": "Real Result",
-        "title": "Real Result",
-        "section_image": "shopify:\/\/shop_images\/turbo1_1.png"
-      }
-    },
-    "custom_alt_results_QrJfF3": {
-      "type": "custom-alt-results",
-      "blocks": {
-        "card_d9dBKd": {
-          "type": "card",
-          "settings": {
-            "card_icon": "shopify:\/\/shop_images\/svg_3_6645fc97-f9df-4028-8bac-e33e07544bcf.svg",
-            "card_heading": "Tantaly's Exclusive Soft Breast Technology - Tantabosom",
-            "card_description": ""
-          }
-        },
-        "card_hzePTh": {
-          "type": "card",
-          "settings": {
-            "card_icon": "shopify:\/\/shop_images\/Black.svg",
-            "card_heading": "Tantaly's Exclusive Soft Butt Technology - Tantabutt",
-            "card_description": ""
-          }
-        },
-        "card_bj7erD": {
-          "type": "card",
-          "settings": {
-            "card_icon": "shopify:\/\/shop_images\/Black_dc196927-f0fa-433c-a976-10a6509ca839.svg",
-            "card_heading": "Authentic Tactile Experience",
-            "card_description": "Monroe's soft body, sensual curves and realistic weight make for a sex, cuddling, and sleep experience that’s almost as satisfying as the real thing."
-          }
-        },
-        "card_6rieYK": {
-          "type": "card",
-          "settings": {
-            "card_icon": "shopify:\/\/shop_images\/Black_1.svg",
-            "card_heading": "Suitable for a Wide Range of Positions",
-            "card_description": ""
-          }
-        }
-      },
-      "block_order": [
-        "card_d9dBKd",
-        "card_hzePTh",
-        "card_bj7erD",
-        "card_6rieYK"
-      ],
-      "settings": {
-        "title_absolute": "desired results",
-        "title": "why is it so effective?",
-        "section_image": "shopify:\/\/shop_images\/Mobile.png"
-      }
-    },
-    "custom_adventages_YNxQKx": {
-      "type": "custom-adventages",
-      "blocks": {
-        "list_EbkC4t": {
-          "type": "list",
-          "settings": {
-            "item_image": "shopify:\/\/shop_images\/box_1_traced.svg",
-            "item_image_alt": "",
-            "item_title": "Our Products",
-            "item_text": "Best Enlargement Systems with premium quality, proudly made in EU with best prices"
-          }
-        },
-        "list_yHmqWN": {
-          "type": "list",
-          "settings": {
-            "item_image": "shopify:\/\/shop_images\/star_2_traced.svg",
-            "item_image_alt": "",
-            "item_title": "Our Reputation",
-            "item_text": "4.8 stars and 1500+reviews, more than 10 000 happy customers."
-          }
-        },
-        "list_bqjtjJ": {
-          "type": "list",
-          "settings": {
-            "item_image": "shopify:\/\/shop_images\/google-docs_1_traced.svg",
-            "item_image_alt": "",
-            "item_title": "Our Service",
-            "item_text": "Fast worldwide shipping,, 3 years warranty, 24\/7 support from our experienced experts"
-          }
-        }
-      },
-      "block_order": [
-        "list_EbkC4t",
-        "list_yHmqWN",
-        "list_bqjtjJ"
-      ],
-      "settings": {}
-    },
-    "custom_testimonials_KrUcd4": {
-      "type": "custom-testimonials",
-      "settings": {
-        "title": "Personal Experiences",
-        "title_absolute": "Why turbomale?"
-      }
-    },
-    "custom_best_seller_fUyTVD": {
-      "type": "custom-best-seller",
-      "blocks": {
-        "products_kQR9F8": {
-          "type": "products",
-          "settings": {
-            "product": "turbomale-gold-extender",
-            "stars_count": 5,
-            "review_count": "",
-            "product_description": "",
-            "product_cart_button": ""
-          }
-        },
-        "products_6b84p9": {
-          "type": "products",
-          "settings": {
-            "product": "erect-rings-set",
-            "stars_count": 5,
-            "review_count": "",
-            "product_description": "",
-            "product_cart_button": ""
-          }
-        },
-        "products_EBapmn": {
-          "type": "products",
-          "settings": {
-            "product": "shoulder-band-for-stretcher",
-            "stars_count": 5,
-            "review_count": "",
-            "product_description": "",
-            "product_cart_button": ""
-          }
-        },
-        "products_JVjN9J": {
-          "type": "products",
-          "settings": {
-            "product": "turbomale-extender-cushion",
-            "stars_count": 5,
-            "review_count": "",
-            "product_description": "",
-            "product_cart_button": ""
-          }
-        }
-      },
-      "block_order": [
-        "products_kQR9F8",
-        "products_6b84p9",
-        "products_EBapmn",
-        "products_JVjN9J"
-      ],
-      "settings": {
-        "title": "Trending our Best sellers",
-        "title_absolute": "best seller",
-        "button_text": "SHOP ALL",
-        "button_url": ""
-      }
-    }
-  },
-  "order": [
-    "custom_breadcrumbs_B9zdGW",
-    "main",
-    "related-products",
-    "often_bought_together_DEd6my",
-    "product_tabs_WaATEW",
-    "custom_result_WXA86c",
-    "custom_alt_results_QrJfF3",
-    "custom_adventages_YNxQKx",
-    "custom_testimonials_KrUcd4",
-    "custom_best_seller_fUyTVD"
-  ]
+    "order": [
+        "custom_breadcrumbs_B9zdGW",
+        "main",
+        "related-products",
+        "often_bought_together_DEd6my",
+        "product_tabs_WaATEW",
+        "custom_result_WXA86c",
+        "custom_alt_results_QrJfF3",
+        "custom_why_turbomale_dpHrpf",
+        "custom_testimonials_KrUcd4",
+        "custom_best_seller_fUyTVD"
+    ]
 }
