@@ -218,7 +218,6 @@ ul {
 
 /* custom-announcement */
 .custom-announcement {
-  height: 42px;
   background: #393939;
 }
 
@@ -374,7 +373,7 @@ ul {
 .custom-announcement-timer p {
   color: #fff;
   font-family: "Proxima Nova";
-  font-size: 36px;
+  font-size: 30px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
@@ -383,6 +382,12 @@ ul {
 @media screen and (max-width: 1000px) {
   .custom-announcement-timer p {
     font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .custom-announcement-timer p {
+    font-size: 12px;
   }
 }
 
@@ -407,7 +412,7 @@ ul {
 .custom-header {
   background-color: #05060b;
   position: absolute;
-  top: 42px;
+  top: 37px;
   left: 0;
   width: 100%;
 }
@@ -638,8 +643,8 @@ ul {
   top: 80px;
   left: 50%;
   transform: translateX(-50%);
-  max-width: calc(100vw - 172px);
-  width: 100vw;
+  max-width: 1400px;
+  width: 100%;
   transition: all 0.3s;
 }
 
@@ -652,7 +657,7 @@ ul {
 
 @media screen and (max-width: 1440px) {
   .custom-header-menu-list-item-submenu.big {
-    max-width: calc(100vw - 40px);
+    max-width: 1400px;
   }
 }
 
@@ -1016,7 +1021,7 @@ ul {
 
 /* custom-home-hero */
 .custom-home-hero {
-  padding-top: 112px;
+  padding-top: 107px;
   padding-bottom: 50px;
   background-repeat: no-repeat;
   background-size: cover;
