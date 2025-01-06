@@ -360,13 +360,16 @@ ul {
 .custom-announcement-timer {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   margin-right: 23px;
+  max-width: 210px;
+  width: 100%;
 }
 
 @media screen and (max-width: 1000px) {
   .custom-announcement-timer {
     margin-right: 8px;
+    max-width: 90px;
   }
 }
 
