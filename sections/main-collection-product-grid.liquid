@@ -36,6 +36,594 @@
   }
 {%- endstyle -%}
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<style>
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+  .quick-view-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
+}
+
+
+
+.quick-view-popup__content {
+  background: #fff;
+  padding: 20px;
+  max-width: 600px;
+  width: 100%;
+  position: relative;
+}
+
+.quick-view-popup__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+
+  .collection-filter {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    padding-top: 24px;
+    border-top: 1px solid #D9D9D9;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #D9D9D9;
+  }
+
+  .collection-filter h3 {
+    color: #05060B;
+    font-family: "Proxima Nova";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+
+  .facets-vertical .facets-wrapper{
+    padding-right: 0 !important;
+  }
+
+  .facets__form-vertical{
+    width: 100% !important;
+  }
+
+  .collection-filter ul {
+    list-style: none;
+    padding: 0;
+  }
+  .collection-filter ul.removed{
+    display: none;
+  }
+
+  .collection-filter li {
+    margin-bottom: 9px;
+  }
+
+  .collection-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+
+  .collection-item .icon {
+    margin-right: 10px;
+    font-size: 16px;
+  }
+
+  .collection-item:hover {
+    background-color: #f5f5f5;
+  }
+
+
+
+  .view-mode.active{
+    border: 1px solid #60AC22;
+  }
+  .change-view-block-btns-list button.view-mode.active span{
+    background: #60AC22;
+  }
+
+
+  .product-grid-container .product-grid.grid{
+    display: grid;
+  }
+
+  .product-grid.columns-1 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .product-grid.columns-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .product-grid.columns-2 .card--card, .card--standard .card__inner{
+    max-width: 100%;
+  }
+  .product-grid.columns-2 .collection-card-heading-icons,
+  .product-grid.columns-3 .collection-card-heading-icons{
+    right: 3px;
+    top: 63px;
+  }
+  .product-grid.columns-2 .grid__item{
+    {% comment %} height: 385px; {% endcomment %}
+    height: 100%;
+    max-width: 425px;
+    width: 100%;
+  }
+  .product-grid.columns-2 .grid__item .card--card, .product-grid.columns-2 .grid__item .card--standard .card__inner,
+  .product-grid.columns-3 .grid__item .card--card, .product-grid.columns-3 .grid__item .card--standard .card__inner,
+  .product-grid.columns-4 .grid__item .card--card, .product-grid.columns-4 .grid__item .card--standard .card__inner{
+    max-width: 100%;
+    {% comment %} max-width: 81px;
+    width: 100%;
+    height: 168px;
+    align-self: center;
+    background: none; {% endcomment %}
+  }
+  .product-grid.columns-2 .card--media .card__inner .card__content{
+    padding: 0 0 0 0;
+  }
+  .product-grid.columns-2 .card-information > *:not(.visually-hidden:first-child) + *:not(.rating):not(.card__information-volume-pricing-note),
+  .product-grid.columns-3 .card-information > *:not(.visually-hidden:first-child) + *:not(.rating):not(.card__information-volume-pricing-note),
+  .product-grid.columns-4 .card-information > *:not(.visually-hidden:first-child) + *:not(.rating):not(.card__information-volume-pricing-note){
+    padding-top: 11px;
+  }
+  .product-grid.columns-2 .collection-card-under-wrap{
+    padding-top: 13px;
+    padding-bottom: 14px;
+  }
+
+  .product-grid.columns-2 .card:not(.ratio),
+  .product-grid.columns-3 .card:not(.ratio),
+  .product-grid.columns-4 .card:not(.ratio),
+  .product-grid.columns-5 .card:not(.ratio){
+    flex-direction: column !important;
+  }
+  .product-grid.columns-2 .collection-card-under-wrap .collection-card-under-metafield-text,
+  .product-grid.columns-3 .collection-card-under-wrap .collection-card-under-metafield-text,
+  .product-grid.columns-4 .collection-card-under-wrap .collection-card-under-metafield-text,
+  .product-grid.columns-5 .collection-card-under-wrap .collection-card-under-metafield-text{
+    display: none;
+  }
+  .product-grid.columns-2 .collection-card-btns-wrap,
+  .product-grid.columns-3 .collection-card-btns-wrap,
+  .product-grid.columns-4 .collection-card-btns-wrap,
+  .product-grid.columns-5 .collection-card-btns-wrap {
+    justify-content: space-between;
+    width: 100%;
+  }
+  .product-grid.columns-1 .card__content,
+  .product-grid.columns-2 .card__content,
+  .product-grid.columns-3 .card__content,
+  .product-grid.columns-4 .card__content {
+    padding: 0 20px;
+  }
+  .product-grid.columns-2 .card__badge.top,
+  .product-grid.columns-3 .card__badge.top,
+  .product-grid.columns-4 .card__badge.top,
+  .product-grid.columns-5 .card__badge.top{
+    display: none;
+  }
+
+  .product-grid.columns-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .product-grid.columns-3 .grid__item{
+    {% comment %} height: 410px; {% endcomment %}
+    height: 100%;
+    max-width: 280px;
+    width: 100%;
+  }
+  .product-grid.columns-3 .collection-card-under-wrap{
+    padding-top: 13px;
+    padding-bottom: 16px;
+  }
+
+  .product-grid.columns-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .product-grid.columns-4 .collection-card-heading-icons{
+    display: none;
+  }
+  .product-grid.columns-4 .full-unstyled-link{
+    font-size: 16px;
+  }
+  .product-grid.columns-4 .price--on-sale .price__sale{
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .product-grid.columns-4 .collection-card-btns-wrap{
+    flex-direction: column-reverse;
+    gap: 5px;
+  }
+  .product-grid.columns-4 .card__information{
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .product-grid.columns-4 .collection-card-under-wrap{
+    padding-bottom: 11px;
+  }
+  .product-grid.columns-4 .quick-view__block,
+  .product-grid.columns-5 .quick-view__block{
+    opacity: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+  }
+  .product-grid.columns-4 .grid__item:hover .quick-view__block,
+  .product-grid.columns-5 .grid__item:hover .quick-view__block{
+    opacity: 1;
+  }
+  .product-grid.columns-4 .grid__item{
+    {% comment %} height: 425px; {% endcomment %}
+    height: 100%;
+    max-width: 205px;
+    width: 100%;
+  }
+  .product-grid.columns-5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .product-grid.columns-5 .grid__item{
+    height: 100%;
+    max-width: 162px;
+    width: 100%;
+  }
+  .product-grid.columns-5 .full-unstyled-link{
+    font-size: 14px;
+  }
+  .product-grid.columns-5 .price--on-sale .price-item--last{
+    font-size: 14px;
+  }
+  .product-grid.columns-5 .price--on-sale .price-item--regular{
+    font-size: 12px !important;
+  }
+  .product-grid.columns-5 .price--on-sale .price__sale{
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .product-grid.columns-5 .collection-card-btns-wrap{
+    flex-direction: column-reverse;
+    gap: 5px;
+    margin-top: auto;
+  }
+  .product-grid.columns-5 .collections-head-rating svg{
+    width: 13px;
+    height: 13px;
+  }
+  .product-grid.columns-5 .collection-card-heading-icons{
+    display: none;
+  }
+  .product-grid.columns-5 .card:not(.ratio){
+    gap: 8px;
+  }
+  .product-grid.columns-5 .card__information{
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .product-grid.columns-5 .collection-card-under-wrap{
+    padding-bottom: 15px;
+  }
+  .product-grid.columns-5 .card--standard > .card__content .card__information{
+    padding-top: 0;
+    padding-bottom: 14px !important;
+    padding: 0 10px;
+  }
+  .product-grid.columns-5 .card-information > *:not(.visually-hidden:first-child) + *:not(.rating):not(.card__information-volume-pricing-note){
+    padding-top: 2px;
+  }
+
+  .product__modal-window {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(5, 6, 11, 0.65);
+    width: 100%;
+    height: 100%;
+    z-index: 30;
+  }
+  .product__modal-window-wrap {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 881px;
+    height: 508px;
+    background: #fff;
+    padding: 33px 25px 38px 33px;
+    display: flex;
+    gap: 29px;
+  }
+  .product__modal-window-left-part {
+    display: flex;
+    flex-direction: column;
+    max-width: 343px;
+    width: 100%;
+    height: 440px;
+  }
+  .product__modal-btn-close{
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    background: #000;
+    border: none;
+    cursor: pointer;
+    width: 39px;
+    height: 39px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+  .product__modal-btn-close:hover{
+    transform: scale(1.05);
+  }
+  .swiper {
+  }
+  .modal-swiper {
+  }
+  .modal-swiper .swiper-wrapper {
+  }
+  .modal-swiper .swiper-slide {
+    border: 1px solid #EAEAEA;
+  }
+  .lower-modal-swiper .swiper-wrapper{
+    max-width: 58px;
+    width: 100%;
+    height: 58px;
+  }
+  .product__modal-window.removed{
+    display: none;
+  }
+  .lower-modal-swiper{
+    height: 58px;
+  }
+  .lower-modal-swiper .swiper-button-next,
+  .lower-modal-swiper .swiper-button-prev{
+    display: block;
+    top: 66%;
+  }
+  .lower-modal-swiper .swiper-button-prev{
+    left: 0;
+  }
+  .swiper-button-next{
+    right: -19px;
+  }
+  .swiper-button-next:after, .swiper-button-prev:after{
+    font-size: 16px;
+    color: #60AC22;
+  }
+  .modal__product-title{
+    color: #000;
+    font-family: "Proxima Nova";
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+  .modal__product-title p{
+    color: #000;
+    font-family: "Proxima Nova";
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+  .product__modal-window .collection-card-under-metafield-text{
+    padding: 13px 0;
+    max-width: 100%;
+  }
+  
+  .modal__product-customers-looks{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 19px;
+  }
+  .customers-text{
+    color: #727272;
+    font-family: "Proxima Nova";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .product__modal-window .quick-add__submit{
+    width: 100%;
+    background: #60AC22;
+    display: flex;
+    justify-content: space-between;
+    max-width: 288px;
+  }
+  .product__modal-window .share-btn{
+    background: none;
+    border: 0;
+  }
+  .modal__product-price{
+    color: #FF0023;
+    font-family: "Proxima Nova";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding: 11px 0px 19px 0px;
+    border-bottom: 1px solid #EAEAEA;
+  }
+
+  .modal__product-buy-button{
+    display: flex;
+    width: 100%;
+    gap: 30px;
+    padding-top: 145px;
+  }
+
+  .filters h3{
+    padding-top: 24px;
+    color: #05060B;
+    font-family: "Proxima Nova";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+  .filter ul{
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding-top: 10px;
+    flex-wrap: wrap;
+    gap: 9px;
+  }
+  .filter ul li{
+    width: 46px;
+    height: 46px;
+    border-radius: 2px;
+    border: 1px solid #E0E0E0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+  }
+  .filter ul li:hover{
+    border: 1px solid #60AC22;
+  }
+  .filter ul li:hover a{
+    color: #60AC22;
+  }
+  .filter ul li a{
+    color: #05060B;
+    text-align: center;
+    font-family: "Proxima Nova";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    text-decoration: none;
+    line-height: normal;
+    transition: all 0.3s ease;
+  }
+  .filter .collection-filter-icon svg{
+    height: 0.6rem;
+  }
+  .facets__label{
+    display: block !important;
+  }
+  .facets-vertical .facet-checkbox input[type='checkbox']{
+    width: 23px !important;
+    height: 23px !important;
+    background: #fff;
+    z-index: 5;
+    border-radius: 2px;
+    border: 1px solid var(--Gray-5, #E0E0E0);
+  }
+  .facet-checkbox .svg-wrapper{
+    left: 3px !important;
+    top: 13px !important;
+    width: 18px !important;
+    height: 17px !important;
+    color: #60AC22;
+  }
+  .facet-checkbox__text{
+    color: #05060B;
+    text-align: center;
+    font-family: "Proxima Nova";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .drawer__heading{
+    margin: 0 0 0 0;
+    color: #000;
+    font-family: "Proxima Nova";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+  }
+
+  .drawer__inner{
+    width: 100%;
+    max-width: 410px;
+    padding: 25px 32px 36px 32px;
+  }
+
+  @media screen and (max-width: 1060px){
+    .product-grid.columns-4,
+    .product-grid.columns-5{
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .change-view-block-btns-list button.vertical-align-btn-5-columns, .change-view-block-btns-list button.vertical-align-btn-4-columns{
+      display: none;
+    }
+    .collection-card-under-metafield-text{
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 950px){
+    .product-grid-container .product-grid.grid{
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+ 
+
+
+</style>
 <div class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}">
   {%- paginate collection.products by section.settings.products_per_page -%}
     {% comment %} Sort is the first tabbable element when filter type is vertical {% endcomment %}
@@ -99,11 +687,11 @@
               View as
             </div>
             <div class="change-view-block-btns-list">
-              <button class="horizontal-align-btn"></button>
-              <button class="vertical-align-btn-2-columns"></button>
-              <button class="vertical-align-btn-3-columns"></button>
-              <button class="vertical-align-btn-4-columns"></button>
-              <button class="vertical-align-btn-5-columns"></button>
+              <button type="button" class="horizontal-align-btn view-mode" data-columns="1"><span class="horizontal-stick"></span><span class="horizontal-stick"></span><span class="horizontal-stick"></span></button>
+              <button type="button" class="vertical-align-btn-2-columns view-mode" data-columns="2"><span class="vertical-stick"></span><span class="vertical-stick"></span></button>
+              <button type="button" class="vertical-align-btn-3-columns view-mode" data-columns="3"><span class="vertical-stick"></span><span class="vertical-stick"></span><span class="vertical-stick"></span></button>
+              <button type="button" class="vertical-align-btn-4-columns view-mode" data-columns="4"><span class="vertical-stick"></span><span class="vertical-stick"></span><span class="vertical-stick"></span><span class="vertical-stick"></span></button>
+              <button type="button" class="vertical-align-btn-5-columns view-mode" data-columns="5"><span class="vertical-stick"></span><span class="vertical-stick"></span><span class="vertical-stick"></span><span class="vertical-stick"></span><span class="vertical-stick"></span></button>
             </div>
           </div>
         </form>
@@ -160,6 +748,7 @@
               id="product-grid"
               data-id="{{ section.id }}"
               class="
+
                 grid product-grid grid--{{ section.settings.columns_mobile }}-col-tablet-down
                 grid--{{ section.settings.columns_desktop }}-col-desktop
                 {% if section.settings.quick_add == 'bulk' %} collection-quick-add-bulk{% endif %}
@@ -207,6 +796,258 @@
     {{ 'mask-arch.svg' | inline_asset_content }}
   {%- endif -%}
 </div>
+
+
+<div class="product__modal-window removed">
+  <div class="product__modal-window-wrap">
+    <div class="product__modal-window-left-part">
+      <div class="swiper modal-swiper">
+        <div class="swiper-wrapper">
+          {% for product in collection.products %}
+              <div class="swiper-slide">
+                <img src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.title }}">
+              </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="swiper lower-modal-swiper">
+        <div class="swiper-wrapper">
+          {% for product in collection.products %}
+              <div class="swiper-slide">
+                <img src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.title }}">
+              </div>
+          {% endfor %}
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-scrollbar"></div>
+      </div>
+    </div>
+    <div class="product__modal-window-right-part">
+      <div class="collections-head-rating">
+        <div class="rating-stars">
+          {% assign stars_count = product_id.metafields.custom.custom_rating.value %}
+          {% for i in (1..stars_count) %}
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M9 0L11.5921 5.43224L17.5595 6.21885L13.1942 10.3628L14.2901 16.2812L9 13.41L3.70993 16.2812L4.80584 10.3628L0.440492 6.21885L6.40787 5.43224L9 0Z" fill="#FA9902" style="fill:#FA9902;fill:color(display-p3 0.9804 0.6000 0.0078);fill-opacity:1;"/>
+            </svg>
+          {% endfor %}
+        </div>
+        {% if product_id.metafields.custom.custom_rating_count %}
+        <div class="rating-count">
+          ({{ product_id.metafields.custom.custom_rating_count }})
+        </div>
+        {% endif %}
+      </div>
+      <div class="modal__product-title">
+        <p></p>
+        <div class="collection-card-heading-icons">
+          <div class="collection-card-heading-icon-wishlist">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="20" viewBox="0 0 24 20" fill="none">
+              <path d="M6.11705 0.0204007C3.07017 0.245401 0.538921 2.55634 0.0654837 5.55634C-0.0376413 6.20321 -0.00482883 7.50165 0.131109 8.0829C0.440484 9.40477 1.02173 10.4735 2.0483 11.6079C3.13111 12.8032 6.08423 15.4516 9.53892 18.3251C11.1374 19.6516 11.3483 19.8204 11.5311 19.9141C11.7655 20.036 12.2483 20.0266 12.492 19.9001C12.7733 19.7595 16.5983 16.5579 18.4686 14.9032C20.3108 13.272 21.8624 11.772 22.3639 11.1391C23.1327 10.1688 23.6014 9.21727 23.8686 8.0829C24.0045 7.48759 24.0374 6.18915 23.9295 5.53759C23.4561 2.6829 21.2061 0.489151 18.3045 0.0625882C17.7936 -0.0124118 16.7014 -0.00303683 16.2186 0.0813382C15.2577 0.250088 14.3014 0.639149 13.4999 1.18759C13.2702 1.34696 12.8389 1.7079 12.5389 1.99384L11.9999 2.50946L11.4608 1.99384C11.1608 1.7079 10.7342 1.35165 10.5045 1.19227C9.19673 0.296962 7.72486 -0.0967868 6.11705 0.0204007ZM7.8983 2.33134C8.37642 2.47665 8.94361 2.74852 9.29986 3.00165C9.43111 3.0954 9.94205 3.56884 10.4295 4.05165C10.9217 4.53446 11.3905 4.96102 11.4795 5.0079C11.5686 5.05009 11.7608 5.10165 11.9155 5.11102C12.403 5.1579 12.5155 5.0829 13.5467 4.07509C14.0483 3.57821 14.5686 3.0954 14.6999 3.00165C15.0467 2.75321 15.6139 2.47665 16.1014 2.33134C16.4952 2.20946 16.5795 2.20009 17.3436 2.20009C18.103 2.20009 18.1967 2.20946 18.5764 2.32665C20.0483 2.78134 21.1452 3.82196 21.6045 5.20009C22.1014 6.6954 21.792 8.30321 20.7514 9.67196C20.3295 10.2204 18.8295 11.6735 17.1092 13.1876C15.2342 14.8423 12.0842 17.5001 11.9999 17.5001C11.9436 17.5001 10.2608 16.0985 8.53111 14.6126C5.39986 11.922 3.60455 10.2157 3.03736 9.37665C1.12017 6.55477 2.48423 2.9829 5.77017 2.24227C5.98111 2.1954 6.27642 2.17665 6.7733 2.19071C7.36861 2.20477 7.54205 2.22352 7.8983 2.33134Z" fill="#C7C7C7" style="fill:#C7C7C7;fill:color(display-p3 0.7822 0.7822 0.7822);fill-opacity:1;"/>
+            </svg>
+          </div>
+          <div class="collection-card-heading-icon-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M10.8286 0.0326553C8.57855 0.26703 6.45511 1.12953 4.69261 2.51703C4.11605 2.97172 3.20199 3.89047 2.78949 4.42953C2.61136 4.65922 2.45199 4.87016 2.43324 4.88891C2.41918 4.91234 2.23636 4.85609 2.03949 4.76234C1.60824 4.56547 1.41605 4.54672 1.27543 4.70141C1.13949 4.84672 1.13949 4.92172 1.31293 6.78734C1.48168 8.62016 1.47699 8.60141 1.60824 8.69516C1.78636 8.81703 1.98324 8.77953 2.30199 8.55922C3.56761 7.69203 4.95511 6.67484 5.00668 6.57641C5.0723 6.45453 5.04886 6.26234 4.95511 6.14516C4.92699 6.11234 4.74418 6.00922 4.55668 5.92484L4.2098 5.76547L4.36918 5.56859C4.64105 5.21234 5.30668 4.54203 5.73324 4.19047C9.70355 0.86703 15.5957 1.23734 19.1207 5.03422C20.227 6.22484 20.9254 7.45297 21.4223 9.08422C21.5395 9.48266 21.6004 9.59984 21.7504 9.74984C22.2239 10.2233 23.0207 10.0733 23.302 9.44984C23.4239 9.18266 23.4145 9.01391 23.2457 8.41391C22.9129 7.24203 22.2707 5.91547 21.5442 4.89828C20.9348 4.04516 19.8801 2.96703 19.0598 2.34828C17.4004 1.10141 15.5395 0.346718 13.4301 0.0748428C12.9192 0.00453032 11.3161 -0.0189072 10.8286 0.0326553Z" fill="#C7C7C7" style="fill:#C7C7C7;fill:color(display-p3 0.7822 0.7822 0.7822);fill-opacity:1;"/>
+              <path d="M10.6876 3.98447C8.93445 4.29385 7.54695 5.01103 6.32351 6.22978C4.78132 7.77666 3.97976 9.70791 3.97976 11.8876C3.97507 12.6751 4.03132 13.1579 4.20476 13.8517C4.55163 15.272 5.23601 16.4907 6.27195 17.5501C7.53288 18.8345 9.11726 19.6267 10.8985 19.8798C11.4423 19.9548 12.5579 19.9548 13.1016 19.8798C16.0219 19.4673 18.5063 17.4892 19.5188 14.7563C19.8704 13.8095 20.0251 12.947 20.0204 11.8876C20.0204 9.70791 19.2188 7.77666 17.6766 6.22978C16.4298 4.9876 14.9579 4.24697 13.1907 3.96572C12.5344 3.8626 11.3344 3.87197 10.6876 3.98447ZM11.0251 6.61885C11.0391 7.24228 11.0579 7.35947 11.1423 7.52822C11.4469 8.10947 12.1735 8.23603 12.661 7.79541C12.9188 7.56103 12.9844 7.30791 12.9844 6.52978C12.9844 5.8126 12.9376 5.85478 13.5094 6.0001C14.6204 6.28603 15.5719 6.84853 16.4063 7.71572C17.1891 8.53135 17.7141 9.50166 17.9532 10.5798L18.0376 10.9688H17.3063C16.6594 10.9688 16.5516 10.9782 16.3688 11.0673C15.8157 11.3392 15.6938 12.136 16.1391 12.5813C16.4063 12.8438 16.5938 12.8907 17.3813 12.8907H18.0376L17.9719 13.1813C17.5548 15.0188 16.3735 16.5423 14.7329 17.3626C14.2594 17.597 13.7391 17.7845 13.2985 17.8782L12.9938 17.9392L12.9798 17.2079C12.961 16.5095 12.9563 16.4673 12.8298 16.2563C12.4594 15.6235 11.5407 15.6235 11.1704 16.2563C11.0438 16.4673 11.0391 16.5095 11.0204 17.2079L11.0063 17.9392L10.7016 17.8782C8.62507 17.4423 6.84851 15.8251 6.19695 13.7813C6.11726 13.5376 6.04226 13.2376 6.02351 13.111L5.9907 12.8907H6.63288C7.40163 12.8907 7.59851 12.8438 7.85632 12.586C8.18913 12.2532 8.23132 11.7938 7.96882 11.3767C7.74851 11.0298 7.5657 10.9688 6.69382 10.9688H5.96257L6.0282 10.6595C6.13132 10.1767 6.30945 9.6751 6.56726 9.15947C7.31257 7.65947 8.81257 6.44072 10.4298 6.01885C11.0626 5.85478 11.0016 5.79385 11.0251 6.61885Z" fill="#C7C7C7" style="fill:#C7C7C7;fill:color(display-p3 0.7822 0.7822 0.7822);fill-opacity:1;"/>
+              <path d="M1.1204 14.0999C0.918835 14.203 0.843835 14.278 0.74071 14.4796C0.57196 14.803 0.576647 14.9624 0.768835 15.6139C1.31727 17.4514 2.23133 19.0264 3.54852 20.3952C5.50321 22.4155 7.80477 23.5686 10.6173 23.9342C11.4563 24.0421 13.1345 24.0046 13.9454 23.8639C15.9329 23.5124 17.6907 22.7389 19.2657 21.5249C19.9595 20.9858 21.047 19.8514 21.5954 19.0827C21.6001 19.0733 21.7688 19.1436 21.9657 19.2374C22.3923 19.4389 22.5798 19.453 22.7345 19.2889C22.8751 19.1436 22.8704 19.1249 22.6876 17.1796C22.5188 15.3796 22.5235 15.3983 22.3923 15.3046C22.1438 15.1311 22.0688 15.1733 20.5173 16.2655C19.6688 16.8655 19.0313 17.3483 18.9938 17.4186C18.9282 17.5452 18.9516 17.7374 19.0407 17.8499C19.0688 17.8827 19.2516 17.9811 19.4438 18.0702L19.7907 18.2342L19.636 18.4311C19.3735 18.7686 18.7032 19.4483 18.2579 19.8186C16.9407 20.9249 15.3001 21.6655 13.5282 21.9655C12.9048 22.0686 11.7938 22.1014 11.1329 22.0358C8.51259 21.7686 6.34227 20.6436 4.56571 18.6186C3.77352 17.7186 3.07977 16.4577 2.66727 15.1733C2.45165 14.503 2.40477 14.3952 2.2454 14.2405C1.93133 13.9405 1.52352 13.8889 1.1204 14.0999Z" fill="#C7C7C7" style="fill:#C7C7C7;fill:color(display-p3 0.7822 0.7822 0.7822);fill-opacity:1;"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="modal__product-price">
+        {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
+      </div>
+      <div class="modal__product-metafield-text">
+        <p class="collection-card-under-metafield-text">{{ card_product.metafields.custom.subtitle.value | truncate: 69, "..." }}</p>
+      </div>
+      <div class="modal__product-metafield-variants">
+        {% comment %} {% for product in collection.products %}
+          {% if product.title = "TurboMale Complete Silicone Sleeves Set" %}
+            {%- if 'variant_picker' -%}
+              {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
+            {% endif %}
+          {% endif %}
+        {% endfor %} {% endcomment %}
+      </div>
+      <div class="modal__product-buy-button">
+              <button
+                id="ProductSubmitButton-{{ section_id }}"
+                type="submit"
+                name="add"
+                class="quick-add__submit product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
+            >
+                <span>
+
+                    {{ 'products.product.add_to_cart' | t }}
+                </span>
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="23" viewBox="0 0 20 23" fill="none">
+                    <path d="M8.92495 0.024348C8.15145 0.166835 7.34233 0.487432 6.73675 0.894538C6.2584 1.21513 5.54088 1.97337 5.24573 2.4619C4.80809 3.19978 4.55365 4.14121 4.55365 5.04194V5.41342L3.57659 5.43378C2.6148 5.44904 2.58936 5.45413 2.31456 5.59153C1.82603 5.84597 1.47999 6.25308 1.30188 6.79758C1.24591 6.97569 0.329916 19.5349 0.314649 20.3135C0.304471 21.0972 0.691223 21.7333 1.38839 22.0743L1.72934 22.2422H9.74425H17.7592L18.0492 22.1048C18.6344 21.83 19.0619 21.2804 19.1586 20.6748C19.2197 20.283 18.2782 7.13345 18.1612 6.74669C18.0085 6.23781 17.6727 5.84597 17.1739 5.59153C16.8992 5.45413 16.8737 5.44904 15.9221 5.43378L14.9501 5.41851L14.9145 4.91472C14.8636 4.09541 14.7059 3.47966 14.3751 2.82829C13.7085 1.5052 12.538 0.548498 11.1132 0.151569C10.7264 0.0447033 10.4974 0.0192592 9.89692 0.00399269C9.48981 -0.00618497 9.05217 0.00399269 8.92495 0.024348ZM10.4821 1.7342C10.6806 1.77491 11.0521 1.9123 11.3116 2.03953C12.4159 2.58912 13.1487 3.70357 13.2403 4.97069L13.2708 5.4236H9.74425H6.21769L6.24823 4.97069C6.31438 4.06488 6.65533 3.31682 7.31179 2.66545C7.96316 2.01917 8.79773 1.66804 9.71881 1.66295C9.94272 1.66295 10.2888 1.69348 10.4821 1.7342ZM4.59945 9.23513C4.57909 11.3877 4.57909 11.4233 4.68596 11.5658C4.87933 11.8253 5.09815 11.9373 5.41366 11.9373C5.75461 11.9373 5.9429 11.8304 6.11592 11.5455L6.23296 11.3521V9.19951V7.05202H9.74425H13.2555V9.18933C13.2555 11.2198 13.2606 11.3419 13.3573 11.5251C13.6321 12.0696 14.4158 12.09 14.8026 11.5658C14.9043 11.4233 14.9094 11.3623 14.9247 9.23513L14.94 7.04694L15.6727 7.0622C16.2681 7.07238 16.4208 7.09274 16.492 7.15889C16.6142 7.28611 17.5505 20.3033 17.4437 20.4713L17.3775 20.5883H9.74425H2.11101L2.04485 20.4713C1.98379 20.3746 2.03467 19.4993 2.44178 13.81C2.70131 10.2122 2.93031 7.24031 2.95066 7.20469C3.02191 7.08765 3.21528 7.05711 3.91245 7.05711L4.61471 7.05202L4.59945 9.23513Z" fill="white" style="fill:white;fill-opacity:1;"/>
+                  </svg>
+                </span>
+                {%- render 'loading-spinner' -%}
+            </button>
+        <button type="button" class="share-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
+            <path d="M17.7362 15.4708C16.6342 15.4708 15.6414 15.9467 14.9523 16.7037L8.75431 12.865C8.91978 12.4414 9.01156 11.9813 9.01156 11.5C9.01156 11.0185 8.91978 10.5584 8.75431 10.135L14.9523 6.29607C15.6414 7.05307 16.6342 7.52914 17.7362 7.52914C19.8121 7.52914 21.5009 5.84036 21.5009 3.76448C21.5009 1.6886 19.8121 0 17.7362 0C15.6603 0 13.9716 1.68878 13.9716 3.76466C13.9716 4.24599 14.0635 4.70608 14.2288 5.12968L8.031 8.96839C7.34191 8.21139 6.34907 7.73532 5.24708 7.73532C3.1712 7.73532 1.48242 9.42427 1.48242 11.5C1.48242 13.5759 3.1712 15.2646 5.24708 15.2646C6.34907 15.2646 7.34191 14.7887 8.031 14.0316L14.2288 17.8703C14.0635 18.2939 13.9716 18.754 13.9716 19.2355C13.9716 21.3112 15.6603 23 17.7362 23C19.8121 23 21.5009 21.3112 21.5009 19.2355C21.5009 17.1596 19.8121 15.4708 17.7362 15.4708ZM15.3443 3.76466C15.3443 2.44578 16.4173 1.37275 17.7362 1.37275C19.0551 1.37275 20.1281 2.44578 20.1281 3.76466C20.1281 5.08353 19.0551 6.15657 17.7362 6.15657C16.4173 6.15657 15.3443 5.08353 15.3443 3.76466ZM5.24708 13.8919C3.92803 13.8919 2.85499 12.8189 2.85499 11.5C2.85499 10.1811 3.92803 9.10807 5.24708 9.10807C6.56595 9.10807 7.63881 10.1811 7.63881 11.5C7.63881 12.8189 6.56595 13.8919 5.24708 13.8919ZM15.3443 19.2353C15.3443 17.9164 16.4173 16.8434 17.7362 16.8434C19.0551 16.8434 20.1281 17.9164 20.1281 19.2353C20.1281 20.5542 19.0551 21.6272 17.7362 21.6272C16.4173 21.6272 15.3443 20.5542 15.3443 19.2353Z" fill="#60AC22" style="fill:#60AC22;fill:color(display-p3 0.3768 0.6749 0.1322);fill-opacity:1;"/>
+          </svg>
+        </button>
+      </div>
+      <div class="modal__product-customers-looks">
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <g clip-path="url(#clip0_123_2867)">
+              <path d="M10 4.03906C6.17879 4.03906 2.71351 6.12968 0.15649 9.52541C-0.0521632 9.80361 -0.0521632 10.1923 0.15649 10.4705C2.71351 13.8703 6.17879 15.9609 10 15.9609C13.8212 15.9609 17.2865 13.8703 19.8435 10.4746C20.0522 10.1964 20.0522 9.8077 19.8435 9.5295C17.2865 6.12968 13.8212 4.03906 10 4.03906ZM10.2741 14.1976C7.73755 14.3572 5.64284 12.2665 5.80239 9.72588C5.93331 7.63117 7.63118 5.9333 9.72589 5.80238C12.2625 5.64283 14.3572 7.73345 14.1976 10.2741C14.0626 12.3647 12.3647 14.0626 10.2741 14.1976ZM10.1473 12.2584C8.78081 12.3443 7.65163 11.2192 7.74164 9.85271C7.81119 8.72353 8.72763 7.81118 9.85681 7.73754C11.2233 7.65162 12.3525 8.77671 12.2625 10.1432C12.1888 11.2765 11.2724 12.1888 10.1473 12.2584Z" fill="#727272" style="fill:#727272;fill:color(display-p3 0.4483 0.4483 0.4483);fill-opacity:1;"/>
+            </g>
+            <defs>
+              <clipPath id="clip0_123_2867">
+                <rect width="20" height="20" fill="white" style="fill:white;fill-opacity:1;"/>
+              </clipPath>
+            </defs>
+          </svg>  
+        </span>
+          <span class="customers-text">18 customers are viewing this product</span>
+      </div>
+    </div>
+      
+    <button type="button" class="product__modal-btn-close">
+      <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+          <path d="M21.6103 8.39011C21.2757 8.05551 20.7391 8.05551 20.4045 8.39011L15.0004 13.7941L9.5964 8.39011C9.26181 8.05551 8.72519 8.05551 8.3906 8.39011C8.056 8.7247 8.056 9.26132 8.3906 9.59592L13.7946 15L8.3906 20.404C8.056 20.7386 8.056 21.2752 8.3906 21.6098C8.55474 21.7739 8.7757 21.8623 8.99034 21.8623C9.20499 21.8623 9.42595 21.7803 9.59009 21.6098L14.9941 16.2058L20.3982 21.6098C20.5623 21.7739 20.7833 21.8623 20.9979 21.8623C21.2189 21.8623 21.4335 21.7803 21.5977 21.6098C21.9323 21.2752 21.9323 20.7386 21.5977 20.404L16.2063 15L21.6103 9.59592C21.9449 9.26132 21.9449 8.7247 21.6103 8.39011Z" fill="white" style="fill:white;fill-opacity:1;"/>
+          </svg>
+        </span>
+      </button>
+    </div>
+  </div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer ></script>
+
+<script>
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const viewButtons = document.querySelectorAll('.view-mode');
+    const productGrid = document.querySelector('.product-grid-container .product-grid.grid');
+
+    const savedColumns = localStorage.getItem('productGridColumns');
+    if (savedColumns) {
+      productGrid.className = 'grid product-grid grid--1-col-tablet-down grid--1-col-desktop';
+      productGrid.classList.add(`columns-${savedColumns}`);
+      
+      viewButtons.forEach(button => {
+        if (button.getAttribute('data-columns') === savedColumns) {
+          button.classList.add('active');
+        }
+      });
+    }
+
+    viewButtons.forEach(button => {
+      button.addEventListener('click', function () {
+        const columns = this.getAttribute('data-columns');
+        
+        productGrid.className = 'grid product-grid grid--1-col-tablet-down grid--1-col-desktop';
+        productGrid.classList.add(`columns-${columns}`);
+        
+        localStorage.setItem('productGridColumns', columns);
+
+        viewButtons.forEach(btn => btn.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+
+    var modalSwiper = new Swiper(".modal-swiper", {
+      thumbs: {
+        swiper: lowerModalSwiper,
+      },
+    });
+
+    var lowerModalSwiper = new Swiper(".lower-modal-swiper", {
+      slidesPerView: 4,
+      spaceBetween: 12,
+      scrollbar: {
+        el: ".swiper-scrollbar",
+        hide: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+
+
+
+    const modalOpenBtn = document.querySelectorAll('.quick-view__block');
+    const modalCloseBtn = document.querySelector('.product__modal-btn-close');
+    const modalWindow = document.querySelector('.product__modal-window');
+    const modalWrap = document.querySelector('.product__modal-window-wrap');
+
+
+    modalOpenBtn.forEach((btn) =>{
+      btn.addEventListener("click", function(){
+        modalWindow.classList.remove("removed");
+      });
+    });
+
+    modalCloseBtn.addEventListener("click", function() {
+      modalWindow.classList.add("removed");
+    });
+
+    modalWindow.addEventListener("click", function(event) {
+      if (!modalWrap.contains(event.target)) {
+        modalWindow.classList.add("removed");
+      }
+    });
+
+
+
+  });
+
+   document.addEventListener('DOMContentLoaded', () => {
+    const quickViewButtons = document.querySelectorAll('.quick-view__block');
+    const modal = document.querySelector('.product__modal-window');
+    const modalTitle = modal.querySelector('.modal__product-title p');
+    const modalPrice = modal.querySelector('.modal__product-price');
+    const modalSubtitle = modal.querySelector('.modal__product-metafield-text p');
+    
+    quickViewButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const productId = button.dataset.productId;
+        const productTitle = button.dataset.productTitle;
+        const productPrice = button.dataset.productPrice;
+        const productSubtitle = button.dataset.productSubtitle;
+        {% comment %} const productImages = JSON.parse(button.dataset.productImages || '[]'); {% endcomment %}
+
+        modalTitle.textContent = productTitle;
+
+        const formattedPrice = `$${(parseInt(productPrice, 10) / 100).toFixed(2)}`;
+        modalPrice.textContent = formattedPrice;
+
+        modalSubtitle.textContent = 
+                productSubtitle.length > 69 
+                    ? productSubtitle.substring(0, 69) + '...' 
+                    : productSubtitle;
+
+        {% comment %} productImages.forEach(imageUrl => {
+          const slide = document.createElement('div');
+          slide.classList.add('swiper-slide');
+          slide.innerHTML = `<img src="${imageUrl}" alt="${productTitle}">`;
+          modalSwiperWrapper.appendChild(slide);
+        }); {% endcomment %}
+
+        modal.classList.remove('removed');
+      });
+    });
+
+    const closeButton = modal.querySelector('.product__modal-btn-close');
+    closeButton.addEventListener('click', () => {
+      modal.classList.add('removed');
+    });
+    
+  });
+
+
+</script>
 
 {% schema %}
 {

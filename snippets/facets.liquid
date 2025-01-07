@@ -43,6 +43,7 @@
         {% if enable_filtering %}
           {% comment %} Heading is the first tabbable element on filter type horizontal {% endcomment %}
           <div
+            style="display: flex; flex-direction: column;"
             id="FacetsWrapperDesktop"
             {% if filter_type == 'horizontal' %}
               class="facets__wrapper"
@@ -300,7 +301,7 @@
                     id="Details-{{ filter.param_name | escape }}-{{ section.id }}"
                     class="{% if filter_type == 'horizontal' %}disclosure-has-popup facets__disclosure{% else %} facets__disclosure-vertical{% endif %} js-filter"
                     data-index="{{ forloop.index }}"
-                    {% if filter_type == 'vertical' and forloop.index == 1 %}
+                    {% if filter_type == 'vertical' %}
                       open
                     {% endif %}
                   >
@@ -332,6 +333,71 @@
                       </price-range>
                     </div>
                   </details>
+                  <div class="collection-filter">
+                    <h3>Collection <span class="collection-filter-icon">{{- 'icon-caret.svg' | inline_asset_content -}}</span></h3>
+                    <ul>
+                      <li>
+                        <a href="/collections/all" class="collection-item">
+                          <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                              <g clip-path="url(#clip0_213_4158)">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M1.92089 0.399902C1.08758 0.399902 0.400391 1.08659 0.400391 1.9199V5.97274C0.400391 6.80606 1.08758 7.49274 1.92089 7.49274H5.97323C6.80654 7.49274 7.49372 6.80606 7.49372 5.97274V1.9199C7.49372 1.08659 6.80654 0.399902 5.97323 0.399902H1.92089ZM10.0276 0.399902C9.19424 0.399902 8.50755 1.08659 8.50755 1.9199V5.97274C8.50755 6.80606 9.19424 7.49274 10.0276 7.49274H14.0799C14.9132 7.49274 15.6004 6.80606 15.6004 5.97274V1.9199C15.6004 1.08659 14.9132 0.399902 14.0799 0.399902H10.0276ZM1.92089 8.50657C1.08758 8.50657 0.400391 9.19375 0.400391 10.0271V14.0794C0.400391 14.9127 1.08758 15.5999 1.92089 15.5999H5.97323C6.80654 15.5999 7.49372 14.9127 7.49372 14.0794V10.0271C7.49372 9.19375 6.80654 8.50657 5.97323 8.50657H1.92089ZM12.0527 8.50657C10.1 8.50657 8.50755 10.1015 8.50755 12.0542C8.50755 14.007 10.1 15.5999 12.0527 15.5999C14.0055 15.5999 15.6004 14.007 15.6004 12.0542C15.6004 10.1015 14.0055 8.50657 12.0527 8.50657Z" fill="black" style="fill:black;fill-opacity:1;"/>
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_213_4158">
+                                  <rect width="16" height="16" fill="white" style="fill:white;fill-opacity:1;"/>
+                                </clipPath>
+                              </defs>
+                            </svg>
+                          </span>
+                          Shop All
+                        </a>
+                      </li>
+                      {% for collection in collections %}
+                        <li>
+                          <a href="{{ collection.url }}" class="collection-item">
+                            <span class="icon">
+                              {% if collection.title == 'BESTSELLERS' %}
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="17" viewBox="0 0 14 17" fill="none">
+                                  <path d="M5.36526 0.0548878C5.3508 0.0844746 5.36165 0.199537 5.38334 0.311312C5.44844 0.610476 5.43759 1.35016 5.36165 1.66248C5.22784 2.2345 4.99278 2.72434 4.58053 3.27335C4.25506 3.71059 3.9079 4.08537 3.05084 4.93354C1.72005 6.24197 1.25716 6.80413 0.779816 7.66875C-0.0808595 9.2336 -0.239976 11.1338 0.356711 12.7381C1.11975 14.7862 3.00745 16.2886 5.39781 16.7423C5.74859 16.808 5.89686 16.8179 6.64543 16.8179C7.39038 16.8179 7.54588 16.808 7.90389 16.7423C9.3504 16.476 10.7029 15.7659 11.654 14.773C12.4062 13.9873 12.9992 12.9123 13.2271 11.9294C13.6285 10.1738 13.1113 8.01722 11.9288 6.551C11.7842 6.3669 11.7516 6.34388 11.654 6.35375L11.5455 6.36361L11.5274 6.75811C11.5093 7.10987 11.4949 7.17562 11.3972 7.3663C11.2345 7.67861 10.9633 7.93175 10.6342 8.07969C10.4064 8.1816 10.3196 8.20132 10.0664 8.21447C9.5493 8.24077 9.17682 8.09612 8.80796 7.7345C8.70671 7.6293 8.5729 7.45177 8.51143 7.33342C8.40656 7.13288 8.39932 7.09672 8.40656 6.77455C8.41017 6.53127 8.44633 6.27156 8.52589 5.90336C8.72117 5.01902 8.71394 4.30563 8.5042 3.51334C8.16426 2.23121 7.26019 1.09045 5.88239 0.192963C5.57862 -0.00428772 5.40866 -0.050312 5.36526 0.0548878ZM5.90409 9.2073C5.9077 9.9963 5.91494 10.1015 5.98726 10.3349C6.10298 10.7196 6.29826 11.0286 6.59118 11.2949C7.01067 11.6795 7.46271 11.8472 8.09194 11.8472C8.63076 11.8472 9.00686 11.7354 9.42996 11.4461C9.53845 11.3705 9.65417 11.3146 9.6831 11.3179C9.76266 11.3343 9.88923 11.6532 9.95794 12.005C10.1351 12.9288 9.80606 13.8723 9.06472 14.5824C7.80264 15.7889 5.74136 15.8415 4.42864 14.7007C4.08148 14.3983 3.87535 14.1451 3.68007 13.7736C3.43417 13.3035 3.37631 13.057 3.37631 12.4291C3.37992 11.9951 3.39439 11.8176 3.45586 11.5513C3.69092 10.5618 4.20082 9.78261 5.31102 8.7339C5.93302 8.14544 5.90047 8.11913 5.90409 9.2073Z" fill="#05060B" style="fill:#05060B;fill:color(display-p3 0.0196 0.0235 0.0431);fill-opacity:1;"/>
+                                </svg>
+                              {% elsif collection.title == 'trending' %}
+                                🚀
+                              {% elsif collection.title == 'sale' %}
+                                ⚙️
+                              {% elsif collection.title == 'for-beginners' %}
+                                👤
+                              {% elsif collection.title == 'for-professionals' %}
+                                ⭐
+                              {% endif %}
+                            </span>
+                            {{ collection.title }}
+                          </a>
+                        </li>
+
+                      {% endfor %}
+                    </ul>
+                  </div>
+                  {% comment %} <div class="filters">
+                    {% for filter in collection.filters %}
+                      {% comment %} {% if filter.label == "Size" %} {% endcomment %}
+                        <div class="filter">
+                          <h3>{{ filter.label }} <span class="collection-filter-icon">{{- 'icon-caret.svg' | inline_asset_content -}}</span></h3>
+                          <ul>
+                            {% for option in filter.values %}
+                              <li>
+                                {% if option.active %}
+                                  <strong>{{ option.label }}</strong>
+                                {% else %}
+                                  <a href="{{ option.url }}">{{ option.label }}</a>
+                                {% endif %}
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        </div>
+                      {% comment %} {% endif %} {% endcomment %}
+                    {% endfor %}
+                  </div> {% endcomment %}
               {% endcase %}
             {%- endfor -%}
           </div>
@@ -937,3 +1003,15 @@
     </facet-filters-form>
   {%- endif -%}
 </div>
+
+<script>
+
+  const collectionOpener = document.querySelector(".collection-filter h3");
+  const collectionList = document.querySelector(".collection-filter ul");
+  const collectionSvgIcon = document.querySelector(".collection-filter .collection-filter-icon svg");
+  collectionOpener.addEventListener("click", function(){
+    collectionSvgIcon.classList.toggle("rotated");
+    collectionList.classList.toggle("removed");
+  })
+
+</script>
