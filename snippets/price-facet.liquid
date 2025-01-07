@@ -1,5 +1,3 @@
-<span class="field-currency">{{ cart.currency.symbol }}</span>
-
 <div class="field">
   <input
     class="field__input"
@@ -16,8 +14,9 @@
     data-max="{{ filter.range_max | money_without_currency }}"
   >
   <label class="field__label" for="{{ id_prefix }}{{ filter.label | escape }}-GTE">
-    {{- 'products.facets.from' | t -}}
+    Min
   </label>
+  <span class="field-currency">{{ cart.currency.symbol }}</span>
 </div>
 
 {%- if filter_type != 'vertical' -%}
@@ -40,6 +39,7 @@
     data-max="{{ filter.range_max | money_without_currency }}"
   >
   <label class="field__label" for="{{ id_prefix }}{{ filter.label | escape }}-LTE">
-    {{- 'products.facets.to' | t -}}
+    Max
   </label>
+  <span class="field-currency">{{ cart.currency.symbol }}</span>
 </div>
