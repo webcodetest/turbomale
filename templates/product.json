@@ -378,12 +378,6 @@
         "button_url": ""
       }
     },
-    "173637333281de3ce2": {
-      "type": "apps",
-      "settings": {
-        "include_margins": true
-      }
-    },
     "173637340439c90990": {
       "type": "apps",
       "blocks": {
@@ -394,6 +388,21 @@
       },
       "block_order": [
         "judge_me_reviews_review_widget_EEnDny"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "1736427723b23ea643": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_preview_badge_7HxFew": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_preview_badge_7HxFew"
       ],
       "settings": {
         "include_margins": true
@@ -411,7 +420,7 @@
     "custom_why_turbomale_dpHrpf",
     "custom_testimonials_KrUcd4",
     "custom_best_seller_fUyTVD",
-    "173637333281de3ce2",
-    "173637340439c90990"
+    "173637340439c90990",
+    "1736427723b23ea643"
   ]
 }
