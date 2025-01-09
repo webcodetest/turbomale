@@ -14,7 +14,7 @@
     "custom_announcement_bar_9nzXgX": {
       "type": "custom-announcement-bar",
       "settings": {
-        "image": "shopify:\/\/shop_images\/1000_F_453754621_UtJAkUx3oxKKLqFgs9u0D8vkmc3M3vnd_1.png",
+        "image": "shopify://shop_images/1000_F_453754621_UtJAkUx3oxKKLqFgs9u0D8vkmc3M3vnd_1.png",
         "text_sale": "15% OFF EVERYTHING!",
         "text_code": "USE CODE:",
         "code": "TURBOPROMO",
@@ -32,55 +32,55 @@
           "type": "submenu_left",
           "settings": {
             "text": "SHOP ALL",
-            "url": "shopify:\/\/collections"
+            "url": "shopify://collections"
           }
         },
         "submenu_left_QGkAeh": {
           "type": "submenu_left",
           "settings": {
             "text": "BEST SELLERS",
-            "url": "shopify:\/\/collections\/bestsellers"
+            "url": "shopify://collections/bestsellers"
           }
         },
         "submenu_left_8gXPWM": {
           "type": "submenu_left",
           "settings": {
             "text": "TRENDING",
-            "url": "shopify:\/\/collections"
+            "url": "shopify://collections"
           }
         },
         "submenu_left_EpVd9J": {
           "type": "submenu_left",
           "settings": {
             "text": "SALE",
-            "url": "shopify:\/\/collections"
+            "url": "shopify://collections"
           }
         },
         "submenu_left_bPn6PM": {
           "type": "submenu_left",
           "settings": {
             "text": "FOR BEGINNERS",
-            "url": "shopify:\/\/collections"
+            "url": "shopify://collections"
           }
         },
         "submenu_left_9cYMRD": {
           "type": "submenu_left",
           "settings": {
             "text": "FOR PROFESSIONALS",
-            "url": "shopify:\/\/collections"
+            "url": "shopify://collections"
           }
         },
         "submenu_left_wRGgPF": {
           "type": "submenu_left",
           "settings": {
             "text": "FOR PROFESSIONALS",
-            "url": "shopify:\/\/collections"
+            "url": "shopify://collections"
           }
         },
         "submenu_center_qVgfxc": {
           "type": "submenu_center",
           "settings": {
-            "image": "shopify:\/\/shop_images\/box_5_1.svg",
+            "image": "shopify://shop_images/box_5_1.svg",
             "image_alt": "",
             "title": "Enlargement Packages",
             "item_menu": "big-submenu-1"
@@ -89,7 +89,7 @@
         "submenu_center_NT7a8X": {
           "type": "submenu_center",
           "settings": {
-            "image": "shopify:\/\/shop_images\/submenu2.svg",
+            "image": "shopify://shop_images/submenu2.svg",
             "image_alt": "",
             "title": "Extenders",
             "item_menu": "big-submenu-2"
@@ -98,7 +98,7 @@
         "submenu_center_WQ3YGP": {
           "type": "submenu_center",
           "settings": {
-            "image": "shopify:\/\/shop_images\/submenu3.svg",
+            "image": "shopify://shop_images/submenu3.svg",
             "image_alt": "",
             "title": "Stretchers",
             "item_menu": "big-submenu-3"
@@ -107,7 +107,7 @@
         "submenu_center_tMMb7C": {
           "type": "submenu_center",
           "settings": {
-            "image": "shopify:\/\/shop_images\/submenu4.svg",
+            "image": "shopify://shop_images/submenu4.svg",
             "image_alt": "",
             "title": "Sexual Wellness",
             "item_menu": "big-submenu-4"
@@ -116,7 +116,7 @@
         "submenu_center_6NDLmW": {
           "type": "submenu_center",
           "settings": {
-            "image": "shopify:\/\/shop_images\/submenu5.svg",
+            "image": "shopify://shop_images/submenu5.svg",
             "image_alt": "",
             "title": "Pumps",
             "item_menu": "big-submenu-5"
@@ -125,7 +125,7 @@
         "submenu_center_TymCCk": {
           "type": "submenu_center",
           "settings": {
-            "image": "shopify:\/\/shop_images\/submenu6.svg",
+            "image": "shopify://shop_images/submenu6.svg",
             "image_alt": "",
             "title": "Accessories",
             "item_menu": "big-submenu-6"
@@ -134,24 +134,24 @@
         "submenu_right_kMfLF3": {
           "type": "submenu_right",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Group_62.webp",
+            "image": "shopify://shop_images/Group_62.webp",
             "image_alt": "",
-            "url": "#"
+            "url": "shopify://collections/all-enlargement-products"
           }
         },
         "submenu_right_L6Gdh3": {
           "type": "submenu_right",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Group_69_50416a3b-1c5b-4f8d-8de0-876d33c58fa0.webp",
+            "image": "shopify://shop_images/Group_69_50416a3b-1c5b-4f8d-8de0-876d33c58fa0.webp",
             "image_alt": "",
-            "url": "#"
+            "url": "shopify://collections/all-enlargement-products"
           }
         },
         "submenu2_nAe9yf": {
           "type": "submenu2",
           "settings": {
-            "text": "About Us \/ Our Story",
-            "url": "shopify:\/\/pages\/about-us",
+            "text": "About Us / Our Story",
+            "url": "shopify://pages/about-us",
             "soon": false
           }
         },
@@ -199,7 +199,7 @@
           "type": "submenu3",
           "settings": {
             "text": "FAQ",
-            "url": "shopify:\/\/pages\/faq",
+            "url": "shopify://pages/faq",
             "soon": false
           }
         },
@@ -223,7 +223,7 @@
           "type": "submenu3",
           "settings": {
             "text": "Privacy Policy",
-            "url": "shopify:\/\/pages\/privacy-policy",
+            "url": "shopify://pages/privacy-policy",
             "soon": false
           }
         },
@@ -231,7 +231,7 @@
           "type": "submenu3",
           "settings": {
             "text": "Terms and Conditions",
-            "url": "shopify:\/\/pages\/terms-of-service",
+            "url": "shopify://pages/terms-of-service",
             "soon": false
           }
         },
@@ -239,7 +239,7 @@
           "type": "submenu3",
           "settings": {
             "text": "Shipping info",
-            "url": "shopify:\/\/pages\/shipping-policy",
+            "url": "shopify://pages/shipping-policy",
             "soon": false
           }
         },
@@ -319,7 +319,7 @@
           "type": "submenu5",
           "settings": {
             "text": "Contact Us",
-            "url": "shopify:\/\/pages\/contact",
+            "url": "shopify://pages/contact",
             "soon": false
           }
         },
@@ -327,7 +327,7 @@
           "type": "submenu5",
           "settings": {
             "text": "Privacy Policy",
-            "url": "shopify:\/\/pages\/privacy-policy",
+            "url": "shopify://pages/privacy-policy",
             "soon": false
           }
         },
@@ -335,7 +335,7 @@
           "type": "submenu5",
           "settings": {
             "text": "Terms and Conditions",
-            "url": "shopify:\/\/pages\/terms-of-service",
+            "url": "shopify://pages/terms-of-service",
             "soon": false
           }
         },
@@ -400,13 +400,18 @@
         "submenu5_DMhTqY"
       ],
       "settings": {
-        "logo": "shopify:\/\/shop_images\/Logo_b37fd625-0870-4bdd-8ecc-75ac1ab1fa72.svg",
+        "logo": "shopify://shop_images/Logo_b37fd625-0870-4bdd-8ecc-75ac1ab1fa72.svg",
         "menu_name1": "Shop",
+        "menu_url1": "",
         "menu_name2": "Brand",
+        "menu_url2": "",
         "menu_name3": "Learn more",
+        "menu_url3": "",
         "menu_name4": "Community",
+        "menu_url4": "",
         "menu_name5": "Support",
-        "flag": "shopify:\/\/shop_images\/Flag_USA.svg"
+        "menu_url5": "",
+        "flag": "shopify://shop_images/Flag_USA.svg"
       }
     }
   },
