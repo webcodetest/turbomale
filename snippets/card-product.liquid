@@ -131,7 +131,7 @@
     border: 1px solid #40AE00;
   }
 
-  .collections-list__wrapper{
+  .custom-product-badge__wrapper {
     display: flex;
     align-items: center;
     position: absolute;
@@ -139,32 +139,25 @@
     left: 10px;
     z-index: 11;
   }
-  .collections-list__wrapper ul {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    flex-direction: column;
-    gap: 10px;
-  }
 
-  .collections-list__wrapper ul li{
+  .custom-product-badge {
     display: flex;
     align-items: center;
-    gap: 2px;
-    background: #FFC800;
+    justify-content: center;
     padding: 5px 15px;
+    gap: 2px;
     border-radius: 5px;
     height: 26px;
   }
-  .collections-list__wrapper ul li a{
-    color: #05060B;
+
+  .custom-product-badge p {
+    color: #fff;
     text-align: center;
     font-family: "Proxima Nova";
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    text-decoration: none;
   }
 
   .change-view-block-btns{
@@ -571,7 +564,7 @@
     >
       <div
         class="card__inner {% if settings.card_style == 'standard' %}color-{{ settings.card_color_scheme }} gradient{% endif %}{% if card_product.featured_media or settings.card_style == 'standard' %} ratio{% endif %}"
-        style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
+        style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%; background-color: #fff;"
       >
         {%- if card_product.featured_media -%}
           <div class="card__media{% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }} gradient{% endif %}">
@@ -623,20 +616,14 @@
           </div>
         {%- endif -%}
         <div class="card__content">
-          {% if card_product.collections.size > 0 %}
-            <div class="collections-list__wrapper">
-              <ul>
-                {% for collection in card_product.collections limit: 1 %}
-                  <li>
-                    <div class="icon-before-collection-name">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="15" viewBox="0 0 13 15" fill="none">
-                        <path d="M5.32628 0.0491362C5.31338 0.0755253 5.32305 0.178149 5.34241 0.277842C5.40046 0.544663 5.39079 1.20439 5.32305 1.48294C5.20372 1.99313 4.99407 2.43001 4.62638 2.91968C4.3361 3.30965 4.02646 3.64391 3.26205 4.4004C2.07512 5.56738 1.66228 6.06877 1.23653 6.83992C0.468897 8.23561 0.326982 9.93037 0.859165 11.3612C1.53971 13.188 3.22335 14.5279 5.35531 14.9326C5.66817 14.9912 5.80041 15 6.46805 15C7.13248 15 7.27117 14.9912 7.59048 14.9326C8.88062 14.6951 10.0869 14.0617 10.9352 13.1762C11.606 12.4754 12.135 11.5166 12.3382 10.6399C12.6962 9.07419 12.235 7.15072 11.1803 5.843C11.0513 5.6788 11.0223 5.65828 10.9352 5.66707L10.8384 5.67587L10.8223 6.02772C10.8062 6.34146 10.7933 6.4001 10.7062 6.57016C10.561 6.84871 10.3191 7.07449 10.0256 7.20643C9.82242 7.29733 9.74501 7.31492 9.51924 7.32665C9.05801 7.35011 8.7258 7.22109 8.39682 6.89856C8.30651 6.80473 8.18717 6.6464 8.13234 6.54084C8.0388 6.36198 8.03235 6.32973 8.0388 6.04238C8.04203 5.82541 8.07428 5.59377 8.14524 5.26537C8.31941 4.47663 8.31296 3.84036 8.12589 3.13372C7.8227 1.9902 7.01637 0.972753 5.78751 0.172285C5.51658 -0.00364208 5.36498 -0.044692 5.32628 0.0491362ZM5.80686 8.21215C5.81008 8.91586 5.81653 9.00969 5.88104 9.21787C5.98425 9.56092 6.15842 9.83654 6.41967 10.074C6.79382 10.4171 7.19698 10.5666 7.7582 10.5666C8.23877 10.5666 8.57421 10.4669 8.95158 10.2089C9.04834 10.1415 9.15155 10.0916 9.17735 10.0946C9.24831 10.1092 9.3612 10.3936 9.42248 10.7074C9.58052 11.5313 9.28701 12.3728 8.62582 13.0062C7.50017 14.0822 5.66172 14.1292 4.49091 13.1117C4.18128 12.842 3.99743 12.6162 3.82326 12.2849C3.60394 11.8656 3.55234 11.6457 3.55234 11.0856C3.55556 10.6986 3.56846 10.5403 3.62329 10.3027C3.83294 9.42018 4.28772 8.72527 5.2779 7.78992C5.83266 7.26508 5.80363 7.24162 5.80686 8.21215Z" fill="#05060B" style="fill:#05060B;fill:color(display-p3 0.0196 0.0235 0.0431);fill-opacity:1;"/>
-                      </svg>
-                    </div>
-                    <a href="{{ collection.url }}">{{ collection.title }}</a>
-                  </li>
-                {% endfor %}
-              </ul>
+          {% if card_product.metafields.custom.product_custom_badge %}
+            <div class="custom-product-badge__wrapper">
+                <div class='custom-product-badge' style='background: {{ card_product.metafields.custom.product_custom_badge.value.background_badge }};'>
+                  <div class="icon-before-badge-name">
+                    <img src='{{ card_product.metafields.custom.product_custom_badge.value.icon | img_url: 'master' }}' alt='{{ card_product.metafields.custom.product_custom_badge.value.name }}'>
+                  </div> 
+                  <p style='{% if card_product.metafields.custom.product_custom_badge.value.name == 'Bestseller' %}color: #05060B;{% endif %}'>{{ card_product.metafields.custom.product_custom_badge.value.name }}</p>
+                </div>
             </div>
           {% endif %}
           <button class="quick-view__block quick-view__block--{{ card_product.id }}"
@@ -707,20 +694,9 @@
             {% endif %}
           >
             <div class="collections-head-rating">
-              <div class="rating-stars">
-                {% assign stars_count = card_product.metafields.custom.custom_rating.value %}
-                {% for i in (1..stars_count) %}
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                    <path d="M9 0L11.5921 5.43224L17.5595 6.21885L13.1942 10.3628L14.2901 16.2812L9 13.41L3.70993 16.2812L4.80584 10.3628L0.440492 6.21885L6.40787 5.43224L9 0Z" fill="#FA9902" style="fill:#FA9902;fill:color(display-p3 0.9804 0.6000 0.0078);fill-opacity:1;"/>
-                  </svg>
-                {% endfor %}
+              <div class='jdgm-widget jdgm-preview-badge'>
+                {{ product_ref.metafields.judgeme.badge }}
               </div>
-              {% if card_product.metafields.custom.custom_rating_count %}
-              <div class="rating-count">
-                ({{ card_product.metafields.custom.custom_rating_count }})
-              </div>
-              {% endif %}
-
             </div>
             <div class="collection-card-heading">
             <a
@@ -756,42 +732,6 @@
             {%- endif -%}
 
             <span class="caption-large light">{{ block.settings.description | escape }}</span>
-
-            {%- if show_rating and card_product.metafields.reviews.rating.value != blank -%}
-              {% liquid
-                assign rating_decimal = 0
-                assign decimal = card_product.metafields.reviews.rating.value.rating | modulo: 1
-                if decimal >= 0.3 and decimal <= 0.7
-                  assign rating_decimal = 0.5
-                elsif decimal > 0.7
-                  assign rating_decimal = 1
-                endif
-              %}
-              <div
-                class="rating"
-                role="img"
-                aria-label="{{ 'accessibility.star_reviews_info' | t: rating_value: card_product.metafields.reviews.rating.value, rating_max: card_product.metafields.reviews.rating.value.scale_max }}"
-              >
-                <span
-                  aria-hidden="true"
-                  class="rating-star"
-                  style="--rating: {{ card_product.metafields.reviews.rating.value.rating | floor }}; --rating-max: {{ card_product.metafields.reviews.rating.value.scale_max }}; --rating-decimal: {{ rating_decimal }};"
-                ></span>
-              </div>
-              <p class="rating-text caption">
-                <span aria-hidden="true">
-                  {{- card_product.metafields.reviews.rating.value }} /
-                  {{ card_product.metafields.reviews.rating.value.scale_max -}}
-                </span>
-              </p>
-              <p class="rating-count caption">
-                <span aria-hidden="true">({{ card_product.metafields.reviews.rating_count }})</span>
-                <span class="visually-hidden">
-                  {{- card_product.metafields.reviews.rating_count }}
-                  {{ 'accessibility.total_reviews' | t -}}
-                </span>
-              </p>
-            {%- endif -%}
 
             {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
             {%- if card_product.quantity_price_breaks_configured? -%}
