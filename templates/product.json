@@ -314,11 +314,11 @@
         "title": "Why turbomale?"
       }
     },
-    "custom_testimonials_KrUcd4": {
-      "type": "custom-testimonials",
+    "custom_why_turbomale_PE3Tkz": {
+      "type": "custom-why-turbomale",
       "settings": {
-        "title": "Personal Experiences",
-        "title_absolute": "Why turbomale?"
+        "title_absolute": "Why turbomale?",
+        "title": "Personal Experiences"
       }
     },
     "custom_best_seller_fUyTVD": {
@@ -418,7 +418,7 @@
     "custom_result_WXA86c",
     "custom_alt_results_QrJfF3",
     "custom_why_turbomale_dpHrpf",
-    "custom_testimonials_KrUcd4",
+    "custom_why_turbomale_PE3Tkz",
     "custom_best_seller_fUyTVD",
     "173637340439c90990",
     "1736427723b23ea643"
