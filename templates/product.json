@@ -24,14 +24,9 @@
           "type": "description",
           "settings": {}
         },
-        "stamped_reviews_star_rating_badge_kUzPiN": {
-          "type": "shopify://apps/stamped-reviews/blocks/star-rating-badge/a103faaf-2125-4b0e-89fa-de5149736723",
-          "settings": {
-            "use_metafields": false,
-            "sku_tagtype": "sku",
-            "is_featured_product": false,
-            "featured_product_handle": ""
-          }
+        "judge_me_reviews_preview_badge_bKdKhn": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
         },
         "price": {
           "type": "price",
@@ -99,7 +94,7 @@
       "block_order": [
         "title",
         "description_ExktNm",
-        "stamped_reviews_star_rating_badge_kUzPiN",
+        "judge_me_reviews_preview_badge_bKdKhn",
         "price",
         "custom_liquid_cBHiqJ",
         "variant_picker",
@@ -329,8 +324,8 @@
           "settings": {
             "product": "turbomale-gold-extender",
             "stars_count": 5,
-            "review_count": "",
-            "product_description": "",
+            "review_count": "18 990",
+            "product_description": "12″ Inch New TurboMale Light Penis Vacuum Extender Enlargement System",
             "product_cart_button": ""
           }
         },
@@ -339,8 +334,8 @@
           "settings": {
             "product": "erect-rings-set",
             "stars_count": 5,
-            "review_count": "",
-            "product_description": "",
+            "review_count": "18 990",
+            "product_description": "12″ Inch New TurboMale Light Penis Vacuum Extender Enlargement System",
             "product_cart_button": ""
           }
         },
@@ -349,8 +344,8 @@
           "settings": {
             "product": "shoulder-band-for-stretcher",
             "stars_count": 5,
-            "review_count": "",
-            "product_description": "",
+            "review_count": "18 990",
+            "product_description": "12″ Inch New TurboMale Light Penis Vacuum Extender Enlargement System",
             "product_cart_button": ""
           }
         },
@@ -359,8 +354,8 @@
           "settings": {
             "product": "turbomale-extender-cushion",
             "stars_count": 5,
-            "review_count": "",
-            "product_description": "",
+            "review_count": "18 990",
+            "product_description": "12″ Inch New TurboMale Light Penis Vacuum Extender Enlargement System",
             "product_cart_button": ""
           }
         }
@@ -392,21 +387,6 @@
       "settings": {
         "include_margins": true
       }
-    },
-    "1736427723b23ea643": {
-      "type": "apps",
-      "blocks": {
-        "judge_me_reviews_preview_badge_7HxFew": {
-          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_preview_badge_7HxFew"
-      ],
-      "settings": {
-        "include_margins": true
-      }
     }
   },
   "order": [
@@ -420,7 +400,6 @@
     "custom_why_turbomale_dpHrpf",
     "custom_why_turbomale_PE3Tkz",
     "custom_best_seller_fUyTVD",
-    "173637340439c90990",
-    "1736427723b23ea643"
+    "173637340439c90990"
   ]
 }
