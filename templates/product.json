@@ -326,7 +326,7 @@
             "stars_count": 5,
             "review_count": "18 990",
             "product_description": "12″ Inch New TurboMale Light Penis Vacuum Extender Enlargement System",
-            "product_cart_button": ""
+            "product_cart_button": "Buy now"
           }
         },
         "products_6b84p9": {
@@ -336,7 +336,7 @@
             "stars_count": 5,
             "review_count": "18 990",
             "product_description": "12″ Inch New TurboMale Light Penis Vacuum Extender Enlargement System",
-            "product_cart_button": ""
+            "product_cart_button": "Buy now"
           }
         },
         "products_EBapmn": {
@@ -346,7 +346,7 @@
             "stars_count": 5,
             "review_count": "18 990",
             "product_description": "12″ Inch New TurboMale Light Penis Vacuum Extender Enlargement System",
-            "product_cart_button": ""
+            "product_cart_button": "Buy now"
           }
         },
         "products_JVjN9J": {
@@ -356,7 +356,17 @@
             "stars_count": 5,
             "review_count": "18 990",
             "product_description": "12″ Inch New TurboMale Light Penis Vacuum Extender Enlargement System",
-            "product_cart_button": ""
+            "product_cart_button": "Buy now"
+          }
+        },
+        "products_AJNnMU": {
+          "type": "products",
+          "settings": {
+            "product": "turbomale-gold-extender",
+            "stars_count": 5,
+            "review_count": "18 990",
+            "product_description": "12″ Inch New TurboMale Light Penis Vacuum Extender Enlargement System",
+            "product_cart_button": "Buy now"
           }
         }
       },
@@ -364,7 +374,8 @@
         "products_kQR9F8",
         "products_6b84p9",
         "products_EBapmn",
-        "products_JVjN9J"
+        "products_JVjN9J",
+        "products_AJNnMU"
       ],
       "settings": {
         "title": "Trending our Best sellers",
