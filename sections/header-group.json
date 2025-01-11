@@ -103,7 +103,7 @@
             "image": "shopify://shop_images/submenu3.svg",
             "image_alt": "",
             "title": "Stretchers",
-            "title_url": "",
+            "title_url": "shopify://collections/stretchers",
             "item_menu": "big-submenu-3"
           }
         },
