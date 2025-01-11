@@ -17,7 +17,7 @@
           endif
         endif
       -%}
-      {% if option.name == "Cylinder size" %}
+     {% if option.name == "Cylinder size" or option.name == "Size" %}
         {% assign picker_type = 'button' %}
       {% endif %}
       {%- if picker_type == 'swatch' -%}
