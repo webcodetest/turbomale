@@ -17,6 +17,9 @@
           endif
         endif
       -%}
+      {% if option.name == "Cylinder size" %}
+        {% assign picker_type = 'button' %}
+      {% endif %}
       {%- if picker_type == 'swatch' -%}
         <fieldset class="js product-form__input product-form__input--swatch">
           <legend class="form__label">

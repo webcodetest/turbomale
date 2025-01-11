@@ -695,13 +695,20 @@ ul {
 .custom-header-menu-list-item-submenu-big-center {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  gap: 10px 40px;
 }
 
 .custom-header-menu-list-item-submenu-big-center-item {
   display: flex;
   align-items: flex-start;
-  gap: 8px;
+  gap: 16px;
+}
+
+.custom-header-menu-list-item-submenu-big-center-item-image {
+  width: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .custom-header-menu-list-item-submenu-big-center-item-info {
@@ -710,17 +717,23 @@ ul {
   gap: 10px;
 }
 
-.custom-header-menu-list-item-submenu-big-center-item-info h3 {
+.custom-header-menu-list-item-submenu-big-center-item-info > a {
   color: #fff;
   font-family: "Proxima Nova";
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.custom-header-menu-list-item-submenu-big-center-item-info > a:hover {
+  color: #40ae00;
 }
 
 @media screen and (max-width: 1100px) {
-  .custom-header-menu-list-item-submenu-big-center-item-info h3 {
+  .custom-header-menu-list-item-submenu-big-center-item-info > a {
     font-size: 16px;
   }
 }
@@ -869,6 +882,24 @@ ul {
   right: 12px;
   top: 50%;
   transform: translateY(-50%);
+}
+
+.custom-header-right-cart {
+  position: relative;
+}
+
+.custom-cart-count p {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  color: #40ae00;
+  background-color: #fff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* mobile menu */
@@ -1300,7 +1331,7 @@ ul {
 .best-seller-slider {
   width: 100%;
   max-width: 1238px;
-  padding: 20px 15px !important;
+  padding: 20px 15px 110px !important;
 }
 
 @media screen and (max-width: 1024px) {
@@ -1320,6 +1351,7 @@ ul {
   align-items: center;
   gap: 11px;
   width: 100%;
+  height: 100%;
   color: transparent;
   padding: 16px;
   border: 1px solid #eaeaea;
@@ -1376,8 +1408,8 @@ ul {
 }
 
 .best-seller-card img {
-  width: 200px;
-  height: 200px;
+  width: 200px !important;
+  height: 200px !important;
 }
 
 .best-seller-title {
@@ -1408,6 +1440,7 @@ ul {
   gap: 13px;
   width: 100%;
   position: relative;
+  margin-top: auto;
 }
 
 @media screen and (max-width: 600px) {
@@ -1603,8 +1636,9 @@ ul {
 }
 
 .best-seller-description {
-  padding-top: 11px;
-  margin-top: 13px;
+  position: absolute;
+  bottom: -92px;
+  background-color: #fff;
   border-top: 1px solid #eaeaea;
   color: #727272;
   font-family: "Proxima Nova";
@@ -1612,25 +1646,41 @@ ul {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  display: none;
+  padding: 16px;
+  box-shadow: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: box-shadow 0.3s, opacity 0.3s, visibility 0.3s;
 }
 
-.best-seller-slider .swiper-slide-active .best-seller-description {
-  display: block;
+.best-seller-description p {
+  text-align: left;
+}
+
+.best-seller-slider .swiper-slide {
+  transition: all 0.3s;
+  height: auto;
+}
+
+.best-seller-slider .swiper-slide:hover .best-seller-description {
+  visibility: visible;
+  opacity: 1;
+  box-shadow: 0px 8px 18.6px 0px rgba(0, 0, 0, 0.23);
+  transition: box-shadow 0.3s, opacity 0.3s;
 }
 
 @media screen and (max-width: 1024px) {
-  .best-seller-slider .swiper-slide-active .best-seller-description {
+  .best-seller-slider .swiper-slide:hover .best-seller-description {
     display: none;
   }
 }
 
-.best-seller-slider .swiper-slide-active {
+.best-seller-slider .swiper-slide:hover {
   box-shadow: 0px 0px 18.6px 0px rgba(0, 0, 0, 0.23);
 }
 
 @media screen and (max-width: 1024px) {
-  .best-seller-slider .swiper-slide-active {
+  .best-seller-slider .swiper-slide:hover {
     box-shadow: none;
   }
 }
@@ -1663,7 +1713,7 @@ ul {
 
 .best-seller-shop {
   position: absolute;
-  bottom: 20px;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
   border-radius: 12px;
@@ -1681,7 +1731,6 @@ ul {
   line-height: normal;
   text-transform: uppercase;
   text-decoration: none;
-  z-index: 1;
   transition: all 0.3s;
 }
 
@@ -3251,12 +3300,12 @@ ul {
 }
 
 .custom-gold-slider-image-mobile {
-  display: none;
+  display: none !important;
 }
 
 @media screen and (max-width: 500px) {
   .custom-gold-slider-image-mobile {
-    display: block;
+    display: block !important;
     width: 100%;
     margin-bottom: 12px;
   }
@@ -3409,6 +3458,7 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: transparent;
 }
 
 .custom-featured-slider .swiper-pagination {

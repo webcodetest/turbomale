@@ -72,6 +72,10 @@
         }
     }
 
+    .custom-why-turbomale-body-wrap .shopify-app-block {
+        width: 100%;
+    }
+
 </style>
 
 <section class='custom-why-turbomale'>
@@ -83,6 +87,12 @@
     <div class="custom-why-turbomale-body">
         <div class="custom-why-turbomale-body-wrap">
             {% for block in section.blocks %}
+                {% if block.type == '@app' %}
+                    {% render block %}
+                {% endif %}
+            {% endfor %}
+            {% for block in section.blocks %}
+                {% if block.type == 'text' %}
                 <div class="custom-why-turbomale__card">
                     <div class="custom-why-turbomale__card__icon">
                         <img src="{{ block.settings.icon | img_url: 'master' }}" alt="">
@@ -97,6 +107,7 @@
                         <a href="{{ block.settings.card_link }}">{{ block.settings.card_link_text }}</a>
                     </div>
                 </div>
+                {% endif %}
             {% endfor %}
         </div>
     </div>
@@ -121,6 +132,9 @@
         }
     ],
     "blocks": [
+        {
+        "type": "@app"
+        },
         {
         "type": "text",
         "name": "Item of text",
