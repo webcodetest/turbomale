@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "custom_home_hero_NN6AFJ": {
@@ -63,13 +72,13 @@
         "text_yQPP3n"
       ],
       "settings": {
-        "background_image": "shopify:\/\/shop_images\/custom-home-hero.webp",
-        "background_image_mobile": "shopify:\/\/shop_images\/home-hero-mobile.webp",
-        "title": "<h2>SIZE DOES MATTER <\/h2><h2>START YOUR JOURNEY TO THE LEGENDARY LIFE RIGHT NOW<\/h2>",
+        "background_image": "shopify://shop_images/custom-home-hero.webp",
+        "background_image_mobile": "shopify://shop_images/home-hero-mobile.webp",
+        "title": "<h2>SIZE DOES MATTER </h2><h2>START YOUR JOURNEY TO THE LEGENDARY LIFE RIGHT NOW</h2>",
         "text": "TurboMale Systems - The world’s most advanced penis enlargement systems just got even better. When you join THE TURBOMALE you will make INCHES, your SEXUAL LIFE will change and  you will make wishes come true! When you join TurboMale, you'll get everything and more..  99% of modern-day men will never experience the real man power. To be among the most sexual and lucky Men in the world.",
         "text_mobile": "TurboMale Systems - The world’s most advanced penis enlargement systems just got even better. When you join THE TURBOMALE you will make INCHES, your SEXUAL LIFE will change and  you will make wishes come true!",
-        "circle-image": "shopify:\/\/shop_images\/home-hero-circles.svg",
-        "circle-image-mobile": "shopify:\/\/shop_images\/home-hero-circles-mobile.svg"
+        "circle-image": "shopify://shop_images/home-hero-circles.svg",
+        "circle-image-mobile": "shopify://shop_images/home-hero-circles-mobile.svg"
       }
     },
     "custom_best_seller_Ybg3m8": {
@@ -214,7 +223,7 @@
         "title": "Trending our Best sellers",
         "title_absolute": "best seller",
         "button_text": "SHOP ALL",
-        "button_url": ""
+        "button_url": "shopify://collections/bestsellers"
       }
     },
     "custom_discovery_WtUfYJ": {
@@ -223,7 +232,7 @@
         "title": "WELCOME TO TURBOMALE, OFFICIAL STORE OF WORLD’S BEST PENIS ENLARGEMENT SYSTEMS",
         "title_absolute": "turbomale",
         "text": "Congratulations, you have discovered the most advanced and effective penis enlargement systems in the world. TurboMale systems will help you achieve permanent increases in penis length and girth, enhance erections and libido, boost your stamina, increase sexual pleasure and orgasm strength, and gain incredible self-confidence to feel the Big Dick Energy that only 1% of men on the planet possess...",
-        "bottom_text": "<p>Join the 1% right now<\/p><p>The choice is yours<\/p>",
+        "bottom_text": "<p>Join the 1% right now</p><p>The choice is yours</p>",
         "button_text": "DISCOVER MORE",
         "button_url": ""
       }
@@ -234,28 +243,28 @@
         "adventages_MUmUbC": {
           "type": "adventages",
           "settings": {
-            "image": "shopify:\/\/shop_images\/package1.svg",
+            "image": "shopify://shop_images/package1.svg",
             "text": "100% drug-free & Body safe"
           }
         },
         "adventages_QKMHzq": {
           "type": "adventages",
           "settings": {
-            "image": "shopify:\/\/shop_images\/package2.svg",
+            "image": "shopify://shop_images/package2.svg",
             "text": "Fast and permanent result"
           }
         },
         "adventages_ry3XtU": {
           "type": "adventages",
           "settings": {
-            "image": "shopify:\/\/shop_images\/package3.svg",
+            "image": "shopify://shop_images/package3.svg",
             "text": "PURE PE Expert’s choice №1"
           }
         },
         "adventages_McJVgU": {
           "type": "adventages",
           "settings": {
-            "image": "shopify:\/\/shop_images\/package4.svg",
+            "image": "shopify://shop_images/package4.svg",
             "text": "Male enhancement"
           }
         }
@@ -270,27 +279,27 @@
         "product": "turbomale-ultimate-enlargement-package",
         "description": "Our Ultimate Package includes 10 high-quality products that give you the complete tools you need. Get everything you need in one package at a great price!",
         "popap_product1": "turbomale-shoulder-stretcher",
-        "popap_text1": "<p><strong>Ultimate Package:<\/strong> Everything you need in one package!<\/p>",
+        "popap_text1": "<p><strong>Ultimate Package:</strong> Everything you need in one package!</p>",
         "popap_product2": "waist-belt-for-stretcher",
-        "popap_text2": "<p><strong>Ultimate Package:<\/strong> Everything you need in one package!<\/p>",
+        "popap_text2": "<p><strong>Ultimate Package:</strong> Everything you need in one package!</p>",
         "popap_product3": "leg-band-for-stretcher",
-        "popap_text3": "<p><strong>Ultimate Package:<\/strong> Everything you need in one package!<\/p>",
+        "popap_text3": "<p><strong>Ultimate Package:</strong> Everything you need in one package!</p>",
         "popap_product4": "leg-band-for-stretcher",
-        "popap_text4": "<p><strong>Ultimate Package:<\/strong> Everything you need in one package!<\/p>",
+        "popap_text4": "<p><strong>Ultimate Package:</strong> Everything you need in one package!</p>",
         "popap_product5": "turbomale-pump-cylinder",
-        "popap_text5": "<p><strong>Ultimate Package:<\/strong> Everything you need in one package!<\/p>",
+        "popap_text5": "<p><strong>Ultimate Package:</strong> Everything you need in one package!</p>",
         "popap_product6": "turbomale-silicone-sleeve",
-        "popap_text6": "<p><strong>Ultimate Package:<\/strong> Everything you need in one package!<\/p>",
+        "popap_text6": "<p><strong>Ultimate Package:</strong> Everything you need in one package!</p>",
         "popap_product7": "turbomale-metal-hand-pump",
-        "popap_text7": "<p><strong>Ultimate Package:<\/strong> Everything you need in one package!<\/p>",
+        "popap_text7": "<p><strong>Ultimate Package:</strong> Everything you need in one package!</p>",
         "popap_product8": "turbomale-silicone-protector-cap",
-        "popap_text8": "<p><strong>Ultimate Package:<\/strong> Everything you need in one package!<\/p>",
+        "popap_text8": "<p><strong>Ultimate Package:</strong> Everything you need in one package!</p>",
         "popap_product9": "turbomale-multi-type-stretchers-set",
-        "popap_text9": "<p><strong>Ultimate Package:<\/strong> Everything you need in one package!<\/p>",
+        "popap_text9": "<p><strong>Ultimate Package:</strong> Everything you need in one package!</p>",
         "popap_product10": "turbomale-light-extender",
-        "popap_text10": "<p><strong>Ultimate Package:<\/strong> Everything you need in one package!<\/p>",
+        "popap_text10": "<p><strong>Ultimate Package:</strong> Everything you need in one package!</p>",
         "popap_product11": "turbomale-vacuum-handle",
-        "popap_text11": "<p><strong>Ultimate Package:<\/strong> Everything you need in one package!<\/p>"
+        "popap_text11": "<p><strong>Ultimate Package:</strong> Everything you need in one package!</p>"
       }
     },
     "custom_vacuum_3RAfpJ": {
@@ -323,8 +332,8 @@
         "list_image_AUfndN": {
           "type": "list_image",
           "settings": {
-            "list_item_image": "shopify:\/\/shop_images\/penis_1_traced.svg",
-            "list_item_image_mobile": "shopify:\/\/shop_images\/penis_1_traced_-mobile.svg",
+            "list_item_image": "shopify://shop_images/penis_1_traced.svg",
+            "list_item_image_mobile": "shopify://shop_images/penis_1_traced_-mobile.svg",
             "list_item_image_alt": "",
             "list_item_text": "Increase Penis Length &  Girth 40%"
           }
@@ -332,8 +341,8 @@
         "list_image_4PgbUw": {
           "type": "list_image",
           "settings": {
-            "list_item_image": "shopify:\/\/shop_images\/Component_11.svg",
-            "list_item_image_mobile": "shopify:\/\/shop_images\/Component_11-mobile.svg",
+            "list_item_image": "shopify://shop_images/Component_11.svg",
+            "list_item_image_mobile": "shopify://shop_images/Component_11-mobile.svg",
             "list_item_image_alt": "",
             "list_item_text": "Incredible comfort and convenience"
           }
@@ -341,8 +350,8 @@
         "list_image_G8JLbY": {
           "type": "list_image",
           "settings": {
-            "list_item_image": "shopify:\/\/shop_images\/image_9-01_2.svg",
-            "list_item_image_mobile": "shopify:\/\/shop_images\/image_9-01_2-mobile.svg",
+            "list_item_image": "shopify://shop_images/image_9-01_2.svg",
+            "list_item_image_mobile": "shopify://shop_images/image_9-01_2-mobile.svg",
             "list_item_image_alt": "",
             "list_item_text": "The best and safe materials, made  in EU"
           }
@@ -362,7 +371,7 @@
         "title_absolute": "turbomale",
         "button_text": "Learn more",
         "button_url": "",
-        "big_image": "shopify:\/\/shop_images\/TurboMale-Gold-Extender.webp",
+        "big_image": "shopify://shop_images/TurboMale-Gold-Extender.webp",
         "big_image_alt": ""
       }
     },
@@ -372,7 +381,7 @@
         "list_RGat4j": {
           "type": "list",
           "settings": {
-            "list_item_image": "shopify:\/\/shop_images\/gold1.svg",
+            "list_item_image": "shopify://shop_images/gold1.svg",
             "list_item_image_alt": "",
             "list_item_text": "Possible Length Increase 2-5 сm"
           }
@@ -380,7 +389,7 @@
         "list_QTRT3b": {
           "type": "list",
           "settings": {
-            "list_item_image": "shopify:\/\/shop_images\/gold2.svg",
+            "list_item_image": "shopify://shop_images/gold2.svg",
             "list_item_image_alt": "",
             "list_item_text": "Possible Girth Increase 2-3 cm"
           }
@@ -388,7 +397,7 @@
         "list_rh4mxt": {
           "type": "list",
           "settings": {
-            "list_item_image": "shopify:\/\/shop_images\/gold3.svg",
+            "list_item_image": "shopify://shop_images/gold3.svg",
             "list_item_image_alt": "",
             "list_item_text": "Possible Glance Increase +20-30%"
           }
@@ -396,7 +405,7 @@
         "list_gjPj3z": {
           "type": "list",
           "settings": {
-            "list_item_image": "shopify:\/\/shop_images\/gold4.svg",
+            "list_item_image": "shopify://shop_images/gold4.svg",
             "list_item_image_alt": "",
             "list_item_text": "Boost Libido, Sex Drive  and Stamina"
           }
@@ -404,7 +413,7 @@
         "list_hb9QJ4": {
           "type": "list",
           "settings": {
-            "list_item_image": "shopify:\/\/shop_images\/gold5.svg",
+            "list_item_image": "shopify://shop_images/gold5.svg",
             "list_item_image_alt": "",
             "list_item_text": "Enhances erection quality - make it hard like as steel"
           }
@@ -412,8 +421,8 @@
         "slider_TDrf9U": {
           "type": "slider",
           "settings": {
-            "slider_image": "shopify:\/\/shop_images\/gold-slide.webp",
-            "slider_image_mobile": "shopify:\/\/shop_images\/gold-slide-mobile.png",
+            "slider_image": "shopify://shop_images/gold-slide.webp",
+            "slider_image_mobile": "shopify://shop_images/gold-slide-mobile.png",
             "slider_image_alt": "",
             "slider_text_mobile": "Super comfortable base, thicker and more flat"
           }
@@ -421,8 +430,8 @@
         "slider_jTY7gh": {
           "type": "slider",
           "settings": {
-            "slider_image": "shopify:\/\/shop_images\/gold-slide.webp",
-            "slider_image_mobile": "shopify:\/\/shop_images\/gold-slide-mobile.png",
+            "slider_image": "shopify://shop_images/gold-slide.webp",
+            "slider_image_mobile": "shopify://shop_images/gold-slide-mobile.png",
             "slider_image_alt": "",
             "slider_text_mobile": "Super comfortable base, thicker and more flat"
           }
@@ -430,8 +439,8 @@
         "slider_CXpYck": {
           "type": "slider",
           "settings": {
-            "slider_image": "shopify:\/\/shop_images\/gold-slide.webp",
-            "slider_image_mobile": "shopify:\/\/shop_images\/gold-slide-mobile.png",
+            "slider_image": "shopify://shop_images/gold-slide.webp",
+            "slider_image_mobile": "shopify://shop_images/gold-slide-mobile.png",
             "slider_image_alt": "",
             "slider_text_mobile": "Super comfortable base, thicker and more flat"
           }
@@ -461,112 +470,112 @@
         "slider_fTXCJQ": {
           "type": "slider",
           "settings": {
-            "slider_image": "shopify:\/\/shop_images\/mens-health_traced.svg",
+            "slider_image": "shopify://shop_images/mens-health_traced.svg",
             "slider_image_alt": ""
           }
         },
         "slider_LRCXEQ": {
           "type": "slider",
           "settings": {
-            "slider_image": "shopify:\/\/shop_images\/svg_2.svg",
+            "slider_image": "shopify://shop_images/svg_2.svg",
             "slider_image_alt": ""
           }
         },
         "slider_7iXXPM": {
           "type": "slider",
           "settings": {
-            "slider_image": "shopify:\/\/shop_images\/Swagger_Publications_Inc__Swagger_Magazine_Garners_Attention_on_1_traced.svg",
+            "slider_image": "shopify://shop_images/Swagger_Publications_Inc__Swagger_Magazine_Garners_Attention_on_1_traced.svg",
             "slider_image_alt": ""
           }
         },
         "slider_HbCzGD": {
           "type": "slider",
           "settings": {
-            "slider_image": "shopify:\/\/shop_images\/Mens-Journal.svg",
+            "slider_image": "shopify://shop_images/Mens-Journal.svg",
             "slider_image_alt": ""
           }
         },
         "slider_e9Ya6i": {
           "type": "slider",
           "settings": {
-            "slider_image": "shopify:\/\/shop_images\/gq-_1__traced.svg",
+            "slider_image": "shopify://shop_images/gq-_1__traced.svg",
             "slider_image_alt": ""
           }
         },
         "slider_XH6cey": {
           "type": "slider",
           "settings": {
-            "slider_image": "shopify:\/\/shop_images\/NYT_traced.svg",
+            "slider_image": "shopify://shop_images/NYT_traced.svg",
             "slider_image_alt": ""
           }
         },
         "slider_PCGz4H": {
           "type": "slider",
           "settings": {
-            "slider_image": "shopify:\/\/shop_images\/Playboy.svg",
+            "slider_image": "shopify://shop_images/Playboy.svg",
             "slider_image_alt": ""
           }
         },
         "slider_4W9pbR": {
           "type": "slider",
           "settings": {
-            "slider_image": "shopify:\/\/shop_images\/xbiz_1.svg",
+            "slider_image": "shopify://shop_images/xbiz_1.svg",
             "slider_image_alt": ""
           }
         },
         "slider_bzRYAB": {
           "type": "slider",
           "settings": {
-            "slider_image": "shopify:\/\/shop_images\/mens-health_traced.svg",
+            "slider_image": "shopify://shop_images/mens-health_traced.svg",
             "slider_image_alt": ""
           }
         },
         "slider_tU7Vkw": {
           "type": "slider",
           "settings": {
-            "slider_image": "shopify:\/\/shop_images\/svg_2.svg",
+            "slider_image": "shopify://shop_images/svg_2.svg",
             "slider_image_alt": ""
           }
         },
         "slider_w36cjU": {
           "type": "slider",
           "settings": {
-            "slider_image": "shopify:\/\/shop_images\/Swagger_Publications_Inc__Swagger_Magazine_Garners_Attention_on_1_traced.svg",
+            "slider_image": "shopify://shop_images/Swagger_Publications_Inc__Swagger_Magazine_Garners_Attention_on_1_traced.svg",
             "slider_image_alt": ""
           }
         },
         "slider_nnRaff": {
           "type": "slider",
           "settings": {
-            "slider_image": "shopify:\/\/shop_images\/Mens-Journal.svg",
+            "slider_image": "shopify://shop_images/Mens-Journal.svg",
             "slider_image_alt": ""
           }
         },
         "slider_zRhU9b": {
           "type": "slider",
           "settings": {
-            "slider_image": "shopify:\/\/shop_images\/gq-_1__traced.svg",
+            "slider_image": "shopify://shop_images/gq-_1__traced.svg",
             "slider_image_alt": ""
           }
         },
         "slider_DUkYjP": {
           "type": "slider",
           "settings": {
-            "slider_image": "shopify:\/\/shop_images\/NYT_traced.svg",
+            "slider_image": "shopify://shop_images/NYT_traced.svg",
             "slider_image_alt": ""
           }
         },
         "slider_LUVKqP": {
           "type": "slider",
           "settings": {
-            "slider_image": "shopify:\/\/shop_images\/Playboy.svg",
+            "slider_image": "shopify://shop_images/Playboy.svg",
             "slider_image_alt": ""
           }
         },
         "slider_iRjP4R": {
           "type": "slider",
           "settings": {
-            "slider_image": "shopify:\/\/shop_images\/xbiz_1.svg",
+            "slider_image": "shopify://shop_images/xbiz_1.svg",
             "slider_image_alt": ""
           }
         }
@@ -600,11 +609,11 @@
         "slider_G8EtfR": {
           "type": "slider",
           "settings": {
-            "slider_image": "shopify:\/\/shop_images\/testimonials-image.webp",
+            "slider_image": "shopify://shop_images/testimonials-image.webp",
             "slider_image_alt": "",
             "slider_name": "Artyr P.",
             "slider_verified": true,
-            "slider_date": "05\/02\/2023",
+            "slider_date": "05/02/2023",
             "slider_stars_count": 5,
             "slider_description": "The most profitable purchase I have ever made in my life, highly persistence, is the name of the game. crazy results run to buy"
           }
@@ -612,35 +621,35 @@
         "slider_A9U3Mg": {
           "type": "slider",
           "settings": {
-            "slider_image": "shopify:\/\/shop_images\/testimonials-image.webp",
+            "slider_image": "shopify://shop_images/testimonials-image.webp",
             "slider_image_alt": "",
             "slider_name": "Artyr P.",
             "slider_verified": true,
-            "slider_date": "05\/02\/2023",
+            "slider_date": "05/02/2023",
             "slider_stars_count": 5,
-            "slider_description": "I have Peyronie's and a severe fibrous knot under the head of my penis that is painful whenever I have an erection and during sex of any kind. (...)\n  This system is even better and I could feel immediate relief. I will follow the protocol and hopefully this will resolve it further.\n\nAs a bonus after 6 weeks I have also seen a solid 1\/2\" improvement on flaccid and erect length!"
+            "slider_description": "I have Peyronie's and a severe fibrous knot under the head of my penis that is painful whenever I have an erection and during sex of any kind. (...)\n  This system is even better and I could feel immediate relief. I will follow the protocol and hopefully this will resolve it further.\n\nAs a bonus after 6 weeks I have also seen a solid 1/2\" improvement on flaccid and erect length!"
           }
         },
         "slider_CcDGGT": {
           "type": "slider",
           "settings": {
-            "slider_image": "shopify:\/\/shop_images\/testimonials-image.webp",
+            "slider_image": "shopify://shop_images/testimonials-image.webp",
             "slider_image_alt": "",
             "slider_name": "Artyr P.",
             "slider_verified": true,
-            "slider_date": "05\/02\/2023",
+            "slider_date": "05/02/2023",
             "slider_stars_count": 5,
-            "slider_description": "Been wearing Phallosan forte for 360 hours so far! Writing this \u2028\t\t\t\t\t\t\t\tto keep track of my progress. So far I have gained .5 inches on Erect length! And girth hasn’t changed. But so far happy with my gains!"
+            "slider_description": "Been wearing Phallosan forte for 360 hours so far! Writing this  \t\t\t\t\t\t\t\tto keep track of my progress. So far I have gained .5 inches on Erect length! And girth hasn’t changed. But so far happy with my gains!"
           }
         },
         "slider_rQmXAX": {
           "type": "slider",
           "settings": {
-            "slider_image": "shopify:\/\/shop_images\/testimonials-image.webp",
+            "slider_image": "shopify://shop_images/testimonials-image.webp",
             "slider_image_alt": "",
             "slider_name": "Artyr P.",
             "slider_verified": true,
-            "slider_date": "05\/02\/2023",
+            "slider_date": "05/02/2023",
             "slider_stars_count": 5,
             "slider_description": "I started out with an erect length of 5.2” - I have only used the Phallosan products for 2 months now and my erect length is almost 7”. It is absolutely incredible! I have gained over 1.5” in girth as well. Most products don’t live up to the hype. Phallosan is a much different. It flat out works! (...)"
           }
@@ -648,11 +657,11 @@
         "slider_AqtrR8": {
           "type": "slider",
           "settings": {
-            "slider_image": "shopify:\/\/shop_images\/testimonials-image.webp",
+            "slider_image": "shopify://shop_images/testimonials-image.webp",
             "slider_image_alt": "",
             "slider_name": "Artyr P.",
             "slider_verified": true,
-            "slider_date": "05\/02\/2023",
+            "slider_date": "05/02/2023",
             "slider_stars_count": 5,
             "slider_description": "The most profitable purchase I have ever made in my life, highly persistence, is the name of the game. crazy results run to buy"
           }
@@ -660,35 +669,35 @@
         "slider_hkz8Gh": {
           "type": "slider",
           "settings": {
-            "slider_image": "shopify:\/\/shop_images\/testimonials-image.webp",
+            "slider_image": "shopify://shop_images/testimonials-image.webp",
             "slider_image_alt": "",
             "slider_name": "Artyr P.",
             "slider_verified": true,
-            "slider_date": "05\/02\/2023",
+            "slider_date": "05/02/2023",
             "slider_stars_count": 5,
-            "slider_description": "I have Peyronie's and a severe fibrous knot under the head of my penis that is painful whenever I have an erection and during sex of any kind. (...)\n  This system is even better and I could feel immediate relief. I will follow the protocol and hopefully this will resolve it further.\n\nAs a bonus after 6 weeks I have also seen a solid 1\/2\" improvement on flaccid and erect length!"
+            "slider_description": "I have Peyronie's and a severe fibrous knot under the head of my penis that is painful whenever I have an erection and during sex of any kind. (...)\n  This system is even better and I could feel immediate relief. I will follow the protocol and hopefully this will resolve it further.\n\nAs a bonus after 6 weeks I have also seen a solid 1/2\" improvement on flaccid and erect length!"
           }
         },
         "slider_P8FhWX": {
           "type": "slider",
           "settings": {
-            "slider_image": "shopify:\/\/shop_images\/testimonials-image.webp",
+            "slider_image": "shopify://shop_images/testimonials-image.webp",
             "slider_image_alt": "",
             "slider_name": "Artyr P.",
             "slider_verified": true,
-            "slider_date": "05\/02\/2023",
+            "slider_date": "05/02/2023",
             "slider_stars_count": 5,
-            "slider_description": "Been wearing Phallosan forte for 360 hours so far! Writing this \u2028\t\t\t\t\t\t\t\tto keep track of my progress. So far I have gained .5 inches on Erect length! And girth hasn’t changed. But so far happy with my gains!"
+            "slider_description": "Been wearing Phallosan forte for 360 hours so far! Writing this  \t\t\t\t\t\t\t\tto keep track of my progress. So far I have gained .5 inches on Erect length! And girth hasn’t changed. But so far happy with my gains!"
           }
         },
         "slider_8aiChe": {
           "type": "slider",
           "settings": {
-            "slider_image": "shopify:\/\/shop_images\/testimonials-image.webp",
+            "slider_image": "shopify://shop_images/testimonials-image.webp",
             "slider_image_alt": "",
             "slider_name": "Artyr P.",
             "slider_verified": true,
-            "slider_date": "05\/02\/2023",
+            "slider_date": "05/02/2023",
             "slider_stars_count": 5,
             "slider_description": "I started out with an erect length of 5.2” - I have only used the Phallosan products for 2 months now and my erect length is almost 7”. It is absolutely incredible! I have gained over 1.5” in girth as well. Most products don’t live up to the hype. Phallosan is a much different. It flat out works! (...)"
           }
@@ -696,11 +705,11 @@
         "slider_bBFhrE": {
           "type": "slider",
           "settings": {
-            "slider_image": "shopify:\/\/shop_images\/testimonials-image.webp",
+            "slider_image": "shopify://shop_images/testimonials-image.webp",
             "slider_image_alt": "",
             "slider_name": "Artyr P.",
             "slider_verified": true,
-            "slider_date": "05\/02\/2023",
+            "slider_date": "05/02/2023",
             "slider_stars_count": 5,
             "slider_description": "The most profitable purchase I have ever made in my life, highly persistence, is the name of the game. crazy results run to buy"
           }
@@ -728,7 +737,7 @@
         "list_fMY4Fk": {
           "type": "list",
           "settings": {
-            "item_image": "shopify:\/\/shop_images\/adventages1.svg",
+            "item_image": "shopify://shop_images/adventages1.svg",
             "item_image_alt": "",
             "item_title": "Premium Quality & Effectiveness",
             "item_text": "Best Enlargement Systemsin  the marke"
@@ -737,7 +746,7 @@
         "list_tPGDRx": {
           "type": "list",
           "settings": {
-            "item_image": "shopify:\/\/shop_images\/adventages2.svg",
+            "item_image": "shopify://shop_images/adventages2.svg",
             "item_image_alt": "",
             "item_title": "Body-safe Materials",
             "item_text": "We use only the highest quality materials from US"
@@ -746,7 +755,7 @@
         "list_8j3QmP": {
           "type": "list",
           "settings": {
-            "item_image": "shopify:\/\/shop_images\/adventages3.svg",
+            "item_image": "shopify://shop_images/adventages3.svg",
             "item_image_alt": "",
             "item_title": "Free Shipping From 100$",
             "item_text": "Fast’n’ Free Delivery"
@@ -755,7 +764,7 @@
         "list_t6dWGC": {
           "type": "list",
           "settings": {
-            "item_image": "shopify:\/\/shop_images\/adventages4.svg",
+            "item_image": "shopify://shop_images/adventages4.svg",
             "item_image_alt": "",
             "item_title": "100% Secure Сheckout",
             "item_text": "And 100% Secure Payment & Billing"
@@ -764,7 +773,7 @@
         "list_WB69ga": {
           "type": "list",
           "settings": {
-            "item_image": "shopify:\/\/shop_images\/adventages5.svg",
+            "item_image": "shopify://shop_images/adventages5.svg",
             "item_image_alt": "",
             "item_title": "Highest Customers Reviews",
             "item_text": "15000+  satisfied customers worldwide"
@@ -815,11 +824,11 @@
         "list_bEYgqM"
       ],
       "settings": {
-        "bg_image": "shopify:\/\/shop_images\/home-abou-us-bg_793328ea-1998-4f97-8d3e-f837812b5f30.webp",
+        "bg_image": "shopify://shop_images/home-abou-us-bg_793328ea-1998-4f97-8d3e-f837812b5f30.webp",
         "title": "About US",
         "title_absolute": "About US",
-        "text": "<p>We are a group of penis enlargement enthusiasts and researchers. Just like you, we have been looking for answers, for ways to become better, to improve our sexual performance and to become the best and legendary lover. The chosen one. The one legends are made about. After more than 10 years of daily studies on penis enlargement, long practices, mistakes, defeats and triumphs, we have managed to systematize all the information and have found the real red pill after which your sexual life will never be the same again.<\/p><p><br\/>These are the best, most innovative and advanced tools for penis enlargement and male enhancement at home, along with the most advanced knowledge on their successful use, various supplements, exercises, influences and other ways to increase their effectiveness. Now we are ready to present the most effective penis systems and training routines to those who are ready, to men who want to say goodbye to insecurities and failures forever and achieve the size and potency of heroes.<\/p><p><br\/>And right now you have a choice. Are you ready to take the red pill and gain this knowledge? The choice is yours.<\/p>",
-        "image": "shopify:\/\/shop_images\/about-us.webp",
+        "text": "<p>We are a group of penis enlargement enthusiasts and researchers. Just like you, we have been looking for answers, for ways to become better, to improve our sexual performance and to become the best and legendary lover. The chosen one. The one legends are made about. After more than 10 years of daily studies on penis enlargement, long practices, mistakes, defeats and triumphs, we have managed to systematize all the information and have found the real red pill after which your sexual life will never be the same again.</p><p><br/>These are the best, most innovative and advanced tools for penis enlargement and male enhancement at home, along with the most advanced knowledge on their successful use, various supplements, exercises, influences and other ways to increase their effectiveness. Now we are ready to present the most effective penis systems and training routines to those who are ready, to men who want to say goodbye to insecurities and failures forever and achieve the size and potency of heroes.</p><p><br/>And right now you have a choice. Are you ready to take the red pill and gain this knowledge? The choice is yours.</p>",
+        "image": "shopify://shop_images/about-us.webp",
         "image_alt": "",
         "button_text": " DISCOVER MORE",
         "button_url": ""
@@ -1249,11 +1258,11 @@
         "title": "COMPARISON REPORT",
         "title_absolute": "comparison",
         "subtitle": "TurboMale VS Top Known Brands",
-        "our_product_image": "shopify:\/\/shop_images\/TurboMale_Gold_Extender.webp",
-        "our_logo": "shopify:\/\/shop_images\/logo.svg",
-        "other_product_image": "shopify:\/\/shop_images\/Other.webp",
+        "our_product_image": "shopify://shop_images/TurboMale_Gold_Extender.webp",
+        "our_logo": "shopify://shop_images/logo.svg",
+        "other_product_image": "shopify://shop_images/Other.webp",
         "other_logo": "Other brands",
-        "chine_product_image": "shopify:\/\/shop_images\/Chine.webp",
+        "chine_product_image": "shopify://shop_images/Chine.webp",
         "chine_logo": "Chinese Copies"
       }
     },
