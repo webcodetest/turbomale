@@ -123,7 +123,7 @@
             "image": "shopify://shop_images/submenu5.svg",
             "image_alt": "",
             "title": "Pumps",
-            "title_url": "",
+            "title_url": "shopify://collections/pumps",
             "item_menu": "big-submenu-5"
           }
         },
