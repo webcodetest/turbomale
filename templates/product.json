@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "custom_breadcrumbs_B9zdGW": {
@@ -282,10 +291,14 @@
           }
         }
       },
-      "block_order": ["text_3zDVAe", "text_XfBkXg", "text_UEzY88"],
+      "block_order": [
+        "text_3zDVAe",
+        "text_XfBkXg",
+        "text_UEzY88"
+      ],
       "settings": {
-        "title_absolute": "Why turbomale?",
-        "title": "Why turbomale?"
+        "title_absolute": "Why Trust Us?",
+        "title": "Our Strengths"
       }
     },
     "custom_why_turbomale_6HMDpa": {
@@ -296,7 +309,9 @@
           "settings": {}
         }
       },
-      "block_order": ["judge_me_reviews_review_widget_RzdgXC"],
+      "block_order": [
+        "judge_me_reviews_review_widget_RzdgXC"
+      ],
       "settings": {
         "title_absolute": "Why turbomale?",
         "title": "Personal Experiences"
