@@ -72,26 +72,62 @@
 
 .shipping-progress-bar-info-popap {
     opacity: 0;
+    visibility: hidden;
     position: absolute;
-    top: -55px;
-    right: 0;
-    width: 400px;
-    background-color: #fff;
-    border-radius: 20px;
-    padding: 10px;
-    border: 1px solid #000;
+    top: -85px;
+    right: 30px;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #E0E0E0;
+    background: #FFF;
     z-index: 1;
     transition: all 0.3s;
+    width: 350px;
 }
 
-@media screen and (max-width: 500px) {
-    .shipping-progress-bar-info-popap {
-        width: 300px;
-    }
+.shipping-progress-bar-info-popap h2 {
+    color: #000;
+    font-family: "Proxima Nova";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.shipping-progress-bar-info-popap p {
+    color: #000;
+    font-family: "Proxima Nova";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.shipping-progress-bar-info-popap-top {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #D9D9D9;
+}
+
+.shipping-progress-bar-info-popap-bottom {
+    padding-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.shipping-progress-bar-info-popap-bottom-right p {
+    color: #40AE00;
+    text-align: right;
+    font-family: "Proxima Nova";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
 }
 
 .shipping-progress-bar-info:hover .shipping-progress-bar-info-popap {
     opacity: 1;
+    visibility: visible;
 }
 
 .shipping-progress-bar {
@@ -522,10 +558,19 @@
     height: 134px;
 }
 
+.custom-basket-tabs-content-product a h3 {
+    color: #05060B;
+    font-family: "Proxima Nova";
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
 .custom-basket-tabs-content-product-info {
     display: flex;
     margin-top: 14px;
-    height: 100%;
     align-items: flex-end;
     justify-content: space-between;
 }
@@ -936,7 +981,20 @@ shopify-google-pay-button {
                             <path d="M9.452 6.496C9.02 6.496 8.672 6.148 8.672 5.716C8.672 5.284 9.02 4.936 9.452 4.936C9.884 4.936 10.232 5.284 10.232 5.716C10.232 6.148 9.884 6.496 9.452 6.496ZM10.076 13H8.816V7.204H10.076V13Z" fill="#8E8E8E" style="fill:#8E8E8E;fill:color(display-p3 0.5559 0.5559 0.5559);fill-opacity:1;"/>
                         </svg>
                         <div class='shipping-progress-bar-info-popap'>
-                            {{ section.settings.shipping_popap }}
+                            <div class='shipping-progress-bar-info-popap-top'>
+                                <h2>{{ section.settings.shipping_popap_top_title }}</h2>
+                                <p>{{ section.settings.shipping_popap_top_text }}</p>
+                            </div>
+                            <div class='shipping-progress-bar-info-popap-bottom'>
+                                <div class='shipping-progress-bar-info-popap-bottom-left'>
+                                    <h2>{{ section.settings.shipping_popap_bottom_title }}</h2>
+                                    <p>{{ section.settings.shipping_popap_bottom_text1 }}</p>
+                                    <p>{{ section.settings.shipping_popap_bottom_text2 }}</p>
+                                </div>
+                                <div class='shipping-progress-bar-info-popap-bottom-right'>
+                                    <p>{{ section.settings.shipping_popap_bottom_text_price }}</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <p class="shipping-message"></p>
@@ -1052,6 +1110,7 @@ shopify-google-pay-button {
                                         <li class="custom-basket-tabs-content-product" style="display: none;">
                                             <a href="{{ product.url }}">
                                                 <img src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.title }}">
+                                                <h3>{{ product.title }}</h3>
                                                 <div class='custom-basket-tabs-content-product-info'>
                                                     {% if product.price < product.compare_at_price %}
                                                         <div class="custom-basket-tabs-content-product-price">
@@ -1150,6 +1209,7 @@ shopify-google-pay-button {
                                         <li class="custom-basket-tabs-content-product" style="display: none;">
                                             <a href="{{ product.url }}">
                                                 <img src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.title }}">
+                                                <h3>{{ product.title }}</h3>
                                                 <div class='custom-basket-tabs-content-product-info'>
                                                     {% if product.price < product.compare_at_price %}
                                                         <div class="custom-basket-tabs-content-product-price">
@@ -1248,6 +1308,7 @@ shopify-google-pay-button {
                                         <li class="custom-basket-tabs-content-product" style="display: none;">
                                             <a href="{{ product.url }}">
                                                 <img src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.title }}">
+                                                <h3>{{ product.title }}</h3>
                                                 <div class='custom-basket-tabs-content-product-info'>
                                                     {% if product.price < product.compare_at_price %}
                                                         <div class="custom-basket-tabs-content-product-price">
@@ -1872,22 +1933,25 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.custom-basket-tabs-content').forEach(tabContent => {
         const products = tabContent.querySelectorAll('.custom-basket-tabs-content-product');
         const loadMoreButton = tabContent.querySelector('.custom-basket-tabs-content-more');
+        let visibleItems = 8;
+
+        function getVisibleItems() {
+            const screenWidth = window.innerWidth;
+            if (screenWidth <= 500) {
+                return 4;
+            } else if (screenWidth <= 700) {
+                return 6;
+            } else if (screenWidth <= 1000) {
+                return 8;
+            } else if (screenWidth <= 1200) {
+                return 6;
+            } else {
+                return 8;
+            }
+        }
 
         function updateVisibleProducts() {
-            const screenWidth = window.innerWidth;
-            let visibleItems = 8;
-
-            if (screenWidth <= 500) {
-                visibleItems = 4;
-            } else if (screenWidth <= 700) {
-                visibleItems = 6;
-            } else if (screenWidth <= 1000) {
-                visibleItems = 8;
-            } else if (screenWidth <= 1200) {
-                visibleItems = 6;
-            } else {
-                visibleItems = 8;
-            }
+            visibleItems = getVisibleItems();
 
             products.forEach((product, index) => {
                 if (index < visibleItems) {
@@ -1907,10 +1971,17 @@ document.addEventListener('DOMContentLoaded', () => {
         updateVisibleProducts();
 
         loadMoreButton.addEventListener('click', function () {
-            products.forEach(product => {
-                product.style.display = 'block';
+            visibleItems += getVisibleItems();
+
+            products.forEach((product, index) => {
+                if (index < visibleItems) {
+                    product.style.display = 'block';
+                }
             });
-            this.style.display = 'none';
+
+            if (visibleItems >= products.length) {
+                this.style.display = 'none';
+            }
         });
 
         window.addEventListener('resize', updateVisibleProducts);
@@ -1980,8 +2051,33 @@ function formatDate(date) {
     "settings": [
     {
     "type": "text",
-    "id": "shipping_popap",
-    "label": "Shipping Popap"
+    "id": "shipping_popap_top_title",
+    "label": "Shipping Popap Top Title"
+    },
+    {
+    "type": "text",
+    "id": "shipping_popap_top_text",
+    "label": "Shipping Popap Top Text"
+    },
+    {
+    "type": "text",
+    "id": "shipping_popap_bottom_title",
+    "label": "Shipping Popap Bottom Title"
+    },
+    {
+    "type": "text",
+    "id": "shipping_popap_bottom_text1",
+    "label": "Shipping Popap Bottom Text1"
+    },
+    {
+    "type": "text",
+    "id": "shipping_popap_bottom_text2",
+    "label": "Shipping Popap Bottom Text2"
+    },
+    {
+    "type": "text",
+    "id": "shipping_popap_bottom_text_price",
+    "label": "Shipping Popap Bottom Text Price"
     },
     {
     "type": "image_picker",

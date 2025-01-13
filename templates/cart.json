@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "custom_basket_bBtrxc": {
@@ -52,7 +43,12 @@
         "basket_icons_iKa8Mt"
       ],
       "settings": {
-        "shipping_popap": "Shipping progress bar info",
+        "shipping_popap_top_title": "Delivery options",
+        "shipping_popap_top_text": "Free 30-day returns",
+        "shipping_popap_bottom_title": "Estimated delivery",
+        "shipping_popap_bottom_text1": "Express shipping",
+        "shipping_popap_bottom_text2": "Estimated 4-6 working days",
+        "shipping_popap_bottom_text_price": "$34.99",
         "basket_payments": "shopify:\/\/shop_images\/basket-payments.webp",
         "basket_verified": "shopify:\/\/shop_images\/basket-bottom.webp"
       }
