@@ -4,6 +4,15 @@
     margin: 20px 0;
   }
 
+  .often-bought-together .jdgm-prev-badge__text{
+    color: #727272;
+    font-family: "Proxima Nova";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
   .often-bought-together h2{
     display: inline-block;
     padding: 12px 36px;
@@ -31,6 +40,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-decoration: none;
+    gap: 10px;
+    max-width: 168px;
+    width: 100%;
+  }
+  .product-item:hover{
+    text-decoration: underline;
   }
 
   .total-container {
@@ -193,6 +209,16 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
   background-color: #4b8c19;
 }
 
+.product-handle-name-item{
+  text-decoration: none;
+  color: #05060B;
+  font-family: "Proxima Nova";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
 @media screen and (max-width: 768px) {
   .products-container{
     display: flex;
@@ -227,8 +253,17 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
                     {% for product_handle in product.metafields.custom.alt_related_products.value %}
                         {% if product_handle %}
                             <a href="{{ product_handle.url }}" class="product-item">
-                                <div class="product-handle-image">
-                                  <img src="{{ product_handle.featured_image | img_url: 'master' }}" alt="{{ product_handle.title }}">
+                              <div class="product-handle-image">
+                                <img src="{{ product_handle.featured_image | img_url: 'master' }}" alt="{{ product_handle.title }}">
+                              </div>
+                              {%- for block in section.blocks -%}
+                                {%- case block.type -%}
+                                  {%- when '@app' -%}
+                                    {% render block %}
+                                  {% endcase %}
+                              {% endfor %}
+                                <div class="product-handle-name">
+                                  <h4 class="product-handle-name-item">{{ product_handle.title }}</h4>
                                 </div>
                             </a>
                             {% assign total_price = total_price | plus: product_handle.price %}
@@ -236,11 +271,6 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
                     {% endfor %}
                 </div>
             </div>
-
-            {% comment %} <div class="total-container">
-                <p>Total: ${{ total_price | divided_by: 100 }}</p>
-                <button class="add-to-cart-btn">Add selected to cart</button>
-            </div> {% endcomment %}
 
             <div class="product-selection">
               <ul>
@@ -320,6 +350,11 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
   {
     "name": "Often bought together",
     "settings": [],
+    "blocks": [
+    {
+      "type": "@app"
+    },
+  ],
      "presets": [
     {
       "name": "Often bought together"

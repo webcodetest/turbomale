@@ -12,6 +12,53 @@
   {% render 'facets', results: collection, enable_filtering: true, enable_sorting: true, filter_type: 'vertical', paginate: paginate %}
 {% endcomment %}
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.8.1/nouislider.css" integrity="sha512-MKxcSu/LDtbIYHBNAWUQwfB3iVoG9xeMCm32QV5hZ/9lFaQZJVaXfz9aFa0IZExWzCpm7OWvp9zq9gVip/nLMg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.8.1/nouislider.min.js" integrity="sha512-g/feAizmeiVKSwvfW0Xk3ZHZqv5Zs8PEXEBKzL15pM0SevEvoX8eJ4yFWbqakvRj7vtw1Q97bLzEpG2IVWX0Mg==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+
+<style>
+
+  #slider-no-overlap {
+    height: 2px;
+    border: 0;
+    margin-top: 22px;
+    margin-bottom: 31px;
+  }
+  #slider-no-overlap .noUi-base{
+    border-radius: 2px;
+    background: #D9D9D9;
+  }
+
+#slider-no-overlap .noUi-connect {
+  display: block;
+  background: #40AE00;
+}
+#slider-no-overlap .noUi-target {
+  border: 0;
+}
+
+#slider-no-overlap .noUi-handle:before, .noUi-handle:after{
+  visibility: hidden;
+}
+
+#slider-no-overlap .noUi-handle-lower {
+    right: 0;
+}
+#slider-no-overlap .noUi-handle-upper {
+    right: -34px;
+}
+
+#slider-no-overlap .noUi-handle {
+    height: 16px;
+    width: 16px;
+    top: -7px;
+    right: -9px; /* half the width */
+    border-radius: 9px;
+    background: #40AE00;
+    box-shadow: 0px 4px 4px 0px rgba(255, 255, 255, 0.25) inset;
+}
+
+</style>
+
 {{ 'component-show-more.css' | asset_url | stylesheet_tag }}
 {{ 'component-swatch-input.css' | asset_url | stylesheet_tag }}
 {{ 'component-swatch.css' | asset_url | stylesheet_tag }}
@@ -331,6 +378,49 @@
                       <price-range class="facets__price">
                         {% render 'price-facet', filter: filter, id_prefix: 'Filter-', filter_type: filter_type %}
                       </price-range>
+
+                      <div id="slider-no-overlap" style="display: block;"></div>
+
+                      <script>
+                        document.addEventListener("DOMContentLoaded", function () {
+                          var noUiSliderItem = document.getElementById("slider-no-overlap");
+
+                          noUiSlider.create(noUiSliderItem, {
+                            start: [100, 400],
+                            connect: true,
+                            range: {
+                              min: 0,
+                              max: 500
+                            },
+                            step: 1,
+                          });
+
+                          var minPriceInput = document.getElementById("{{ id_prefix }}{{ filter.label | escape }}-GTE");
+                          var maxPriceInput = document.getElementById("{{ id_prefix }}{{ filter.label | escape }}-LTE");
+                      console.log(minPriceInput);
+                      console.log(maxPriceInput);
+    {% comment %}
+    noUiSliderItem.noUiSlider.on("update", function (values) {
+      minPriceInput.value = parseFloat(values[0]).toFixed(2);
+      maxPriceInput.value = parseFloat(values[1]).toFixed(2);
+    });
+
+    minPriceInput.addEventListener("change", function () {
+      var minValue = parseFloat(this.value) || 0;
+      var maxValue = parseFloat(maxPriceInput.value) || 500;
+      noUiSliderItem.noUiSlider.set([minValue, maxValue]);
+    });
+
+    maxPriceInput.addEventListener("change", function () {
+      var minValue = parseFloat(minPriceInput.value) || 0;
+      var maxValue = parseFloat(this.value) || 500;
+      noUiSliderItem.noUiSlider.set([minValue, maxValue]);
+    }); {% endcomment %}
+                        });
+
+                        
+                      </script>
+
                     </div>
                   </details>
                   <div class="collection-filter">
@@ -762,6 +852,7 @@
                           <price-range class="facets__price">
                             {% render 'price-facet', filter: filter, id_prefix: 'Mobile-Filter-' %}
                           </price-range>
+
                           <div class="mobile-facets__footer">
                             <facet-remove class="mobile-facets__clear-wrapper">
                               <a href="{{ filter.url_to_remove }}" class="mobile-facets__clear underlined-link">
