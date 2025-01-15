@@ -52,22 +52,7 @@
     line-height: normal;
   }
   
-  .progressbar-background{
-    border-radius: 77px;
-    margin-top: 7.5px;
-    margin-bottom: 10px;
-    width: 100%;
-    height: 7px;
-    background: #D9D9D9;
-    position: relative;
-  }
-  .progressbar-natural{
-    display: block !important;
-    border-radius: 64px;
-    width: 30%;
-    height: 7px;
-    background: #60AC22;
-  }
+  
 
   .progressbar-from-to {
     display: flex;
@@ -260,7 +245,8 @@
       justify-content: center;
       align-items: center;
       padding: 10px;
-      border: none; 
+      border: none;
+      margin: 5px 16px 0 0;
     }
     .product-item-wrap{
       display: flex;
@@ -295,6 +281,9 @@
       line-height: normal;
     }
     .also-like-head{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       color: #000;
       font-family: "Proxima Nova";
       font-size: 18px;
@@ -470,8 +459,30 @@
       pointer-events: all;
     }
 
-</style>
+    .swiper-button-next, .swiper-button-prev{
+      display: flex !important; 
+    }
 
+    .slider-container{
+      display: flex;
+      overflow: hidden;
+    }
+
+    .product-item{
+      min-width: 100%;
+      flex-shrink: 1;
+      margin-right: 16px;
+      border: 1px solid #E0E0E0;
+    }
+
+    .prev-arrow, .next-arrow{
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+</style>
+<div class="cart-drawer-wrapper">
 <cart-drawer class="drawer{% if cart == empty %} is-empty{% endif %}">
   <div id="CartDrawer" class="cart-drawer">
     <div id="CartDrawer-Overlay" class="cart-drawer__overlay"></div>
@@ -529,6 +540,28 @@
           </span>
         </button>
       </div>
+      
+      <style>
+
+        .progressbar-background{
+          border-radius: 77px;
+          margin-top: 7.5px;
+          margin-bottom: 10px;
+          width: 100%;
+          height: 7px;
+          background: #D9D9D9;
+          position: relative;
+        }
+        .progressbar-natural{
+          display: block !important;
+          border-radius: 64px;
+          max-width: 100%;
+          height: 7px;
+          background: #60AC22;
+        }
+
+      </style>
+
       <cart-drawer-items
         {% if cart == empty %}
           class=" is-empty"
@@ -547,26 +580,35 @@
                 <table class="cart-items" role="table">
                   <div class="progressbar-block">
                     <div class="progressbar-block-head">
-                      <span class="progressbar-title">You're US$45 away from Free Shipping</span>
+                      <span class="progressbar-title" id="free-shipping-message">
+                        {% assign free_shipping_threshold = 100 %}
+                        {% assign total_cart_price = cart.total_price | divided_by: 100 %}
+                        {% assign amount_left = free_shipping_threshold | minus: total_cart_price %}
+                        {% if amount_left > 0 %}
+                          You're US${{ amount_left | round: 2 }} away from Free Shipping
+                        {% else %}
+                          Congratulations! You qualify for Free Shipping.
+                        {% endif %}
+                      </span>
                       <span class="progressbar-icon popup-opener-one">i
                         <div class="progressbar-block-head-popup">
-                  <div class="progressbar-block-head-popup-wrap">
-                    <div class="progressbar-block-low-wrap">
-                      <h5 class="head-popup-title">Delivery options</h5>
-                      <p class="head-popup-content head-popup-content-border">Free 30-day returns</p>
-                    </div>
-                    <div class="progressbar-block-low-wrap">
-                      <h5 class="head-popup-title">Estimated delivery</h5>
-                      <p class="head-popup-content head-popup-content-few-items"><span>Express shipping</span><span class="head-popup-green">$34.99</span></p>
-                      <p class="head-popup-content">Estimated 4-6 working days</p>
-                    </div>
-                  </div>
-                </div>
+                          <div class="progressbar-block-head-popup-wrap">
+                            <div class="progressbar-block-low-wrap">
+                              <h5 class="head-popup-title">Delivery options</h5>
+                              <p class="head-popup-content head-popup-content-border">Free 30-day returns</p>
+                            </div>
+                            <div class="progressbar-block-low-wrap">
+                              <h5 class="head-popup-title">Estimated delivery</h5>
+                              <p class="head-popup-content head-popup-content-few-items"><span>Express shipping</span><span class="head-popup-green">$34.99</span></p>
+                              <p class="head-popup-content">Estimated 4-6 working days</p>
+                            </div>
+                          </div>
+                        </div>
                       </span>
                     </div>
                     <div class="progressbar-block-body">
                       <div class="progressbar-background">
-                        <div class="progressbar-natural"></div>
+                        <div class="progressbar-natural" style="width: {{ free_shipping_threshold | minus: amount_left | round: 2 }}%"></div>
                       </div>
                       <div class="progressbar-from-to">
                         <span class="low-value">US$0</span>
@@ -920,34 +962,48 @@
           <div class="card-drawer-bottom-also-like">
             <div class="also-like-wrap">
               <div class="also-like-head">
-                You may also like...
+                <div class="also-like-head-text">You may also like...</div>
+                <div class="also-like-head-btns">
+                  <button type="button" class="prev-arrow">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="42" height="43" viewBox="0 0 42 43" fill="none">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M17.7166 21.2351L24.3359 15.6182L23.4559 14.252L15.2687 21.2607L23.4361 28.2015L24.3162 26.8353L17.7166 21.2351Z" fill="#60AC22" style="fill:#60AC22;fill:color(display-p3 0.3768 0.6749 0.1322);fill-opacity:1;"/>
+                    </svg>
+                  </button>
+                  <button type="button" class="next-arrow">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="42" height="43" viewBox="0 0 42 43" fill="none">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M24.2834 21.2351L17.6641 15.6182L18.5441 14.252L26.7313 21.2607L18.5639 28.2015L17.6838 26.8353L24.2834 21.2351Z" fill="#60AC22" style="fill:#60AC22;fill:color(display-p3 0.3768 0.6749 0.1322);fill-opacity:1;"/>
+                    </svg>
+                  </button>
+                </div>
               </div>
               <div class="also-like-body">
-                {% for product in collections['Extenders'].products %}
-                  {% if product.title == "TurboMale Gold Extender" %}
-                  <div class="product-item">
-                    <div class="product-item-wrap">
-                      <div class="product-item-left-part">
-                        <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
-                      </div>
-                      <div class="product-item-right-part">
-                        <h2>{{ product.title }}</h2>
-                        <div class="product-item-second-right-part">
-                          <div class="product-item-second-right-part-wrap">
-                            <p class="grey-line-throw-price">{{ product.compare_at_price | money_with_currency }}</p>
-                            <p>${{ product.price | divided_by: 100 }} USD</p>
+                <div class="slider-container">
+                  {% if collections['Extenders'] and collections['Extenders'].products.size > 0 %}
+                    {% for product in collections['Extenders'].products %}
+                        <div class="product-item">
+                          <div class="product-item-wrap">
+                            <div class="product-item-left-part">
+                              <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
+                            </div>
+                            <div class="product-item-right-part">
+                              <h2>{{ product.title }}</h2>
+                              <div class="product-item-second-right-part">
+                                <div class="product-item-second-right-part-wrap">
+                                  <p class="grey-line-throw-price">{{ product.compare_at_price | money_with_currency }}</p>
+                                  <p>${{ product.price | divided_by: 100 }} USD</p>
+                                </div>
+                                <a href="{{ product.url }}" class="low-btn">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="23" viewBox="0 0 20 23" fill="none">
+                                    <path d="M8.92495 0.024348C8.15145 0.166835 7.34233 0.487432 6.73675 0.894538C6.2584 1.21513 5.54088 1.97337 5.24573 2.4619C4.80809 3.19978 4.55365 4.14121 4.55365 5.04194V5.41342L3.57659 5.43378C2.6148 5.44904 2.58936 5.45413 2.31456 5.59153C1.82603 5.84597 1.47999 6.25308 1.30188 6.79758C1.24591 6.97569 0.329916 19.5349 0.314649 20.3135C0.304471 21.0972 0.691223 21.7333 1.38839 22.0743L1.72934 22.2422H9.74425H17.7592L18.0492 22.1048C18.6344 21.83 19.0619 21.2804 19.1586 20.6748C19.2197 20.283 18.2782 7.13345 18.1612 6.74669C18.0085 6.23781 17.6727 5.84597 17.1739 5.59153C16.8992 5.45413 16.8737 5.44904 15.9221 5.43378L14.9501 5.41851L14.9145 4.91472C14.8636 4.09541 14.7059 3.47966 14.3751 2.82829C13.7085 1.5052 12.538 0.548498 11.1132 0.151569C10.7264 0.0447033 10.4974 0.0192592 9.89692 0.00399269C9.48981 -0.00618497 9.05217 0.00399269 8.92495 0.024348ZM10.4821 1.7342C10.6806 1.77491 11.0521 1.9123 11.3116 2.03953C12.4159 2.58912 13.1487 3.70357 13.2403 4.97069L13.2708 5.4236H9.74425H6.21769L6.24823 4.97069C6.31438 4.06488 6.65533 3.31682 7.31179 2.66545C7.96316 2.01917 8.79773 1.66804 9.71881 1.66295C9.94272 1.66295 10.2888 1.69348 10.4821 1.7342ZM4.59945 9.23513C4.57909 11.3877 4.57909 11.4233 4.68596 11.5658C4.87933 11.8253 5.09815 11.9373 5.41366 11.9373C5.75461 11.9373 5.9429 11.8304 6.11592 11.5455L6.23296 11.3521V9.19951V7.05202H9.74425H13.2555V9.18933C13.2555 11.2198 13.2606 11.3419 13.3573 11.5251C13.6321 12.0696 14.4158 12.09 14.8026 11.5658C14.9043 11.4233 14.9094 11.3623 14.9247 9.23513L14.94 7.04694L15.6727 7.0622C16.2681 7.07238 16.4208 7.09274 16.492 7.15889C16.6142 7.28611 17.5505 20.3033 17.4437 20.4713L17.3775 20.5883H9.74425H2.11101L2.04485 20.4713C1.98379 20.3746 2.03467 19.4993 2.44178 13.81C2.70131 10.2122 2.93031 7.24031 2.95066 7.20469C3.02191 7.08765 3.21528 7.05711 3.91245 7.05711L4.61471 7.05202L4.59945 9.23513Z" fill="white" style="fill:white;fill-opacity:1;"/>
+                                  </svg>
+                                </a>
+                              </div>
+                            </div>
                           </div>
-                          <button type="button" class="low-btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="23" viewBox="0 0 20 23" fill="none">
-                              <path d="M8.92495 0.024348C8.15145 0.166835 7.34233 0.487432 6.73675 0.894538C6.2584 1.21513 5.54088 1.97337 5.24573 2.4619C4.80809 3.19978 4.55365 4.14121 4.55365 5.04194V5.41342L3.57659 5.43378C2.6148 5.44904 2.58936 5.45413 2.31456 5.59153C1.82603 5.84597 1.47999 6.25308 1.30188 6.79758C1.24591 6.97569 0.329916 19.5349 0.314649 20.3135C0.304471 21.0972 0.691223 21.7333 1.38839 22.0743L1.72934 22.2422H9.74425H17.7592L18.0492 22.1048C18.6344 21.83 19.0619 21.2804 19.1586 20.6748C19.2197 20.283 18.2782 7.13345 18.1612 6.74669C18.0085 6.23781 17.6727 5.84597 17.1739 5.59153C16.8992 5.45413 16.8737 5.44904 15.9221 5.43378L14.9501 5.41851L14.9145 4.91472C14.8636 4.09541 14.7059 3.47966 14.3751 2.82829C13.7085 1.5052 12.538 0.548498 11.1132 0.151569C10.7264 0.0447033 10.4974 0.0192592 9.89692 0.00399269C9.48981 -0.00618497 9.05217 0.00399269 8.92495 0.024348ZM10.4821 1.7342C10.6806 1.77491 11.0521 1.9123 11.3116 2.03953C12.4159 2.58912 13.1487 3.70357 13.2403 4.97069L13.2708 5.4236H9.74425H6.21769L6.24823 4.97069C6.31438 4.06488 6.65533 3.31682 7.31179 2.66545C7.96316 2.01917 8.79773 1.66804 9.71881 1.66295C9.94272 1.66295 10.2888 1.69348 10.4821 1.7342ZM4.59945 9.23513C4.57909 11.3877 4.57909 11.4233 4.68596 11.5658C4.87933 11.8253 5.09815 11.9373 5.41366 11.9373C5.75461 11.9373 5.9429 11.8304 6.11592 11.5455L6.23296 11.3521V9.19951V7.05202H9.74425H13.2555V9.18933C13.2555 11.2198 13.2606 11.3419 13.3573 11.5251C13.6321 12.0696 14.4158 12.09 14.8026 11.5658C14.9043 11.4233 14.9094 11.3623 14.9247 9.23513L14.94 7.04694L15.6727 7.0622C16.2681 7.07238 16.4208 7.09274 16.492 7.15889C16.6142 7.28611 17.5505 20.3033 17.4437 20.4713L17.3775 20.5883H9.74425H2.11101L2.04485 20.4713C1.98379 20.3746 2.03467 19.4993 2.44178 13.81C2.70131 10.2122 2.93031 7.24031 2.95066 7.20469C3.02191 7.08765 3.21528 7.05711 3.91245 7.05711L4.61471 7.05202L4.59945 9.23513Z" fill="white" style="fill:white;fill-opacity:1;"/>
-                            </svg>
-                          </button>
                         </div>
-                      </div>
-                    </div>
-                  </div>
+                    {% endfor %}
                   {% endif %}
-                {% endfor %}
+                </div>
               </div>
             </div>
           </div>
@@ -958,7 +1014,7 @@
                 <path d="M19.0771 5.04279C18.8762 4.53703 18.4827 4.13169 17.9831 3.91579C17.7386 3.81123 17.4755 3.75732 17.2096 3.75732C16.9437 3.75732 16.6806 3.81123 16.4361 3.91579H16.4291L5.72112 8.71779C5.66703 8.74194 5.60819 8.75358 5.54897 8.75185C5.48976 8.75012 5.4317 8.73506 5.37912 8.70779L3.45712 7.71779C3.35221 7.66469 3.23688 7.63537 3.11935 7.63191C3.00181 7.62845 2.88496 7.65095 2.77712 7.69779L0.669116 8.62779C0.546569 8.68213 0.439381 8.76595 0.357116 8.87179C0.273225 8.97865 0.216335 9.10415 0.191268 9.23767C0.1662 9.37119 0.173695 9.50879 0.213116 9.63879C0.252116 9.76879 0.321116 9.88879 0.415116 9.98479L3.44412 13.1048C3.55375 13.2201 3.69582 13.2995 3.85152 13.3323C4.00722 13.3652 4.16923 13.35 4.31612 13.2888L8.85912 11.4158C8.89548 11.4003 8.93571 11.3961 8.97447 11.404C9.01322 11.4119 9.04867 11.4313 9.07612 11.4598C9.10439 11.4884 9.12385 11.5245 9.13218 11.5639C9.14052 11.6033 9.13737 11.6442 9.12312 11.6818L7.54112 16.0318C7.48488 16.1882 7.47537 16.3576 7.51372 16.5194C7.55207 16.6811 7.63664 16.8283 7.75712 16.9428C7.87601 17.0548 8.02677 17.1271 8.18854 17.1497C8.35032 17.1722 8.5151 17.144 8.66012 17.0688L10.8521 15.9408C11.0109 15.859 11.1387 15.7277 11.2161 15.5668L14.2481 9.31679C14.293 9.22344 14.3716 9.15056 14.4681 9.11279L17.9831 7.76279C18.4825 7.54713 18.8759 7.14218 19.0771 6.63679C19.2824 6.12495 19.2824 5.55363 19.0771 5.04179V5.04279Z" fill="black" style="fill:black;fill-opacity:1;"/>
               </svg>
             </span>
-            <span>Get it between October 03 - October 06</span>
+            <span>Get it between <span id='days-range'></span></span>
           </div>
 
         </div>
@@ -984,17 +1040,107 @@
         </div>
       </div>
     </div>
-  </div>
-  <script>
-  
-  document.addEventListener("DOMContentLoaded", function () {
-      const drawerPopupHead = document.querySelector(".popup-opener-one");
-  
-      console.log(drawerPopupHead);
-      
-      drawerPopupHead.addEventListener("click", function () {
-          console.log(drawerPopupHead);
+    
+      <script>
+
+      document.addEventListener('DOMContentLoaded', () => {
+        console.log("test");
+
+        function formatDate(date) {
+          const options = { day: '2-digit', month: 'long' };
+          return date.toLocaleDateString('en-US', options);
+        }
+
+        function updateDateRange() {
+          const currentDate = new Date();
+          const futureDate = new Date(currentDate);
+          futureDate.setDate(currentDate.getDate() + 3);
+
+          const formattedCurrentDate = formatDate(currentDate);
+          const formattedFutureDate = formatDate(futureDate);
+
+          const dateRangeElement = document.getElementById('days-range');
+          if (dateRangeElement) {
+            dateRangeElement.textContent = `${formattedCurrentDate} - ${formattedFutureDate}`;
+          }
+        }
+
+        updateDateRange();
+
+        const dateObserver = new MutationObserver((mutationsList) => {
+          for (const mutation of mutationsList) {
+            if (mutation.type === 'childList' || mutation.type === 'attributes') {
+              if (document.getElementById('days-range')) {
+                updateDateRange();
+                break;
+              }
+            }
+          }
+        });
+
+        dateObserver.observe(document.body, {
+          childList: true,
+          subtree: true,
+          attributes: true,
+        });
+
+        const sliderContainer = document.querySelector('.slider-container');
+        const prevArrow = document.querySelector('.prev-arrow');
+        const nextArrow = document.querySelector('.next-arrow');
+        const slides = document.querySelectorAll('.product-item');
+
+        console.log(slides);
+        console.log(prevArrow);
+        console.log(nextArrow);
+        console.log(sliderContainer);
+
+        if (!sliderContainer || !prevArrow || !nextArrow || slides.length === 0) {
+          console.error("Не удалось найти элементы слайдера.");
+          return;
+        }
+
+        let offset = 0;
+        const slideWidth = slides[0].offsetWidth + 16;
+
+        const observerOptions = {
+          root: sliderContainer.parentElement,
+          threshold: 0.5,
+        };
+
+        const observerCallback = (entries) => {
+          entries.forEach((entry) => {
+            if (entry.target === slides[0]) {
+              prevArrow.style.display = entry.isIntersecting ? 'none' : 'block';
+            }
+
+            if (entry.target === slides[slides.length - 1]) {
+              nextArrow.style.display = entry.isIntersecting ? 'none' : 'block';
+            }
+          });
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+        observer.observe(slides[0]);
+        observer.observe(slides[slides.length - 1]);
+
+        prevArrow.addEventListener('click', () => {
+          if (offset > 0) {
+            offset -= slideWidth;
+            sliderContainer.style.transform = `translateX(-${offset}px)`;
+          }
+        });
+
+        nextArrow.addEventListener('click', () => {
+          if (offset < sliderContainer.scrollWidth - sliderContainer.clientWidth) {
+            offset += slideWidth;
+            sliderContainer.style.transform = `translateX(-${offset}px)`;
+          }
+        });
       });
-  });
-  </script>
+
+    </script>
+  </div>
+
 </cart-drawer>
+</div>
