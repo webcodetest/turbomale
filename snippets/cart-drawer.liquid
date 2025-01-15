@@ -469,9 +469,6 @@
     }
 
     .product-item{
-      min-width: 100%;
-      flex-shrink: 1;
-      margin-right: 16px;
       border: 1px solid #E0E0E0;
     }
 
@@ -479,6 +476,7 @@
       background: none;
       border: none;
       cursor: pointer;
+      pointer-events: auto;
     }
 
 </style>
@@ -977,32 +975,36 @@
                 </div>
               </div>
               <div class="also-like-body">
-                <div class="slider-container">
-                  {% if collections['Extenders'] and collections['Extenders'].products.size > 0 %}
-                    {% for product in collections['Extenders'].products %}
-                        <div class="product-item">
-                          <div class="product-item-wrap">
-                            <div class="product-item-left-part">
-                              <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
-                            </div>
-                            <div class="product-item-right-part">
-                              <h2>{{ product.title }}</h2>
-                              <div class="product-item-second-right-part">
-                                <div class="product-item-second-right-part-wrap">
-                                  <p class="grey-line-throw-price">{{ product.compare_at_price | money_with_currency }}</p>
-                                  <p>${{ product.price | divided_by: 100 }} USD</p>
+                <div class="swiper also-like-swiper">
+                  <div class="swiper-wrapper">
+                    {% if collections['Extenders'] and collections['Extenders'].products.size > 0 %}
+                      {% for product in collections['Extenders'].products %}
+                        <div class="swiper-slide">
+                          <div class="product-item">
+                            <div class="product-item-wrap">
+                              <div class="product-item-left-part">
+                                <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
+                              </div>
+                              <div class="product-item-right-part">
+                                <h2>{{ product.title }}</h2>
+                                <div class="product-item-second-right-part">
+                                  <div class="product-item-second-right-part-wrap">
+                                    <p class="grey-line-throw-price">{{ product.compare_at_price | money_with_currency }}</p>
+                                    <p>${{ product.price | divided_by: 100 }} USD</p>
+                                  </div>
+                                  <a href="{{ product.url }}" class="low-btn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="23" viewBox="0 0 20 23" fill="none">
+                                      <path d="M8.92495 0.024348C8.15145 0.166835 7.34233 0.487432 6.73675 0.894538C6.2584 1.21513 5.54088 1.97337 5.24573 2.4619C4.80809 3.19978 4.55365 4.14121 4.55365 5.04194V5.41342L3.57659 5.43378C2.6148 5.44904 2.58936 5.45413 2.31456 5.59153C1.82603 5.84597 1.47999 6.25308 1.30188 6.79758C1.24591 6.97569 0.329916 19.5349 0.314649 20.3135C0.304471 21.0972 0.691223 21.7333 1.38839 22.0743L1.72934 22.2422H9.74425H17.7592L18.0492 22.1048C18.6344 21.83 19.0619 21.2804 19.1586 20.6748C19.2197 20.283 18.2782 7.13345 18.1612 6.74669C18.0085 6.23781 17.6727 5.84597 17.1739 5.59153C16.8992 5.45413 16.8737 5.44904 15.9221 5.43378L14.9501 5.41851L14.9145 4.91472C14.8636 4.09541 14.7059 3.47966 14.3751 2.82829C13.7085 1.5052 12.538 0.548498 11.1132 0.151569C10.7264 0.0447033 10.4974 0.0192592 9.89692 0.00399269C9.48981 -0.00618497 9.05217 0.00399269 8.92495 0.024348ZM10.4821 1.7342C10.6806 1.77491 11.0521 1.9123 11.3116 2.03953C12.4159 2.58912 13.1487 3.70357 13.2403 4.97069L13.2708 5.4236H9.74425H6.21769L6.24823 4.97069C6.31438 4.06488 6.65533 3.31682 7.31179 2.66545C7.96316 2.01917 8.79773 1.66804 9.71881 1.66295C9.94272 1.66295 10.2888 1.69348 10.4821 1.7342ZM4.59945 9.23513C4.57909 11.3877 4.57909 11.4233 4.68596 11.5658C4.87933 11.8253 5.09815 11.9373 5.41366 11.9373C5.75461 11.9373 5.9429 11.8304 6.11592 11.5455L6.23296 11.3521V9.19951V7.05202H9.74425H13.2555V9.18933C13.2555 11.2198 13.2606 11.3419 13.3573 11.5251C13.6321 12.0696 14.4158 12.09 14.8026 11.5658C14.9043 11.4233 14.9094 11.3623 14.9247 9.23513L14.94 7.04694L15.6727 7.0622C16.2681 7.07238 16.4208 7.09274 16.492 7.15889C16.6142 7.28611 17.5505 20.3033 17.4437 20.4713L17.3775 20.5883H9.74425H2.11101L2.04485 20.4713C1.98379 20.3746 2.03467 19.4993 2.44178 13.81C2.70131 10.2122 2.93031 7.24031 2.95066 7.20469C3.02191 7.08765 3.21528 7.05711 3.91245 7.05711L4.61471 7.05202L4.59945 9.23513Z" fill="white" style="fill:white;fill-opacity:1;"/>
+                                    </svg>
+                                  </a>
                                 </div>
-                                <a href="{{ product.url }}" class="low-btn">
-                                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="23" viewBox="0 0 20 23" fill="none">
-                                    <path d="M8.92495 0.024348C8.15145 0.166835 7.34233 0.487432 6.73675 0.894538C6.2584 1.21513 5.54088 1.97337 5.24573 2.4619C4.80809 3.19978 4.55365 4.14121 4.55365 5.04194V5.41342L3.57659 5.43378C2.6148 5.44904 2.58936 5.45413 2.31456 5.59153C1.82603 5.84597 1.47999 6.25308 1.30188 6.79758C1.24591 6.97569 0.329916 19.5349 0.314649 20.3135C0.304471 21.0972 0.691223 21.7333 1.38839 22.0743L1.72934 22.2422H9.74425H17.7592L18.0492 22.1048C18.6344 21.83 19.0619 21.2804 19.1586 20.6748C19.2197 20.283 18.2782 7.13345 18.1612 6.74669C18.0085 6.23781 17.6727 5.84597 17.1739 5.59153C16.8992 5.45413 16.8737 5.44904 15.9221 5.43378L14.9501 5.41851L14.9145 4.91472C14.8636 4.09541 14.7059 3.47966 14.3751 2.82829C13.7085 1.5052 12.538 0.548498 11.1132 0.151569C10.7264 0.0447033 10.4974 0.0192592 9.89692 0.00399269C9.48981 -0.00618497 9.05217 0.00399269 8.92495 0.024348ZM10.4821 1.7342C10.6806 1.77491 11.0521 1.9123 11.3116 2.03953C12.4159 2.58912 13.1487 3.70357 13.2403 4.97069L13.2708 5.4236H9.74425H6.21769L6.24823 4.97069C6.31438 4.06488 6.65533 3.31682 7.31179 2.66545C7.96316 2.01917 8.79773 1.66804 9.71881 1.66295C9.94272 1.66295 10.2888 1.69348 10.4821 1.7342ZM4.59945 9.23513C4.57909 11.3877 4.57909 11.4233 4.68596 11.5658C4.87933 11.8253 5.09815 11.9373 5.41366 11.9373C5.75461 11.9373 5.9429 11.8304 6.11592 11.5455L6.23296 11.3521V9.19951V7.05202H9.74425H13.2555V9.18933C13.2555 11.2198 13.2606 11.3419 13.3573 11.5251C13.6321 12.0696 14.4158 12.09 14.8026 11.5658C14.9043 11.4233 14.9094 11.3623 14.9247 9.23513L14.94 7.04694L15.6727 7.0622C16.2681 7.07238 16.4208 7.09274 16.492 7.15889C16.6142 7.28611 17.5505 20.3033 17.4437 20.4713L17.3775 20.5883H9.74425H2.11101L2.04485 20.4713C1.98379 20.3746 2.03467 19.4993 2.44178 13.81C2.70131 10.2122 2.93031 7.24031 2.95066 7.20469C3.02191 7.08765 3.21528 7.05711 3.91245 7.05711L4.61471 7.05202L4.59945 9.23513Z" fill="white" style="fill:white;fill-opacity:1;"/>
-                                  </svg>
-                                </a>
                               </div>
                             </div>
                           </div>
                         </div>
-                    {% endfor %}
-                  {% endif %}
+                      {% endfor %}
+                    {% endif %}
+                  </div>
                 </div>
               </div>
             </div>
@@ -1041,10 +1043,11 @@
       </div>
     </div>
     
-      <script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+
+    <script>
 
       document.addEventListener('DOMContentLoaded', () => {
-        console.log("test");
 
         function formatDate(date) {
           const options = { day: '2-digit', month: 'long' };
@@ -1084,59 +1087,6 @@
           attributes: true,
         });
 
-        const sliderContainer = document.querySelector('.slider-container');
-        const prevArrow = document.querySelector('.prev-arrow');
-        const nextArrow = document.querySelector('.next-arrow');
-        const slides = document.querySelectorAll('.product-item');
-
-        console.log(slides);
-        console.log(prevArrow);
-        console.log(nextArrow);
-        console.log(sliderContainer);
-
-        if (!sliderContainer || !prevArrow || !nextArrow || slides.length === 0) {
-          console.error("Не удалось найти элементы слайдера.");
-          return;
-        }
-
-        let offset = 0;
-        const slideWidth = slides[0].offsetWidth + 16;
-
-        const observerOptions = {
-          root: sliderContainer.parentElement,
-          threshold: 0.5,
-        };
-
-        const observerCallback = (entries) => {
-          entries.forEach((entry) => {
-            if (entry.target === slides[0]) {
-              prevArrow.style.display = entry.isIntersecting ? 'none' : 'block';
-            }
-
-            if (entry.target === slides[slides.length - 1]) {
-              nextArrow.style.display = entry.isIntersecting ? 'none' : 'block';
-            }
-          });
-        };
-
-        const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-        observer.observe(slides[0]);
-        observer.observe(slides[slides.length - 1]);
-
-        prevArrow.addEventListener('click', () => {
-          if (offset > 0) {
-            offset -= slideWidth;
-            sliderContainer.style.transform = `translateX(-${offset}px)`;
-          }
-        });
-
-        nextArrow.addEventListener('click', () => {
-          if (offset < sliderContainer.scrollWidth - sliderContainer.clientWidth) {
-            offset += slideWidth;
-            sliderContainer.style.transform = `translateX(-${offset}px)`;
-          }
-        });
       });
 
     </script>
@@ -1144,3 +1094,57 @@
 
 </cart-drawer>
 </div>
+
+<script>
+
+
+
+  setInterval(function(){
+    if(document.querySelector(".also-like-swiper")){
+      
+      const observerTarget = document.querySelector(".cart-drawer-wrapper");
+
+      function initializeSwiper() {
+      
+        const swiperElement = document.querySelector(".also-like-swiper");
+        if (!swiperElement || swiperElement.classList.contains("swiper-initialized")) {
+          return;
+        }
+
+        new Swiper(".also-like-swiper", {
+          navigation: {
+            nextEl: ".next-arrow",
+            prevEl: ".prev-arrow",
+          },
+        });
+      
+      }
+
+      const observer = new MutationObserver((mutationsList) => {
+        for (const mutation of mutationsList) {
+          if (mutation.type === "childList") {
+            if (document.querySelector(".also-like-swiper")) {
+              initializeSwiper();
+              observer.disconnect();
+              break;
+            }
+          }
+        }
+      });
+
+      observer.observe(observerTarget, {
+        childList: true,
+        subtree: true,
+      });
+
+      if (document.querySelector(".also-like-swiper")) {
+        initializeSwiper();
+      } else {
+        checkAndInitializeSwiper();
+      }
+
+    }
+  },200
+)
+
+</script>
