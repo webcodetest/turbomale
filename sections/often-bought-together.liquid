@@ -338,13 +338,6 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
           quantity: 1,
         });
       });
-
-      const selectedProducts = [];
-      checkboxes.forEach((checkbox) => {
-        if (checkbox.checked) {
-          selectedProducts.push(checkbox.dataset.productId);
-        }
-      });
       console.log(itemsToAdd);
       console.log(selectedProducts);
     });
