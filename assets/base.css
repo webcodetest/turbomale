@@ -3602,7 +3602,7 @@ details-disclosure > details {
 }
 
 .drawer__inner{
-  overflow: auto;
+  overflow: auto !important;
 }
 
 cart-drawer-items{
