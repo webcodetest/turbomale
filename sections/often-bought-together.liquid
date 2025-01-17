@@ -273,31 +273,38 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
             </div>
 
             <div class="product-selection">
-              <ul>
-                <li>
-                  <label>
-                    <input type="checkbox" class="product-checkbox" data-price="{{ product.price | times: 0.01 | round: 2 }}" data-product-id="{{ product.id }}" checked>
-                    <span class="custom-checkbox"></span>
-                    <span class="product-name"><span class="current-product-bold">Current Product </span>{{ product.title }}</span>
-                    <span class="product-price">${{ product.price | times: 0.01 | round: 2 }} USD</span>
-                  </label>
-                </li>
-                {% for product_handle in product.metafields.custom.alt_related_products.value %}
-                <li>
-                  <label>
-                    <input type="checkbox" class="product-checkbox" data-price="{{ product_handle.price | times: 0.01 | round: 2 }}" data-product-id="{{ product_handle.variants.first.id }}" checked>
-                    <span class="custom-checkbox"></span>
-                    <span class="product-name">{{ product_handle.title }}</span>
-                    <span class="product-price">${{ product_handle.price | times: 0.01 | round: 2 }} USD</span>
-                  </label>
-                </li>
-                {% endfor %}
-              </ul>
-              <div class="total-section">
-                <p>Total: <span id="total-price">$ USD</span></p>
-                <button id="add-to-cart" class="add-to-cart-btn">Add selected to cart</button>
-              </div>
-            </div>
+  <ul>
+    <li>
+      <label>
+        <input type="checkbox" class="product-checkbox" 
+               data-price="{{ product.price | times: 0.01 | round: 2 }}" 
+               data-id="{{ product.variants.first.id }}" 
+               checked>
+        <span class="custom-checkbox"></span>
+        <span class="product-name"><span class="current-product-bold">Current Product </span>{{ product.title }}</span>
+        <span class="product-price">${{ product.price | times: 0.01 | round: 2 }} USD</span>
+      </label>
+    </li>
+    {% for product_handle in product.metafields.custom.alt_related_products.value %}
+    {% assign related_product = all_products[product_handle] %}
+    <li>
+      <label>
+        <input type="checkbox" class="product-checkbox" 
+               data-price="{{ related_product.price | times: 0.01 | round: 2 }}" 
+               data-id="{{ related_product.variants.first.id }}" 
+               checked>
+        <span class="custom-checkbox"></span>
+        <span class="product-name">{{ related_product.title }}</span>
+        <span class="product-price">${{ related_product.price | times: 0.01 | round: 2 }} USD</span>
+      </label>
+    </li>
+    {% endfor %}
+  </ul>
+  <div class="total-section">
+    <p>Total: <span id="total-price">$0.00 USD</span></p>
+    <button id="add-to-cart" class="add-to-cart-btn">Add selected to cart</button>
+  </div>
+</div>
 
         </div>
     </div>
@@ -309,6 +316,7 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
     const totalPriceEl = document.getElementById("total-price");
     const addToCartBtn = document.getElementById("add-to-cart");
 
+    // Обновление итоговой суммы
     function updateTotal() {
       let total = 0;
       checkboxes.forEach((checkbox) => {
@@ -319,53 +327,51 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
       totalPriceEl.textContent = `$${total.toFixed(2)} USD`;
     }
 
-    checkboxes.forEach((checkbox) => {
-      checkbox.addEventListener("change", updateTotal);
-    });
-
+    // Добавление товаров в корзину
     addToCartBtn.addEventListener("click", function () {
-      const checkboxesChecked = document.querySelectorAll(".product-checkbox:checked");
-      const itemsToAdd = [];
-
-      checkboxesChecked.forEach((checkbox) => {
-        const productId = checkbox.getAttribute("data-product-id");
-
-        itemsToAdd.push({
-          id: productId,
-          quantity: 1,
-        });
+      const selectedItems = [];
+      checkboxes.forEach((checkbox) => {
+        if (checkbox.checked) {
+          selectedItems.push({
+            id: checkbox.dataset.id,
+            quantity: 1, // Можно сделать выбор количества, если нужно
+          });
+        }
       });
 
-      if (itemsToAdd.length > 0) {
-        addItemsToCart(itemsToAdd);
+      if (selectedItems.length > 0) {
+        fetch("/cart/add.js", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ items: selectedItems }),
+        })
+          .then((response) => {
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error("Failed to add items to cart.");
+          })
+          .then(() => {
+            alert("Selected products added to cart!");
+            location.reload(); // Обновить корзину
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            alert("Something went wrong. Please try again.");
+          });
       } else {
         alert("No products selected.");
       }
     });
 
-    function addItemsToCart(items) {
-      fetch("/cart/add.js", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ items }),
-      })
-        .then((response) => {
-          if (response.ok) {
-            return response.json();
-          }
-          throw new Error("Failed to add items to cart.");
-        })
-        .then((data) => {
-          alert("Products added to cart!");
-          console.log("Cart updated:", data);
-        })
-        .catch((error) => {
-          console.error("Error adding to cart:", error);
-        });
-    }
+    // Событие для обновления цены при изменении чекбоксов
+    checkboxes.forEach((checkbox) => {
+      checkbox.addEventListener("change", updateTotal);
+    });
 
+    // Инициализация итоговой суммы
     updateTotal();
   });
 </script>
