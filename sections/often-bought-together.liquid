@@ -331,15 +331,7 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
         selectedProducts.push(checkbox.dataset.productId);
       }
     });
-
-    if (selectedProducts.length > 0) {
-      console.log("Selected product IDs:", selectedProducts);
-      alert("Selected products have been added to the cart!");
-    } else {
-      alert("Please select at least one product.");
-    }
   });
-
   updateTotal();
 });
 
