@@ -3621,7 +3621,7 @@ cart-drawer-items{
   font-size: 18px;
 }
 
-.jdgm-prev-badge{
+.jdgm-widget .jdgm-prev-badge{
   display: flex !important;
   flex-wrap: wrap;
 }
