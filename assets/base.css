@@ -3608,3 +3608,7 @@ details-disclosure > details {
 cart-drawer-items{
   overflow: visible !important;
 }
+
+.often-bought-together .product-item{
+  height: 100%;
+}
