@@ -344,6 +344,31 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
       }
       
     });
+
+    function addItemsToCart(items) {
+      fetch("/cart/add.js", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ items }),
+      })
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          }
+          throw new Error("Failed to add items to cart.");
+        })
+        .then((data) => {
+          alert("Products added to cart!");
+          console.log("Cart updated:", data);
+        })
+        .catch((error) => {
+          console.error("Error adding to cart:", error);
+          alert("Something went wrong. Please try again.");
+        });
+    }
+
     updateTotal();
   });
 
