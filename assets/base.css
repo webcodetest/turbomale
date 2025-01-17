@@ -3595,3 +3595,8 @@ details-disclosure > details {
     transform: translateX(100%) scaleX(0);
   }
 }
+
+
+.often-bought-together .product-item{
+  min-width: unset;
+}
