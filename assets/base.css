@@ -3600,3 +3600,11 @@ details-disclosure > details {
 .often-bought-together .product-item{
   min-width: unset;
 }
+
+.drawer__inner{
+  overflow: auto;
+}
+
+cart-drawer-items{
+  overflow: visible !important;
+}
