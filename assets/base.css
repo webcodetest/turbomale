@@ -3612,3 +3612,7 @@ cart-drawer-items{
 .often-bought-together .product-item{
   height: 100%;
 }
+
+.custom-basket-tabs-content-product-info{
+  flex: 1;
+}
