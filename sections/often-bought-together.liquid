@@ -339,7 +339,10 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
         });
       });
       console.log(itemsToAdd);
-      console.log(selectedProducts);
+      if (itemsToAdd.length > 0) {
+        addItemsToCart(itemsToAdd);
+      }
+      
     });
     updateTotal();
   });
