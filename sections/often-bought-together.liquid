@@ -306,34 +306,34 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
 <script>
 
   document.addEventListener("DOMContentLoaded", function () {
-  const checkboxes = document.querySelectorAll(".product-checkbox");
-  const totalPriceEl = document.getElementById("total-price");
-  const addToCartBtn = document.getElementById("add-to-cart");
-
-  function updateTotal() {
-    let total = 0;
+    const checkboxes = document.querySelectorAll(".product-checkbox");
+    const totalPriceEl = document.getElementById("total-price");
+    const addToCartBtn = document.getElementById("add-to-cart");
+  
+    function updateTotal() {
+      let total = 0;
+      checkboxes.forEach((checkbox) => {
+        if (checkbox.checked) {
+          total += parseFloat(checkbox.dataset.price);
+        }
+      });
+      totalPriceEl.textContent = `$${total.toFixed(2)} USD`;
+    }
+  
     checkboxes.forEach((checkbox) => {
-      if (checkbox.checked) {
-        total += parseFloat(checkbox.dataset.price);
-      }
+      checkbox.addEventListener("change", updateTotal);
     });
-    totalPriceEl.textContent = `$${total.toFixed(2)} USD`;
-  }
-
-  checkboxes.forEach((checkbox) => {
-    checkbox.addEventListener("change", updateTotal);
-  });
-
-  addToCartBtn.addEventListener("click", function () {
-    const selectedProducts = [];
-    checkboxes.forEach((checkbox) => {
-      if (checkbox.checked) {
-        selectedProducts.push(checkbox.dataset.productId);
-      }
+  
+    addToCartBtn.addEventListener("click", function () {
+      const selectedProducts = [];
+      checkboxes.forEach((checkbox) => {
+        if (checkbox.checked) {
+          selectedProducts.push(checkbox.dataset.productId);
+        }
+      });
     });
+    updateTotal();
   });
-  updateTotal();
-});
 
 
 
