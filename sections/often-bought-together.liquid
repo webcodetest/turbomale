@@ -273,33 +273,26 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
             </div>
 
             <div class="product-selection">
-               <ul>
-    <li>
-      <form method="post" action="/cart/add">
-        <input type="hidden" name="id" value="{{ product.variants.first.id }}">
-        <label>
-          <input type="checkbox" class="product-checkbox" data-price="{{ product.price | times: 0.01 | round: 2 }}" checked>
-          <span class="custom-checkbox"></span>
-          <span class="product-name"><span class="current-product-bold">Current Product </span>{{ product.title }}</span>
-          <span class="product-price">${{ product.price | times: 0.01 | round: 2 }} USD</span>
-        </label>
-      </form>
-    </li>
-    {% for product_handle in product.metafields.custom.alt_related_products.value %}
-    {% assign related_product = all_products[product_handle] %}
-    <li>
-      <form method="post" action="/cart/add">
-        <input type="hidden" name="id" value="{{ related_product.variants.first.id }}">
-        <label>
-          <input type="checkbox" class="product-checkbox" data-price="{{ related_product.price | times: 0.01 | round: 2 }}" checked>
-          <span class="custom-checkbox"></span>
-          <span class="product-name">{{ related_product.title }}</span>
-          <span class="product-price">${{ related_product.price | times: 0.01 | round: 2 }} USD</span>
-        </label>
-      </form>
-    </li>
-    {% endfor %}
-  </ul>
+              <ul>
+                <li>
+                  <label>
+                    <input type="checkbox" class="product-checkbox" data-price="{{ product.price | times: 0.01 | round: 2 }}" data-product-id="{{ product.id }}" checked>
+                    <span class="custom-checkbox"></span>
+                    <span class="product-name"><span class="current-product-bold">Current Product </span>{{ product.title }}</span>
+                    <span class="product-price">${{ product.price | times: 0.01 | round: 2 }} USD</span>
+                  </label>
+                </li>
+                {% for product_handle in product.metafields.custom.alt_related_products.value %}
+                <li>
+                  <label>
+                    <input type="checkbox" class="product-checkbox" data-price="{{ product_handle.price | times: 0.01 | round: 2 }}" data-product-id="{{ product_handle.variants.first.id }}" checked>
+                    <span class="custom-checkbox"></span>
+                    <span class="product-name">{{ product_handle.title }}</span>
+                    <span class="product-price">${{ product_handle.price | times: 0.01 | round: 2 }} USD</span>
+                  </label>
+                </li>
+                {% endfor %}
+              </ul>
               <div class="total-section">
                 <p>Total: <span id="total-price">$ USD</span></p>
                 <button id="add-to-cart" class="add-to-cart-btn">Add selected to cart</button>
