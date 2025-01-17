@@ -271,31 +271,36 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
                     {% endfor %}
                 </div>
             </div>
-
+{% assign cart_url = '/cart' %}
+{% assign products_to_add = '' %}
             <div class="product-selection">
               <ul>
-                <li>
-                  <label>
-                    <input type="checkbox" class="product-checkbox" data-price="{{ product.price | times: 0.01 | round: 2 }}" data-product-id="0" checked>
-                    <span class="custom-checkbox"></span>
-                    <span class="product-name"><span class="current-product-bold">Current Product </span>{{ product.title }}</span>
-                    <span class="product-price">${{ product.price | times: 0.01 | round: 2 }} USD</span>
-                  </label>
-                </li>
-                {% for product_handle in product.metafields.custom.alt_related_products.value %}
-                <li>
-                  <label>
-                    <input type="checkbox" class="product-checkbox" data-price="{{ product_handle.price | times: 0.01 | round: 2 }}" data-product-id="{{ forloop.index }}" checked>
-                    <span class="custom-checkbox"></span>
-                    <span class="product-name">{{ product_handle.title }}</span>
-                    <span class="product-price">${{ product_handle.price | times: 0.01 | round: 2 }} USD</span>
-                  </label>
-                </li>
-                {% endfor %}
-              </ul>
+    {% assign products_to_add = products_to_add | append: product.variants.first.id | append: ':1' %}
+    <li>
+      <input type="checkbox" checked disabled>
+      <span class="product-name">
+        <span class="current-product-bold">Current Product </span>{{ product.title }}
+      </span>
+      <span class="product-price">
+        ${{ product.price | divided_by: 100 | round: 2 }} USD
+      </span>
+    </li>
+
+    {% for product_handle in product.metafields.custom.alt_related_products.value %}
+    {% assign related_product = all_products[product_handle] %}
+    {% assign products_to_add = products_to_add | append: ',' | append: related_product.variants.first.id | append: ':1' %}
+    <li>
+      <input type="checkbox" checked disabled>
+      <span class="product-name">{{ related_product.title }}</span>
+      <span class="product-price">
+        ${{ related_product.price | divided_by: 100 | round: 2 }} USD
+      </span>
+    </li>
+    {% endfor %}
+  </ul>
               <div class="total-section">
                 <p>Total: <span id="total-price">$ USD</span></p>
-                <button id="add-to-cart" class="add-to-cart-btn">Add selected to cart</button>
+                <a href="{{ cart_url }}?add={{ products_to_add }}" class="add-to-cart-btn">Add All to Cart</a>
               </div>
             </div>
 
