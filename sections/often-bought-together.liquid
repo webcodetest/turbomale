@@ -305,35 +305,60 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
 
 <script>
 
-  document.addEventListener("DOMContentLoaded", function () {
-  const checkboxes = document.querySelectorAll(".product-checkbox");
-  const totalPriceEl = document.getElementById("total-price");
-  const addToCartBtn = document.getElementById("add-to-cart");
+document.addEventListener("DOMContentLoaded", function () {
+  const addToCartButton = document.getElementById("add-to-cart");
 
-  function updateTotal() {
-    let total = 0;
+  addToCartButton.addEventListener("click", function () {
+    const checkboxes = document.querySelectorAll(".product-checkbox:checked");
+    const itemsToAdd = [];
+
     checkboxes.forEach((checkbox) => {
-      if (checkbox.checked) {
-        total += parseFloat(checkbox.dataset.price);
-      }
+      const productId = checkbox.getAttribute("data-product-id");
+      const productPrice = checkbox.getAttribute("data-price");
+
+      // Формируем данные для добавления в корзину
+      itemsToAdd.push({
+        id: productId, // ID варианта продукта
+        quantity: 1,   // Количество (можно сделать динамическим)
+      });
     });
-    totalPriceEl.textContent = `$${total.toFixed(2)} USD`;
+
+    if (itemsToAdd.length > 0) {
+      addItemsToCart(itemsToAdd);
+    } else {
+      alert("Please select at least one product to add to cart.");
+    }
+  });
+
+  // Функция для добавления товаров в корзину
+  function addItemsToCart(items) {
+    fetch("/cart/add.js", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ items }),
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error("Failed to add items to cart.");
+      })
+      .then((data) => {
+        alert("Products added to cart!");
+        // Здесь можно обновить интерфейс или перенаправить на страницу корзины
+        console.log("Cart updated:", data);
+      })
+      .catch((error) => {
+        console.error("Error adding to cart:", error);
+        alert("Something went wrong. Please try again.");
+      });
   }
-
-  checkboxes.forEach((checkbox) => {
-    checkbox.addEventListener("change", updateTotal);
-  });
-
-  addToCartBtn.addEventListener("click", function () {
-    const selectedProducts = [];
-    checkboxes.forEach((checkbox) => {
-      if (checkbox.checked) {
-        selectedProducts.push(checkbox.dataset.productId);
-      }
-    });
-  });
-  updateTotal();
 });
+
+
+
 
 
 </script>
