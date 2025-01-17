@@ -304,12 +304,11 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
 </section>
 
 <script>
-
   document.addEventListener("DOMContentLoaded", function () {
     const checkboxes = document.querySelectorAll(".product-checkbox");
     const totalPriceEl = document.getElementById("total-price");
     const addToCartBtn = document.getElementById("add-to-cart");
-  
+
     function updateTotal() {
       let total = 0;
       checkboxes.forEach((checkbox) => {
@@ -319,30 +318,29 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
       });
       totalPriceEl.textContent = `$${total.toFixed(2)} USD`;
     }
-  
+
     checkboxes.forEach((checkbox) => {
       checkbox.addEventListener("change", updateTotal);
     });
-  
-    addToCartBtn.addEventListener("click", function () {
 
+    addToCartBtn.addEventListener("click", function () {
       const checkboxesChecked = document.querySelectorAll(".product-checkbox:checked");
       const itemsToAdd = [];
-  
+
       checkboxesChecked.forEach((checkbox) => {
         const productId = checkbox.getAttribute("data-product-id");
-        const productPrice = checkbox.getAttribute("data-price");
-  
+
         itemsToAdd.push({
           id: productId,
           quantity: 1,
         });
       });
-      console.log(itemsToAdd);
+
       if (itemsToAdd.length > 0) {
         addItemsToCart(itemsToAdd);
+      } else {
+        alert("No products selected.");
       }
-      
     });
 
     function addItemsToCart(items) {
@@ -371,10 +369,6 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
 
     updateTotal();
   });
-
-
-
-
 </script>
 
 {% schema %}
