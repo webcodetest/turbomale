@@ -329,7 +329,7 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
       const checkboxesChecked = document.querySelectorAll(".product-checkbox:checked");
       const itemsToAdd = [];
   
-      checkboxes.forEach((checkbox) => {
+      checkboxesChecked.forEach((checkbox) => {
         const productId = checkbox.getAttribute("data-product-id");
         const productPrice = checkbox.getAttribute("data-price");
   
