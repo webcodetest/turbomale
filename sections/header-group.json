@@ -422,6 +422,15 @@
     },
     "173721479704a2268e": {
       "type": "apps",
+      "blocks": {
+        "judge_me_reviews_all_reviews_page_ze6phz": {
+          "type": "shopify://apps/judge-me-reviews/blocks/all_reviews_page/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_all_reviews_page_ze6phz"
+      ],
       "settings": {
         "include_margins": true
       }
