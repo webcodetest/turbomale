@@ -296,7 +296,7 @@
             "card_title": "Our Service",
             "card_description": "Worldwide Delivery &  Warranty – Fast Worldwide shipping, 3-year warranty, and 24/7 expert support whenever you need it.",
             "card_link_text": "View",
-            "card_link": "#"
+            "card_link": "shopify://collections/all"
           }
         }
       },
