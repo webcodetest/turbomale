@@ -285,7 +285,23 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
                 {% for product_handle in product.metafields.custom.alt_related_products.value %}
                 <li>
                   <label>
-                    <input type="checkbox" class="product-checkbox" data-price="{{ product_handle.price | times: 0.01 | round: 2 }}" data-product-id="{{ product_handle.variants.first.id }}" checked>
+                    {% assign available_variant_id = '' %}
+{% for variant in product_handle.variants %}
+  {% if variant.available %}
+    {% assign available_variant_id = variant.id %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% if available_variant_id != '' %}
+  <input type="checkbox" 
+         class="product-checkbox" 
+         data-price="{{ product_handle.price | times: 0.01 | round: 2 }}" 
+         data-product-id="{{ available_variant_id }}" 
+         checked>
+{% else %}
+  <p>Product is currently unavailable.</p>
+{% endif %}
                     <span class="custom-checkbox"></span>
                     <span class="product-name">{{ product_handle.title }}</span>
                     <span class="product-price">${{ product_handle.price | times: 0.01 | round: 2 }} USD</span>
