@@ -344,7 +344,7 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
     });
 
     function addItemsToCart(items) {
-      fetch("/cart/change.js", {
+      fetch("/cart/add.js", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
