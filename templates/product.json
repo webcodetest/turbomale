@@ -221,14 +221,6 @@
     "custom_alt_results_QrJfF3": {
       "type": "custom-alt-results",
       "blocks": {
-        "card_LiX9zP": {
-          "type": "card",
-          "disabled": true,
-          "settings": {
-            "card_heading": "Tantaly's Exclusive Soft Breast Technology - Tantabosom",
-            "card_description": ""
-          }
-        },
         "card_d9dBKd": {
           "type": "card",
           "settings": {
@@ -249,7 +241,7 @@
           "type": "card",
           "settings": {
             "card_icon": "shopify://shop_images/Black_dc196927-f0fa-433c-a976-10a6509ca839.svg",
-            "card_heading": "Scientifically-Proven Method for Permanent Growth",
+            "card_heading": "Authentic Tactile Experience",
             "card_description": "At TurboMale, we don’t believe in myths or gimmicks – we use only scientifically-proven, medically-backed methods for real, measurable penis enlargement. Our technology is based on traction therapy, vacuum expansion, and progressive tissue stimulation – methods that have been extensively studied and used by medical professionals worldwide .Also, it's been successfully proven by millions of men around the world."
           }
         },
@@ -263,7 +255,6 @@
         }
       },
       "block_order": [
-        "card_LiX9zP",
         "card_d9dBKd",
         "card_hzePTh",
         "card_bj7erD",
