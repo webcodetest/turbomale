@@ -11,7 +11,9 @@
   "sections": {
     "custom_breadcrumbs_B9zdGW": {
       "type": "custom-breadcrumbs",
-      "settings": {}
+      "settings": {
+        "chosen_collection": "accessories"
+      }
     },
     "main": {
       "type": "main-product",
