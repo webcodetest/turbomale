@@ -857,6 +857,7 @@
       </div>
       <div class="modal__product-price">
         {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
+        {{ card_product.compare_at_price | money }}
       </div>
       <div class="modal__product-metafield-text">
         <p class="collection-card-under-metafield-text">{{ card_product.metafields.custom.subtitle.value | truncate: 69, "..." }}</p>
