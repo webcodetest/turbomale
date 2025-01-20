@@ -3626,7 +3626,3 @@ cart-drawer-items{
   flex-wrap: wrap;
 }
 
-.custom-discovery-title div, .custom-vacuum-left-title div, .custom-featured-title div{
-      -webkit-text-stroke: 1px #c6c6c6;
-    -moz-text-stroke: 1px #c6c6c6;
-}
