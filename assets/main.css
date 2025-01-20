@@ -1254,8 +1254,8 @@ ul {
   font-weight: 600;
   line-height: normal;
   text-transform: uppercase;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #c6c6c6;
+  -webkit-text-stroke: 1px #c6c6c6;
+  -moz-text-stroke: 1px #c6c6c6;
   color: transparent;
   width: 615px;
   top: -71px;
@@ -1264,8 +1264,6 @@ ul {
 
 @media screen and (max-width: 768px) {
   .custom-best-seller-top div {
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: #c6c6c6;
     color: transparent;
     font-family: "Proxima Nova";
     font-size: 35px;
@@ -1874,8 +1872,8 @@ ul {
   top: -46px;
   left: 50%;
   transform: translateX(-50%);
-  -webkit-text-stroke-color: #3a3939;
-  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke: 1px #3a3939;
+  -moz-text-stroke: 1px #3a3939;
   font-family: Proxima Nova;
   font-size: 100px;
   font-style: normal;
@@ -2873,8 +2871,8 @@ ul {
   position: absolute;
   top: -82px;
   left: -60px;
-  -webkit-text-stroke-color: #3a3939;
-  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke: 1px #3a3939;
+  -moz-text-stroke: 1px #3a3939;
   font-family: "Proxima Nova";
   font-size: 100px;
   font-style: normal;
@@ -3106,8 +3104,8 @@ ul {
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
-  -webkit-text-stroke-color: #c6c6c6;
-  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke: 1px #c6c6c6;
+  -moz-text-stroke: 1px #c6c6c6;
   font-family: "Proxima Nova";
   font-size: 100px;
   font-style: normal;
@@ -3405,8 +3403,8 @@ ul {
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
-  -webkit-text-stroke-color: #c6c6c6;
-  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke: 1px #c6c6c6;
+  -moz-text-stroke: 1px #c6c6c6;
   font-family: "Proxima Nova";
   font-size: 100px;
   font-style: normal;
@@ -3525,8 +3523,8 @@ ul {
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
-  -webkit-text-stroke-color: #c6c6c6;
-  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke: 1px #c6c6c6;
+  -moz-text-stroke: 1px #c6c6c6;
   font-family: "Proxima Nova";
   font-size: 100px;
   font-style: normal;
@@ -3836,8 +3834,8 @@ ul {
   width: 100%;
   top: -68px;
   left: -76px;
-  -webkit-text-stroke-color: #c6c6c6;
-  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke: 1px #c6c6c6;
+  -moz-text-stroke: 1px #c6c6c6;
   font-family: Proxima Nova;
   font-size: 100px;
   font-style: normal;
@@ -4026,8 +4024,8 @@ ul {
   top: -51px;
   left: 50%;
   transform: translateX(-50%);
-  -webkit-text-stroke-color: #c6c6c6;
-  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke: 1px #c6c6c6;
+  -moz-text-stroke: 1px #c6c6c6;
   font-family: Proxima Nova;
   font-size: 100px;
   font-style: normal;
@@ -4191,8 +4189,8 @@ ul {
   top: -83px;
   left: 50%;
   transform: translateX(-50%);
-  -webkit-text-stroke-color: #c6c6c6;
-  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke: 1px #c6c6c6;
+  -moz-text-stroke: 1px #c6c6c6;
   font-family: Proxima Nova;
   font-size: 100px;
   font-style: normal;
