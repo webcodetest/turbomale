@@ -319,12 +319,12 @@
                             </button>
                             <input
                                 class="quantity__input"
-                                data-quantity-variant-id="{{ package_product.id }}"
+                                data-quantity-variant-id="{{ selected_or_first_available_variant.id }}"
                                 type="number"
                                 name="quantity"
                                 {% # theme-check-disable %}
-                                value="{{ cart | item_count_for_variant: package_product.id }}"
-                                data-cart-quantity="{{ cart | item_count_for_variant: package_product.id }}"
+                                value="{{ cart | item_count_for_variant: selected_or_first_available_variant.id }}"
+                                data-cart-quantity="{{ cart | item_count_for_variant: selected_or_first_available_variant.id }}"
                                 min="{{ min }}"
                                 data-min="{{ package_product.quantity_rule.min }}"
                                 {% if package_product.quantity_rule.max != null %}
@@ -333,8 +333,8 @@
                                 step="{{ package_product.quantity_rule.increment }}"
                                 {% # theme-check-enable %}
                                 aria-label="{{ 'products.product.quantity.input_label' | t: product: package_product.title | escape }}"
-                                id="Quantity-{{ package_product.id }}"
-                                data-index="{{ package_product.id }}"
+                                id="Quantity-{{ selected_or_first_available_variant.id }}"
+                                data-index="{{ selected_or_first_available_variant.id }}"
                             >
                             <button class="quantity__button" name="plus" type="button">
                                 <span class="visually-hidden">
