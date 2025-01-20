@@ -54,7 +54,13 @@
 
 </style>
 
-<nav class="collection-breadcrumbs" aria-label="breadcrumb" style="background-image: url('{{ collection.metafields.custom.picture | img_url: 'master' }}');">
+<nav class="collection-breadcrumbs" aria-label="breadcrumb" style="background-image: url('
+{% if collection.metafields.custom.picture %}
+{{ collection.metafields.custom.picture | img_url: 'master' }}
+{% else %}
+{{ section.settings.background | img_url: 'master' }}
+{% endif %}
+');">
     <div class="container">
         <ul>
             <li><a href="/">Home</a></li>
