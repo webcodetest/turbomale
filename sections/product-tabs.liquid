@@ -37,7 +37,10 @@
                         <div class="details-body">
                             <div class="details-body-content">
                                 <div class="details-body-content-left">
-                                    <img src="https://cdn.shopify.com/s/files/1/0551/0728/9186/files/Group_46.png?v=1735622270" alt="">
+                                    {% if section.settings.left_side_img %}
+                                      <img src="{{ section.settings.left_side_img | img_url: 'master' }}" alt="">
+                                    {% endif %}
+                                    <!-- <img src="https://cdn.shopify.com/s/files/1/0551/0728/9186/files/Group_46.png?v=1735622270" alt=""> -->
                                 </div>
                                 <div class="details-body-content-right">
                                     <div class="details-body-content-right-head">
@@ -444,6 +447,11 @@
             "type": "richtext",
             "id": "details_text_right",
             "label": "Text of right inside details-tab"
+        },
+        {
+            "type": "image_picker",
+            "id": "left_side_img",
+            "label": "Left-side picture of block:"
         },
         {
             "type": "textarea",
