@@ -1006,48 +1006,51 @@
 
   });
 
-   document.addEventListener('DOMContentLoaded', () => {
-    const quickViewButtons = document.querySelectorAll('.quick-view__block');
-    const modal = document.querySelector('.product__modal-window');
-    const modalTitle = modal.querySelector('.modal__product-title p');
-    const modalPrice = modal.querySelector('.modal__product-price');
-    const modalSubtitle = modal.querySelector('.modal__product-metafield-text p');
-    
-    quickViewButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const productId = button.dataset.productId;
-        const productTitle = button.dataset.productTitle;
-        const productPrice = button.dataset.productPrice;
-        const productSubtitle = button.dataset.productSubtitle;
-        {% comment %} const productImages = JSON.parse(button.dataset.productImages || '[]'); {% endcomment %}
+  document.addEventListener('DOMContentLoaded', () => {
+  const quickViewButtons = document.querySelectorAll('.quick-view__block');
+  const modal = document.querySelector('.product__modal-window');
+  const modalTitle = modal.querySelector('.modal__product-title p');
+  const modalPrice = modal.querySelector('.modal__product-price');
+  const modalOldPrice = modal.querySelector('.modal__product-old-price'); // Блок для старой цены
+  const modalSubtitle = modal.querySelector('.modal__product-metafield-text p');
 
-        modalTitle.textContent = productTitle;
+  quickViewButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Получаем данные из атрибутов data-
+      const productTitle = button.dataset.productTitle;
+      const productPrice = button.dataset.productPrice;
+      const productOldPrice = button.dataset.productOldPrice; // Получаем старую цену
+      const productSubtitle = button.dataset.productSubtitle;
 
-        const formattedPrice = `$${(parseInt(productPrice, 10) / 100).toFixed(2)}`;
-        modalPrice.textContent = formattedPrice;
+      // Устанавливаем данные в соответствующие элементы модального окна
+      modalTitle.textContent = productTitle;
 
-        modalSubtitle.textContent = 
-                productSubtitle.length > 69 
-                    ? productSubtitle.substring(0, 69) + '...' 
-                    : productSubtitle;
+      const formattedPrice = `$${(parseInt(productPrice, 10) / 100).toFixed(2)}`;
+      modalPrice.textContent = formattedPrice;
 
-        {% comment %} productImages.forEach(imageUrl => {
-          const slide = document.createElement('div');
-          slide.classList.add('swiper-slide');
-          slide.innerHTML = `<img src="${imageUrl}" alt="${productTitle}">`;
-          modalSwiperWrapper.appendChild(slide);
-        }); {% endcomment %}
+      if (productOldPrice) {
+        const formattedOldPrice = `$${(parseInt(productOldPrice, 10) / 100).toFixed(2)}`;
+        modalOldPrice.textContent = formattedOldPrice;
+        modalOldPrice.style.display = 'block'; // Показываем блок, если старая цена есть
+      } else {
+        modalOldPrice.style.display = 'none'; // Скрываем блок, если старой цены нет
+      }
 
-        modal.classList.remove('removed');
-      });
+      modalSubtitle.textContent =
+        productSubtitle.length > 69
+          ? productSubtitle.substring(0, 69) + '...'
+          : productSubtitle;
+
+      modal.classList.remove('removed');
     });
-
-    const closeButton = modal.querySelector('.product__modal-btn-close');
-    closeButton.addEventListener('click', () => {
-      modal.classList.add('removed');
-    });
-    
   });
+
+  const closeButton = modal.querySelector('.product__modal-btn-close');
+  closeButton.addEventListener('click', () => {
+    modal.classList.add('removed');
+  });
+});
+
 
 
 </script>
