@@ -64,7 +64,7 @@
             {% endif %}
         </ul>
         <h2 class="collection-breadcrumbs-heading">{{ collection.title }}</h2>
-        <p class="collection-breadcrumbs-description">{{ collection.description | strip_html | escape }}</p>
+        <p class="collection-breadcrumbs-description">{% if collection.metafields.custom.description %} {{ collection.metafields.custom.description | escape }} {% endif %}</p>
     </div>
 </nav>
 
