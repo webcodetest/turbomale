@@ -52,19 +52,31 @@
                                                 {% if section.settings.svg_code %}
                                                   {{ section.settings.svg_code }}
                                                 {% endif %}
-                                                <span>60 days to decide</span>
+                                                <span>
+                                                  {% if section.settings.svg_span_1 %}
+                                                    {{ section.settings.svg_span_1 }}
+                                                  {% endif %}
+                                                </span>
                                             </div>
                                             <div class="details-body-content-right-icon">
                                                 {% if section.settings.svg_code %}
                                                   {{ section.settings.svg_code }}
                                                 {% endif %}
-                                                <span>No questions asked</span>
+                                                <span>
+                                                  {% if section.settings.svg_span_2 %}
+                                                    {{ section.settings.svg_span_2 }}
+                                                  {% endif %}
+                                                </span>
                                             </div>
                                             <div class="details-body-content-right-icon">
                                                 {% if section.settings.svg_code %}
                                                   {{ section.settings.svg_code }}
                                                 {% endif %}
-                                                <span>Full money refund</span>
+                                                <span>
+                                                  {% if section.settings.svg_span_3 %}
+                                                    {{ section.settings.svg_span_3 }}
+                                                  {% endif %}
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
@@ -436,8 +448,26 @@
         {
             "type": "textarea",
             "id": "svg_code",
-            "label": "SVG Code",
-            "info": "Enter SVG-code here:"
+            "label": "Icon:",
+            "info": "Enter SVG-code here"
+        },
+        {
+            "type": "text",
+            "id": "svg_span_1",
+            "label": "SVG Span Text:",
+            "default": "60 days to decide"
+        },
+        {
+            "type": "text",
+            "id": "svg_span_2",
+            "label": "SVG Span Text:",
+            "default": "No questions asked"
+        },
+        {
+            "type": "text",
+            "id": "svg_span_3",
+            "label": "SVG Span Text:",
+            "default": "Full money refund"
         }
     ],
      "presets": [
