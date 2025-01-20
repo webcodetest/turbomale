@@ -866,6 +866,9 @@
           {{ card_product.metafields.custom.subtitle.value | truncate: 69, "..." }}
         {% endcomment %}
       </div>
+      <div class="modal__product-description">
+
+      </div>
       <div class="modal__product-metafield-variants">
         {% comment %} {% for product in collection.products %}
           {% if product.title = "TurboMale Complete Silicone Sleeves Set" %}
@@ -1015,6 +1018,7 @@
   const modalPrice = modal.querySelector('.modal__product-price');
   const modalOldPrice = modal.querySelector('.modal__product-old-price');
   const modalSubtitle = modal.querySelector('.modal__product-metafield-text p');
+  const modalDescription = modal.querySelector('.modal__product-description');
 
   quickViewButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -1022,6 +1026,7 @@
       const productPrice = button.dataset.productPrice;
       const productOldPrice = button.dataset.productOldPrice;
       const productSubtitle = button.dataset.productSubtitle;
+      const productDescription = button.dataset.productDescription;
 
       modalTitle.textContent = productTitle;
 
