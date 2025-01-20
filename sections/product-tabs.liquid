@@ -49,21 +49,21 @@
                                     <div class="details-body-content-right-icons">
                                         <div class="details-body-content-right-icons-wrap">
                                             <div class="details-body-content-right-icon">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
-                                                    <path d="M7.47217 18.8806L0.322169 11.7306C-0.10739 11.301 -0.10739 10.6045 0.322169 10.1749L1.87777 8.61929C2.30733 8.18969 3.00385 8.18969 3.43341 8.61929L8.24999 13.4358L18.5666 3.11929C18.9961 2.68973 19.6927 2.68973 20.1222 3.11929L21.6778 4.67493C22.1074 5.10449 22.1074 5.80097 21.6778 6.23057L9.02781 18.8806C8.59821 19.3102 7.90173 19.3102 7.47217 18.8806Z" fill="#60AC22" style="fill:#60AC22;fill:color(display-p3 0.3768 0.6749 0.1322);fill-opacity:1;"/>
-                                                </svg>
+                                                {% if section.settings.svg_code %}
+                                                  {{ section.settings.svg_code }}
+                                                {% endif %}
                                                 <span>60 days to decide</span>
                                             </div>
                                             <div class="details-body-content-right-icon">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
-                                                    <path d="M7.47217 18.8806L0.322169 11.7306C-0.10739 11.301 -0.10739 10.6045 0.322169 10.1749L1.87777 8.61929C2.30733 8.18969 3.00385 8.18969 3.43341 8.61929L8.24999 13.4358L18.5666 3.11929C18.9961 2.68973 19.6927 2.68973 20.1222 3.11929L21.6778 4.67493C22.1074 5.10449 22.1074 5.80097 21.6778 6.23057L9.02781 18.8806C8.59821 19.3102 7.90173 19.3102 7.47217 18.8806Z" fill="#60AC22" style="fill:#60AC22;fill:color(display-p3 0.3768 0.6749 0.1322);fill-opacity:1;"/>
-                                                </svg>
+                                                {% if section.settings.svg_code %}
+                                                  {{ section.settings.svg_code }}
+                                                {% endif %}
                                                 <span>No questions asked</span>
                                             </div>
                                             <div class="details-body-content-right-icon">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
-                                                    <path d="M7.47217 18.8806L0.322169 11.7306C-0.10739 11.301 -0.10739 10.6045 0.322169 10.1749L1.87777 8.61929C2.30733 8.18969 3.00385 8.18969 3.43341 8.61929L8.24999 13.4358L18.5666 3.11929C18.9961 2.68973 19.6927 2.68973 20.1222 3.11929L21.6778 4.67493C22.1074 5.10449 22.1074 5.80097 21.6778 6.23057L9.02781 18.8806C8.59821 19.3102 7.90173 19.3102 7.47217 18.8806Z" fill="#60AC22" style="fill:#60AC22;fill:color(display-p3 0.3768 0.6749 0.1322);fill-opacity:1;"/>
-                                                </svg>
+                                                {% if section.settings.svg_code %}
+                                                  {{ section.settings.svg_code }}
+                                                {% endif %}
                                                 <span>Full money refund</span>
                                             </div>
                                         </div>
@@ -433,6 +433,12 @@
             "id": "details_text_right",
             "label": "Text of right inside details-tab"
         },
+        {
+            "type": "textarea",
+            "id": "svg_code",
+            "label": "SVG Code",
+            "info": "Enter SVG-code here:"
+        }
     ],
      "presets": [
     {
