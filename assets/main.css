@@ -4093,6 +4093,7 @@ ul {
 
 .custom-faq-list-item {
   max-width: 980px;
+  width: 100%;
   border-radius: 12px;
   border: 1px solid #fff;
   padding: 16px 22px;
