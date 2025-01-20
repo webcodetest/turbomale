@@ -465,7 +465,6 @@
   
   .modal__product-customers-looks{
     display: flex;
-    align-items: center;
     gap: 10px;
     padding-top: 19px;
   }
@@ -1011,18 +1010,16 @@
   const modal = document.querySelector('.product__modal-window');
   const modalTitle = modal.querySelector('.modal__product-title p');
   const modalPrice = modal.querySelector('.modal__product-price');
-  const modalOldPrice = modal.querySelector('.modal__product-old-price'); // Блок для старой цены
+  const modalOldPrice = modal.querySelector('.modal__product-old-price');
   const modalSubtitle = modal.querySelector('.modal__product-metafield-text p');
 
   quickViewButtons.forEach(button => {
     button.addEventListener('click', () => {
-      // Получаем данные из атрибутов data-
       const productTitle = button.dataset.productTitle;
       const productPrice = button.dataset.productPrice;
-      const productOldPrice = button.dataset.productOldPrice; // Получаем старую цену
+      const productOldPrice = button.dataset.productOldPrice;
       const productSubtitle = button.dataset.productSubtitle;
 
-      // Устанавливаем данные в соответствующие элементы модального окна
       modalTitle.textContent = productTitle;
 
       const formattedPrice = `$${(parseInt(productPrice, 10) / 100).toFixed(2)}`;
@@ -1031,9 +1028,9 @@
       if (productOldPrice) {
         const formattedOldPrice = `$${(parseInt(productOldPrice, 10) / 100).toFixed(2)}`;
         modalOldPrice.textContent = formattedOldPrice;
-        modalOldPrice.style.display = 'block'; // Показываем блок, если старая цена есть
+        modalOldPrice.style.display = 'block';
       } else {
-        modalOldPrice.style.display = 'none'; // Скрываем блок, если старой цены нет
+        modalOldPrice.style.display = 'none';
       }
 
       modalSubtitle.textContent =
