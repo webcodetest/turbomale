@@ -544,7 +544,9 @@ text-transform: uppercase;
       {% if collections['Extenders'] and collections['Extenders'].products.size > 0 %}
         {% for product in collections['Extenders'].products %}
           <div class="swiper-slide">
-            <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
+            {% comment %}
+            <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">              
+            {% endcomment %}
           </div>
         {% endfor %}
       {% endif %}
