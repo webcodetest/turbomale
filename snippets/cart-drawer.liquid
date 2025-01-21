@@ -1112,90 +1112,98 @@
           attributes: true,
         });
 
-        setInterval(function(){
-    if(document.querySelector(".also-like-swiper")){
-      
-      const observerTarget = document.querySelector(".cart-drawer-wrapper");
-      function initializeSwiper() {
-      
-        const swiperElement = document.querySelector(".also-like-swiper");
+setInterval(function () {
+  // Проверка существования ".also-like-swiper"
+  if (document.querySelector(".also-like-swiper")) {
+    const observerTarget = document.querySelector(".cart-drawer-wrapper");
+    if (!observerTarget) return;
 
-        if (!swiperElement || swiperElement.classList.contains("swiper-initialized")) {
-          return;
-        }
+    function initializeSwiper() {
+      const swiperElement = document.querySelector(".also-like-swiper");
 
-        new Swiper(".also-like-swiper", {
-          navigation: {
-            nextEl: ".next-arrow",
-            prevEl: ".prev-arrow",
-          },
-        });
-
-
-        }
-
-      const observer = new MutationObserver((mutationsList) => {
-        for (const mutation of mutationsList) {
-          if (mutation.type === "childList") {
-            if (document.querySelector(".also-like-swiper")) {
-              initializeSwiper();
-              observer.disconnect();
-              break;
-            }
-          }
-
-            }
-      });
-
-      observer.observe(observerTarget, {
-        childList: true,
-        subtree: true,
-      });
-
-       if (document.querySelector(".also-like-swiper")) {
-        initializeSwiper();
-      } else {
-        checkAndInitializeSwiper();
+      if (!swiperElement || swiperElement.classList.contains("swiper-initialized")) {
+        return;
       }
 
+      // Инициализация Swiper
+      new Swiper(".also-like-swiper", {
+        navigation: {
+          nextEl: ".next-arrow",
+          prevEl: ".prev-arrow",
+        },
+      });
+
+      // Пометка элемента как инициализированного
+      swiperElement.classList.add("swiper-initialized");
     }
 
-  if(document.querySelector(".card-drawer__middle-swiper-item")){
-
-    const observerTarget = document.querySelector(".cart-drawer-wrapper");
-      function initializeSwiper() {
-      
-        const swiperElement = document.querySelector(".card-drawer__middle-swiper-item");
-
-        if (!swiperElement || swiperElement.classList.contains("swiper-initialized")) {
-          return;
+    const observer = new MutationObserver((mutationsList) => {
+      for (const mutation of mutationsList) {
+        if (mutation.type === "childList") {
+          if (document.querySelector(".also-like-swiper")) {
+            initializeSwiper();
+            observer.disconnect(); // Останавливаем наблюдение
+            break;
+          }
         }
-    
-    var swiper = new Swiper(".mySwiper", {
-      navigation: {
-        nextEl: ".",
-        prevEl: ".",
-      },
+      }
     });
 
-      }
- const observer = new MutationObserver((mutationsList) => {
-        for (const mutation of mutationsList) {
-          if (mutation.type === "childList") {
-            if (document.querySelector(".card-drawer__middle-swiper-item")) {
-              initializeSwiper();
-              observer.disconnect();
-              break;
-            }
-          }
+    observer.observe(observerTarget, {
+      childList: true,
+      subtree: true,
+    });
 
-            }
-      });
-    
+    // Инициализация Swiper, если элемент уже существует
+    initializeSwiper();
   }
 
-  },200
-)
+  // Проверка существования ".card-drawer__middle-swiper-item"
+  if (document.querySelector(".card-drawer__middle-swiper-item")) {
+    const observerTarget = document.querySelector(".cart-drawer-wrapper");
+    if (!observerTarget) return;
+
+    function initializeSwiper() {
+      const swiperElement = document.querySelector(".card-drawer__middle-swiper-item");
+
+      if (!swiperElement || swiperElement.classList.contains("swiper-initialized")) {
+        return;
+      }
+
+      // Инициализация Swiper
+      new Swiper(".mySwiper", {
+        navigation: {
+          nextEl: ".next-arrow",
+          prevEl: ".prev-arrow",
+        },
+      });
+
+      // Пометка элемента как инициализированного
+      swiperElement.classList.add("swiper-initialized");
+    }
+
+    const observer = new MutationObserver((mutationsList) => {
+      for (const mutation of mutationsList) {
+        if (mutation.type === "childList") {
+          if (document.querySelector(".card-drawer__middle-swiper-item")) {
+            initializeSwiper();
+            observer.disconnect(); // Останавливаем наблюдение
+            break;
+          }
+        }
+      }
+    });
+
+    observer.observe(observerTarget, {
+      childList: true,
+      subtree: true,
+    });
+
+    // Инициализация Swiper, если элемент уже существует
+    initializeSwiper();
+  }
+}, 200);
+
 
 
 
