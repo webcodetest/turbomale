@@ -565,7 +565,8 @@ text-transform: uppercase;
                 {{ product.title }}
               </a>
               <div class="slide-product__item-prices">
-                {{ product.compare_at_price | money_with_currency }}
+                <div class="slide-product__item-prices__new-price">{{ product.price | money_with_currency }}</div>
+                <div class="slide-product__item-prices__old-price">{{ product.compare_at_price | money_with_currency }}</div>
               </div>
             </div>
           </div>
