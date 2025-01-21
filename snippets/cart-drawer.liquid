@@ -1184,97 +1184,46 @@ text-transform: uppercase;
         });
 
         setInterval(function(){
-    if(document.querySelector(".also-like-swiper")){
-      
-      const observerTarget = document.querySelector(".cart-drawer-wrapper");
-      function initializeSwiper(selector, navigationNext, navigationPrev) {
-      
-        const swiperElement = document.querySelector(selector);
+ function initializeSwiper(selector, navigationNext, navigationPrev, options = {}) {
+  const swiperElement = document.querySelector(selector);
 
-        if (!swiperElement || swiperElement.classList.contains("swiper-initialized")) {
-          return;
-        }
-
-        new Swiper(selector, {
-          navigation: {
-            nextEl: navigationNext,
-            prevEl: navigationPrev,
-          },
-        });
-
-
-        }
-
-      const observer = new MutationObserver((mutationsList) => {
-        for (const mutation of mutationsList) {
-          if (mutation.type === "childList") {
-            if (document.querySelector(".also-like-swiper")) {
-              initializeSwiper();
-              observer.disconnect();
-              break;
-            }
-          }
-
-            }
-      });
-
-      observer.observe(observerTarget, {
-        childList: true,
-        subtree: true,
-      });
-
-       if (document.querySelector(".also-like-swiper")) {
-        initializeSwiper();
-      } else {
-        checkAndInitializeSwiper();
-      }
-
-    }
-
-  if(document.querySelector(".card-drawer__middle-swiper-item")){
-
-    function initializeSwiper(selector, navigationNext, navigationPrev) {
-    const swiperElement = document.querySelector(selector);
-
-    if (!swiperElement || swiperElement.classList.contains("swiper-initialized")) {
-      return;
-    }
-
-    new Swiper(selector, {
-      slidesPerView: 3,
-      spaceBetween: 15,
-      navigation: {
-        nextEl: navigationNext,
-        prevEl: navigationPrev,
-      },
-    });
+  if (!swiperElement || swiperElement.classList.contains("swiper-initialized")) {
+    return;
   }
 
-  // Объект для наблюдения
-  const observerTarget = document.querySelector(".cart-drawer-wrapper");
+  new Swiper(selector, {
+    slidesPerView: options.slidesPerView || 1, // Значение по умолчанию
+    spaceBetween: options.spaceBetween || 0, // Значение по умолчанию
+    navigation: {
+      nextEl: navigationNext,
+      prevEl: navigationPrev,
+    },
+    ...options.extraOptions, // Дополнительные настройки
+  });
+}
 
-  if (observerTarget) {
-    const observer = new MutationObserver(() => {
-      initializeSwiper(".card-drawer__middle-swiper-item");
-      initializeSwiper(".also-like-swiper");
-    });
+// Пример вызова с индивидуальными параметрами
+initializeSwiper(".also-like-swiper", ".also-like-swiper-right", ".also-like-swiper-left", {
+  slidesPerView: 3,
+  spaceBetween: 15,
+});
 
-    observer.observe(observerTarget, {
-      childList: true,
-      subtree: true,
-    });
-  }
-
-initializeSwiper(".also-like-swiper", ".next-arrow", ".prev-arrow");
-
-// Для слайдера "card-drawer__middle-swiper-item"
 initializeSwiper(
   ".card-drawer__middle-swiper-item",
-  ".swiper__right-arr",
-  ".swiper__left-arr"
-);
-    
+  ".card-drawer-swiper-right",
+  ".card-drawer-swiper-left",
+  {
+    slidesPerView: 1,
+    spaceBetween: 5,
+    extraOptions: {
+      loop: true,
+      autoplay: {
+        delay: 5000,
+      },
+    },
   }
+);
+
 
   },200
 )
