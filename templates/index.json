@@ -1272,43 +1272,36 @@
         "faq_Xc88Nh": {
           "type": "faq",
           "settings": {
-            "item_title": "Is it true that the “Titan Gel” cream can enlarge the penis?",
-            "item_text": "One tube (package) is enough for 1 week. We recommend ordering for a full monthly course to get maximum result."
+            "item_title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+            "item_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."
           }
         },
         "faq_rPt4DY": {
           "type": "faq",
           "settings": {
-            "item_title": "How long does a tube last?",
-            "item_text": "One tube (package) is enough for 1 week. We recommend ordering for a full monthly course to get maximum result."
+            "item_title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+            "item_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."
           }
         },
         "faq_yJ69hh": {
           "type": "faq",
           "settings": {
-            "item_title": "Can one package be effective enough?",
-            "item_text": "One tube (package) is enough for 1 week. We recommend ordering for a full monthly course to get maximum result."
+            "item_title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+            "item_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."
           }
         },
         "faq_FdrYzy": {
           "type": "faq",
           "settings": {
-            "item_title": "Can one package be effective enough?",
-            "item_text": "One tube (package) is enough for 1 week. We recommend ordering for a full monthly course to get maximum result."
+            "item_title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+            "item_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."
           }
         },
         "faq_fyGQmG": {
           "type": "faq",
           "settings": {
-            "item_title": "How many packages are needed to get maximum effect?",
-            "item_text": "One tube (package) is enough for 1 week. We recommend ordering for a full monthly course to get maximum result."
-          }
-        },
-        "faq_J8LENg": {
-          "type": "faq",
-          "settings": {
-            "item_title": "By how many centimeters will the penis enlarge?",
-            "item_text": "One tube (package) is enough for 1 week. We recommend ordering for a full monthly course to get maximum result."
+            "item_title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+            "item_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."
           }
         }
       },
@@ -1317,8 +1310,7 @@
         "faq_rPt4DY",
         "faq_yJ69hh",
         "faq_FdrYzy",
-        "faq_fyGQmG",
-        "faq_J8LENg"
+        "faq_fyGQmG"
       ],
       "settings": {
         "title": "Frequently Asked Questions",
