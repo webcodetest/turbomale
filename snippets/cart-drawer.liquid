@@ -1213,7 +1213,7 @@ text-transform: uppercase;
 
   if(document.querySelector(".card-drawer__middle-swiper-item")){
 
-    function initializeSwiper(selector) {
+    function initializeSwiper(selector, navigationNext, navigationPrev) {
     const swiperElement = document.querySelector(selector);
 
     if (!swiperElement || swiperElement.classList.contains("swiper-initialized")) {
@@ -1222,8 +1222,8 @@ text-transform: uppercase;
 
     new Swiper(selector, {
       navigation: {
-        nextEl: ".swiper__right-arr",
-        prevEl: ".swiper__left-arr",
+        nextEl: navigationNext,
+        prevEl: navigationPrev,
       },
     });
   }
@@ -1243,9 +1243,14 @@ text-transform: uppercase;
     });
   }
 
-  // Дополнительно инициализируем, если элементы уже в DOM
-  initializeSwiper(".card-drawer__middle-swiper-item");
-  initializeSwiper(".also-like-swiper");
+initializeSwiper(".also-like-swiper", ".also-like-swiper-right", ".also-like-swiper-left");
+
+// Для слайдера "card-drawer__middle-swiper-item"
+initializeSwiper(
+  ".card-drawer__middle-swiper-item",
+  ".swiper__right-arr",
+  ".swiper__left-arr"
+);
     
   }
 
