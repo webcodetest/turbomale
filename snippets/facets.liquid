@@ -1069,50 +1069,25 @@
       step: 1,
     });
 
-  const minPriceInput = document.getElementById("Filter-Price-GTE");
-  const maxPriceInput = document.getElementById("Filter-Price-LTE");
+    var minPriceInput = document.getElementById("Filter-Price-GTE");
+    var maxPriceInput = document.getElementById("Filter-Price-LTE");
 
-  // Флаг для предотвращения циклического обновления
-  let isUpdatingSlider = false;
-  let isUpdatingInput = false;
-
-  // Обновляем поля ввода при изменении слайдера
   noUiSliderItem.noUiSlider.on("update", function (values, handle) {
-    if (isUpdatingInput) return; // Предотвращение цикла при обновлении из поля ввода
-    isUpdatingSlider = true;
-
     if (handle === 0) {
       minPriceInput.value = parseFloat(values[0]).toFixed(2);
     } else if (handle === 1) {
       maxPriceInput.value = parseFloat(values[1]).toFixed(2);
     }
-
-    isUpdatingSlider = false;
   });
 
   // Обновляем слайдер при изменении текстовых полей
   minPriceInput.addEventListener("change", function () {
-    if (isUpdatingSlider) return; // Предотвращение цикла при обновлении из слайдера
-    isUpdatingInput = true;
-
     noUiSliderItem.noUiSlider.set([this.value || 0, null]);
-
-    // Имитация события изменения для обновления фильтров Shopify
-    this.dispatchEvent(new Event("input", { bubbles: true }));
-    isUpdatingInput = false;
   });
 
   maxPriceInput.addEventListener("change", function () {
-    if (isUpdatingSlider) return; // Предотвращение цикла при обновлении из слайдера
-    isUpdatingInput = true;
-
     noUiSliderItem.noUiSlider.set([null, this.value || 500]);
-
-    // Имитация события изменения для обновления фильтров Shopify
-    this.dispatchEvent(new Event("input", { bubbles: true }));
-    isUpdatingInput = false;
   });
-});
 
   });
 
