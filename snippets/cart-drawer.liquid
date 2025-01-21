@@ -498,6 +498,21 @@
 
   <div class="swiper card-drawer__middle-swiper-item">
     <div class="swiper-wrapper">
+      <div class="card-drawer__middle-swiper__head__wrap">
+        <h3 class="card-drawer__middle-swiper__heading">people also bought</h3>
+        <div class="swiper__navigation-arrows">
+          <div class="swiper__left-arr">
+            <svg xmlns="http://www.w3.org/2000/svg" width="59" height="59" viewBox="0 0 59 59" fill="none">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M25.5097 29.012L35 20.9588L33.7382 19L22 29.0487L33.7099 39L34.9717 37.0412L25.5097 29.012Z" fill="#60AC22" style="fill:#60AC22;fill:color(display-p3 0.3768 0.6749 0.1322);fill-opacity:1;"/>
+            </svg>
+          </div>
+          <div class="swiper__right-arr">
+            <svg xmlns="http://www.w3.org/2000/svg" width="59" height="59" viewBox="0 0 59 59" fill="none">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M33.4903 29.012L24 20.9588L25.2618 19L37 29.0487L25.2901 39L24.0283 37.0412L33.4903 29.012Z" fill="#60AC22" style="fill:#60AC22;fill:color(display-p3 0.3768 0.6749 0.1322);fill-opacity:1;"/>
+            </svg>
+          </div>
+        </div>
+      </div>
       {% if collections['Extenders'] and collections['Extenders'].products.size > 0 %}
         {% for product in collections['Extenders'].products %}
           <div class="swiper-slide">
