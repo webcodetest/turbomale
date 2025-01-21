@@ -1189,7 +1189,7 @@ text-transform: uppercase;
       const observerTarget = document.querySelector(".cart-drawer-wrapper");
       function initializeSwiper(selector, navigationNext, navigationPrev) {
       
-        const swiperElement = document.querySelector(".also-like-swiper");
+        const swiperElement = document.querySelector(selector);
 
         if (!swiperElement || swiperElement.classList.contains("swiper-initialized")) {
           return;
