@@ -1082,12 +1082,12 @@
 
     // Обновляем слайдер при изменении текстовых полей
     minPriceInput.addEventListener("change", function () {
-      minPriceInput.dispatchEvent(new Event("keydown"));
+      minPriceInput.dispatchEvent(new Event("change"));
       noUiSliderItem.noUiSlider.set([this.value || 0, null]);
     });
 
     maxPriceInput.addEventListener("change", function () {
-      maxPriceInput.dispatchEvent(new Event("keydown"));
+      maxPriceInput.dispatchEvent(new Event("change"));
       noUiSliderItem.noUiSlider.set([null, this.value || 500]);
     });
 
