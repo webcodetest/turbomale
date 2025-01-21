@@ -1167,7 +1167,7 @@ text-transform: uppercase;
     if(document.querySelector(".also-like-swiper")){
       
       const observerTarget = document.querySelector(".cart-drawer-wrapper");
-      function initializeSwiper() {
+      function initializeSwiper(selector, navigationNext, navigationPrev) {
       
         const swiperElement = document.querySelector(".also-like-swiper");
 
@@ -1177,8 +1177,8 @@ text-transform: uppercase;
 
         new Swiper(".also-like-swiper", {
           navigation: {
-            nextEl: ".next-arrow",
-            prevEl: ".prev-arrow",
+            nextEl: navigationNext,
+            prevEl: navigationPrev,
           },
         });
 
@@ -1243,7 +1243,7 @@ text-transform: uppercase;
     });
   }
 
-initializeSwiper(".also-like-swiper", ".also-like-swiper-right", ".also-like-swiper-left");
+initializeSwiper(".also-like-swiper", ".next-arrow", ".prev-arrow");
 
 // Для слайдера "card-drawer__middle-swiper-item"
 initializeSwiper(
