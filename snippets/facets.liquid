@@ -1097,7 +1097,7 @@
 
   maxPriceInput.addEventListener("change", function () {
     noUiSliderItem.noUiSlider.set([null, this.value || 500]);
-    minPriceInput.dispatchEvent(new Event("change", { bubbles: true }));
+    maxPriceInput.dispatchEvent(new Event("change", { bubbles: true }));
   });
 
   });
