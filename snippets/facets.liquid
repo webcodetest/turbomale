@@ -1072,7 +1072,14 @@
     var minPriceInput = document.getElementById("Filter-Price-GTE");
     var maxPriceInput = document.getElementById("Filter-Price-LTE");
 
+    let isUpdatingSlider = false;
+    let isUpdatingInput = false;
+
   noUiSliderItem.noUiSlider.on("update", function (values, handle) {
+
+    if (isUpdatingInput) return;
+    isUpdatingSlider = true;
+
     if (handle === 0) {
       minPriceInput.value = parseFloat(values[0]).toFixed(2);
     } else if (handle === 1) {
