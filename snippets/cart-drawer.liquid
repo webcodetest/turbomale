@@ -1187,7 +1187,7 @@ text-transform: uppercase;
     if(document.querySelector(".also-like-swiper")){
       
       const observerTarget = document.querySelector(".cart-drawer-wrapper");
-      function initializeSwiper(selector, navigationNext, navigationPrev) {
+      function initializeSwiperSecondary(selector, navigationNext, navigationPrev) {
       
         const swiperElement = document.querySelector(selector);
 
@@ -1233,7 +1233,7 @@ text-transform: uppercase;
 
   if(document.querySelector(".card-drawer__middle-swiper-item")){
 
-    function initializeSwiper(selector, navigationNext, navigationPrev) {
+    function initializeSwiperMain(selector, navigationNext, navigationPrev) {
     const swiperElement = document.querySelector(selector);
 
     if (!swiperElement || swiperElement.classList.contains("swiper-initialized")) {
@@ -1265,10 +1265,10 @@ text-transform: uppercase;
     });
   }
 
-initializeSwiper(".also-like-swiper", ".next-arrow", ".prev-arrow");
+initializeSwiperSecondary(".also-like-swiper", ".next-arrow", ".prev-arrow");
 
 // Для слайдера "card-drawer__middle-swiper-item"
-initializeSwiper(
+initializeSwiperMain(
   ".card-drawer__middle-swiper-item",
   ".swiper__right-arr",
   ".swiper__left-arr"
