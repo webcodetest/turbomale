@@ -1163,51 +1163,99 @@ text-transform: uppercase;
           attributes: true,
         });
 
-setInterval(function () {
-  if (document.querySelector(".also-like-swiper")) {
-    const observerTarget = document.querySelector(".cart-drawer-wrapper");
+        setInterval(function(){
+    if(document.querySelector(".also-like-swiper")){
+      
+      const observerTarget = document.querySelector(".cart-drawer-wrapper");
+      function initializeSwiper(selector, navigationNext, navigationPrev) {
+      
+        const swiperElement = document.querySelector(".also-like-swiper");
 
-    function initializeSwiper(selector, navigationNext, navigationPrev) {
-      const swiperElement = document.querySelector(selector);
+        if (!swiperElement || swiperElement.classList.contains("swiper-initialized")) {
+          return;
+        }
 
-      if (!swiperElement || swiperElement.classList.contains("swiper-initialized")) {
-        return;
-      }
+        new Swiper(selector, {
+          navigation: {
+            nextEl: navigationNext,
+            prevEl: navigationPrev,
+          },
+        });
 
-      new Swiper(selector, {
-        navigation: {
-          nextEl: navigationNext,
-          prevEl: navigationPrev,
-        },
-      });
-    }
 
-    if (observerTarget) {
-      const observer = new MutationObserver(() => {
-        initializeSwiper(".also-like-swiper", ".also-like-swiper-right", ".also-like-swiper-left");
-        initializeSwiper(
-          ".card-drawer__middle-swiper-item",
-          ".card-drawer-swiper-right",
-          ".card-drawer-swiper-left"
-        );
+        }
+
+      const observer = new MutationObserver((mutationsList) => {
+        for (const mutation of mutationsList) {
+          if (mutation.type === "childList") {
+            if (document.querySelector(".also-like-swiper")) {
+              initializeSwiper();
+              observer.disconnect();
+              break;
+            }
+          }
+
+            }
       });
 
       observer.observe(observerTarget, {
         childList: true,
         subtree: true,
       });
+
+       if (document.querySelector(".also-like-swiper")) {
+        initializeSwiper();
+      } else {
+        checkAndInitializeSwiper();
+      }
+
     }
 
-    // Инициализация слайдеров, если элементы уже присутствуют
-    initializeSwiper(".also-like-swiper", ".also-like-swiper-right", ".also-like-swiper-left");
-    initializeSwiper(
-      ".card-drawer__middle-swiper-item",
-      ".card-drawer-swiper-right",
-      ".card-drawer-swiper-left"
-    );
-  }
-}, 200)
+  if(document.querySelector(".card-drawer__middle-swiper-item")){
 
+    function initializeSwiper(selector, navigationNext, navigationPrev) {
+    const swiperElement = document.querySelector(selector);
+
+    if (!swiperElement || swiperElement.classList.contains("swiper-initialized")) {
+      return;
+    }
+
+    new Swiper(selector, {
+      navigation: {
+        nextEl: navigationNext,
+        prevEl: navigationPrev,
+      },
+    });
+  }
+
+  // Объект для наблюдения
+  const observerTarget = document.querySelector(".cart-drawer-wrapper");
+
+  if (observerTarget) {
+    const observer = new MutationObserver(() => {
+      initializeSwiper(".card-drawer__middle-swiper-item");
+      initializeSwiper(".also-like-swiper");
+    });
+
+    observer.observe(observerTarget, {
+      childList: true,
+      subtree: true,
+    });
+  }
+
+initializeSwiper(".also-like-swiper", ".next-arrow", ".prev-arrow");
+
+// Для слайдера "card-drawer__middle-swiper-item"
+initializeSwiper(
+  ".card-drawer__middle-swiper-item",
+  ".swiper__right-arr",
+  ".swiper__left-arr"
+);
+    
+  }
+
+  },200
+)
 
 
 
