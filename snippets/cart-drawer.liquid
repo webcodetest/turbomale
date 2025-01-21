@@ -1221,7 +1221,10 @@ text-transform: uppercase;
     }
 
     new Swiper(selector, {
-
+      navigation: {
+        nextEl: ".swiper__right-arr",
+        prevEl: ".swiper__left-arr",
+      },
     });
   }
 
