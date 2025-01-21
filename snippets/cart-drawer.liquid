@@ -1095,54 +1095,58 @@
           attributes: true,
         });
 
-        const sliderContainer = document.querySelector('.slider-container');
-        const prevArrow = document.querySelector('.prev-arrow');
-        const nextArrow = document.querySelector('.next-arrow');
-        const slides = document.querySelectorAll('.product-item');
+        setInterval(function(){
+    if(document.querySelector(".also-like-swiper")){
+      
+      const observerTarget = document.querySelector(".cart-drawer-wrapper");
+      function initializeSwiper() {
+      
+        const swiperElement = document.querySelector(".also-like-swiper");
 
-        if (!sliderContainer || !prevArrow || !nextArrow || slides.length === 0) {
-          console.error("Не удалось найти элементы слайдера.");
+        if (!swiperElement || swiperElement.classList.contains("swiper-initialized")) {
           return;
         }
 
-        let offset = 0;
-        const slideWidth = slides[0].offsetWidth + 16;
-
-        const observerOptions = {
-          root: sliderContainer.parentElement,
-          threshold: 0.5,
-        };
-
-        const observerCallback = (entries) => {
-          entries.forEach((entry) => {
-            if (entry.target === slides[0]) {
-              prevArrow.style.display = entry.isIntersecting ? 'none' : 'block';
-            }
-
-            if (entry.target === slides[slides.length - 1]) {
-              nextArrow.style.display = entry.isIntersecting ? 'none' : 'block';
-            }
-          });
-        };
-
-        const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-        observer.observe(slides[0]);
-        observer.observe(slides[slides.length - 1]);
-
-        prevArrow.addEventListener('click', () => {
-          if (offset > 0) {
-            offset -= slideWidth;
-            sliderContainer.style.transform = `translateX(-${offset}px)`;
-          }
+        new Swiper(".also-like-swiper", {
+          navigation: {
+            nextEl: ".next-arrow",
+            prevEl: ".prev-arrow",
+          },
         });
 
-        nextArrow.addEventListener('click', () => {
-          if (offset < sliderContainer.scrollWidth - sliderContainer.clientWidth) {
-            offset += slideWidth;
-            sliderContainer.style.transform = `translateX(-${offset}px)`;
+
+        }
+
+      const observer = new MutationObserver((mutationsList) => {
+        for (const mutation of mutationsList) {
+          if (mutation.type === "childList") {
+            if (document.querySelector(".also-like-swiper")) {
+              initializeSwiper();
+              observer.disconnect();
+              break;
+            }
           }
-        });
+
+            }
+      });
+
+      observer.observe(observerTarget, {
+        childList: true,
+        subtree: true,
+      });
+
+       if (document.querySelector(".also-like-swiper")) {
+        initializeSwiper();
+      } else {
+        checkAndInitializeSwiper();
+      }
+
+    }
+  },200
+)
+
+
+
       });
 
     </script>
