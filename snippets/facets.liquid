@@ -1072,13 +1072,13 @@
     var minPriceInput = document.getElementById("Filter-Price-GTE");
     var maxPriceInput = document.getElementById("Filter-Price-LTE");
 
-    let isUpdatingSlider = false;
-    let isUpdatingInput = false;
+    // let isUpdatingSlider = false;
+    // let isUpdatingInput = false;
 
   noUiSliderItem.noUiSlider.on("update", function (values, handle) {
 
-    if (isUpdatingInput) return;
-    isUpdatingSlider = true;
+    // if (isUpdatingInput) return;
+    // isUpdatingSlider = true;
 
     if (handle === 0) {
       minPriceInput.value = parseFloat(values[0]).toFixed(2);
@@ -1086,7 +1086,7 @@
       maxPriceInput.value = parseFloat(values[1]).toFixed(2);
     }
     
-    isUpdatingSlider = false;
+    // isUpdatingSlider = false;
   });
 
   // Обновляем слайдер при изменении текстовых полей
