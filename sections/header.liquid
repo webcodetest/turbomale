@@ -421,7 +421,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const cartCountElement = document.querySelector(".cart-item-count");
     
   function updateCartCount() {
-    fetch('/cart/add.js')
+    fetch('/cart.js')
       .then(response => response.json())
       .then(cart => {
         // Обновляем количество товаров в корзине
