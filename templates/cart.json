@@ -15,7 +15,7 @@
         "basket_icons_CVMgAw": {
           "type": "basket_icons",
           "settings": {
-            "image": "shopify:\/\/shop_images\/adventages1.svg",
+            "image": "shopify://shop_images/adventages1.svg",
             "image_alt": "",
             "text": "Premium Quality & Effectiveness"
           }
@@ -23,7 +23,7 @@
         "basket_icons_XcC8f9": {
           "type": "basket_icons",
           "settings": {
-            "image": "shopify:\/\/shop_images\/adventages2.svg",
+            "image": "shopify://shop_images/adventages2.svg",
             "image_alt": "",
             "text": "Body-safe Materials"
           }
@@ -31,7 +31,7 @@
         "basket_icons_d6MfgJ": {
           "type": "basket_icons",
           "settings": {
-            "image": "shopify:\/\/shop_images\/adventages3.svg",
+            "image": "shopify://shop_images/adventages3.svg",
             "image_alt": "",
             "text": "Free Shipping From 100$"
           }
@@ -39,7 +39,7 @@
         "basket_icons_iKa8Mt": {
           "type": "basket_icons",
           "settings": {
-            "image": "shopify:\/\/shop_images\/svg_1.svg",
+            "image": "shopify://shop_images/svg_1.svg",
             "image_alt": "",
             "text": "100% Secure Сheckout"
           }
@@ -58,8 +58,12 @@
         "shipping_popap_bottom_text1": "Express shipping",
         "shipping_popap_bottom_text2": "Estimated 4-6 working days",
         "shipping_popap_bottom_text_price": "$34.99",
-        "basket_payments": "shopify:\/\/shop_images\/basket-payments.webp",
-        "basket_verified": "shopify:\/\/shop_images\/basket-bottom.webp"
+        "basket_payments1": "shopify://shop_images/Version_Logo.svg",
+        "basket_payments2": "shopify://shop_images/Version_Logo_1.svg",
+        "basket_payments3": "shopify://shop_images/Amex_e680f3ec-de57-4844-93f8-7ac49a48031f.svg",
+        "basket_payments4": "shopify://shop_images/Paypal_fbe39c59-fb90-4354-ba12-88b8153cebd9.svg",
+        "basket_payments5": "shopify://shop_images/ApplePay.svg",
+        "basket_verified": "shopify://shop_images/basket-bottom.webp"
       }
     },
     "cart-items": {
