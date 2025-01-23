@@ -1019,6 +1019,7 @@
   const modalOldPrice = modal.querySelector('.modal__product-old-price');
   const modalSubtitle = modal.querySelector('.modal__product-metafield-text p');
   const modalDescription = modal.querySelector('.modal__product-description');
+  const modalWindow = document.querySelector('.product__modal-window');
 
   quickViewButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -1027,6 +1028,8 @@
       const productOldPrice = button.dataset.productOldPrice;
       const productSubtitle = button.dataset.productSubtitle;
       const productDescription = button.dataset.productDescription;
+
+      modalWindow.classList.remove("removed");
 
       modalTitle.textContent = productTitle;
 
