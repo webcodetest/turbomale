@@ -1216,7 +1216,7 @@ line-height: normal;
                 <path d="M19.0771 5.04279C18.8762 4.53703 18.4827 4.13169 17.9831 3.91579C17.7386 3.81123 17.4755 3.75732 17.2096 3.75732C16.9437 3.75732 16.6806 3.81123 16.4361 3.91579H16.4291L5.72112 8.71779C5.66703 8.74194 5.60819 8.75358 5.54897 8.75185C5.48976 8.75012 5.4317 8.73506 5.37912 8.70779L3.45712 7.71779C3.35221 7.66469 3.23688 7.63537 3.11935 7.63191C3.00181 7.62845 2.88496 7.65095 2.77712 7.69779L0.669116 8.62779C0.546569 8.68213 0.439381 8.76595 0.357116 8.87179C0.273225 8.97865 0.216335 9.10415 0.191268 9.23767C0.1662 9.37119 0.173695 9.50879 0.213116 9.63879C0.252116 9.76879 0.321116 9.88879 0.415116 9.98479L3.44412 13.1048C3.55375 13.2201 3.69582 13.2995 3.85152 13.3323C4.00722 13.3652 4.16923 13.35 4.31612 13.2888L8.85912 11.4158C8.89548 11.4003 8.93571 11.3961 8.97447 11.404C9.01322 11.4119 9.04867 11.4313 9.07612 11.4598C9.10439 11.4884 9.12385 11.5245 9.13218 11.5639C9.14052 11.6033 9.13737 11.6442 9.12312 11.6818L7.54112 16.0318C7.48488 16.1882 7.47537 16.3576 7.51372 16.5194C7.55207 16.6811 7.63664 16.8283 7.75712 16.9428C7.87601 17.0548 8.02677 17.1271 8.18854 17.1497C8.35032 17.1722 8.5151 17.144 8.66012 17.0688L10.8521 15.9408C11.0109 15.859 11.1387 15.7277 11.2161 15.5668L14.2481 9.31679C14.293 9.22344 14.3716 9.15056 14.4681 9.11279L17.9831 7.76279C18.4825 7.54713 18.8759 7.14218 19.0771 6.63679C19.2824 6.12495 19.2824 5.55363 19.0771 5.04179V5.04279Z" fill="black" style="fill:black;fill-opacity:1;"/>
               </svg>
             </span>
-            <span>Get it between <span id='days-range'></span></span>
+            <span>Get it in 5-7 days</span>
           </div>
 
         </div>
@@ -1248,45 +1248,45 @@ line-height: normal;
       <script>
 
       document.addEventListener('DOMContentLoaded', () => {
-        console.log("test");
+        // console.log("test");
 
-        function formatDate(date) {
-          const options = { day: '2-digit', month: 'long' };
-          return date.toLocaleDateString('en-US', options);
-        }
+        // function formatDate(date) {
+        //   const options = { day: '2-digit', month: 'long' };
+        //   return date.toLocaleDateString('en-US', options);
+        // }
 
-        function updateDateRange() {
-          const currentDate = new Date();
-          const futureDate = new Date(currentDate);
-          futureDate.setDate(currentDate.getDate() + 3);
+        // function updateDateRange() {
+        //   const currentDate = new Date();
+        //   const futureDate = new Date(currentDate);
+        //   futureDate.setDate(currentDate.getDate() + 3);
 
-          const formattedCurrentDate = formatDate(currentDate);
-          const formattedFutureDate = formatDate(futureDate);
+        //   const formattedCurrentDate = formatDate(currentDate);
+        //   const formattedFutureDate = formatDate(futureDate);
 
-          const dateRangeElement = document.getElementById('days-range');
-          if (dateRangeElement) {
-            dateRangeElement.textContent = `${formattedCurrentDate} - ${formattedFutureDate}`;
-          }
-        }
+        //   const dateRangeElement = document.getElementById('days-range');
+        //   if (dateRangeElement) {
+        //     dateRangeElement.textContent = `${formattedCurrentDate} - ${formattedFutureDate}`;
+        //   }
+        // }
 
-        updateDateRange();
+        // updateDateRange();
 
-        const dateObserver = new MutationObserver((mutationsList) => {
-          for (const mutation of mutationsList) {
-            if (mutation.type === 'childList' || mutation.type === 'attributes') {
-              if (document.getElementById('days-range')) {
-                updateDateRange();
-                break;
-              }
-            }
-          }
-        });
+        // const dateObserver = new MutationObserver((mutationsList) => {
+        //   for (const mutation of mutationsList) {
+        //     if (mutation.type === 'childList' || mutation.type === 'attributes') {
+        //       if (document.getElementById('days-range')) {
+        //         updateDateRange();
+        //         break;
+        //       }
+        //     }
+        //   }
+        // });
 
-        dateObserver.observe(document.body, {
-          childList: true,
-          subtree: true,
-          attributes: true,
-        });
+        // dateObserver.observe(document.body, {
+        //   childList: true,
+        //   subtree: true,
+        //   attributes: true,
+        // });
 
         setInterval(function(){
  function initializeSwiper(selector, navigationNext, navigationPrev, options = {}) {
