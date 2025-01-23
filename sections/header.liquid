@@ -416,37 +416,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-
-  document.addEventListener("DOMContentLoaded", function () {
-
-  const cartCountElement = document.querySelector(".cart-item-count");
-    
-  function updateCartCount() {
-    fetch('/cart.js')
-      .then(response => response.json())
-      .then(cart => {
-        // Обновляем количество товаров в корзине
-        cartCountElement.textContent = cart.item_count || 0;
-      })
-      .catch(error => console.error('Ошибка при обновлении количества товаров:', error));
-  }
-
-  // Обновляем количество товаров при загрузке страницы
-  updateCartCount();
-
-  // Пример: вызовите эту функцию после добавления товара в корзину
-  document.addEventListener('cart:updated', updateCartCount);
-
-  // Опционально: Пример для кнопки "Добавить в корзину"
-  document.querySelectorAll('.product-form__submit').forEach(button => {
-    button.addEventListener('click', function (e) {
-      e.preventDefault();
-
-    });
-  });
-});
-
-
   
 });
 
