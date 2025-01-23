@@ -1450,7 +1450,7 @@ shopify-google-pay-button {
                 <div class="additional-checkout-buttons--vertical">
                     {{ content_for_additional_checkout_buttons }}
                 </div>
-                <div class="basket-payments-icons-wrap" style="">
+                <div class="basket-payments-icons-wrap" style="display: flex; flex-wrap: wrap;">
                   {% if section.settings.basket_payments1 %}
                   <img class='custom-basket-right-payments' src='{{ section.settings.basket_payments1 | img_url: 'master' }}' alt='Payments'>
                   {% endif %}
