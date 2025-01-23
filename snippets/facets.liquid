@@ -1072,15 +1072,15 @@
     var minPriceInput = document.getElementById("Filter-Price-GTE");
     var maxPriceInput = document.getElementById("Filter-Price-LTE");
 
-  noUiSliderItem.noUiSlider.on("update", function (values, handle) {
-    if (handle === 0) {
-      minPriceInput.value = parseFloat(values[0]).toFixed(2);
-      minPriceInput.dispatchEvent(new Event("input", { bubbles: true }));
-    } else if (handle === 1) {
-      maxPriceInput.value = parseFloat(values[1]).toFixed(2);
-      maxPriceInput.dispatchEvent(new Event("input", { bubbles: true }));
-    }
-  });
+  // noUiSliderItem.noUiSlider.on("update", function (values, handle) {
+  //   if (handle === 0) {
+  //     minPriceInput.value = parseFloat(values[0]).toFixed(2);
+  //     minPriceInput.dispatchEvent(new Event("input", { bubbles: true }));
+  //   } else if (handle === 1) {
+  //     maxPriceInput.value = parseFloat(values[1]).toFixed(2);
+  //     maxPriceInput.dispatchEvent(new Event("input", { bubbles: true }));
+  //   }
+  // });
 
   minPriceInput.addEventListener("change", function () {
     noUiSliderItem.noUiSlider.set([this.value || 0, null]);
