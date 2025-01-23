@@ -1440,7 +1440,7 @@ shopify-google-pay-button {
                         <path d="M4.92443 5.26901L8.07843 6.61401C8.12825 6.63582 8.18205 6.64708 8.23643 6.64708C8.29082 6.64708 8.34461 6.63582 8.39443 6.61401L11.7524 5.10801C11.7894 5.09181 11.8207 5.06501 11.8424 5.03101C11.8644 4.99669 11.8761 4.95678 11.8761 4.91601C11.8761 4.87524 11.8644 4.83533 11.8424 4.80101C11.8206 4.76738 11.7893 4.74094 11.7524 4.72501L7.47543 2.90401C7.3774 2.86231 7.27196 2.84082 7.16543 2.84082C7.0589 2.84082 6.95346 2.86231 6.85543 2.90401L4.92543 3.73001C4.77661 3.79399 4.65023 3.90088 4.56243 4.03701C4.47324 4.17478 4.42578 4.33539 4.42578 4.49951C4.42578 4.66363 4.47324 4.82425 4.56243 4.96201C4.64997 5.09799 4.77598 5.20486 4.92443 5.26901Z" fill="black" style="fill:black;fill-opacity:1;"/>
                         <path d="M19.0761 5.04279C18.8752 4.53703 18.4817 4.13169 17.9821 3.91579C17.7377 3.81123 17.4745 3.75732 17.2086 3.75732C16.9427 3.75732 16.6796 3.81123 16.4351 3.91579H16.4281L5.72014 8.71779C5.66605 8.74194 5.60721 8.75358 5.548 8.75185C5.48879 8.75012 5.43073 8.73506 5.37814 8.70779L3.45614 7.71779C3.35123 7.66469 3.2359 7.63537 3.11837 7.63191C3.00084 7.62845 2.88399 7.65095 2.77614 7.69779L0.668139 8.62779C0.545593 8.68213 0.438404 8.76595 0.356139 8.87179C0.272249 8.97865 0.215359 9.10415 0.190291 9.23767C0.165224 9.37119 0.172718 9.50879 0.212139 9.63879C0.251139 9.76879 0.320139 9.88879 0.414139 9.98479L3.44314 13.1048C3.55278 13.2201 3.69484 13.2995 3.85054 13.3323C4.00624 13.3652 4.16825 13.35 4.31514 13.2888L8.85814 11.4158C8.8945 11.4003 8.93473 11.3961 8.97349 11.404C9.01225 11.4119 9.0477 11.4313 9.07514 11.4598C9.10341 11.4884 9.12287 11.5245 9.13121 11.5639C9.13954 11.6033 9.13639 11.6442 9.12214 11.6818L7.54014 16.0318C7.48391 16.1882 7.47439 16.3576 7.51274 16.5194C7.55109 16.6811 7.63566 16.8283 7.75614 16.9428C7.87503 17.0548 8.02579 17.1271 8.18757 17.1497C8.34934 17.1722 8.51413 17.144 8.65914 17.0688L10.8511 15.9408C11.0099 15.859 11.1377 15.7277 11.2151 15.5668L14.2471 9.31679C14.2921 9.22344 14.3707 9.15056 14.4671 9.11279L17.9821 7.76279C18.4815 7.54713 18.875 7.14218 19.0761 6.63679C19.2815 6.12495 19.2815 5.55363 19.0761 5.04179V5.04279Z" fill="black" style="fill:black;fill-opacity:1;"/>
                     </svg>
-                    <p>Get it between <span id='date-range'></span></p>
+                    <p>Get it in 5-7 days</p>
                 </div>
                 <div class="custom-basket-checkout">
                     <a href='/checkout' {% if cart == empty %}disabled{% endif %}>
@@ -2047,19 +2047,19 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-function formatDate(date) {
-    const options = { day: '2-digit', month: 'long' };
-    return date.toLocaleDateString('en-US', options);
-  }
+// function formatDate(date) {
+//     const options = { day: '2-digit', month: 'long' };
+//     return date.toLocaleDateString('en-US', options);
+//   }
 
-  const currentDate = new Date();
-  const futureDate = new Date(currentDate);
-  futureDate.setDate(currentDate.getDate() + 3);
+//   const currentDate = new Date();
+//   const futureDate = new Date(currentDate);
+//   futureDate.setDate(currentDate.getDate() + 3);
 
-  const formattedCurrentDate = formatDate(currentDate);
-  const formattedFutureDate = formatDate(futureDate);
+//   const formattedCurrentDate = formatDate(currentDate);
+//   const formattedFutureDate = formatDate(futureDate);
 
-  document.getElementById('date-range').textContent = `${formattedCurrentDate} - ${formattedFutureDate}`;
+//   document.getElementById('date-range').textContent = `${formattedCurrentDate} - ${formattedFutureDate}`;
 </script>
 {% schema %}
   {
