@@ -1450,21 +1450,23 @@ shopify-google-pay-button {
                 <div class="additional-checkout-buttons--vertical">
                     {{ content_for_additional_checkout_buttons }}
                 </div>
-                {% if section.settings.basket_payments1 %}
-                <img class='custom-basket-right-payments' src='{{ section.settings.basket_payments1 | img_url: 'master' }}' alt='Payments'>
-                {% endif %}
-                {% if section.settings.basket_payments2 %}
-                <img class='custom-basket-right-payments' src='{{ section.settings.basket_payments2 | img_url: 'master' }}' alt='Payments'>
-                {% endif %}
-                {% if section.settings.basket_payments3 %}
-                <img class='custom-basket-right-payments' src='{{ section.settings.basket_payments3 | img_url: 'master' }}' alt='Payments'>
-                {% endif %}
-                {% if section.settings.basket_payments4 %}
-                <img class='custom-basket-right-payments' src='{{ section.settings.basket_payments4 | img_url: 'master' }}' alt='Payments'>
-                {% endif %}
-                {% if section.settings.basket_payments5 %}
-                <img class='custom-basket-right-payments' src='{{ section.settings.basket_payments5 | img_url: 'master' }}' alt='Payments'>
-                {% endif %}
+                <div class="basket-payments-icons-wrap" style="">
+                  {% if section.settings.basket_payments1 %}
+                  <img class='custom-basket-right-payments' src='{{ section.settings.basket_payments1 | img_url: 'master' }}' alt='Payments'>
+                  {% endif %}
+                  {% if section.settings.basket_payments2 %}
+                  <img class='custom-basket-right-payments' src='{{ section.settings.basket_payments2 | img_url: 'master' }}' alt='Payments'>
+                  {% endif %}
+                  {% if section.settings.basket_payments3 %}
+                  <img class='custom-basket-right-payments' src='{{ section.settings.basket_payments3 | img_url: 'master' }}' alt='Payments'>
+                  {% endif %}
+                  {% if section.settings.basket_payments4 %}
+                  <img class='custom-basket-right-payments' src='{{ section.settings.basket_payments4 | img_url: 'master' }}' alt='Payments'>
+                  {% endif %}
+                  {% if section.settings.basket_payments5 %}
+                  <img class='custom-basket-right-payments' src='{{ section.settings.basket_payments5 | img_url: 'master' }}' alt='Payments'>
+                  {% endif %}
+                </div>
                 <img class='custom-basket-right-verified' src='{{ section.settings.basket_verified | img_url: 'master' }}' alt='Verified'>
                 <div class='custom-basket-product-mobile'>
                     <div class='custom-basket-tabs'>
