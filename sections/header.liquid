@@ -332,14 +332,11 @@ document.addEventListener("DOMContentLoaded", function () {
         if (currentCartCount !== previousCartCount) {
           const cartItemCountElement = document.getElementById("cart-item-count");
 
-          // Если корзина пустая, скрываем элемент
           if (currentCartCount === 0 && cartItemCountElement) {
-            cartItemCountElement.parentElement.innerHTML = ''; // Удаляем содержимое
+            cartItemCountElement.parentElement.innerHTML = '';
           } else if (cartItemCountElement) {
-            // Если элемент существует, обновляем текст
             cartItemCountElement.textContent = currentCartCount;
           } else {
-            // Если элемента ещё нет (например, корзина стала не пустой), создаём его
             const cartCountWrapper = document.querySelector(".custom-cart-count");
             if (cartCountWrapper) {
               cartCountWrapper.innerHTML = `<p id="cart-item-count">${currentCartCount}</p>`;
@@ -347,14 +344,12 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         }
 
-        // Обновляем предыдущее значение
         previousCartCount = currentCartCount;
       })
       .catch(error => console.error('Ошибка при проверке корзины:', error));
   }
 
-  // Периодическая проверка корзины каждые 5 секунд
-  setInterval(checkCartUpdates, 5000);
+  setInterval(checkCartUpdates, 1000);
 });
 
 
