@@ -1328,6 +1328,49 @@ initializeSwiper(
   },200
 )
 
+        document.addEventListener("DOMContentLoaded", function () {
+  const cartCountElement = document.getElementById("cart-item-count");
+
+  // Функция для получения данных о корзине
+  function updateCartCount() {
+    fetch('/cart.js')
+      .then(response => response.json())
+      .then(cart => {
+        // Обновляем количество товаров в корзине
+        cartCountElement.textContent = cart.item_count || 0;
+      })
+      .catch(error => console.error('Ошибка при обновлении количества товаров:', error));
+  }
+
+  // Обновляем количество товаров при загрузке страницы
+  updateCartCount();
+
+  // Пример: вызовите эту функцию после добавления товара в корзину
+  document.addEventListener('cart:updated', updateCartCount);
+
+  // Опционально: Пример для кнопки "Добавить в корзину"
+  document.querySelectorAll('.add-to-cart-button').forEach(button => {
+    button.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      const productId = this.dataset.productId; // Предположим, у кнопки есть data-product-id
+      fetch('/cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: productId, quantity: 1 })
+      })
+        .then(response => {
+          if (response.ok) {
+            updateCartCount(); // Обновляем количество товаров в корзине
+            document.dispatchEvent(new Event('cart:updated'));
+          } else {
+            console.error('Ошибка при добавлении товара в корзину');
+          }
+        });
+    });
+  });
+});
+
 
 
       });
