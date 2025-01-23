@@ -417,6 +417,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
   const cartCountElement = document.querySelector(".cart-item-count");
+  function updateCartCount() {
+    fetch('/cart.js')
+      .then(response => response.json())
+      .then(cart => {
+        cartCountElement.textContent = cart.item_count || 0;
+      })
+      .catch(error => console.error('Ошибка при обновлении количества товаров:', error));
+  }
+  updateCartCount();
+  document.addEventListener('cart:updated', updateCartCount);
+
+
   
 });
 
