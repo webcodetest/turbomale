@@ -442,20 +442,6 @@ document.addEventListener('DOMContentLoaded', () => {
     button.addEventListener('click', function (e) {
       e.preventDefault();
 
-      const productId = this.dataset.productId; // Предположим, у кнопки есть data-product-id
-      fetch('/cart/add.js', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id: productId, quantity: 1 })
-      })
-        .then(response => {
-          if (response.ok) {
-            updateCartCount(); // Обновляем количество товаров в корзине
-            document.dispatchEvent(new Event('cart:updated'));
-          } else {
-            console.error('Ошибка при добавлении товара в корзину');
-          }
-        });
     });
   });
 });
