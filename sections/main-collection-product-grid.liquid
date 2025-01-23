@@ -1011,52 +1011,52 @@
 
   });
 
-//   document.addEventListener('DOMContentLoaded', () => {
-//   const quickViewButtons = document.querySelectorAll('.quick-view__block');
-//   const modal = document.querySelector('.product__modal-window');
-//   const modalTitle = modal.querySelector('.modal__product-title p');
-//   const modalPrice = modal.querySelector('.modal__product-price');
-//   const modalOldPrice = modal.querySelector('.modal__product-old-price');
-//   const modalSubtitle = modal.querySelector('.modal__product-metafield-text p');
-//   const modalDescription = modal.querySelector('.modal__product-description');
+  document.addEventListener('DOMContentLoaded', () => {
+  const quickViewButtons = document.querySelectorAll('.quick-view__block');
+  const modal = document.querySelector('.product__modal-window');
+  const modalTitle = modal.querySelector('.modal__product-title p');
+  const modalPrice = modal.querySelector('.modal__product-price');
+  const modalOldPrice = modal.querySelector('.modal__product-old-price');
+  const modalSubtitle = modal.querySelector('.modal__product-metafield-text p');
+  const modalDescription = modal.querySelector('.modal__product-description');
 
-//   quickViewButtons.forEach(button => {
-//     button.addEventListener('click', () => {
-//       const productTitle = button.dataset.productTitle;
-//       const productPrice = button.dataset.productPrice;
-//       const productOldPrice = button.dataset.productOldPrice;
-//       const productSubtitle = button.dataset.productSubtitle;
-//       const productDescription = button.dataset.productDescription;
+  quickViewButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const productTitle = button.dataset.productTitle;
+      const productPrice = button.dataset.productPrice;
+      const productOldPrice = button.dataset.productOldPrice;
+      const productSubtitle = button.dataset.productSubtitle;
+      const productDescription = button.dataset.productDescription;
 
-//       modalTitle.textContent = productTitle;
+      modalTitle.textContent = productTitle;
 
-//       const formattedPrice = `$${(parseInt(productPrice, 10) / 100).toFixed(2)}`;
-//       modalPrice.textContent = formattedPrice;
+      const formattedPrice = `$${(parseInt(productPrice, 10) / 100).toFixed(2)}`;
+      modalPrice.textContent = formattedPrice;
 
-//       if (productOldPrice) {
-//         const formattedOldPrice = `$${(parseInt(productOldPrice, 10) / 100).toFixed(2)}`;
-//         modalOldPrice.textContent = formattedOldPrice;
-//         modalOldPrice.style.display = 'block';
-//       } else {
-//         modalOldPrice.style.display = 'none';
-//       }
+      if (productOldPrice) {
+        const formattedOldPrice = `$${(parseInt(productOldPrice, 10) / 100).toFixed(2)}`;
+        modalOldPrice.textContent = formattedOldPrice;
+        modalOldPrice.style.display = 'block';
+      } else {
+        modalOldPrice.style.display = 'none';
+      }
 
-//       modalSubtitle.textContent =
-//         productSubtitle.length > 69
-//           ? productSubtitle.substring(0, 69) + '...'
-//           : productSubtitle;
+      modalSubtitle.textContent =
+        productSubtitle.length > 69
+          ? productSubtitle.substring(0, 69) + '...'
+          : productSubtitle;
 
-//       modalDescription.textContent = productDescription;
+      modalDescription.textContent = productDescription;
 
-//       modal.classList.remove('removed');
-//     });
-//   });
+      modal.classList.remove('removed');
+    });
+  });
 
-//   const closeButton = modal.querySelector('.product__modal-btn-close');
-//   closeButton.addEventListener('click', () => {
-//     modal.classList.add('removed');
-//   });
-// });
+  const closeButton = modal.querySelector('.product__modal-btn-close');
+  closeButton.addEventListener('click', () => {
+    modal.classList.add('removed');
+  });
+});
 
 
 
