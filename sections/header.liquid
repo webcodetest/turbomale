@@ -329,9 +329,22 @@ document.addEventListener("DOMContentLoaded", function () {
       .then(cart => {
         const currentCartCount = cart.item_count || 0;
 
-        // Если количество товаров изменилось, перезагружаем страницу
         if (currentCartCount !== previousCartCount) {
-          location.reload(); // Перезагрузка страницы
+          const cartItemCountElement = document.getElementById("cart-item-count");
+
+          // Если корзина пустая, скрываем элемент
+          if (currentCartCount === 0 && cartItemCountElement) {
+            cartItemCountElement.parentElement.innerHTML = ''; // Удаляем содержимое
+          } else if (cartItemCountElement) {
+            // Если элемент существует, обновляем текст
+            cartItemCountElement.textContent = currentCartCount;
+          } else {
+            // Если элемента ещё нет (например, корзина стала не пустой), создаём его
+            const cartCountWrapper = document.querySelector(".custom-cart-count");
+            if (cartCountWrapper) {
+              cartCountWrapper.innerHTML = `<p id="cart-item-count">${currentCartCount}</p>`;
+            }
+          }
         }
 
         // Обновляем предыдущее значение
