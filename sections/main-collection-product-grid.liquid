@@ -934,131 +934,116 @@
 
 <script>
 
-  document.addEventListener('DOMContentLoaded', function () {
-    const viewButtons = document.querySelectorAll('.view-mode');
-    const productGrid = document.querySelector('.product-grid-container .product-grid.grid');
+document.addEventListener('DOMContentLoaded', function () {
+  // Настройка grid-view
+  const viewButtons = document.querySelectorAll('.view-mode');
+  const productGrid = document.querySelector('.product-grid-container .product-grid.grid');
 
-    const savedColumns = localStorage.getItem('productGridColumns');
-    if (savedColumns) {
-      productGrid.className = 'grid product-grid grid--1-col-tablet-down grid--1-col-desktop';
-      productGrid.classList.add(`columns-${savedColumns}`);
-      
-      viewButtons.forEach(button => {
-        if (button.getAttribute('data-columns') === savedColumns) {
-          button.classList.add('active');
-        }
-      });
-    }
-
+  const savedColumns = localStorage.getItem('productGridColumns');
+  if (savedColumns) {
+    productGrid.className = 'grid product-grid grid--1-col-tablet-down grid--1-col-desktop';
+    productGrid.classList.add(`columns-${savedColumns}`);
     viewButtons.forEach(button => {
-      button.addEventListener('click', function () {
-        const columns = this.getAttribute('data-columns');
-        
-        productGrid.className = 'grid product-grid grid--1-col-tablet-down grid--1-col-desktop';
-        productGrid.classList.add(`columns-${columns}`);
-        
-        localStorage.setItem('productGridColumns', columns);
-
-        viewButtons.forEach(btn => btn.classList.remove('active'));
-        this.classList.add('active');
-      });
+      if (button.getAttribute('data-columns') === savedColumns) {
+        button.classList.add('active');
+      }
     });
+  }
 
-    var modalSwiper = new Swiper(".modal-swiper", {
-      thumbs: {
-        swiper: lowerModalSwiper,
-      },
+  viewButtons.forEach(button => {
+    button.addEventListener('click', function () {
+      const columns = this.getAttribute('data-columns');
+      productGrid.className = 'grid product-grid grid--1-col-tablet-down grid--1-col-desktop';
+      productGrid.classList.add(`columns-${columns}`);
+      localStorage.setItem('productGridColumns', columns);
+      viewButtons.forEach(btn => btn.classList.remove('active'));
+      this.classList.add('active');
     });
+  });
 
-    var lowerModalSwiper = new Swiper(".lower-modal-swiper", {
-      slidesPerView: 4,
-      spaceBetween: 12,
-      scrollbar: {
-        el: ".swiper-scrollbar",
-        hide: true,
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-    });
+  // Swiper
+  var lowerModalSwiper = new Swiper(".lower-modal-swiper", {
+    slidesPerView: 4,
+    spaceBetween: 12,
+    scrollbar: {
+      el: ".swiper-scrollbar",
+      hide: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
 
+  var modalSwiper = new Swiper(".modal-swiper", {
+    thumbs: {
+      swiper: lowerModalSwiper,
+    },
+  });
 
+  // Modal logic
+  const modalOpenBtn = document.querySelectorAll('.quick-view__block');
+  const modalCloseBtn = document.querySelector('.product__modal-btn-close');
+  const modalWindow = document.querySelector('.product__modal-window');
+  const modalWrap = document.querySelector('.product__modal-window-wrap');
 
-    const modalOpenBtn = document.querySelectorAll('.quick-view__block');
-    const modalCloseBtn = document.querySelector('.product__modal-btn-close');
-    const modalWindow = document.querySelector('.product__modal-window');
-    const modalWrap = document.querySelector('.product__modal-window-wrap');
-
-
-    modalOpenBtn.forEach((btn) =>{
-      btn.addEventListener("click", function(){
+  if (modalWindow && modalWrap) {
+    modalOpenBtn.forEach(btn => {
+      btn.addEventListener("click", function () {
         modalWindow.classList.remove("removed");
       });
     });
 
-    modalCloseBtn.addEventListener("click", function() {
-      modalWindow.classList.add("removed");
-    });
+    if (modalCloseBtn) {
+      modalCloseBtn.addEventListener("click", function () {
+        modalWindow.classList.add("removed");
+      });
+    }
 
-    modalWindow.addEventListener("click", function(event) {
+    modalWindow.addEventListener("click", function (event) {
       if (!modalWrap.contains(event.target)) {
         modalWindow.classList.add("removed");
       }
     });
+  }
 
-
-
-  });
-
-  document.addEventListener('DOMContentLoaded', () => {
-  const quickViewButtons = document.querySelectorAll('.quick-view__block');
+  // Quick view
   const modal = document.querySelector('.product__modal-window');
-  const modalTitle = modal.querySelector('.modal__product-title p');
-  const modalPrice = modal.querySelector('.modal__product-price');
-  const modalOldPrice = modal.querySelector('.modal__product-old-price');
-  const modalSubtitle = modal.querySelector('.modal__product-metafield-text p');
-  const modalDescription = modal.querySelector('.modal__product-description');
+  if (modal) {
+    const quickViewButtons = document.querySelectorAll('.quick-view__block');
+    const modalTitle = modal.querySelector('.modal__product-title p');
+    const modalPrice = modal.querySelector('.modal__product-price');
+    const modalOldPrice = modal.querySelector('.modal__product-old-price');
+    const modalSubtitle = modal.querySelector('.modal__product-metafield-text p');
+    const modalDescription = modal.querySelector('.modal__product-description');
 
-  quickViewButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const productTitle = button.dataset.productTitle;
-      const productPrice = button.dataset.productPrice;
-      const productOldPrice = button.dataset.productOldPrice;
-      const productSubtitle = button.dataset.productSubtitle;
-      const productDescription = button.dataset.productDescription;
+    quickViewButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const productTitle = button.dataset.productTitle || '';
+        const productPrice = button.dataset.productPrice || '';
+        const productOldPrice = button.dataset.productOldPrice || '';
+        const productSubtitle = button.dataset.productSubtitle || '';
+        const productDescription = button.dataset.productDescription || '';
 
-      modalTitle.textContent = productTitle;
+        modalTitle.textContent = productTitle;
+        modalPrice.textContent = `$${(parseInt(productPrice, 10) / 100).toFixed(2)}`;
+        modalOldPrice.textContent = productOldPrice ? `$${(parseInt(productOldPrice, 10) / 100).toFixed(2)}` : '';
+        modalOldPrice.style.display = productOldPrice ? 'block' : 'none';
+        modalSubtitle.textContent = productSubtitle.length > 69 ? productSubtitle.substring(0, 69) + '...' : productSubtitle;
+        modalDescription.textContent = productDescription;
 
-      const formattedPrice = `$${(parseInt(productPrice, 10) / 100).toFixed(2)}`;
-      modalPrice.textContent = formattedPrice;
-
-      if (productOldPrice) {
-        const formattedOldPrice = `$${(parseInt(productOldPrice, 10) / 100).toFixed(2)}`;
-        modalOldPrice.textContent = formattedOldPrice;
-        modalOldPrice.style.display = 'block';
-      } else {
-        modalOldPrice.style.display = 'none';
-      }
-
-      modalSubtitle.textContent =
-        productSubtitle.length > 69
-          ? productSubtitle.substring(0, 69) + '...'
-          : productSubtitle;
-
-      modalDescription.textContent = productDescription;
-
-      modal.classList.remove('removed');
+        modal.classList.remove('removed');
+      });
     });
-  });
 
-  const closeButton = modal.querySelector('.product__modal-btn-close');
-  closeButton.addEventListener('click', () => {
-    modal.classList.add('removed');
-  });
+    const closeButton = modal.querySelector('.product__modal-btn-close');
+    if (closeButton) {
+      closeButton.addEventListener('click', () => {
+        modal.classList.add('removed');
+      });
+    }
+  }
 });
-
-
 
 </script>
 
