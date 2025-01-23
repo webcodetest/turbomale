@@ -1280,46 +1280,46 @@ line-height: normal;
           attributes: true,
         });
 
-        setInterval(function(){
- function initializeSwiper(selector, navigationNext, navigationPrev, options = {}) {
-  const swiperElement = document.querySelector(selector);
+//         setInterval(function(){
+//  function initializeSwiper(selector, navigationNext, navigationPrev, options = {}) {
+//   const swiperElement = document.querySelector(selector);
 
-  if (!swiperElement || swiperElement.classList.contains("swiper-initialized")) {
-    return;
-  }
+//   if (!swiperElement || swiperElement.classList.contains("swiper-initialized")) {
+//     return;
+//   }
 
-  new Swiper(selector, {
-    slidesPerView: options.slidesPerView || 1, // Значение по умолчанию
-    spaceBetween: options.spaceBetween || 0, // Значение по умолчанию
-    navigation: {
-      nextEl: navigationNext,
-      prevEl: navigationPrev,
-    },
-    ...options.extraOptions, // Дополнительные настройки
-  });
-}
+//   new Swiper(selector, {
+//     slidesPerView: options.slidesPerView || 1, // Значение по умолчанию
+//     spaceBetween: options.spaceBetween || 0, // Значение по умолчанию
+//     navigation: {
+//       nextEl: navigationNext,
+//       prevEl: navigationPrev,
+//     },
+//     ...options.extraOptions, // Дополнительные настройки
+//   });
+// }
 
-// Пример вызова с индивидуальными параметрами
-initializeSwiper(".also-like-swiper", ".next-arrow", ".prev-arrow", {
-  slidesPerView: 1
-});
+// // Пример вызова с индивидуальными параметрами
+// initializeSwiper(".also-like-swiper", ".next-arrow", ".prev-arrow", {
+//   slidesPerView: 1
+// });
 
-initializeSwiper(
-  ".card-drawer__middle-swiper-item",
-  ".swiper__right-arr",
-  ".swiper__left-arr",
-  {
-    slidesPerView: 3,
-    spaceBetween: 15,
-    extraOptions: {
-      loop: true,
-    },
-  }
-);
+// initializeSwiper(
+//   ".card-drawer__middle-swiper-item",
+//   ".swiper__right-arr",
+//   ".swiper__left-arr",
+//   {
+//     slidesPerView: 3,
+//     spaceBetween: 15,
+//     extraOptions: {
+//       loop: true,
+//     },
+//   }
+// );
 
 
-  },200
-)
+//   },200
+// )
 
 
 
