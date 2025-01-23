@@ -1048,6 +1048,7 @@
 
 <script>
 
+  document.addEventListener("DOMContentLoaded", function () {
   const collectionOpener = document.querySelector(".collection-filter h3");
   const collectionList = document.querySelector(".collection-filter ul");
   const collectionSvgIcon = document.querySelector(".collection-filter .collection-filter-icon svg");
@@ -1056,7 +1057,6 @@
     collectionList.classList.toggle("removed");
   });
 
-  document.addEventListener("DOMContentLoaded", function () {
     var noUiSliderItem = document.getElementById("slider-no-overlap");
 
     noUiSlider.create(noUiSliderItem, {
