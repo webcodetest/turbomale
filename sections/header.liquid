@@ -166,7 +166,7 @@
                     </svg>
                     <div class='custom-cart-count'>
                         {% if cart.item_count > 0 %}
-                        <p class="cart-item-count">{{ cart.item_count }}</p>
+                        <p id="cart-item-count">{{ cart.item_count }}</p>
                         {% endif %}
                     </div>
                 </a>
@@ -318,6 +318,33 @@
     </div>
 </header>
 <script>
+
+document.addEventListener("DOMContentLoaded", function () {
+  let previousCartCount = parseInt(document.getElementById("cart-item-count")?.textContent || 0);
+
+  // Функция для проверки состояния корзины
+  function checkCartUpdates() {
+    fetch('/cart.js')
+      .then(response => response.json())
+      .then(cart => {
+        const currentCartCount = cart.item_count || 0;
+
+        // Если количество товаров изменилось, перезагружаем страницу
+        if (currentCartCount !== previousCartCount) {
+          location.reload(); // Перезагрузка страницы
+        }
+
+        // Обновляем предыдущее значение
+        previousCartCount = currentCartCount;
+      })
+      .catch(error => console.error('Ошибка при проверке корзины:', error));
+  }
+
+  // Периодическая проверка корзины каждые 5 секунд
+  setInterval(checkCartUpdates, 2000);
+});
+
+
 document.addEventListener('DOMContentLoaded', () => {
   const searchButton = document.querySelector('.custom-header-right-search');
   const searchForm = document.querySelector('.search-modal__form');
