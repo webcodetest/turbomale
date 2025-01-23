@@ -1048,58 +1048,48 @@
 
 <script>
 
-<script>
+  const collectionOpener = document.querySelector(".collection-filter h3");
+  const collectionList = document.querySelector(".collection-filter ul");
+  const collectionSvgIcon = document.querySelector(".collection-filter .collection-filter-icon svg");
+  collectionOpener.addEventListener("click", function(){
+    collectionSvgIcon.classList.toggle("rotated");
+    collectionList.classList.toggle("removed");
+  });
+
   document.addEventListener("DOMContentLoaded", function () {
-    const collectionOpener = document.querySelector(".collection-filter h3");
-    const collectionList = document.querySelector(".collection-filter ul");
-    const collectionSvgIcon = document.querySelector(".collection-filter .collection-filter-icon svg");
+    var noUiSliderItem = document.getElementById("slider-no-overlap");
 
-    if (collectionOpener && collectionList && collectionSvgIcon) {
-      collectionOpener.addEventListener("click", function () {
-        collectionSvgIcon.classList.toggle("rotated");
-        collectionList.classList.toggle("removed");
-      });
-    }
+    noUiSlider.create(noUiSliderItem, {
+      start: [0, 500],
+      connect: true,
+      range: {
+        min: 0,
+        max: 500
+      },
+      step: 1,
+    });
 
-    const noUiSliderItem = document.getElementById("slider-no-overlap");
+    var minPriceInput = document.getElementById("Filter-Price-GTE");
+    var maxPriceInput = document.getElementById("Filter-Price-LTE");
 
-    if (noUiSliderItem && typeof noUiSlider !== "undefined") {
-      noUiSlider.create(noUiSliderItem, {
-        start: [0, 500],
-        connect: true,
-        range: {
-          min: 0,
-          max: 500,
-        },
-        step: 1,
-      });
-
-      const minPriceInput = document.getElementById("Filter-Price-GTE");
-      const maxPriceInput = document.getElementById("Filter-Price-LTE");
-
-      noUiSliderItem.noUiSlider.on("update", function (values, handle) {
-        if (handle === 0 && minPriceInput) {
-          minPriceInput.value = parseFloat(values[0]).toFixed(2);
-          minPriceInput.dispatchEvent(new Event("input", { bubbles: true }));
-        } else if (handle === 1 && maxPriceInput) {
-          maxPriceInput.value = parseFloat(values[1]).toFixed(2);
-          maxPriceInput.dispatchEvent(new Event("input", { bubbles: true }));
-        }
-      });
-
-      if (minPriceInput) {
-        minPriceInput.addEventListener("change", function () {
-          noUiSliderItem.noUiSlider.set([this.value || 0, null]);
-        });
-      }
-
-      if (maxPriceInput) {
-        maxPriceInput.addEventListener("change", function () {
-          noUiSliderItem.noUiSlider.set([null, this.value || 500]);
-        });
-      }
+  noUiSliderItem.noUiSlider.on("update", function (values, handle) {
+    if (handle === 0) {
+      minPriceInput.value = parseFloat(values[0]).toFixed(2);
+      minPriceInput.dispatchEvent(new Event("input", { bubbles: true }));
+    } else if (handle === 1) {
+      maxPriceInput.value = parseFloat(values[1]).toFixed(2);
+      maxPriceInput.dispatchEvent(new Event("input", { bubbles: true }));
     }
   });
-</script>
+
+  minPriceInput.addEventListener("change", function () {
+    noUiSliderItem.noUiSlider.set([this.value || 0, null]);
+  });
+
+  maxPriceInput.addEventListener("change", function () {
+    noUiSliderItem.noUiSlider.set([null, this.value || 500]);
+  });
+
+  });
 
 </script>
