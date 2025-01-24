@@ -50,7 +50,9 @@
         "kiwi_size_chart_recommender_kiwi_sizing_hLrhHt": {
           "type": "shopify://apps/kiwi-size-chart-recommender/blocks/kiwiSizing/b7369922-bf15-44ce-a121-a22a8fcbc4b0",
           "settings": {
-            "product": "{{ product }}"
+            "product": "{{ product }}",
+            "size_chart_rendering_override_enabled": false,
+            "size_chart_rendering_page_load": false
           }
         },
         "inventory_6JwMYF": {
@@ -78,7 +80,7 @@
             "layout": "vertical",
             "icon_1": "none",
             "image_1": "shopify://shop_images/svg_3_3b520c23-8746-4b69-b314-b6e96e4eaaf8.svg",
-            "heading_1": "<p><strong>Free Shipping (USD $125+)</strong><br/>Estimated Delivery: Tue, Aug 6</p>",
+            "heading_1": "<p><strong>Get in 5-7 days</strong></p>",
             "icon_2": "none",
             "heading_2": "",
             "icon_3": "none",
