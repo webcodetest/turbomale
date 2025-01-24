@@ -263,6 +263,9 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
                                   {% endcase %}
                               {% endfor %}
                                 <div class="product-handle-name">
+                                  <div class='jdgm-widget jdgm-preview-badge'>
+                                    {{ product_handle.metafields.judgeme.badge }}
+                                  </div>
                                   <h4 class="product-handle-name-item">{{ product_handle.title }}</h4>
                                 </div>
                             </a>
