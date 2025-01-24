@@ -1675,6 +1675,7 @@ ul {
 
 .best-seller-slider .swiper-slide:hover {
   box-shadow: 0px 0px 18.6px 0px rgba(0, 0, 0, 0.23);
+  overflow: visible;
 }
 
 @media screen and (max-width: 1024px) {
