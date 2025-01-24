@@ -32,6 +32,8 @@
                                 </button>
                                 <img src="{{ best_seller_product.featured_image | img_url: '300x300' }}" alt="{{ best_seller_product.title }}">
                                 <div class="best-seller-review">
+                                    {% comment %}
+                                      
                                     <div class="best-seller-review-stars">
                                         {% for i in (1..block.settings.stars_count) %}
                                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
@@ -40,6 +42,10 @@
                                         {% endfor %}
                                         </div>
                                     <p>({{ block.settings.review_count }})</p>
+                                    {% endcomment %}
+                                  <div class='jdgm-widget jdgm-preview-badge'>
+                                    {{ best_seller_product.metafields.judgeme.badge }}
+                                  </div>
                                 </div>
                                 <div class='best-seller-title'>
                                     <h3>{{ best_seller_product.title }}</h3>
