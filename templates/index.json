@@ -84,20 +84,20 @@
     "custom_best_seller_Ybg3m8": {
       "type": "custom-best-seller",
       "blocks": {
-        "products_fQzLkJ": {
+        "products_qJDM3x": {
           "type": "products",
           "settings": {
-            "product": "turbomale-gold-extender",
+            "product": "turbomale-light-extender",
             "stars_count": 5,
             "review_count": "18 990",
             "product_description": "12″ Inch New TurboMale Light Penis Vacuum Extender Enlargement System",
             "product_cart_button": "Buy now"
           }
         },
-        "products_qJDM3x": {
+        "products_fQzLkJ": {
           "type": "products",
           "settings": {
-            "product": "erect-rings-set",
+            "product": "turbomale-gold-extender",
             "stars_count": 5,
             "review_count": "18 990",
             "product_description": "12″ Inch New TurboMale Light Penis Vacuum Extender Enlargement System",
@@ -206,8 +206,8 @@
         }
       },
       "block_order": [
-        "products_fQzLkJ",
         "products_qJDM3x",
+        "products_fQzLkJ",
         "products_KzKxAG",
         "products_7FjAD4",
         "products_Bb8B4B",
