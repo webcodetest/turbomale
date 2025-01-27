@@ -2,10 +2,15 @@
 
 <style>
 
-.ks-chart-container{
-  position: absolute;
-  bottom: 368px;
-}
+  .ks-chart-container {
+  position: static;
+  }
+  
+  :has(.product-form__input--pill) .ks-chart-container {
+    position: absolute;
+    bottom: 368px;
+  }
+
   
 .product__info-container > * + *{
   margin: 0 0 0 0 !important;
