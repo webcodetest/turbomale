@@ -1090,12 +1090,14 @@
 
   minPriceInput.addEventListener("change", function () {
     noUiSliderItem.noUiSlider.set([this.value || 0, null]);
-    console.log(noUiSliderItem.noUiSlider.set([this.value || 0, null]););
+    console.log(noUiSliderItem);
+    console.log(noUiSliderItem.noUiSlider);
   });
 
   maxPriceInput.addEventListener("change", function () {
     noUiSliderItem.noUiSlider.set([null, this.value || 500]);
-    console.log(noUiSliderItem.noUiSlider.set([null, this.value || 500]););
+    console.log(noUiSliderItem);
+    console.log(noUiSliderItem.noUiSlider);
   });
 
   });
