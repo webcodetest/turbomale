@@ -935,6 +935,7 @@
 <script>
 
   document.addEventListener('DOMContentLoaded', function () {
+    setInterval(() => {
     const viewButtons = document.querySelectorAll('.view-mode');
     const productGrid = document.querySelector('.product-grid-container .product-grid.grid');
     
@@ -958,6 +959,7 @@
         this.classList.add('active');
       });
     });
+      }, 500);
 
 
     var modalSwiper = new Swiper(".modal-swiper", {
