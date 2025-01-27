@@ -937,21 +937,16 @@
   document.addEventListener('DOMContentLoaded', function () {
     const viewButtons = document.querySelectorAll('.view-mode');
     const productGrid = document.querySelector('.product-grid-container .product-grid.grid');
-
-    const savedColumns = localStorage.getItem('productGridColumns');
-    console.log(savedColumns);
-    if (savedColumns) {
-      productGrid.className = 'grid product-grid grid--1-col-tablet-down grid--1-col-desktop';
-      productGrid.classList.add(`columns-${savedColumns}`);
-      console.log(productGrid);
-      
-      viewButtons.forEach(button => {
-        if (button.getAttribute('data-columns') === savedColumns) {
-          button.classList.add('active');
-        }
-      });
-    }
-
+    
+    const defaultColumns = '3';
+    productGrid.classList.add(`columns-${defaultColumns}`);
+    
+    viewButtons.forEach(button => {
+      if (button.getAttribute('data-columns') === defaultColumns) {
+        button.classList.add('active');
+      }
+    });
+    
     viewButtons.forEach(button => {
       button.addEventListener('click', function () {
         const columns = this.getAttribute('data-columns');
@@ -959,12 +954,11 @@
         productGrid.className = 'grid product-grid grid--1-col-tablet-down grid--1-col-desktop';
         productGrid.classList.add(`columns-${columns}`);
         
-        localStorage.setItem('productGridColumns', columns);
-
         viewButtons.forEach(btn => btn.classList.remove('active'));
         this.classList.add('active');
       });
     });
+
 
     var modalSwiper = new Swiper(".modal-swiper", {
       thumbs: {
