@@ -938,11 +938,9 @@
     const viewButtons = document.querySelectorAll('.view-mode');
 const productGrid = document.querySelector('.product-grid-container .product-grid.grid');
 
-// Устанавливаем начальное количество колонок по умолчанию
-const defaultColumns = '3'; // Количество колонок по умолчанию
+const defaultColumns = '3';
 productGrid.classList.add(`columns-${defaultColumns}`);
 
-// Активируем кнопку по умолчанию
 viewButtons.forEach(button => {
   if (button.getAttribute('data-columns') === defaultColumns) {
     button.classList.add('active');
@@ -953,11 +951,9 @@ viewButtons.forEach(button => {
   button.addEventListener('click', function () {
     const columns = this.getAttribute('data-columns');
     
-    // Обновляем классы сетки
     productGrid.className = 'grid product-grid grid--1-col-tablet-down grid--1-col-desktop';
     productGrid.classList.add(`columns-${columns}`);
     
-    // Снимаем активность со всех кнопок и активируем текущую
     viewButtons.forEach(btn => btn.classList.remove('active'));
     this.classList.add('active');
   });
