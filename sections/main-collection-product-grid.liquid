@@ -749,7 +749,7 @@
               id="product-grid"
               data-id="{{ section.id }}"
               class="
-                
+                columns-1
                 grid product-grid grid--{{ section.settings.columns_mobile }}-col-tablet-down
                 grid--{{ section.settings.columns_desktop }}-col-desktop
                 {% if section.settings.quick_add == 'bulk' %} collection-quick-add-bulk{% endif %}
@@ -938,7 +938,7 @@
     const viewButtons = document.querySelectorAll('.view-mode');
     const productGrid = document.querySelector('.product-grid-container .product-grid.grid');
     
-    const defaultColumns = '1';
+    const defaultColumns = '2';
     productGrid.classList.add(`columns-${defaultColumns}`);
     
     viewButtons.forEach(button => {
@@ -952,7 +952,7 @@
         const columns = this.getAttribute('data-columns');
         
         productGrid.className = 'grid product-grid grid--1-col-tablet-down grid--1-col-desktop';
-        productGrid.classList.add(`columns-${columns}`);
+        // productGrid.classList.add(`columns-${columns}`);
         
         viewButtons.forEach(btn => btn.classList.remove('active'));
         this.classList.add('active');
