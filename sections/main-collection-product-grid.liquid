@@ -952,7 +952,7 @@
         const columns = this.getAttribute('data-columns');
         
         productGrid.className = 'grid product-grid grid--1-col-tablet-down grid--1-col-desktop';
-        // productGrid.classList.add(`columns-${columns}`);
+        productGrid.classList.add(`columns-${columns}`);
         
         viewButtons.forEach(btn => btn.classList.remove('active'));
         this.classList.add('active');
