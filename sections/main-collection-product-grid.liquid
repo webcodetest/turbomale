@@ -943,6 +943,7 @@
     if (savedColumns) {
       productGrid.className = 'grid product-grid grid--1-col-tablet-down grid--1-col-desktop';
       productGrid.classList.add(`columns-${savedColumns}`);
+      console.log(productGrid);
       
       viewButtons.forEach(button => {
         if (button.getAttribute('data-columns') === savedColumns) {
