@@ -942,6 +942,7 @@
     
     viewButtons.forEach(button => {
       if (button.getAttribute('data-columns') === defaultColumns) {
+        viewButtons.forEach(btn => btn.classList.remove('active'));
         button.classList.add('active');
       }
     });
