@@ -956,7 +956,7 @@
       button.addEventListener('click', function () {
         const columns = this.getAttribute('data-columns');
         
-        productGrid.className = 'grid product-grid grid--1-col-tablet-down grid--1-col-desktop';
+        // productGrid.className = 'grid product-grid grid--1-col-tablet-down grid--1-col-desktop';
         productGrid.classList.add(`columns-${columns}`);
         
         localStorage.setItem('productGridColumns', columns);
