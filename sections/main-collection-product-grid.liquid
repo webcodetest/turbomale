@@ -939,7 +939,7 @@
     const productGrid = document.querySelector('.product-grid-container .product-grid.grid');
     
     const defaultColumns = '2';
-    productGrid.classList.add(`columns-2`);
+    productGrid.classList.add(`columns-${defaultColumns}`);
     
     viewButtons.forEach(button => {
       if (button.getAttribute('data-columns') === defaultColumns) {
