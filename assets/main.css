@@ -1217,6 +1217,7 @@ ul {
 .custom-best-seller {
   padding: 116px 0 104px;
   background-color: #fff;
+  user-select: none;
 }
 
 @media screen and (max-width: 768px) {
