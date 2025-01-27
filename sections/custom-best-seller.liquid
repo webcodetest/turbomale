@@ -201,9 +201,11 @@
                                         {%- endform -%}
                                         </product-form>
                                   </div>
+                                {% if block.settings.product_description != blank %}
                                 <div class='best-seller-description'>
                                     <p>{{ block.settings.product_description }}</p>
                                 </div>
+                                {% endif %}
                             </a>
                         </div>
                     {% endfor %}
