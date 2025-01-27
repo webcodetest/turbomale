@@ -1075,18 +1075,10 @@
   noUiSliderItem.noUiSlider.on("update", function (values, handle) {
     if (handle === 0) {
       minPriceInput.value = parseFloat(values[0]).toFixed(2);
-      try {
-  minPriceInput.dispatchEvent(new Event("input", { bubbles: true }));
-} catch (error) {
-  console.error("Error in minPriceInput dispatchEvent:", error);
-}
+      minPriceInput.dispatchEvent(new Event("input", { bubbles: true }));
     } else if (handle === 1) {
       maxPriceInput.value = parseFloat(values[1]).toFixed(2);
-      try {
-  maxPriceInput.dispatchEvent(new Event("input", { bubbles: true }));
-} catch (error) {
-  console.error("Error in maxPriceInput dispatchEvent:", error);
-}
+      maxPriceInput.dispatchEvent(new Event("input", { bubbles: true }));
     }
   });
 
