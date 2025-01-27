@@ -3295,7 +3295,7 @@ ul {
 
 @media screen and (max-width: 500px) {
   .custom-gold-slider-image-desktop {
-    display: none;
+    display: none !important;
   }
 }
 
