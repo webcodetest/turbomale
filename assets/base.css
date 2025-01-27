@@ -3624,5 +3624,7 @@ cart-drawer-items{
 .jdgm-widget .jdgm-prev-badge{
   display: flex !important;
   flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
 }
 
