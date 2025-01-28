@@ -620,6 +620,13 @@ line-height: normal;
       cursor: pointer;
     }
 
+  @media screen and (max-width: 1540px){
+    .card-drawer__middle-swiper{
+      transform: translate(0%, -50%);
+      left: 20px;
+    }
+  }
+
 </style>
 <div class="cart-drawer-wrapper">
 <cart-drawer class="drawer{% if cart == empty %} is-empty{% endif %}">
