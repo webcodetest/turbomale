@@ -379,7 +379,7 @@
                       <price-range class="facets__price">
                         {% render 'price-facet', filter: filter, id_prefix: 'Filter-', filter_type: filter_type %}
                       </price-range>
-                      
+
                       <div id="slider-no-overlap" style="display: block;"></div>
                       
                     </div>
@@ -542,74 +542,6 @@
             {%- render 'loading-spinner' -%}
           </div>
         {%- endif -%}
-<script>
-
-  var productPrices = [
-    {% for product in collections['all'].products %}
-      {{ product.price | divided_by: 100 }},
-    {% endfor %}
-  ];
-
-  const maxPrice = Math.max(...productPrices);
-
-  const collectionOpener = document.querySelector(".collection-filter h3");
-  const collectionList = document.querySelector(".collection-filter ul");
-  const collectionSvgIcon = document.querySelector(".collection-filter .collection-filter-icon svg");
-  collectionOpener.addEventListener("click", function(){
-    collectionSvgIcon.classList.toggle("rotated");
-    collectionList.classList.toggle("removed");
-  });
-
-  document.addEventListener("DOMContentLoaded", function () {
-    var noUiSliderItem = document.getElementById("slider-no-overlap");
-
-    noUiSlider.create(noUiSliderItem, {
-      start: [0, maxPrice],
-      connect: true,
-      range: {
-        min: 0,
-        max: maxPrice
-      },
-      step: 1,
-    });
-
-    var minPriceInput = document.getElementById("Filter-Price-GTE");
-    var maxPriceInput = document.getElementById("Filter-Price-LTE");
-
-  let updateCallCount = 0; 
-
-  noUiSliderItem.noUiSlider.on("update", function (values, handle) {
-    updateCallCount++;
-    if (updateCallCount <= 2) {
-      return;
-    }
-
-    console.log("slider update");
-
-    if (handle === 0) {
-      minPriceInput.value = parseFloat(values[0]).toFixed(2);
-      minPriceInput.dispatchEvent(new Event("input", { bubbles: true }));
-    } else if (handle === 1) {
-      maxPriceInput.value = parseFloat(values[1]).toFixed(2);
-      maxPriceInput.dispatchEvent(new Event("input", { bubbles: true }));
-    }
-  });
-
-  minPriceInput.addEventListener("change", function () {
-    noUiSliderItem.noUiSlider.set([this.value || 0, null]);
-    console.log("min-change");
-    console.log(noUiSliderItem.noUiSlider);
-  });
-
-  maxPriceInput.addEventListener("change", function () {
-    noUiSliderItem.noUiSlider.set([null, this.value || 500]);
-console.log("max-change");
-console.log(noUiSliderItem.noUiSlider);
-  });
-
-  });
-
-</script>
       </form>
     </facet-filters-form>
   {%- endif -%}
@@ -1113,3 +1045,72 @@ console.log(noUiSliderItem.noUiSlider);
     </facet-filters-form>
   {%- endif -%}
 </div>
+
+<script>
+
+  var productPrices = [
+    {% for product in collections['all'].products %}
+      {{ product.price | divided_by: 100 }},
+    {% endfor %}
+  ];
+
+  const maxPrice = Math.max(...productPrices);
+
+  const collectionOpener = document.querySelector(".collection-filter h3");
+  const collectionList = document.querySelector(".collection-filter ul");
+  const collectionSvgIcon = document.querySelector(".collection-filter .collection-filter-icon svg");
+  collectionOpener.addEventListener("click", function(){
+    collectionSvgIcon.classList.toggle("rotated");
+    collectionList.classList.toggle("removed");
+  });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    var noUiSliderItem = document.getElementById("slider-no-overlap");
+
+    noUiSlider.create(noUiSliderItem, {
+      start: [0, maxPrice],
+      connect: true,
+      range: {
+        min: 0,
+        max: maxPrice
+      },
+      step: 1,
+    });
+
+    var minPriceInput = document.getElementById("Filter-Price-GTE");
+    var maxPriceInput = document.getElementById("Filter-Price-LTE");
+
+  let updateCallCount = 0; 
+
+  noUiSliderItem.noUiSlider.on("update", function (values, handle) {
+    updateCallCount++;
+    if (updateCallCount <= 2) {
+      return;
+    }
+
+    console.log("slider update");
+
+    if (handle === 0) {
+      minPriceInput.value = parseFloat(values[0]).toFixed(2);
+      minPriceInput.dispatchEvent(new Event("input", { bubbles: true }));
+    } else if (handle === 1) {
+      maxPriceInput.value = parseFloat(values[1]).toFixed(2);
+      maxPriceInput.dispatchEvent(new Event("input", { bubbles: true }));
+    }
+  });
+
+  minPriceInput.addEventListener("change", function () {
+    noUiSliderItem.noUiSlider.set([this.value || 0, null]);
+    console.log("min-change");
+    console.log(noUiSliderItem.noUiSlider);
+  });
+
+  maxPriceInput.addEventListener("change", function () {
+    noUiSliderItem.noUiSlider.set([null, this.value || 500]);
+console.log("max-change");
+console.log(noUiSliderItem.noUiSlider);
+  });
+
+  });
+
+</script>
