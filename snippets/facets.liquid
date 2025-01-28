@@ -1073,6 +1073,7 @@
     var maxPriceInput = document.getElementById("Filter-Price-LTE");
 
   noUiSliderItem.noUiSlider.on("update", function (values, handle) {
+    console.log("slider update");
     if (handle === 0) {
       minPriceInput.value = parseFloat(values[0]).toFixed(2);
       minPriceInput.dispatchEvent(new Event("input", { bubbles: true }));
