@@ -51,7 +51,10 @@
             <li class="divider">/</li>
             <li aria-current="page">{{ collection.title }}</li>
             {% elsif template contains 'product' %}
-            {% if product.collections.first %}
+            {% if product.metafields.custom.collection_breadcrumb %}
+              <li><a href="{{ product.metafields.custom.collection_breadcrumb.url }}">{{ product.metafields.custom.collection_breadcrumb.title }}</a></li>
+              <li class="divider">/</li>
+            {% else %}
                 <li><a href="{{ product.collections.first.url }}">{{ product.collections.first.title }}</a></li>
                 <li class="divider">/</li>
             {% endif %}
@@ -82,7 +85,7 @@
 {% schema %}
   {
     "name": "Custom breadcrumbs",
-    "settings": [    ],
+    "settings": [],
      "presets": [
     {
       "name": "Custom breadcrumbs"
