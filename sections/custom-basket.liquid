@@ -1148,7 +1148,7 @@ shopify-google-pay-button {
                                                             name="id"
                                                             value="{{ product_first.selected_or_first_available_variant.id }}"
                                                             {% if product_first.selected_or_first_available_variant.available == false
-                                                                or quantity_rule_soldout
+                                                                or quantity_rule_soldout_first
                                                                 or product_first.selected_or_first_available_variant == null
                                                             %}
                                                                 disabled
@@ -1162,7 +1162,7 @@ shopify-google-pay-button {
                                                                 assign check_against_inventory = false
                                                                 endif
                                                                 if product_first.selected_or_first_available_variant.quantity_rule.min > product_first.selected_or_first_available_variant.inventory_quantity and check_against_inventory
-                                                                assign quantity_rule_soldout = true
+                                                                assign quantity_rule_soldout_first = true
                                                                 endif
                                                             -%}
                                                             <button
@@ -1171,7 +1171,7 @@ shopify-google-pay-button {
                                                                 name="add"
                                                                 class="product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
                                                                 {% if product_first.selected_or_first_available_variant.available == false
-                                                                or quantity_rule_soldout
+                                                                or quantity_rule_soldout_first
                                                                 or product_first.selected_or_first_available_variant == null
                                                                 %}
                                                                 disabled
@@ -1180,7 +1180,7 @@ shopify-google-pay-button {
                                                                 <span>
                                                                 {%- if product_first.selected_or_first_available_variant == null -%}
                                                                     {{ 'products.product.unavailable' | t }}
-                                                                {%- elsif product_first.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
+                                                                {%- elsif product_first.selected_or_first_available_variant.available == false or quantity_rule_soldout_first -%}
                                                                     {{ 'products.product.sold_out' | t }}
                                                                 {%- else -%}
                                                                     {{ 'products.product.add_to_cart' | t }}
@@ -1247,7 +1247,7 @@ shopify-google-pay-button {
                                                             name="id"
                                                             value="{{ product_second.selected_or_first_available_variant.id }}"
                                                             {% if product_second.selected_or_first_available_variant.available == false
-                                                                or quantity_rule_soldout
+                                                                or quantity_rule_soldout_second
                                                                 or product_second.selected_or_first_available_variant == null
                                                             %}
                                                                 disabled
@@ -1261,7 +1261,7 @@ shopify-google-pay-button {
                                                                 assign check_against_inventory = false
                                                                 endif
                                                                 if product_second.selected_or_first_available_variant.quantity_rule.min > product_second.selected_or_first_available_variant.inventory_quantity and check_against_inventory
-                                                                assign quantity_rule_soldout = true
+                                                                assign quantity_rule_soldout_second = true
                                                                 endif
                                                             -%}
                                                             <button
@@ -1270,7 +1270,7 @@ shopify-google-pay-button {
                                                                 name="add"
                                                                 class="product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
                                                                 {% if product_second.selected_or_first_available_variant.available == false
-                                                                or quantity_rule_soldout
+                                                                or quantity_rule_soldout_second
                                                                 or product_second.selected_or_first_available_variant == null
                                                                 %}
                                                                 disabled
@@ -1279,7 +1279,7 @@ shopify-google-pay-button {
                                                                 <span>
                                                                 {%- if product_second.selected_or_first_available_variant == null -%}
                                                                     {{ 'products.product.unavailable' | t }}
-                                                                {%- elsif product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
+                                                                {%- elsif product.selected_or_first_available_variant.available == false or quantity_rule_soldout_second -%}
                                                                     {{ 'products.product.sold_out' | t }}
                                                                 {%- else -%}
                                                                     {{ 'products.product.add_to_cart' | t }}
@@ -1346,7 +1346,7 @@ shopify-google-pay-button {
                                                             name="id"
                                                             value="{{ product_thirt.selected_or_first_available_variant.id }}"
                                                             {% if product_thirt.selected_or_first_available_variant.available == false
-                                                                or quantity_rule_soldout
+                                                                or quantity_rule_soldout_thirt
                                                                 or product_thirt.selected_or_first_available_variant == null
                                                             %}
                                                                 disabled
@@ -1360,7 +1360,7 @@ shopify-google-pay-button {
                                                                 assign check_against_inventory = false
                                                                 endif
                                                                 if product_thirt.selected_or_first_available_variant.quantity_rule.min > product_thirt.selected_or_first_available_variant.inventory_quantity and check_against_inventory
-                                                                assign quantity_rule_soldout = true
+                                                                assign quantity_rule_soldout_thirt = true
                                                                 endif
                                                             -%}
                                                             <button
@@ -1369,7 +1369,7 @@ shopify-google-pay-button {
                                                                 name="add"
                                                                 class="product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
                                                                 {% if product_thirt.selected_or_first_available_variant.available == false
-                                                                or quantity_rule_soldout
+                                                                or quantity_rule_soldout_thirt
                                                                 or product_thirt.selected_or_first_available_variant == null
                                                                 %}
                                                                 disabled
@@ -1378,7 +1378,7 @@ shopify-google-pay-button {
                                                                 <span>
                                                                 {%- if product_thirt.selected_or_first_available_variant == null -%}
                                                                     {{ 'products.product.unavailable' | t }}
-                                                                {%- elsif product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
+                                                                {%- elsif product.selected_or_first_available_variant.available == false or quantity_rule_soldout_thirt -%}
                                                                     {{ 'products.product.sold_out' | t }}
                                                                 {%- else -%}
                                                                     {{ 'products.product.add_to_cart' | t }}
