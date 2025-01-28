@@ -4915,6 +4915,8 @@ ul {
 
 .facets-vertical-form{
   justify-content: space-between !important;
+  max-width: 880px;
+  margin-left: auto;
 }
 
 
