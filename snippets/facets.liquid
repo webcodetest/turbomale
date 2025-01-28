@@ -1084,11 +1084,13 @@
 
   minPriceInput.addEventListener("change", function () {
     noUiSliderItem.noUiSlider.set([this.value || 0, null]);
+    console.log("min-change");
     console.log(noUiSliderItem.noUiSlider);
   });
 
   maxPriceInput.addEventListener("change", function () {
     noUiSliderItem.noUiSlider.set([null, this.value || 500]);
+console.log("max-change");
 console.log(noUiSliderItem.noUiSlider);
   });
 
