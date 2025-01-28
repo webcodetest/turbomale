@@ -1048,6 +1048,14 @@
 
 <script>
 
+  var productPrices = [
+    {% for product in collections['all'].products %}
+      {{ product.price | divided_by: 100 }},
+    {% endfor %}
+  ];
+
+  const maxPrice = Math.max(...productPrices);
+
   const collectionOpener = document.querySelector(".collection-filter h3");
   const collectionList = document.querySelector(".collection-filter ul");
   const collectionSvgIcon = document.querySelector(".collection-filter .collection-filter-icon svg");
@@ -1060,11 +1068,11 @@
     var noUiSliderItem = document.getElementById("slider-no-overlap");
 
     noUiSlider.create(noUiSliderItem, {
-      start: [0, 500],
+      start: [0, maxPrice],
       connect: true,
       range: {
         min: 0,
-        max: 500
+        max: maxPrice
       },
       step: 1,
     });
