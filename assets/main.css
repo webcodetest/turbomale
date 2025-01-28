@@ -4919,7 +4919,9 @@ ul {
   margin-left: auto;
 }
 
-
+.active-facets{
+  display: none !important;
+}
 
 
 
