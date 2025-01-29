@@ -38,7 +38,7 @@
             </p>
             {% endfor %}
           {% endcomment %}
-          {% if collection.description %}
+          {% if collection.description != blank %}
             <p class="custom-last-longer-body-text">
                 {{ collection.description | newline_to_br }}
             </p>
