@@ -4937,6 +4937,9 @@ ul {
   background-image: url('https://cdn.shopify.com/s/files/1/0551/0728/9186/files/check_2_2_1.svg?v=1738137679');
   background-repeat: no-repeat;
   background-size: 100% 100%;
+  display: block;
+  width: 17px;
+  height: 17px;
 }
 
 
