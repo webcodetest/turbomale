@@ -4950,7 +4950,11 @@ ul {
 .basket-verified-icons-wrap{
   display: flex;
 }
-
+.basket-verified-icons-wrap img{
+  height: 100%;
+  max-width: 25%;
+  width: 100%;
+}
 
 
 
