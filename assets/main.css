@@ -4923,7 +4923,14 @@ ul {
   display: none !important;
 }
 
+.drawer__heading a{
+  color: inherit;
+  text-decoration: none;
+}
 
+.drawer__heading a:hover{
+  text-decoration: underline;
+}
 
 
 
