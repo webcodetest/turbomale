@@ -1467,10 +1467,12 @@ shopify-google-pay-button {
                   <img class='custom-basket-right-payments' src='{{ section.settings.basket_payments5 | img_url: 'master' }}' alt='Payments'>
                   {% endif %}
                 </div>
-                <img class='custom-basket-right-verified' src='{{ section.settings.basket_verified | img_url: 'master' }}' alt='Verified'>
-                <img class='custom-basket-right-verified' src='{{ section.settings.basket_verified1 | img_url: 'master' }}' alt='Verified'>
-                <img class='custom-basket-right-verified' src='{{ section.settings.basket_verified2 | img_url: 'master' }}' alt='Verified'>
-                <img class='custom-basket-right-verified' src='{{ section.settings.basket_verified3 | img_url: 'master' }}' alt='Verified'>
+                <div class="basket-payments-icons-wrap" style="display: flex; flex-wrap: wrap;">
+                  <img class='custom-basket-right-verified' src='{{ section.settings.basket_verified | img_url: 'master' }}' alt='Verified'>
+                  <img class='custom-basket-right-verified' src='{{ section.settings.basket_verified1 | img_url: 'master' }}' alt='Verified'>
+                  <img class='custom-basket-right-verified' src='{{ section.settings.basket_verified2 | img_url: 'master' }}' alt='Verified'>
+                  <img class='custom-basket-right-verified' src='{{ section.settings.basket_verified3 | img_url: 'master' }}' alt='Verified'>
+                </div>
                 <div class='custom-basket-product-mobile'>
                     <div class='custom-basket-tabs'>
                         <h3 class='custom-basket-tabs-tab active' basket-data-tab='favourites'>Favourites</h3>
