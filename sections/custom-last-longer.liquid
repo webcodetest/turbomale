@@ -24,6 +24,7 @@
     </div>
     <div class="custom-last-longer-body">
         <div class="custom-last-longer-body-wrap">
+          {% comment %}
             <p class="custom-last-longer-body-text">
                 {{ section.settings.custom_textarea | newline_to_br }}
             </p>
@@ -36,6 +37,10 @@
                 <span>{{ block.settings.custom_text | newline_to_br }}</span>
             </p>
             {% endfor %}
+          {% endcomment %}
+            <p class="custom-last-longer-body-text">
+                {{ collection.description | newline_to_br }}
+            </p>
         </div>
     </div>
   </div>
