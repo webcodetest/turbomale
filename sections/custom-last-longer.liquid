@@ -38,9 +38,24 @@
             </p>
             {% endfor %}
           {% endcomment %}
+          {% if collection.description %}
             <p class="custom-last-longer-body-text">
                 {{ collection.description | newline_to_br }}
             </p>
+          {% else %}
+            <p class="custom-last-longer-body-text">
+                {{ section.settings.custom_textarea | newline_to_br }}
+            </p>
+            <p class="custom-last-longer-body-text">
+                {{ section.settings.custom_textarea_2 | newline_to_br }}
+            </p>
+            {% for block in section.blocks %}
+            <p class="custom-last-longer-body-text-with-svg">
+                <span>{{ block.settings.custom_field }}</span>
+                <span>{{ block.settings.custom_text | newline_to_br }}</span>
+            </p>
+            {% endfor %}
+          {% endif %}
         </div>
     </div>
   </div>
