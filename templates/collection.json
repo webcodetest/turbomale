@@ -18,9 +18,7 @@
     "custom_breadcrumbs_4EJGHk": {
       "type": "custom-breadcrumbs",
       "disabled": true,
-      "settings": {
-        "chosen_collection": ""
-      }
+      "settings": {}
     },
     "banner": {
       "type": "main-collection-banner",
@@ -152,8 +150,8 @@
         "text_QzgHLq"
       ],
       "settings": {
-        "title_absolute": "last longer",
-        "title": "Last Longer, Get Bigger with a Cock Ring",
+        "title_absolute": "last longer1",
+        "title": "Last Longer, Get Bigger with a Cock Ring2",
         "custom_textarea": "For your protection, we suggest all returns should be sent via a traceable carrier.\nWhat items do you accept for return?\nAll items that are unopened and unused can be returned for a partial refund.\nWe will deduct shipping costs and pick and pack costs; roughly around USD $22 - USD $25.\n\n\nWe will NOT accept opened or used items for return. \n<b>Amending orders:</b>\nOur warehouses work quickly to pick and pack each order. Due to the quick turnaround, this often means that we are not always able to amend orders, swap products or change address before the products are shipped out.\n\n<b>If you have already received the order: </b>\nIf you want to cancel an order that is out for delivery, or has already been received; contact us immediately via this contact form.\n\nCustomer Support will provide you with the address when you email.",
         "custom_textarea_2": "<b>You will have to provide us with:</b>"
       }
