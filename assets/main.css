@@ -4947,7 +4947,10 @@ ul {
   gap: 10px;
 }
 
-
+.basket-payments-icons-wrap img{
+  max-width: 84px;
+  width: 100%;
+}
 
 
 
