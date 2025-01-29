@@ -4941,7 +4941,11 @@ ul {
   width: 17px;
   height: 17px;
 }
-
+.custom-last-longer-body-wrap ul li{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
 
 
