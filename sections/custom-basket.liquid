@@ -1468,6 +1468,9 @@ shopify-google-pay-button {
                   {% endif %}
                 </div>
                 <img class='custom-basket-right-verified' src='{{ section.settings.basket_verified | img_url: 'master' }}' alt='Verified'>
+                <img class='custom-basket-right-verified' src='{{ section.settings.basket_verified1 | img_url: 'master' }}' alt='Verified'>
+                <img class='custom-basket-right-verified' src='{{ section.settings.basket_verified2 | img_url: 'master' }}' alt='Verified'>
+                <img class='custom-basket-right-verified' src='{{ section.settings.basket_verified3 | img_url: 'master' }}' alt='Verified'>
                 <div class='custom-basket-product-mobile'>
                     <div class='custom-basket-tabs'>
                         <h3 class='custom-basket-tabs-tab active' basket-data-tab='favourites'>Favourites</h3>
@@ -2123,6 +2126,21 @@ document.addEventListener('DOMContentLoaded', () => {
     {
     "type": "image_picker",
     "id": "basket_verified",
+    "label": "Basket Verified"
+    },
+    {
+    "type": "image_picker",
+    "id": "basket_verified1",
+    "label": "Basket Verified"
+    },
+    {
+    "type": "image_picker",
+    "id": "basket_verified2",
+    "label": "Basket Verified"
+    },
+    {
+    "type": "image_picker",
+    "id": "basket_verified3",
     "label": "Basket Verified"
     },
     ],
