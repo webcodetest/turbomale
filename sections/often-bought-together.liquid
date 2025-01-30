@@ -364,24 +364,16 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
        if (itemsToAdd.length > 0) {
         addItemsToCart(itemsToAdd).then(() => {
       // Запускаем стандартное обновление cart-drawer
-      document.dispatchEvent(new Event('cart:refresh'));
+      fetch('/cart.js') // Запрашиваем актуальные данные корзины
+    .then(response => response.json())
+    .then(cart => {
+      document.querySelector('cart-drawer').update(cart); // Обновляем cart-drawer
+    });
     });
       } else {
         alert("No products selected.");
       }
     });
-
-    addItemsToCart(itemsToAdd).then(() => {
-  fetch('/cart.js') // Запрашиваем актуальные данные корзины
-    .then(response => response.json())
-    .then(cart => {
-      document.querySelector('cart-drawer').update(cart); // Обновляем cart-drawer
-    });
-
-  // Открываем cart-drawer
-  document.querySelector(".drawer").classList.add("active");
-});
-
 
     function addItemsToCart(items) {
       return fetch("/cart/add.js", {
