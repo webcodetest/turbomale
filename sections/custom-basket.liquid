@@ -1015,7 +1015,7 @@ shopify-google-pay-button {
                             <div class='custom-basket-item-info'>
                                 <div class='custom-basket-item-info-top'>
                                     <div class='custom-basket-item-info-top-left'>
-                                        <h2>{{ item.product.title }}</h2>
+                                        <h2><a href="{{ item.product.url }}" >{{ item.product.title }}</a></h2>
                                         <p>{{  item.product.metafields.custom.subtitle }}</p>
                                         {%- if item.product.has_only_default_variant == false -%}
                                             <div class="custom-basket-item-options">
