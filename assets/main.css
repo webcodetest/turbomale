@@ -4988,7 +4988,9 @@ ul {
 .swiper-slide-active{
   border-bottom: 1px solid #60AC22;
 }
-
+.lower-modal-swiper .swiper-wrapper{
+  height: 100%;
+}
 
 
 
