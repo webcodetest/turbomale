@@ -359,13 +359,13 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
         });
       });
 
+        const cartDrawerItem = document.querySelector(".drawer");
+        cartDrawerItem.classList.add("active");
       if (itemsToAdd.length > 0) {
         addItemsToCart(itemsToAdd).then(() => {
       // Запускаем стандартное обновление cart-drawer
       document.dispatchEvent(new Event('cart:refresh'));
     });
-        const cartDrawerItem = document.querySelector(".drawer");
-        cartDrawerItem.classList.add("active");
       } else {
         alert("No products selected.");
       }
