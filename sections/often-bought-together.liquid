@@ -363,8 +363,11 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
         addItemsToCart(itemsToAdd);
         // const cartDrawerItem = document.querySelector(".drawer");
         // cartDrawerItem.classList.add("active");
-        document.querySelector('cart-drawer').update(cart);
-        window.location.href = "/cart";
+        
+        function relocateToCart(){
+          window.location.href = "/cart";
+        };
+        setTimeout(relocateToCart, 100);
       } else {
         alert("No products selected.");
       }
