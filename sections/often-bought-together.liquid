@@ -360,9 +360,8 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
       });
 
       if (itemsToAdd.length > 0) {
-        addItemsToCart(itemsToAdd).then(() => {
-          location.reload();
-        });
+        addItemsToCart(itemsToAdd);
+        location.reload();
         const cartDrawerItem = document.querySelector(".drawer");
         cartDrawerItem.classList.add("active");
       } else {
