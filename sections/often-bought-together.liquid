@@ -327,103 +327,73 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
 </section>
 
 <script>
- document.addEventListener("DOMContentLoaded", function () {
-  const checkboxes = document.querySelectorAll(".product-checkbox");
-  const totalPriceEl = document.getElementById("total-price");
-  const addToCartBtn = document.getElementById("add-to-cart");
+  document.addEventListener("DOMContentLoaded", function () {
+    const checkboxes = document.querySelectorAll(".product-checkbox");
+    const totalPriceEl = document.getElementById("total-price");
+    const addToCartBtn = document.getElementById("add-to-cart");
 
-  function updateTotal() {
-    let total = 0;
-    checkboxes.forEach((checkbox) => {
-      if (checkbox.checked) {
-        total += parseFloat(checkbox.dataset.price);
-      }
-    });
-    totalPriceEl.textContent = `$${total.toFixed(2)} USD`;
-  }
-
-  checkboxes.forEach((checkbox) => {
-    checkbox.addEventListener("change", updateTotal);
-  });
-
-  addToCartBtn.addEventListener("click", function () {
-    const checkboxesChecked = document.querySelectorAll(".product-checkbox:checked");
-    const itemsToAdd = [];
-
-    checkboxesChecked.forEach((checkbox) => {
-      const productId = checkbox.getAttribute("data-product-id");
-
-      itemsToAdd.push({
-        id: productId,
-        quantity: 1,
-      });
-    });
-
-    if (itemsToAdd.length > 0) {
-      addItemsToCart(itemsToAdd);
-    } else {
-      alert("No products selected.");
-    }
-  });
-
-  function addItemsToCart(items) {
-    fetch("/cart/add.js", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ items }),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          return response.text().then((text) => {
-            throw new Error(`Failed to add items to cart: ${text}`);
-          });
+    function updateTotal() {
+      let total = 0;
+      checkboxes.forEach((checkbox) => {
+        if (checkbox.checked) {
+          total += parseFloat(checkbox.dataset.price);
         }
-        return response.json();
-      })
-      .then(() => {
-        // Открываем cart-drawer
+      });
+      totalPriceEl.textContent = `$${total.toFixed(2)} USD`;
+    }
+
+    checkboxes.forEach((checkbox) => {
+      checkbox.addEventListener("change", updateTotal);
+    });
+
+    addToCartBtn.addEventListener("click", function () {
+      const checkboxesChecked = document.querySelectorAll(".product-checkbox:checked");
+      const itemsToAdd = [];
+
+      checkboxesChecked.forEach((checkbox) => {
+        const productId = checkbox.getAttribute("data-product-id");
+
+        itemsToAdd.push({
+          id: productId,
+          quantity: 1,
+        });
+      });
+
+      if (itemsToAdd.length > 0) {
+        addItemsToCart(itemsToAdd);
         const cartDrawerItem = document.querySelector(".drawer");
         cartDrawerItem.classList.add("active");
+      } else {
+        alert("No products selected.");
+      }
+    });
 
-        // Загружаем актуальные данные корзины
-        updateCartDrawer();
+    function addItemsToCart(items) {
+      fetch("/cart/add.js", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ items }),
       })
-      .catch((error) => {
-        console.error("Error adding to cart:", error);
-      });
-  }
-
-  function updateCartDrawer() {
-    fetch("/cart.js")
-      .then((response) => response.json())
-      .then((cart) => {
-        const cartItemsContainer = document.querySelector(".cart-drawer-items");
-        cartItemsContainer.innerHTML = ""; // Очищаем старые данные
-
-        cart.items.forEach((item) => {
-          const cartItem = document.createElement("div");
-          cartItem.classList.add("cart-item");
-          cartItem.innerHTML = `
-            <img src="${item.image}" alt="${item.product_title}" class="cart-item-image">
-            <div class="cart-item-info">
-              <p class="cart-item-title">${item.product_title}</p>
-              <p class="cart-item-price">$${(item.final_line_price / 100).toFixed(2)} USD</p>
-              <p class="cart-item-quantity">Quantity: ${item.quantity}</p>
-            </div>
-          `;
-          cartItemsContainer.appendChild(cartItem);
+        .then((response) => {
+      if (!response.ok) {
+        return response.text().then((text) => {
+          throw new Error(`Failed to add items to cart: ${text}`);
         });
-      })
-      .catch((error) => {
-        console.error("Error updating cart drawer:", error);
-      });
-  }
+      }
+      return response.json();
+    })
+        .then((data) => {
+          
+        })
+        .catch((error) => {
+          console.error("Error adding to cart:", error);
+        });
+    }
 
-  updateTotal();
-});
-
+    updateTotal();
+  });
 </script>
 
 {% schema %}
