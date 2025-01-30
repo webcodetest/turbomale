@@ -964,14 +964,15 @@
 
 
     var modalSwiper = new Swiper(".modal-swiper", {
-      thumbs: {
-        swiper: lowerModalSwiper,
-      },
+      
     });
 
     var lowerModalSwiper = new Swiper(".lower-modal-swiper", {
       slidesPerView: 4,
       spaceBetween: 12,
+      thumbs: {
+        swiper: modalSwiper,
+      },
       navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
