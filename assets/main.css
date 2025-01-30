@@ -4962,7 +4962,7 @@ ul {
   margin: 15px 0;
 }
 
-.modal__product-buy-button:hover{
+.modal__product-buy-button button:hover{
   transform: scale(1.1);
 }
 
