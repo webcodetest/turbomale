@@ -358,8 +358,10 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
           quantity: 1,
         });
       });
-        const cartDrawerItem = document.querySelector(".drawer");
-        cartDrawerItem.classList.add("active");
+        // const cartDrawerItem = document.querySelector(".drawer");
+        // cartDrawerItem.classList.add("active");
+
+      window.location.href = "/cart";
 
        if (itemsToAdd.length > 0) {
         addItemsToCart(itemsToAdd).then(() => {
