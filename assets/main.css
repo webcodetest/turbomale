@@ -4966,7 +4966,7 @@ ul {
   transition: all 0.3s ease;
 }
 .modal__product-buy-button button:hover{
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 
