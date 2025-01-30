@@ -327,80 +327,76 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
 </section>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
     const checkboxes = document.querySelectorAll(".product-checkbox");
     const totalPriceEl = document.getElementById("total-price");
     const addToCartBtn = document.getElementById("add-to-cart");
 
     function updateTotal() {
-      let total = 0;
-      checkboxes.forEach((checkbox) => {
-        if (checkbox.checked) {
-          total += parseFloat(checkbox.dataset.price);
-        }
-      });
-      totalPriceEl.textContent = `$${total.toFixed(2)} USD`;
+        let total = 0;
+        checkboxes.forEach((checkbox) => {
+            if (checkbox.checked) {
+                total += parseFloat(checkbox.dataset.price);
+            }
+        });
+        totalPriceEl.textContent = `$${total.toFixed(2)} USD`;
     }
 
     checkboxes.forEach((checkbox) => {
-      checkbox.addEventListener("change", updateTotal);
+        checkbox.addEventListener("change", updateTotal);
     });
 
     addToCartBtn.addEventListener("click", function () {
-      const checkboxesChecked = document.querySelectorAll(".product-checkbox:checked");
-      const itemsToAdd = [];
+        const checkboxesChecked = document.querySelectorAll(".product-checkbox:checked");
+        const itemsToAdd = [];
 
-      checkboxesChecked.forEach((checkbox) => {
-        const productId = checkbox.getAttribute("data-product-id");
-
-        itemsToAdd.push({
-          id: productId,
-          quantity: 1,
+        checkboxesChecked.forEach((checkbox) => {
+            const productId = checkbox.getAttribute("data-product-id");
+            itemsToAdd.push({
+                id: productId,
+                quantity: 1,
+            });
         });
-      });
-        const cartDrawerItem = document.querySelector(".drawer");
-        cartDrawerItem.classList.add("active");
 
-       if (itemsToAdd.length > 0) {
-        addItemsToCart(itemsToAdd).then(() => {
-      // Запускаем стандартное обновление cart-drawer
-      fetch('/cart.js') // Запрашиваем актуальные данные корзины
-    .then(response => response.json())
-    .then(cart => {
-      document.querySelector('cart-drawer').update(cart); // Обновляем cart-drawer
-    });
-    });
-      } else {
-        alert("No products selected.");
-      }
+        if (itemsToAdd.length > 0) {
+            addItemsToCart(itemsToAdd).then(() => {
+                // Открываем cart-drawer
+                document.querySelector(".drawer").classList.add("active");
+
+                // Запрашиваем актуальные данные корзины
+                fetch('/cart.js')
+                    .then(response => response.json())
+                    .then(() => {
+                        // Запускаем стандартное обновление cart-drawer
+                        document.querySelector('cart-drawer').dispatchEvent(new Event('cart:refresh'));
+                    });
+            }).catch(error => console.error("Error adding to cart:", error));
+        } else {
+            alert("No products selected.");
+        }
     });
 
     function addItemsToCart(items) {
-      return fetch("/cart/add.js", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ items }),
-      })
-        .then((response) => {
-      if (!response.ok) {
-        return response.text().then((text) => {
-          throw new Error(`Failed to add items to cart: ${text}`);
-        });
-      }
-      return response.json();
-    })
-        .then((data) => {
-          
+        return fetch("/cart/add.js", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ items }),
         })
-        .catch((error) => {
-          console.error("Error adding to cart:", error);
+        .then(response => {
+            if (!response.ok) {
+                return response.text().then(text => {
+                    throw new Error(`Failed to add items to cart: ${text}`);
+                });
+            }
+            return response.json();
         });
     }
 
     updateTotal();
-  });
+});
+
 </script>
 
 {% schema %}
