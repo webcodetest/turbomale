@@ -63,10 +63,10 @@
         "basket_payments3": "shopify://shop_images/Amex_e680f3ec-de57-4844-93f8-7ac49a48031f.svg",
         "basket_payments4": "shopify://shop_images/Paypal_fbe39c59-fb90-4354-ba12-88b8153cebd9.svg",
         "basket_payments5": "shopify://shop_images/ApplePay.svg",
-        "basket_verified": "shopify://shop_images/icon-truste.svg",
-        "basket_verified1": "shopify://shop_images/icon-norton-secured.svg",
+        "basket_verified": "shopify://shop_images/Frame_297.svg",
+        "basket_verified1": "shopify://shop_images/Frame_298.svg",
         "basket_verified2": "shopify://shop_images/Frame_299.svg",
-        "basket_verified3": "shopify://shop_images/icon-accredited-business.svg"
+        "basket_verified3": "shopify://shop_images/Frame_300.svg"
       }
     },
     "cart-items": {
