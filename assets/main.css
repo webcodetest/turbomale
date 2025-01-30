@@ -4978,7 +4978,7 @@ ul {
 
 .lower-modal-swiper .swiper-button-next,
 .lower-modal-swiper .swiper-button-prev{
-  opacity: 1;
+  opacity: 1 !important;
   top: 55% !important;
 }
 
