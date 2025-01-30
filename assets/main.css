@@ -4972,7 +4972,9 @@ ul {
   cursor: pointer;
 }
 
-
+.button:after, .shopify-challenge__button:after, .customer button:after, .shopify-payment-button__button--unbranded:after{
+  box-shadow: none !important;
+}
 
 
 
