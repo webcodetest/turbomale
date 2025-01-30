@@ -361,7 +361,6 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
 
       if (itemsToAdd.length > 0) {
         addItemsToCart(itemsToAdd);
-        document.dispatchEvent(new Event('cart:refresh'));
         const cartDrawerItem = document.querySelector(".drawer");
         cartDrawerItem.classList.add("active");
       } else {
