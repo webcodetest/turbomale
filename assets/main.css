@@ -4976,7 +4976,11 @@ ul {
   box-shadow: none !important;
 }
 
-
+.lower-modal-swiper .swiper-button-next,
+.lower-modal-swiper .swiper-button-prev{
+  opacity: 1;
+  top: 55%;
+}
 
 
 
