@@ -4968,6 +4968,9 @@ ul {
 .modal__product-buy-button button:hover{
   transform: scale(1.05);
 }
+.modal__product-buy-button .share-btn{
+  cursor: pointer;
+}
 
 
 
