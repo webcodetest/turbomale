@@ -360,7 +360,11 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
       });
 
       if (itemsToAdd.length > 0) {
-        addItemsToCart(itemsToAdd);
+         if (itemsToAdd.length > 0) {
+        addItemsToCart(itemsToAdd).then(() => {
+      // Запускаем стандартное обновление cart-drawer
+      document.dispatchEvent(new Event('cart:refresh'));
+    });
         document.dispatchEvent(new Event('cart:refresh'));
         const cartDrawerItem = document.querySelector(".drawer");
         cartDrawerItem.classList.add("active");
@@ -370,28 +374,28 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
     });
 
     function addItemsToCart(items) {
-      fetch("/cart/add.js", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ items }),
-      })
-        .then((response) => {
+  return fetch("/cart/add.js", { // <-- Добавили return
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ items }),
+  })
+    .then((response) => {
       if (!response.ok) {
         return response.text().then((text) => {
-          throw new Error(`Failed to add items to cart: ${text}`);
+          const errorData = JSON.parse(text);
+          alert(`Ошибка: ${errorData.message}`);
+          throw new Error(`Failed to add items to cart: ${errorData.message}`);
         });
       }
       return response.json();
     })
-        .then((data) => {
-          
-        })
-        .catch((error) => {
-          console.error("Error adding to cart:", error);
-        });
-    }
+    .catch((error) => {
+      console.error("Error adding to cart:", error);
+    });
+}
+
 
     updateTotal();
   });
