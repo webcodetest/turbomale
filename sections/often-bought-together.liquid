@@ -361,10 +361,9 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
 
         if (itemsToAdd.length > 0) {
             addItemsToCart(itemsToAdd).then(() => {
-                return onCartUpdate(); // Дожидаемся обновления корзины
-            }).then(() => {
+                onCartUpdate(); // Обновляем корзину после добавления товаров
                 const cartDrawerItem = document.querySelector(".drawer");
-                cartDrawerItem.classList.add("active"); // Открываем drawer только после обновления
+                cartDrawerItem.classList.add("active");
             });
         } else {
             alert("No products selected.");
@@ -393,7 +392,7 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
     }
 
     function onCartUpdate() {
-        return fetch(`${routes.cart_url}?section_id=cart-drawer`) // ⬅️ Добавил return
+        fetch(`${routes.cart_url}?section_id=cart-drawer`)
             .then((response) => response.text())
             .then((responseText) => {
                 const html = new DOMParser().parseFromString(responseText, "text/html");
@@ -413,7 +412,6 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
 
     updateTotal();
 });
-
 
 </script>
 
