@@ -634,7 +634,7 @@
             data-product-price="{{ card_product.price }}"
             data-product-old-price="{{ card_product.compare_at_price }}"
             data-product-subtitle="{{ card_product.metafields.custom.subtitle.value }}"
-            data-product-images="{{ card_product.images.url | join: ',' }}"
+            data-product-images="{{ card_product.images | join: ',' }}"
           >
             <div class="quick-view__btn">
               <span class="quick-view__btn-image">
