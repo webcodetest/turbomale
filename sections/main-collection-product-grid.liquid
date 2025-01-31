@@ -1048,13 +1048,15 @@
       const productPrice = button.dataset.productPrice;
       const productOldPrice = button.dataset.productOldPrice;
       const productSubtitle = button.dataset.productDescription;
-      const productimages = button.dataset.productImages;
+      const productImages = button.dataset.productImages;
+      const productImagesArray = JSON.parse(button.dataset.productImages || "[]");
 
-      console.log(productimages);
+      console.log(productImages);
+      console.log(productImagesArray);
       modalSwiperWrap1.innerHTML = '';
       modalSwiperWrap2.innerHTML = '';
 
-      productimages.forEach(image => {
+      productImages.forEach(image => {
         modalSwiperWrap1.innerHTML += `
           <div class="swiper-slide">
             <img src="${image}" alt="Product Image">
