@@ -823,20 +823,24 @@
     <div class="product__modal-window-left-part">
       <div class="swiper modal-swiper">
         <div class="swiper-wrapper">
+          {% comment %}
           {% for product in collection.products %}
               <div class="swiper-slide">
                 <img src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.title }}">
               </div>
           {% endfor %}
+          {% endcomment %}
         </div>
       </div>
       <div class="swiper lower-modal-swiper">
         <div class="swiper-wrapper">
+          {% comment %}
           {% for product in collection.products %}
               <div class="swiper-slide">
                 <img src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.title }}">
               </div>
           {% endfor %}
+          {% endcomment %}
         </div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
@@ -1051,6 +1055,8 @@
       const productimages = button.dataset.productImages;
 
       console.log(productimages);
+      modalSwiperWrap1.innerHTML = '';
+      modalSwiperWrap2.innerHTML = '';
 
       modalTitle.textContent = productTitle;
 
