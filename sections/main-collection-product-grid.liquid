@@ -1003,9 +1003,6 @@
       },
     });
 
-
-
-
     const modalOpenBtn = document.querySelectorAll('.quick-view__block');
     const modalCloseBtn = document.querySelector('.product__modal-btn-close');
     const modalWindow = document.querySelector('.product__modal-window');
@@ -1027,8 +1024,6 @@
         modalWindow.classList.add("removed");
       }
     });
-
-
 
   const quickViewButtons = document.querySelectorAll('.quick-view__block');
   const modal = document.querySelector('.product__modal-window');
@@ -1053,9 +1048,6 @@
       console.log(productImages);
       
       parsedProductImages = productImages.split(",").map(img => img.trim());
-
-      console.log("Parsed productImages:", parsedProductImages);
-
 
       modalSwiperWrap1.innerHTML = '';
       modalSwiperWrap2.innerHTML = '';
@@ -1094,7 +1086,6 @@
         const formattedDifferencePrice = `Save $${difference.toFixed(2)}`;
         modalDifference.textContent = formattedDifferencePrice;
       }
-
 
       modalSubtitle.textContent =
         productSubtitle.length > 150
