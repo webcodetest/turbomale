@@ -363,9 +363,11 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
             addItemsToCart(itemsToAdd)
                 .then(() => onCartUpdate()) // Обновляем корзину после добавления
                 .then(() => {
-                    // После обновления корзины открываем её
-                    const cartDrawerItem = document.querySelector(".drawer");
-                    cartDrawerItem.classList.add("active");
+                    // Даем время корзине обновиться перед открытием
+                    setTimeout(() => {
+                        const cartDrawerItem = document.querySelector(".drawer");
+                        cartDrawerItem.classList.add("active");
+                    }, 500); // Ожидание 500 мс
                 })
                 .catch((error) => {
                     console.error("Error updating cart:", error);
@@ -422,6 +424,7 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
 
     updateTotal();
 });
+
 
 
 </script>
