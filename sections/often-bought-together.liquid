@@ -409,8 +409,13 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
                 }
 
+                // ✅ Удаляем .drawer__inner-empty при наличии товаров
                 const cartDrawer = document.querySelector(".drawer");
+                const emptyState = cartDrawer.querySelector(".drawer__inner-empty");
                 cartDrawer.classList.remove("is-empty");
+                if (emptyState) {
+                    emptyState.style.display = "none";
+                }
 
                 resolve(); // Сообщаем, что корзина обновлена
             })
