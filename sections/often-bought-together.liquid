@@ -395,27 +395,36 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function onCartUpdate() {
-        return new Promise((resolve, reject) => {
-            fetch(`${routes.cart_url}?section_id=cart-drawer`)
-                .then((response) => response.text())
-                .then((responseText) => {
-                    const html = new DOMParser().parseFromString(responseText, "text/html");
-                    const selectors = ["cart-drawer-items", ".cart-drawer__footer"];
-                    for (const selector of selectors) {
-                        const targetElement = document.querySelector(selector);
-                        const sourceElement = html.querySelector(selector);
-                        if (targetElement && sourceElement) {
-                            targetElement.replaceWith(sourceElement);
-                        }
+    return new Promise((resolve, reject) => {
+        fetch(`${routes.cart_url}?section_id=cart-drawer`)
+            .then((response) => response.text())
+            .then((responseText) => {
+                const html = new DOMParser().parseFromString(responseText, "text/html");
+                const selectors = ["cart-drawer-items", ".cart-drawer__footer"];
+                for (const selector of selectors) {
+                    const targetElement = document.querySelector(selector);
+                    const sourceElement = html.querySelector(selector);
+                    if (targetElement && sourceElement) {
+                        targetElement.replaceWith(sourceElement);
                     }
-                    resolve(); // Сообщаем, что корзина обновлена
-                })
-                .catch((e) => {
-                    console.error("Error updating cart drawer:", e);
-                    reject(e);
-                });
-        });
-    }
+                }
+
+                // ✅ Удаляем .drawer__inner-empty при наличии товаров
+                const cartDrawer = document.querySelector(".drawer");
+                const emptyState = cartDrawer.querySelector(".drawer__inner-empty");
+                if (emptyState) {
+                    emptyState.style.display = "none";
+                }
+
+                resolve(); // Сообщаем, что корзина обновлена
+            })
+            .catch((e) => {
+                console.error("Error updating cart drawer:", e);
+                reject(e);
+            });
+    });
+}
+
 
     function openCartDrawer() {
         const cartDrawerItem = document.querySelector(".drawer");
