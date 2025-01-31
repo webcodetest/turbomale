@@ -327,7 +327,7 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
 </section>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
     const checkboxes = document.querySelectorAll(".product-checkbox");
     const totalPriceEl = document.getElementById("total-price");
     const addToCartBtn = document.getElementById("add-to-cart");
@@ -361,13 +361,9 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
 
         if (itemsToAdd.length > 0) {
             addItemsToCart(itemsToAdd)
-                .then(() => onCartUpdate()) // Обновляем корзину после добавления
+                .then(() => onCartUpdate()) // ЖДЕМ обновления корзины
                 .then(() => {
-                    // Даем время корзине обновиться перед открытием
-                    setTimeout(() => {
-                        const cartDrawerItem = document.querySelector(".drawer");
-                        cartDrawerItem.classList.add("active");
-                    }, 500); // Ожидание 500 мс
+                    openCartDrawer(); // Открываем корзину только после обновления
                 })
                 .catch((error) => {
                     console.error("Error updating cart:", error);
@@ -399,33 +395,35 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
     }
 
     function onCartUpdate() {
-        if (!routes || !routes.cart_url) {
-            console.error("Error: routes.cart_url is undefined");
-            return Promise.reject("routes.cart_url is undefined");
-        }
-
-        return fetch(`${routes.cart_url}?section_id=cart-drawer`)
-            .then((response) => response.text())
-            .then((responseText) => {
-                const html = new DOMParser().parseFromString(responseText, "text/html");
-                const selectors = ["cart-drawer-items", ".cart-drawer__footer"];
-                for (const selector of selectors) {
-                    const targetElement = document.querySelector(selector);
-                    const sourceElement = html.querySelector(selector);
-                    if (targetElement && sourceElement) {
-                        targetElement.replaceWith(sourceElement);
+        return new Promise((resolve, reject) => {
+            fetch(`${routes.cart_url}?section_id=cart-drawer`)
+                .then((response) => response.text())
+                .then((responseText) => {
+                    const html = new DOMParser().parseFromString(responseText, "text/html");
+                    const selectors = ["cart-drawer-items", ".cart-drawer__footer"];
+                    for (const selector of selectors) {
+                        const targetElement = document.querySelector(selector);
+                        const sourceElement = html.querySelector(selector);
+                        if (targetElement && sourceElement) {
+                            targetElement.replaceWith(sourceElement);
+                        }
                     }
-                }
-            })
-            .catch((e) => {
-                console.error("Error updating cart drawer:", e);
-            });
+                    resolve(); // Сообщаем, что корзина обновлена
+                })
+                .catch((e) => {
+                    console.error("Error updating cart drawer:", e);
+                    reject(e);
+                });
+        });
+    }
+
+    function openCartDrawer() {
+        const cartDrawerItem = document.querySelector(".drawer");
+        cartDrawerItem.classList.add("active");
     }
 
     updateTotal();
 });
-
-
 
 </script>
 
