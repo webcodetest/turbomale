@@ -1038,7 +1038,8 @@
   const modalSwiperWrap2 = modal.querySelector('.lower-modal-swiper .swiper-wrapper');
     
   const modalBuyBtn = modal.querySelector('.quick-add__submit');
-  console.log(modalBuyBtn);
+
+  let currentProductId = null;
 
   quickViewButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -1047,9 +1048,25 @@
       const productOldPrice = button.dataset.productOldPrice;
       const productSubtitle = button.dataset.productDescription;
       const productImages = button.dataset.productImages;
-      
-      const productId = button.dataset.productId;
-      console.log(`Product id: ${productId}`);
+
+      currentProductId = button.dataset.productId;
+
+      if (modalBuyBtn) {
+        modalBuyBtn.addEventListener("click", function () {
+            if (!currentProductId) {
+                console.error("Ошибка: productId не найден!");
+                return;
+            }
+
+            // Формируем объект товара для добавления в корзину
+            const itemToAdd = {
+                id: currentProductId,
+                quantity: 1
+            };
+
+            addToCart([itemToAdd]);
+        });
+    }
       
       parsedProductImages = productImages.split(",").map(img => img.trim());
 
