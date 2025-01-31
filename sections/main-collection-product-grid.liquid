@@ -963,6 +963,8 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer ></script>
 
 <script>
+  document.addEventListener("DOMContentLoaded", function(){
+})
   var lowerModalSwiper = new Swiper(".lower-modal-swiper", {
       slidesPerView: 4,
       spaceBetween: 12,
@@ -977,6 +979,7 @@
         swiper: lowerModalSwiper,
       },
     });
+  });
   
   setInterval(() => {
     const viewButtons = document.querySelectorAll('.view-mode');
