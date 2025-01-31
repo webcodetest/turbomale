@@ -1052,6 +1052,9 @@
 
       console.log(productImages);
       console.log("Raw productImages:", button.dataset.productImages);
+      const parsedProductImages = JSON.parse(button.dataset.productImages || "[]");
+      console.log("Parsed productImages:", parsedProductImages);
+
 
       modalSwiperWrap1.innerHTML = '';
       modalSwiperWrap2.innerHTML = '';
