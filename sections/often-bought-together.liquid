@@ -360,19 +360,13 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         if (itemsToAdd.length > 0) {
-            console.log("🛒 Начинаем добавление товаров...");
-
             addItemsToCart(itemsToAdd)
+                .then(() => onCartUpdate()) // ЖДЕМ обновления корзины
                 .then(() => {
-                    console.log("✅ Товары добавлены, обновляем корзину...");
-                    return updateCartFromShopify();
-                })
-                .then(() => {
-                    console.log("✅ Корзина обновлена, открываем корзину...");
-                    openCartDrawer();
+                    openCartDrawer(); // Открываем корзину только после обновления
                 })
                 .catch((error) => {
-                    console.error("❌ Ошибка при обновлении корзины:", error);
+                    console.error("Error updating cart:", error);
                 });
         } else {
             alert("No products selected.");
@@ -395,42 +389,41 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             return response.json();
         })
-        .then((data) => {
-            console.log("🛍️ Shopify вернул данные о добавленных товарах:", data);
-        })
         .catch((error) => {
-            console.error("❌ Ошибка при добавлении товаров:", error);
+            console.error("Error adding to cart:", error);
         });
     }
 
-    function updateCartFromShopify() {
+    function onCartUpdate() {
         return new Promise((resolve, reject) => {
-            fetch('/cart.js') // Запрашиваем актуальные данные корзины
-                .then(response => response.json())
-                .then(cart => {
-                    console.log("🛒 Получены данные корзины из Shopify:", cart);
-                    
-                    // Обновляем содержимое cart-drawer
-                    document.querySelector('cart-drawer').update(cart);
-                    
-                    resolve(); // Сообщаем, что обновление завершено
+            fetch(`${routes.cart_url}?section_id=cart-drawer`)
+                .then((response) => response.text())
+                .then((responseText) => {
+                    const html = new DOMParser().parseFromString(responseText, "text/html");
+                    const selectors = ["cart-drawer-items", ".cart-drawer__footer"];
+                    for (const selector of selectors) {
+                        const targetElement = document.querySelector(selector);
+                        const sourceElement = html.querySelector(selector);
+                        if (targetElement && sourceElement) {
+                            targetElement.replaceWith(sourceElement);
+                        }
+                    }
+                    resolve(); // Сообщаем, что корзина обновлена
                 })
-                .catch(error => {
-                    console.error("❌ Ошибка при обновлении корзины:", error);
-                    reject(error);
+                .catch((e) => {
+                    console.error("Error updating cart drawer:", e);
+                    reject(e);
                 });
         });
     }
 
     function openCartDrawer() {
-        console.log("🛍️ Открываем корзину...");
         const cartDrawerItem = document.querySelector(".drawer");
         cartDrawerItem.classList.add("active");
     }
 
     updateTotal();
 });
-
 
 </script>
 
