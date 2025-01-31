@@ -5028,6 +5028,9 @@ ul {
   .product__modal-window-right-part{
     width: 100%;
   }
+  .collection-card-heading-icons{
+    z-index: 1;
+  }
 }
 
 
