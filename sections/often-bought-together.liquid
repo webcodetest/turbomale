@@ -363,7 +363,14 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
         addItemsToCart(itemsToAdd);
         const cartDrawerItem = document.querySelector(".drawer");
         cartDrawerItem.classList.add("active");
-        
+        fetch(`${routes.cart_url}?section_id=main-cart-items`)
+    .then((response) => response.text())
+    .then((responseText) => {
+        const html = new DOMParser().parseFromString(responseText, "text/html");
+        const sourceQty = html.querySelector("cart-items");
+        this.innerHTML = sourceQty.innerHTML;
+    })
+
         // function relocateToCart(){
         //   window.location.href = "/cart";
         // };
@@ -396,15 +403,6 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
           console.error("Error adding to cart:", error);
         });
     }
-
-    fetch(`${routes.cart_url}?section_id=main-cart-items`)
-    .then((response) => response.text())
-    .then((responseText) => {
-        const html = new DOMParser().parseFromString(responseText, "text/html");
-        const sourceQty = html.querySelector("cart-items");
-        this.innerHTML = sourceQty.innerHTML;
-    })
-
 
     updateTotal();
   });
