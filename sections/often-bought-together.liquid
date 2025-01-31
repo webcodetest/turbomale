@@ -417,6 +417,11 @@ document.addEventListener("DOMContentLoaded", function () {
                     emptyState.style.display = "none";
                 }
 
+                const checkoutButton = document.querySelector(".cart__checkout-button");
+                if (checkoutButton) {
+                    checkoutButton.removeAttribute("disabled");
+                }
+
                 resolve(); // Сообщаем, что корзина обновлена
             })
             .catch((e) => {
