@@ -1042,6 +1042,9 @@
   const modalSwiperWrap1 = modal.querySelector('.modal-swiper');
   const modalSwiperWrap2 = modal.querySelector('.lower-modal-swiper');
 
+    console.log(modalSwiperWrap1);
+    console.log(modalSwiperWrap2);
+
   quickViewButtons.forEach(button => {
     button.addEventListener('click', () => {
       const productTitle = button.dataset.productTitle;
@@ -1049,10 +1052,9 @@
       const productOldPrice = button.dataset.productOldPrice;
       const productSubtitle = button.dataset.productDescription;
       const productImages = button.dataset.productImages;
-      const productImagesArray = JSON.parse(productImages || "[]");
 
       console.log(productImages);
-      console.log(productImagesArray);
+      
       modalSwiperWrap1.innerHTML = '';
       modalSwiperWrap2.innerHTML = '';
 
