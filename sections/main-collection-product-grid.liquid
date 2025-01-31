@@ -992,7 +992,20 @@
     
 
 
-    
+    var lowerModalSwiper = new Swiper(".lower-modal-swiper", {
+      slidesPerView: 4,
+      spaceBetween: 12,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+
+    var modalSwiper = new Swiper(".modal-swiper", {
+      thumbs: {
+        swiper: lowerModalSwiper,
+      },
+    });
 
 
 
@@ -1091,21 +1104,6 @@
       modal.classList.remove('removed');
     });
   });
-
-    var lowerModalSwiper = new Swiper(".lower-modal-swiper", {
-      slidesPerView: 4,
-      spaceBetween: 12,
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-    });
-
-    var modalSwiper = new Swiper(".modal-swiper", {
-      thumbs: {
-        swiper: lowerModalSwiper,
-      },
-    });
 
   const closeButton = modal.querySelector('.product__modal-btn-close');
   closeButton.addEventListener('click', () => {
