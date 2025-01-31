@@ -5017,9 +5017,9 @@ ul {
 
 @media screen and(max-width: 949px){
   flex-direction: column;
-  overflow: auto;
   max-width: 90%;
   align-items: center;
+  height: auto;
 }
 
 
