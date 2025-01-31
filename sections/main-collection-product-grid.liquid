@@ -963,6 +963,21 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer ></script>
 
 <script>
+  var lowerModalSwiper = new Swiper(".lower-modal-swiper", {
+      slidesPerView: 4,
+      spaceBetween: 12,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+
+    var modalSwiper = new Swiper(".modal-swiper", {
+      thumbs: {
+        swiper: lowerModalSwiper,
+      },
+    });
+  };
   setInterval(() => {
     const viewButtons = document.querySelectorAll('.view-mode');
     const productGrid = document.querySelector('.product-grid-container .product-grid.grid');
@@ -988,20 +1003,20 @@
       });
     });
 
-    var lowerModalSwiper = new Swiper(".lower-modal-swiper", {
-      slidesPerView: 4,
-      spaceBetween: 12,
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-    });
+    // var lowerModalSwiper = new Swiper(".lower-modal-swiper", {
+    //   slidesPerView: 4,
+    //   spaceBetween: 12,
+    //   navigation: {
+    //     nextEl: ".swiper-button-next",
+    //     prevEl: ".swiper-button-prev",
+    //   },
+    // });
 
-    var modalSwiper = new Swiper(".modal-swiper", {
-      thumbs: {
-        swiper: lowerModalSwiper,
-      },
-    });
+    // var modalSwiper = new Swiper(".modal-swiper", {
+    //   thumbs: {
+    //     swiper: lowerModalSwiper,
+    //   },
+    // });
 
     const modalOpenBtn = document.querySelectorAll('.quick-view__block');
     const modalCloseBtn = document.querySelector('.product__modal-btn-close');
@@ -1099,6 +1114,23 @@
     modal.classList.add('removed');
   });
  }, 2000);
+
+  setTimeout(() =>{
+    var lowerModalSwiper = new Swiper(".lower-modal-swiper", {
+      slidesPerView: 4,
+      spaceBetween: 12,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+
+    var modalSwiper = new Swiper(".modal-swiper", {
+      thumbs: {
+        swiper: lowerModalSwiper,
+      },
+    });
+  }, 2000);
 
 </script>
 
