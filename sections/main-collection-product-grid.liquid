@@ -1038,15 +1038,15 @@
     
   const modalBuyBtn = modal.querySelector('.quick-add__submit');
 
-  let currentProductId = '';
+  let currentProductHa = '';
 
   modalBuyBtn.addEventListener("click", function () {
-    if (!currentProductId) {
+    if (!currentProductHandle) {
         console.error("Ошибка: productId не найден!");
         return;
     }
 
-    const productUrl = `/products/${currentProductId}`;
+    const productUrl = `/products/${currentProductHandle}`;
 
     window.location.href = productUrl;
   });
@@ -1059,7 +1059,7 @@
       const productSubtitle = button.dataset.productDescription;
       const productImages = button.dataset.productImages;
 
-      currentProductId = button.dataset.productHandle;
+      currentProductHandle = button.dataset.productHandle;
       
       parsedProductImages = productImages.split(",").map(img => img.trim());
 
