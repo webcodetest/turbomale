@@ -397,6 +397,15 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
         });
     }
 
+    fetch(`${routes.cart_url}?section_id=main-cart-items`)
+    .then((response) => response.text())
+    .then((responseText) => {
+        const html = new DOMParser().parseFromString(responseText, "text/html");
+        const sourceQty = html.querySelector("cart-items");
+        this.innerHTML = sourceQty.innerHTML;
+    })
+
+
     updateTotal();
   });
 </script>
