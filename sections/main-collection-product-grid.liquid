@@ -823,7 +823,6 @@
     <div class="product__modal-window-left-part">
       <div class="swiper modal-swiper">
         <div class="swiper-wrapper">
-<div class="swiper-slide"></div>
           {% comment %}
           {% for product in collection.products %}
               <div class="swiper-slide">
@@ -835,7 +834,6 @@
       </div>
       <div class="swiper lower-modal-swiper">
         <div class="swiper-wrapper">
-          <div class="swiper-slide"></div>
           {% comment %}
           {% for product in collection.products %}
               <div class="swiper-slide">
@@ -1049,8 +1047,8 @@
       
       parsedProductImages = productImages.split(",").map(img => img.trim());
 
-      modalSwiperWrap1.innerHTML = '';
-      modalSwiperWrap2.innerHTML = '';
+      // modalSwiperWrap1.innerHTML = '';
+      // modalSwiperWrap2.innerHTML = '';
 
       parsedProductImages.forEach(image => {
         modalSwiperWrap1.innerHTML += `
