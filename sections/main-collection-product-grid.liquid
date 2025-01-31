@@ -1049,7 +1049,7 @@
       const productOldPrice = button.dataset.productOldPrice;
       const productSubtitle = button.dataset.productDescription;
       const productImages = button.dataset.productImages;
-      const productImagesArray = JSON.parse(button.dataset.productImages || "[]");
+      const productImagesArray = JSON.parse(productImages || "[]");
 
       console.log(productImages);
       console.log(productImagesArray);
