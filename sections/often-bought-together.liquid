@@ -371,25 +371,29 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
     });
 
     function addItemsToCart(items) {
-        return fetch("/cart/add.js", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ items }),
-        })
-            .then((response) => {
-                if (!response.ok) {
-                    return response.text().then((text) => {
-                        throw new Error(`Failed to add items to cart: ${text}`);
-                    });
-                }
-                return response.json();
-            })
-            .catch((error) => {
-                console.error("Error adding to cart:", error);
+    return fetch("/cart/add.js", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ items }),
+    })
+    .then((response) => {
+        if (!response.ok) {
+            return response.text().then((text) => {
+                throw new Error(`Failed to add items to cart: ${text}`);
             });
-    }
+        }
+        return response.json();
+    })
+    .then((data) => {
+        // Ждем обновления корзины перед открытием
+        return new Promise((resolve) => setTimeout(resolve, 500));
+    })
+    .catch((error) => {
+        console.error("Error adding to cart:", error);
+    });
+}
 
     function onCartUpdate() {
         fetch(`${routes.cart_url}?section_id=cart-drawer`)
