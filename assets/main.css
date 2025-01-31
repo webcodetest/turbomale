@@ -4992,6 +4992,8 @@ ul {
   height: 100% !important;
 }
 
-
+.product__modal-window .lower-modal-swiper .swiper-slide{
+  cursor: pointer;
+}
 
 
