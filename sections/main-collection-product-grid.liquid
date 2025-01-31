@@ -1035,7 +1035,7 @@
   const modalPrice = modal.querySelector('.modal__product-price');
   const modalOldPrice = modal.querySelector('.modal__product-old-price');
   const modalSubtitle = modal.querySelector('.modal__product-metafield-text p');
-  const modalDescription = modal.querySelector('.modal__product-description');
+  // const modalDescription = modal.querySelector('.modal__product-description');
   const modalDifference = modal.querySelector('.modal__product-price-difference');
 
   quickViewButtons.forEach(button => {
@@ -1044,7 +1044,7 @@
       const productPrice = button.dataset.productPrice;
       const productOldPrice = button.dataset.productOldPrice;
       const productSubtitle = button.dataset.productSubtitle;
-      const productDescription = button.dataset.productDescription;
+      // const productDescription = button.dataset.productDescription;
 
       modalTitle.textContent = productTitle;
 
@@ -1071,7 +1071,7 @@
           ? productSubtitle.substring(0, 69) + '...'
           : productSubtitle;
 
-      modalDescription.textContent = productDescription;
+      // modalDescription.textContent = productDescription;
 
       modal.classList.remove('removed');
     });
