@@ -497,15 +497,8 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-  }
-  .modal__product-old-price{
-    color: #919191;
-    font-family: "Proxima Nova";
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    text-decoration: line-through;
+    padding: 11px 0px 19px 0px;
+    border-bottom: 1px solid #EAEAEA;
   }
 
   .modal__product-buy-button{
@@ -1024,7 +1017,7 @@
   const modalOldPrice = modal.querySelector('.modal__product-old-price');
   const modalSubtitle = modal.querySelector('.modal__product-metafield-text p');
   const modalDescription = modal.querySelector('.modal__product-description');
-  const differenceItem = modal.querySelector('.modal__product-price-difference');
+  const difference = modal.querySelector('.modal__product-price-difference');
 
   quickViewButtons.forEach(button => {
     button.addEventListener('click', () => {
