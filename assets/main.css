@@ -5016,10 +5016,12 @@ ul {
 }
 
 @media screen and(max-width: 949px){
-  flex-direction: column;
-  max-width: 90%;
-  align-items: center;
-  height: auto;
+  .product__modal-window-wrap{
+    flex-direction: column;
+    max-width: 90%;
+    align-items: center;
+    height: auto;
+  }
 }
 
 
