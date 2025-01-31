@@ -1060,9 +1060,11 @@
       }
 
       if (productOldPrice > productPrice) {
-        const formattedDifferencePrice = `Save $${(parseInt(productOldPrice, 10) / 100).toFixed(2) - (parseInt(productPrice, 10) / 100).toFixed(2)}`;
+        const difference = (parseInt(productOldPrice, 10) - parseInt(productPrice, 10)) / 100;
+        const formattedDifferencePrice = `Save $${difference.toFixed(2)}`;
         modalDifference.textContent = formattedDifferencePrice;
       }
+
 
       modalSubtitle.textContent =
         productSubtitle.length > 69
