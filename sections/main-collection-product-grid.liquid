@@ -1045,7 +1045,6 @@
         console.error("Ошибка: productId не найден!");
         return;
     }
-    console.log(currentProductHandle);
     const productUrl = `/products/${currentProductHandle}`;
 
     window.location.href = productUrl;
@@ -1060,7 +1059,6 @@
       const productImages = button.dataset.productImages;
 
       currentProductHandle = button.dataset.handle;
-      console.log(currentProductHandle);
       
       parsedProductImages = productImages.split(",").map(img => img.trim());
 
