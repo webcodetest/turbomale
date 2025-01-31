@@ -963,21 +963,23 @@
     
 
 
-    var modalSwiper = new Swiper(".modal-swiper", {
-      
-    });
-
+    document.addEventListener("DOMContentLoaded", function () {
     var lowerModalSwiper = new Swiper(".lower-modal-swiper", {
       slidesPerView: 4,
       spaceBetween: 12,
-      thumbs: {
-        swiper: modalSwiper,
-      },
       navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
       },
     });
+
+    var modalSwiper = new Swiper(".modal-swiper", {
+      thumbs: {
+        swiper: lowerModalSwiper, // Теперь thumbnails подключены правильно
+      },
+    });
+});
+
 
 
 
