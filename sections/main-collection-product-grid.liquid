@@ -1036,6 +1036,7 @@
   const modalOldPrice = modal.querySelector('.modal__product-old-price');
   const modalSubtitle = modal.querySelector('.modal__product-metafield-text p');
   const modalDescription = modal.querySelector('.modal__product-description');
+  const modalDifference = modal.querySelector('.modal__product-price-difference');
 
   quickViewButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -1056,6 +1057,11 @@
         modalOldPrice.style.display = 'block';
       } else {
         modalOldPrice.style.display = 'none';
+      }
+
+      if (productOldPrice > productPrice) {
+        const formattedDifferencePrice = `Save $${(parseInt(productOldPrice, 10) / 100).toFixed(2) - (parseInt(productPrice, 10) / 100).toFixed(2)}`;
+        modalDifference.textContent = formattedDifferencePrice;
       }
 
       modalSubtitle.textContent =
