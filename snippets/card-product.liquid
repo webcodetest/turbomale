@@ -627,11 +627,17 @@
             </div>
           {% endif %}
           <button class="quick-view__block quick-view__block--{{ card_product.id }}"
+            data-handle="{{ product.handle }}
+            {% comment %}
+              
+            
             data-product-id="{{ card_product.id }}"
             data-product-title="{{ card_product.title }}"
             data-product-price="{{ card_product.price }}"
             data-product-subtitle="{{ card_product.metafields.custom.subtitle.value }}"
             data-product-images="{{ card_product.images | join: ',' }}"
+
+            {% endcomment %}
           >
             <div class="quick-view__btn">
               <span class="quick-view__btn-image">
