@@ -4996,4 +4996,39 @@ ul {
   cursor: pointer;
 }
 
+.modal__product-price{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 11px 0px 19px 0px;
+    border-bottom: 1px solid #EAEAEA;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
