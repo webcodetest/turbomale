@@ -4996,7 +4996,7 @@ ul {
   cursor: pointer;
 }
 
-.modal__product-price{
+.modal__product-price-wrap{
     display: flex;
     align-items: center;
     gap: 20px;
