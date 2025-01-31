@@ -988,20 +988,20 @@
       });
     });
 
-    var lowerModalSwiper = new Swiper(".lower-modal-swiper", {
-      slidesPerView: 4,
-      spaceBetween: 12,
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-    });
+    // var lowerModalSwiper = new Swiper(".lower-modal-swiper", {
+    //   slidesPerView: 4,
+    //   spaceBetween: 12,
+    //   navigation: {
+    //     nextEl: ".swiper-button-next",
+    //     prevEl: ".swiper-button-prev",
+    //   },
+    // });
 
-    var modalSwiper = new Swiper(".modal-swiper", {
-      thumbs: {
-        swiper: lowerModalSwiper,
-      },
-    });
+    // var modalSwiper = new Swiper(".modal-swiper", {
+    //   thumbs: {
+    //     swiper: lowerModalSwiper,
+    //   },
+    // });
 
     const modalOpenBtn = document.querySelectorAll('.quick-view__block');
     const modalCloseBtn = document.querySelector('.product__modal-btn-close');
@@ -1099,6 +1099,23 @@
     modal.classList.add('removed');
   });
  }, 2000);
+
+  setTimeout(() =>{
+    var lowerModalSwiper = new Swiper(".lower-modal-swiper", {
+      slidesPerView: 4,
+      spaceBetween: 12,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+
+    var modalSwiper = new Swiper(".modal-swiper", {
+      thumbs: {
+        swiper: lowerModalSwiper,
+      },
+    });
+  }, 2000);
 
 </script>
 
