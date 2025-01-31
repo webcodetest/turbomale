@@ -1045,6 +1045,9 @@
       const productSubtitle = button.dataset.productDescription;
       const productImages = button.dataset.productImages;
       
+      const productId = button.dataset.productId;
+      console.log(`Product id: $(productId)`);
+      
       parsedProductImages = productImages.split(",").map(img => img.trim());
 
       modalSwiperWrap1.innerHTML = '';
