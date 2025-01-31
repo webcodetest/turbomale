@@ -5022,6 +5022,12 @@ ul {
     align-items: center;
     height: auto !important;
   }
+  .product__modal-window-left-part{
+    max-width: 100%;
+  }
+  .product__modal-window-right-part{
+    width: 100%;
+  }
 }
 
 
