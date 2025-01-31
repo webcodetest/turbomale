@@ -5015,7 +5015,7 @@ ul {
   justify-content: space-between;
 }
 
-@media screen and(max-width: 949px){
+@media screen and (max-width: 949px){
   .product__modal-window-wrap{
     flex-direction: column;
     max-width: 90%;
@@ -5023,9 +5023,6 @@ ul {
     height: auto;
   }
 }
-
-
-
 
 
 
