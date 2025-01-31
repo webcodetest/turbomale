@@ -5004,8 +5004,16 @@ ul {
     border-bottom: 1px solid #EAEAEA;
 }
 
-
-
+.modal__product-lowest-items-wrap{
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+}
+.product__modal-window-right-part{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
 
 
