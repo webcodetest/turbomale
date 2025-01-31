@@ -934,6 +934,23 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer ></script>
 
 <script>
+  var lowerModalSwiper = new Swiper(".lower-modal-swiper", {
+      slidesPerView: 4,
+      spaceBetween: 12,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+
+    var modalSwiper = new Swiper(".modal-swiper", {
+      thumbs: {
+        swiper: lowerModalSwiper,
+      },
+    });
+</script>
+
+<script>
   setInterval(() => {
     const viewButtons = document.querySelectorAll('.view-mode');
     const productGrid = document.querySelector('.product-grid-container .product-grid.grid');
@@ -963,20 +980,20 @@
     
 
 
-    var lowerModalSwiper = new Swiper(".lower-modal-swiper", {
-      slidesPerView: 4,
-      spaceBetween: 12,
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-    });
+    // var lowerModalSwiper = new Swiper(".lower-modal-swiper", {
+    //   slidesPerView: 4,
+    //   spaceBetween: 12,
+    //   navigation: {
+    //     nextEl: ".swiper-button-next",
+    //     prevEl: ".swiper-button-prev",
+    //   },
+    // });
 
-    var modalSwiper = new Swiper(".modal-swiper", {
-      thumbs: {
-        swiper: lowerModalSwiper,
-      },
-    });
+    // var modalSwiper = new Swiper(".modal-swiper", {
+    //   thumbs: {
+    //     swiper: lowerModalSwiper,
+    //   },
+    // });
 
 
 
