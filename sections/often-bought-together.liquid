@@ -360,16 +360,19 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
         });
 
         if (itemsToAdd.length > 0) {
-        addItemsToCart(itemsToAdd).then(() => {
-            return onCartUpdate(); // Принудительное обновление корзины
-        }).then(() => {
-            // После обновления корзины открываем её
-            const cartDrawerItem = document.querySelector(".drawer");
-            cartDrawerItem.classList.add("active");
-        });
-    } else {
-        alert("No products selected.");
-    }
+            addItemsToCart(itemsToAdd)
+                .then(() => onCartUpdate()) // Обновляем корзину после добавления
+                .then(() => {
+                    // После обновления корзины открываем её
+                    const cartDrawerItem = document.querySelector(".drawer");
+                    cartDrawerItem.classList.add("active");
+                })
+                .catch((error) => {
+                    console.error("Error updating cart:", error);
+                });
+        } else {
+            alert("No products selected.");
+        }
     });
 
     function addItemsToCart(items) {
@@ -380,21 +383,26 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
             },
             body: JSON.stringify({ items }),
         })
-            .then((response) => {
-                if (!response.ok) {
-                    return response.text().then((text) => {
-                        throw new Error(`Failed to add items to cart: ${text}`);
-                    });
-                }
-                return response.json();
-            })
-            .catch((error) => {
-                console.error("Error adding to cart:", error);
-            });
+        .then((response) => {
+            if (!response.ok) {
+                return response.text().then((text) => {
+                    throw new Error(`Failed to add items to cart: ${text}`);
+                });
+            }
+            return response.json();
+        })
+        .catch((error) => {
+            console.error("Error adding to cart:", error);
+        });
     }
 
     function onCartUpdate() {
-        fetch(`${routes.cart_url}?section_id=cart-drawer`)
+        if (!routes || !routes.cart_url) {
+            console.error("Error: routes.cart_url is undefined");
+            return Promise.reject("routes.cart_url is undefined");
+        }
+
+        return fetch(`${routes.cart_url}?section_id=cart-drawer`)
             .then((response) => response.text())
             .then((responseText) => {
                 const html = new DOMParser().parseFromString(responseText, "text/html");
@@ -408,12 +416,13 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
                 }
             })
             .catch((e) => {
-                console.error(e);
+                console.error("Error updating cart drawer:", e);
             });
     }
 
     updateTotal();
 });
+
 
 </script>
 
