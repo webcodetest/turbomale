@@ -1038,14 +1038,14 @@
     
   const modalBuyBtn = modal.querySelector('.quick-add__submit');
 
-  let currentProductHa = '';
+  let currentProductHandle = '';
 
   modalBuyBtn.addEventListener("click", function () {
     if (!currentProductHandle) {
         console.error("Ошибка: productId не найден!");
         return;
     }
-
+    console.log(currentProductHandle);
     const productUrl = `/products/${currentProductHandle}`;
 
     window.location.href = productUrl;
