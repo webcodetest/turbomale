@@ -1051,8 +1051,9 @@
       const productImages = button.dataset.productImages;
 
       console.log(productImages);
-      console.log("Raw productImages:", button.dataset.productImages);
-      const parsedProductImages = JSON.parse(button.dataset.productImages || "[]");
+      
+      parsedProductImages = productImages.split(",").map(img => img.trim());
+
       console.log("Parsed productImages:", parsedProductImages);
 
 
