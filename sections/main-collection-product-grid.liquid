@@ -1038,11 +1038,6 @@
     
   const modalBuyBtn = modal.querySelector('.quick-add__submit');
 
-  if (!modalDifference.textContent.trim()) {
-  modalDifference.style.display = 'none';
-}
-
-
   let currentProductHandle = '';
 
   modalBuyBtn.addEventListener("click", function () {
@@ -1103,6 +1098,10 @@
         const difference = (parseInt(productOldPrice, 10) - parseInt(productPrice, 10)) / 100;
         const formattedDifferencePrice = `Save $${difference.toFixed(2)}`;
         modalDifference.textContent = formattedDifferencePrice;
+      }
+
+      if (!modalDifference.textContent.trim()) {
+        modalDifference.style.display = 'none';
       }
 
       modalSubtitle.textContent =
