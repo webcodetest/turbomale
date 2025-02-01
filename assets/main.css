@@ -1608,6 +1608,16 @@ ul {
   gap: 11px;
 }
 
+@media screen and (max-width: 1024px) {
+  .best-seller-review .jdgm-prev-badge__stars {
+    display: flex;
+  }
+  
+  .best-seller-review .jdgm-prev-badge__stars .jdgm-star.jdgm--off:before {
+    font-size: 12px;
+  }
+}
+
 .best-seller-review-stars {
   display: flex;
   gap: 2px;
