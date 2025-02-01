@@ -1038,6 +1038,10 @@
     
   const modalBuyBtn = modal.querySelector('.quick-add__submit');
 
+    if (!modalDifference.innerHTML.trim()) {
+      block.style.display = 'none';
+    }
+
   let currentProductHandle = '';
 
   modalBuyBtn.addEventListener("click", function () {
