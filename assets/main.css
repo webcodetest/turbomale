@@ -5049,6 +5049,9 @@ ul {
     z-index: 1;
     top: 35px !important;
   }
+  .product-list{
+    flex-wrap: wrap;
+  }
 }
 
 
