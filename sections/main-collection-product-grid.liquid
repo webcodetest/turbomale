@@ -1100,10 +1100,6 @@
         modalDifference.textContent = formattedDifferencePrice;
       }
 
-      if (!modalDifference.textContent.trim()) {
-        modalDifference.style.display = 'none';
-      }
-
       modalSubtitle.textContent =
         productSubtitle.length > 150
           ? productSubtitle.substring(0, 150) + '...'
