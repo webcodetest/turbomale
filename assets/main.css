@@ -1694,7 +1694,7 @@ ul {
 @media screen and (max-width: 1024px) {
   .best-seller-slider-wrapper .swiper-button-prev,
   .best-seller-slider-wrapper .swiper-button-next {
-    display: none;
+    display: none !important;
   }
 }
 
