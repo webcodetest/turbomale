@@ -5070,7 +5070,7 @@ ul {
     justify-content: center;
   }
   .product__horizontal-swiper__container{
-    height: 500px;
+    height: 500px !important;
   }
 }
 
