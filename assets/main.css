@@ -5062,7 +5062,7 @@ ul {
     width: 100%;
   }
   .related-products, .product-list{
-    align-items: center !important;
+    justify-content: center !important;
   }
 }
 
