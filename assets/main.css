@@ -1616,6 +1616,13 @@ ul {
   .best-seller-review .jdgm-prev-badge__stars .jdgm-star.jdgm--off:before {
     font-size: 12px;
   }
+  .best-seller-review .jdgm-star {
+    margin-bottom: 6px !important;
+  }
+  .best-seller-review .jdgm-prev-badge__text {
+    color: #919191;
+    font-size: 12px;
+  }
 }
 
 .best-seller-review-stars {
