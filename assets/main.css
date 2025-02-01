@@ -5052,6 +5052,9 @@ ul {
   .product-list{
     flex-wrap: wrap;
   }
+  .often-bought-together .product-item{
+    height: unset;
+  }
 }
 
 
