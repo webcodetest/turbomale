@@ -5064,6 +5064,11 @@ ul {
   .related-products, .product-list{
     justify-content: center !important;
   }
+  .payment-methods{
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 
 
