@@ -1098,6 +1098,7 @@
         const difference = (parseInt(productOldPrice, 10) - parseInt(productPrice, 10)) / 100;
         const formattedDifferencePrice = `Save $${difference.toFixed(2)}`;
         modalDifference.textContent = formattedDifferencePrice;
+        modalDifference.style.background = "#40AE00";
       }
 
       modalSubtitle.textContent =
