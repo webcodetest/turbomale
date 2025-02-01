@@ -5058,6 +5058,9 @@ ul {
   .products-container{
     align-items: center;
   }
+  .add-to-cart-btn{
+    width: 100%;
+  }
 }
 
 
