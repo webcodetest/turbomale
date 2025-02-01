@@ -5055,6 +5055,9 @@ ul {
   .often-bought-together .product-item{
     height: unset;
   }
+  .products-container{
+    align-items: center;
+  }
 }
 
 
