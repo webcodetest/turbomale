@@ -5069,6 +5069,9 @@ ul {
     flex-wrap: wrap;
     justify-content: center;
   }
+  .product__horizontal-swiper__container{
+    height: 500px;
+  }
 }
 
 
