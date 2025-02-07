@@ -4156,23 +4156,26 @@ ul {
   transform: rotate(180deg);
 }
 
+.custom-faq-list-item-bottom {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease;
+  opacity: 0;
+   margin-top: 0;
+}
+
+.custom-faq-list-item.active .custom-faq-list-item-bottom {
+  max-height: 200px;
+  opacity: 1;
+  margin-top: 12px;
+}
+
 .custom-faq-list-item p {
   color: #fff;
   font-family: "Proxima Nova";
   font-size: 16px;
   font-weight: 400;
   line-height: normal;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease;
-  opacity: 0;
-  margin-top: 0;
-}
-
-.custom-faq-list-item.active p {
-  max-height: 200px;
-  opacity: 1;
-  margin-top: 12px;
 }
 
 /* custom-comparison */
