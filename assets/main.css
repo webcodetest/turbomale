@@ -4157,6 +4157,9 @@ ul {
 }
 
 .custom-faq-list-item-bottom {
+  displayL: flex;
+  flex-direction: column;
+  gap: 20px;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease;
@@ -4170,7 +4173,15 @@ ul {
   margin-top: 12px;
 }
 
-.custom-faq-list-item p {
+.custom-faq-list-item-bottom p {
+  color: #fff;
+  font-family: "Proxima Nova";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.custom-faq-list-item-bottom ul li {
   color: #fff;
   font-family: "Proxima Nova";
   font-size: 16px;
