@@ -4181,16 +4181,13 @@ ul {
   line-height: normal;
 }
 
-.custom-faq-list-item-bottom ul {
-  padding-left: 20px;
-}
-
 .custom-faq-list-item-bottom ul li {
   color: #fff;
   font-family: "Proxima Nova";
   font-size: 16px;
   font-weight: 400;
   line-height: normal;
+  padding-left: 20px;
 }
 
 /* custom-comparison */
