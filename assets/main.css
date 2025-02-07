@@ -4181,6 +4181,11 @@ ul {
   line-height: normal;
 }
 
+.custom-faq-list-item-bottom ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
 .custom-faq-list-item-bottom ul li {
   color: #fff;
   font-family: "Proxima Nova";
