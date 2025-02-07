@@ -4157,7 +4157,7 @@ ul {
 }
 
 .custom-faq-list-item-bottom {
-  displayL: flex;
+  display: flex;
   flex-direction: column;
   gap: 20px;
   max-height: 0;
@@ -4168,7 +4168,7 @@ ul {
 }
 
 .custom-faq-list-item.active .custom-faq-list-item-bottom {
-  max-height: 200px;
+  max-height: 1000px;
   opacity: 1;
   margin-top: 12px;
 }
