@@ -4181,6 +4181,12 @@ ul {
   line-height: normal;
 }
 
+.custom-faq-list-item-bottom ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .custom-faq-list-item-bottom ul li {
   color: #fff;
   font-family: "Proxima Nova";
