@@ -290,6 +290,8 @@
                         </span>
                         <span class="product-form__error-message"></span>
                     </div>
+
+                       {% render 'product-variant-picker', product: package_product, product_form_id: product_form_id %}
                     {%- form 'product',
                         package_product,
                         id: product_form_id,
@@ -312,7 +314,7 @@
                         >
 
 
-                      {% render 'product-variant-picker', product: package_product, product_form_id: product_form_id %}
+                     
                       
                         <quantity-input class="quantity cart-quantity">
                             <button class="quantity__button" name="minus" type="button">
