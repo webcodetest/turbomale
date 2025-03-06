@@ -451,6 +451,11 @@ flex: 0 0 100%;
                         </button>
                         </div>
                     {%- endform -%}
+
+                        <script type="application/ld+json">
+      {{ package_product | structured_data }}
+    </script>
+                      
                     </product-form>
                 </div>
                 <a class='custom-package-right-link' href='{{ package_product.url }}'>View product details</a>
