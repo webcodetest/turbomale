@@ -310,6 +310,10 @@
                         {% endif %}
                         class="product-variant-id"
                         >
+
+
+                      {% render 'product-variant-picker', product: package_product, product_form_id: product_form_id %}
+                      
                         <quantity-input class="quantity cart-quantity">
                             <button class="quantity__button" name="minus" type="button">
                                 <span class="visually-hidden">
