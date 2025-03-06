@@ -3628,3 +3628,7 @@ cart-drawer-items{
   gap: 5px;
 }
 
+
+.best-seller-heart.swym-adding svg path{
+  fill:black !important;
+}
