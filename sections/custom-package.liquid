@@ -396,7 +396,7 @@ flex: 0 0 100%;
                                 {% # theme-check-disable %}
                                 value="{{ cart | item_count_for_variant: package_product.selected_or_first_available_variant.id }}"
                                 data-cart-quantity="{{ cart | item_count_for_variant: package_product.selected_or_first_available_variant.id }}"
-                                min="{{ min }}"
+                                min="1"
                                 data-min="{{ package_product.quantity_rule.min }}"
                                 {% if package_product.quantity_rule.max != null %}
                                 max="{{ package_product.quantity_rule.max }}"
