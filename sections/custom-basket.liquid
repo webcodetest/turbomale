@@ -1108,7 +1108,7 @@ shopify-google-pay-button {
                     </div>
                     <div class='custom-basket-tabs-content-wrapper'>
                         <div class='custom-basket-tabs-content active' basket-data-content='favourites'>
-                            {% assign collection_handle_first = 'favourites' %}
+                            <!-- {% assign collection_handle_first = 'favourites' %}
                             {% assign collection_first = collections[collection_handle_first] %}
                             {% if collection_first.products.size > 0 %}
                                 <ul class="custom-basket-tabs-content-products">
@@ -1202,7 +1202,20 @@ shopify-google-pay-button {
                                             </a>
                                         </li>
                                     {% endfor %}
-                                </ul>
+                                </ul> -->
+
+                              <div id="swym-wishlist-render-container"></div>
+                              <script>
+
+                                window.SwymCallbacks = window.SwymCallbacks || [];
+                                  window.SwymCallbacks.push(function(swat) {
+                                    var wishlistContainerElement = document.querySelector("#swym-wishlist-render-container");
+                                    var queryParams = swat.utils.getEncodedAsObject(window.location.search);
+                                    // Contains queryParams["lid"] to render a specific list id
+                                    swat.ui.renderWishlistInContainer(wishlistContainerElement, queryParams);
+                                  });
+                                
+                              </script>
                             {% endif %}
                             <button class='custom-basket-tabs-content-more'>load more</button>
                         </div>
