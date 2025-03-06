@@ -394,7 +394,7 @@ flex: 0 0 100%;
                                 type="number"
                                 name="quantity"
                                 {% # theme-check-disable %}
-                                value="{{ cart | item_count_for_variant: package_product.selected_or_first_available_variant.id }}"
+                                value="1"
                                 data-cart-quantity="{{ cart | item_count_for_variant: package_product.selected_or_first_available_variant.id }}"
                                 min="1"
                                 data-min="{{ package_product.quantity_rule.min }}"
