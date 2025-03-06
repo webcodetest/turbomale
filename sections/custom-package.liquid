@@ -291,6 +291,46 @@
                         <span class="product-form__error-message"></span>
                     </div>
  {{ 'component-product-variant-picker.css' | asset_url | stylesheet_tag }}
+
+                      <style>
+                        variant-selects{
+    padding-bottom: 10px;
+  }
+ 
+  .custom-package-right-buttons .select__select:focus{
+    border-radius: 12px;
+    border: 1px solid #E0E0E0;
+  }
+    .custom-package-right-buttons  .select:hover.select:after{
+    border-radius: 12px;
+    border: 1px solid #E0E0E0;
+  }
+    .custom-package-right-buttons  .select__select{
+    color:#828282;
+    font-family: "Proxima Nova";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border-radius: 12px;
+    border: 1px solid #E0E0E0;
+  }
+
+                        
+ .custom-package-right-buttons .product-form__input--pill input[type='radio']:checked + label{
+  background-color: #40AE00 !important;
+  border: 1px solid #E4E4E4;
+}
+ .custom-package-right-buttons .product-form__input--pill input[type='radio'] + label{
+  border: 1px solid #E4E4E4 !important;
+  transition: all 0.3s ease;
+}
+
+ .custom-package-right-buttons .product-form__input--pill input[type='radio'] + label:hover{
+  border: 1px solid black !important;
+}
+                        
+                      </style>
                        {% render 'product-variant-picker', product: package_product, product_form_id: product_form_id %}
                     {%- form 'product',
                         package_product,
