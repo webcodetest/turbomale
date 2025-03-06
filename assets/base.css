@@ -3632,3 +3632,10 @@ cart-drawer-items{
 .best-seller-heart.swym-added svg path{
   fill:black !important;
 }
+
+.collection-card-heading-icon-wishlistt{
+background: none;
+padding: 0;
+  border: none;
+  margin: none;
+}
