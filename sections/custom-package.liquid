@@ -427,17 +427,8 @@ flex: 0 0 100%;
 
                       {%- assign variants_array = "" -%}
 
-               <div id="variant-data" data-variants='[
-  {%- for variant in product.variants -%}
-    {
-      "option1": {{ variant.option1 | json }},
-      "option2": {{ variant.option2 | json }},
-      "id": {{ variant.id | json }}
-    }{%- unless forloop.last -%},{%- endunless -%}
-  {%- endfor -%}
-]'></div>
+<div id="variant-data" data-variants='{{ product.variants | json }}'></div>
 
-<input type="hidden" name="id" value="{{ product.variants.first.id }}" class="product-variant-id">
 
                       
                       <input type="hidden" name="id" value="{{ product.variants.first.id }}" class="product-variant-id">
