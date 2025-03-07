@@ -425,6 +425,54 @@ flex: 0 0 100%;
                         class="product-variant-id"
                         >
 
+                      {%- assign variants_array = "" -%}
+
+                      {%- for variant in product.variants -%}
+                          {%- assign variant_json = 
+                              '{ "option1": "' | append: variant.option1 | append: '", "option2": "' | append: variant.option2 | append: '", "id": "' | append: variant.id | append: '" }' 
+                          -%}
+                          {%- assign variants_array = variants_array | append: variant_json -%}
+                          {%- unless forloop.last -%}
+                              {%- assign variants_array = variants_array | append: "," -%}
+                          {%- endunless -%}
+                      {%- endfor -%}
+                      
+                      <div id="variant-data" data-variants='[{{ variants_array }}]'></div>
+                      
+                      <input type="hidden" name="id" value="{{ product.variants.first.id }}" class="product-variant-id">
+
+                      
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const variantRadios = document.querySelectorAll('input[type="radio"][name="Cylinder size"]');
+    const completeSetSelect = document.querySelector('select[name="options[Complete set]"]');
+    const hiddenInput = document.querySelector('input.product-variant-id');
+
+    // Получаем все варианты из data-variants
+    const variantDataElement = document.getElementById("variant-data");
+    const variants = JSON.parse(variantDataElement.getAttribute("data-variants"));
+
+    function updateVariantId() {
+        const selectedCylinder = document.querySelector('input[type="radio"][name="Cylinder size"]:checked')?.value;
+        const selectedSet = completeSetSelect?.value;
+
+        if (!selectedCylinder || !selectedSet) return;
+
+        // Найти соответствующий вариант
+        const matchedVariant = variants.find(v => v.option1 === selectedCylinder && v.option2 === selectedSet);
+
+        if (matchedVariant && hiddenInput) {
+            hiddenInput.value = matchedVariant.id;
+            console.log("Updated variant ID:", matchedVariant.id); // Для отладки
+        }
+    }
+
+    // Обработчики событий
+    variantRadios.forEach(radio => radio.addEventListener("change", updateVariantId));
+    completeSetSelect?.addEventListener("change", updateVariantId);
+});
+
+  </script>
 
                      
                       
