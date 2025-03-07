@@ -439,6 +439,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const variantRadios = document.querySelectorAll('input[type="radio"][name="Cylinder size"]');
     const completeSetSelect = document.querySelector('select[name="options[Complete set]"]');
     const hiddenInput = document.querySelector('.custom-package-right-buttons input.product-variant-id');
+    const hiddenInput2 = document.querySelector('.custom-package-right-buttons input[name="product-id"]');
 
     // Получаем JSON с вариантами
     const variantDataElement = document.getElementById("variant-data");
@@ -455,6 +456,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (matchedVariant && hiddenInput) {
             hiddenInput.value = matchedVariant.id;
+            hiddenInput2.value = matchedVariant.id;
             console.log("Updated variant ID:", matchedVariant.id); // Для отладки
         }
     }
