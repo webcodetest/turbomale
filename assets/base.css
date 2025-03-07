@@ -3639,3 +3639,6 @@ padding: 0;
   border: none;
   margin: none;
 }
+
+.product-form__buttons .swym-button-bar{
+display: none; }
