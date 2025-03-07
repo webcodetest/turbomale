@@ -427,7 +427,8 @@ flex: 0 0 100%;
 
                       {%- assign variants_array = "" -%}
 
-<div id="variant-data" data-variants='{{ package_product.variants | json }}'></div>
+<div id="variant-data" data-variants='{{ product.variants | json | escape }}'></div>
+
 
 
                       
