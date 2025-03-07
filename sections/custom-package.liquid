@@ -356,7 +356,54 @@ flex: 0 0 100%;
                            }
                         
                       </style>
-                       {% render 'product-variant-picker', product: package_product, product_form_id: product_form_id %}
+                       {%- assign product = all_products["your-product-handle"] -%}
+
+<variant-selects id="variant-selects-template-{{ section.id }}" data-section="{{ section.id }}">
+    <fieldset class="js product-form__input product-form__input--pill">
+        <legend class="form__label">Cylinder size</legend>
+        {%- for option in product.options_with_values -%}
+            {%- if option.name == "Cylinder size" -%}
+                {%- for value in option.values -%}
+                    {%- assign variant = product.variants | where: "option1", value | first -%}
+                    <input type="radio" id="variant-{{ forloop.index }}" name="Cylinder size"
+                           value="{{ value }}" form="product-form-{{ section.id }}"
+                           {% if variant.available == false %}class="disabled"{% endif %}
+                           data-product-url="{{ variant.url }}" data-option-value-id="{{ variant.id }}">
+                    <label for="variant-{{ forloop.index }}">
+                        {{ value }}
+                        {%- if variant.available == false -%}
+                            <span class="visually-hidden label-unavailable">Variant sold out or unavailable</span>
+                        {%- endif -%}
+                    </label>
+                {%- endfor -%}
+            {%- endif -%}
+        {%- endfor -%}
+    </fieldset>
+
+    <div class="product-form__input product-form__input--dropdown">
+        <label class="form__label" for="Option-{{ section.id }}">
+            Complete set
+        </label>
+        <div class="select">
+            <select id="Option-{{ section.id }}" class="select__select" name="options[Complete set]" form="product-form-{{ section.id }}">
+                {%- for option in product.options_with_values -%}
+                    {%- if option.name == "Complete set" -%}
+                        {%- for value in option.values -%}
+                            <option value="{{ value }}">{{ value }}</option>
+                        {%- endfor -%}
+                    {%- endif -%}
+                {%- endfor -%}
+            </select>
+            <span class="svg-wrapper">
+                <svg class="icon icon-caret" viewBox="0 0 10 6">
+                    <path fill="currentColor" fill-rule="evenodd" d="M9.354.646a.5.5 0 0 0-.708 0L5 4.293 1.354.646a.5.5 0 0 0-.708.708l4 4a.5.5 0 0 0 .708 0l4-4a.5.5 0 0 0 0-.708" clip-rule="evenodd"></path>
+                </svg>
+            </span>
+        </div>
+    </div>
+</variant-selects>
+
+
                     {%- form 'product',
                         package_product,
                         id: product_form_id,
