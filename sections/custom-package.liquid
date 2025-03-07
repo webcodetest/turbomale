@@ -356,12 +356,12 @@ flex: 0 0 100%;
                            }
                         
                       </style>
-                       {%- assign product = all_products["your-product-handle"] -%}
+                      
 
 <variant-selects id="variant-selects-template-{{ section.id }}" data-section="{{ section.id }}">
     <fieldset class="js product-form__input product-form__input--pill">
         <legend class="form__label">Cylinder size</legend>
-        {%- for option in product.options_with_values -%}
+        {%- for option in package_product.options_with_values -%}
             {%- if option.name == "Cylinder size" -%}
                 {%- for value in option.values -%}
                     {%- assign variant = product.variants | where: "option1", value | first -%}
@@ -386,7 +386,7 @@ flex: 0 0 100%;
         </label>
         <div class="select">
             <select id="Option-{{ section.id }}" class="select__select" name="options[Complete set]" form="product-form-{{ section.id }}">
-                {%- for option in product.options_with_values -%}
+                {%- for option in package_product.options_with_values -%}
                     {%- if option.name == "Complete set" -%}
                         {%- for value in option.values -%}
                             <option value="{{ value }}">{{ value }}</option>
