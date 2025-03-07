@@ -1,4 +1,9 @@
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
+/>
 
 <style>
 
@@ -596,9 +601,9 @@ slider-component{
             <div class="swiper-wrapper">
               {% for image in product.images %}
                 <div class="swiper-slide">
-                  <div class="swiper-horizontal-slide-wrap">
+                  <a href="{{ image | img_url: 'master' }}" data-fancybox="product" class="swiper-horizontal-slide-wrap">
                     <img src="{{ image | img_url: '650x650' }}" alt="{{ image.alt | escape }}">
-                  </div>
+                  </a>
                 </div>
               {% endfor %}
             </div>
