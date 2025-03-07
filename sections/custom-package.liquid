@@ -427,17 +427,18 @@ flex: 0 0 100%;
 
                       {%- assign variants_array = "" -%}
 
-                      {%- for variant in product.variants -%}
-                          {%- assign variant_json = 
-                              '{ "option1": "' | append: variant.option1 | append: '", "option2": "' | append: variant.option2 | append: '", "id": "' | append: variant.id | append: '" }' 
-                          -%}
-                          {%- assign variants_array = variants_array | append: variant_json -%}
-                          {%- unless forloop.last -%}
-                              {%- assign variants_array = variants_array | append: "," -%}
-                          {%- endunless -%}
-                      {%- endfor -%}
-                      
-                      <div id="variant-data" data-variants='[{{ variants_array }}]'></div>
+               <div id="variant-data" data-variants='[
+  {%- for variant in product.variants -%}
+    {
+      "option1": {{ variant.option1 | json }},
+      "option2": {{ variant.option2 | json }},
+      "id": {{ variant.id | json }}
+    }{%- unless forloop.last -%},{%- endunless -%}
+  {%- endfor -%}
+]'></div>
+
+<input type="hidden" name="id" value="{{ product.variants.first.id }}" class="product-variant-id">
+
                       
                       <input type="hidden" name="id" value="{{ product.variants.first.id }}" class="product-variant-id">
 
