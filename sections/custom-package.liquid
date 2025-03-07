@@ -435,14 +435,14 @@ flex: 0 0 100%;
 
                       
   <script>
-  document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
     const variantRadios = document.querySelectorAll('input[type="radio"][name="Cylinder size"]');
     const completeSetSelect = document.querySelector('select[name="options[Complete set]"]');
     const hiddenInput = document.querySelector('input.product-variant-id');
 
-    // Получаем все варианты из data-variants
+    // Получаем JSON с вариантами
     const variantDataElement = document.getElementById("variant-data");
-    const variants = JSON.parse(variantDataElement.getAttribute("data-variants"));
+    const variants = JSON.parse(variantDataElement.getAttribute("data-variants") || "[]");
 
     function updateVariantId() {
         const selectedCylinder = document.querySelector('input[type="radio"][name="Cylinder size"]:checked')?.value;
