@@ -27,6 +27,10 @@
       color: #40AE00;
       font-weight: 900;
         }
+
+      .success-newsletter--sm{
+      font-sizxe: 14px;
+      }
 </style>
 
 <section class='custom-sign-up' style="background-image: url({{ section.settings.form_bg | img_url: 'master'}});">
@@ -176,7 +180,7 @@
 
                   {% if form.posted_successfully? %}
 
-              <div class="success-newsletter">
+              <div class="success-newsletter success-newsletter--sm">
                 <span> NICE, YOU’RE SIGNED UP FOR EMAIL UPDATES! </span>   
                 ALSO SIGN UP FOR EMAIL SO YOU DON’T MISS A THING.
               </div>
