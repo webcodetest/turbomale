@@ -1230,7 +1230,7 @@ shopify-google-pay-button {
                             {% if collection_second.products.size > 0 %}
                                 <ul class="custom-basket-tabs-content-products">
                               {% for item in cart.items %}
-                                  {% for product_second in item.product.metafields.custom.product_add_ons %}
+                                  {% for product_second in item.product.metafields.custom.product_add_ons.value %}
                                         <li class="custom-basket-tabs-content-product" style="display: none;">
                                             <a href="{{ product_second.url }}">
                                                 <img src="{{ product_second.featured_image | img_url: 'master' }}" alt="{{ product_second.title }}">
