@@ -3628,3 +3628,8 @@ padding: 0;
 
 .product-form__buttons .swym-button-bar{
 display: none; }
+
+.also-like-body{
+width: 100%;
+overflow: hidden;
+}
