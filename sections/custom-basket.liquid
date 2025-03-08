@@ -1223,13 +1223,14 @@ shopify-google-pay-button {
                             {% assign collection_handle_second = 'add-ons' %}
                             {% assign collection_second = collections[collection_handle_second] %}
                             {% for item in cart.items %}
-                              {{ item.product.metafields.custom.product_add_ons | json }}
+                              {{ item.product.metafields.custom.product_add_ons }}
                             {% endfor %}
 
                           
                             {% if collection_second.products.size > 0 %}
                                 <ul class="custom-basket-tabs-content-products">
-                                    {% for product_second in collection_second.products %}
+                              {% for item in cart.items %}
+                                  {% for product_second in item.product.metafields.custom.product_add_ons %}
                                         <li class="custom-basket-tabs-content-product" style="display: none;">
                                             <a href="{{ product_second.url }}">
                                                 <img src="{{ product_second.featured_image | img_url: 'master' }}" alt="{{ product_second.title }}">
@@ -1318,6 +1319,7 @@ shopify-google-pay-button {
                                                 </div>
                                             </a>
                                         </li>
+                                    {% endfor %}
                                     {% endfor %}
                                 </ul>
                             {% endif %}
