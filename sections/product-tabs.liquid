@@ -338,17 +338,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const tabs = document.querySelectorAll(".tab-button");
     const contents = document.querySelectorAll(".tab-content");
     const tabSelect = document.querySelector(".tab-select");
-    const shopifySections = document.querySelectorAll("#MainContent .shopify-section");
+    const shopifySections = document.querySelectorAll(".shopify-section");
 
     function updateTab(target) {
         // Проверяем, выбран ли таб НЕ "Details"
-        const isNotDetails = !document.querySelector(`.tab-button[data-tab="${target}"]`)?.textContent.includes("Details");
+        const activeButton = document.querySelector(`.tab-button[data-tab="${target}"]`);
+        const isNotDetails = activeButton && !activeButton.textContent.includes("Details");
+        
+        // Удаляем классы "active" у всех вкладок и кнопок
+        contents.forEach((c) => c.classList.remove("active"));
+        tabs.forEach((t) => t.classList.remove("active"));
         
         if (isNotDetails) {
-            // Скрываем все вкладки
-            contents.forEach((c) => c.classList.remove("active"));
-            tabs.forEach((t) => t.classList.remove("active"));
-            
             // Скрываем все секции shopify-section, кроме нужных
             shopifySections.forEach((section) => {
                 const id = section.id;
@@ -359,21 +360,19 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
         } else {
-            // Показываем все вкладки
-            contents.forEach((c) => c.classList.remove("active"));
-            tabs.forEach((t) => t.classList.remove("active"));
-            document.getElementById(target).classList.add("active");
-            
-            // Активируем соответствующую кнопку
-            const activeButton = document.querySelector(`.tab-button[data-tab="${target}"]`);
-            if (activeButton) {
-                activeButton.classList.add("active");
-            }
-            
             // Показываем все секции shopify-section
             shopifySections.forEach((section) => {
                 section.style.display = "";
             });
+        }
+        
+        // Добавляем "active" к текущей вкладке и кнопке
+        const activeContent = document.getElementById(target);
+        if (activeContent) {
+            activeContent.classList.add("active");
+        }
+        if (activeButton) {
+            activeButton.classList.add("active");
         }
     }
 
@@ -391,6 +390,7 @@ document.addEventListener("DOMContentLoaded", function () {
         updateTab(this.value);
     });
 });
+
 
 </script>
 
