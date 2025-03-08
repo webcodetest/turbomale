@@ -11,6 +11,21 @@
     height: 15px;
     content: '';
   }
+ .success-newsletter--center{
+  text-align: center;
+      }
+      .success-newsletter{
+      color: #fff;
+      font-family: "Proxima Nova";
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      }
+       .success-newsletter span{
+        display: block;
+      color: #40AE00;
+        }
 </style>
 
 <section class='custom-sign-up' style="background-image: url({{ section.settings.form_bg | img_url: 'master'}});">
@@ -18,6 +33,14 @@
         <h2 class='custom-sign-up-title'>{{ section.settings.title }}</h2>
         <h3 class='custom-sign-up-subtitle'>{{ section.settings.subtitle }}</h3>
         {% form 'customer' %}
+          {% if form.posted_successfully? %}
+
+              <div class="success-newsletter success-newsletter--center">
+                <span> NICE, YOU’RE SIGNED UP FOR EMAIL UPDATES! </span>   
+                ALSO SIGN UP FOR EMAIL SO YOU DON’T MISS A THING.
+              </div>
+
+            {% else %}
         <div class="custom-sign-up-email">
             <input type="email" name="contact[email]" placeholder="your@email.com" />
         </div>
@@ -25,6 +48,8 @@
         <div class="custom-sign-up-submit">
             <input type="submit" value="{{ section.settings.form_button_text }}" />
         </div>
+
+            {% endif %}
         {% endform %}
     </div>
 </section>
