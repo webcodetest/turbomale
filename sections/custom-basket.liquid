@@ -1222,6 +1222,11 @@ shopify-google-pay-button {
                         <div class='custom-basket-tabs-content' basket-data-content='add-ons'>
                             {% assign collection_handle_second = 'add-ons' %}
                             {% assign collection_second = collections[collection_handle_second] %}
+                            {% for item in cart.items %}
+                              {{ item.metafields.custom.product_add_ons | json }}
+                            {% endfor %}
+
+                          
                             {% if collection_second.products.size > 0 %}
                                 <ul class="custom-basket-tabs-content-products">
                                     {% for product_second in collection_second.products %}
