@@ -654,8 +654,8 @@ line-height: normal;
       </div>
   <div class="swiper card-drawer__middle-swiper-item">
     <div class="swiper-wrapper">
-      {% if collections['Extenders'] and collections['Extenders'].products.size > 0 %}
-        {% for product in collections['Extenders'].products %}
+     {% for item in cart.items %}
+            {% for product in item.product.metafields.custom.product_add_ons.value %}
           <div class="swiper-slide">
             {% comment %}
             <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">              
@@ -689,7 +689,8 @@ line-height: normal;
             </div>
           </div>
         {% endfor %}
-      {% endif %}
+        {% endfor %}
+     
     </div>
   </div>
 
