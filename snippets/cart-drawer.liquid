@@ -847,11 +847,16 @@ line-height: normal;
 
 
                   <script>
-                    document.querySelector(".progressbar-block-footer .progressbar-green-span").addEventListener("click", function(e){
-                      e.preventDefault();
-                      document.querySelector(".progressbar-block-footer .form").style.display = "";
-                      this.closest(".progressbar-block-footer-info").remove();
-                    })
+                 document.querySelector("#CartDrawer").addEventListener("click", function(e) {
+  if (e.target.closest(".progressbar-block-footer .progressbar-green-span")) {
+    e.preventDefault();
+    
+    document.querySelector(".progressbar-block-footer .form").style.display = "";
+    
+    e.target.closest(".progressbar-block-footer-info").remove();
+  }
+});
+
                   </script>
                   <style>
 
