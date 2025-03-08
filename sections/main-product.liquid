@@ -640,44 +640,43 @@ slider-component{
               return direction;
             }
 
-            if(document.querySelector('.product__horizontal-swiper__item').closest('.quick-add__modal')){
-               var swiperProductMainHorizontal = new Swiper(".product__horizontal-swiper__item", {
-                  slidesPerView: 1,
-                  spaceBetween: 10,
-               
-                  navigation: {
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev",
-                  },
-
-                 breakpoints:{
-                   0:{
-                      slidesPerView: 1,
-                   },
-                   767:{
-                      slidesPerView: 2,
-                   }
-                 }
-            
-                });
-              
-            }else{
-               var swiperProductMainHorizontal = new Swiper(".product__horizontal-swiper__item", {
-              slidesPerView: 1,
-              spaceBetween: 10,
-              {% comment %} autoplay: {
-                delay: 3500,
-                disableOnInteraction: false,
-              }, {% endcomment %}
-              navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-              },
-              thumbs: {
-                swiper: swiperProductMainVertical,
-              },
-            });
+          if (document.querySelector('.product__horizontal-swiper__item').closest('.quick-add__modal')) {
+    var swiperProductMainHorizontal = new Swiper(".product__horizontal-swiper__item", {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+            0: {
+                slidesPerView: 1,
+            },
+            767: {
+                slidesPerView: 2,
             }
+        }
+    });
+} else {
+ 
+
+    var swiperProductMainHorizontal = new Swiper(".product__horizontal-swiper__item", {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        // autoplay: {
+        //     delay: 3500,
+        //     disableOnInteraction: false,
+        // },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        thumbs: {
+            swiper: swiperProductMainVertical, // Использование вертикального слайдера для thumbs
+        },
+    });
+}
+
            
         </script>
 
