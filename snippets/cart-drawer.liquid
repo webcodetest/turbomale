@@ -832,7 +832,7 @@ line-height: normal;
                         Don’t lose your bag! Sync it to <span class="progressbar-green-span">your email</span>
                       </div>
 
-                    
+                    <div class="form">
                      {% form 'customer' %}
                       <input type="email" name="contact[email]" />
                        <button>
@@ -842,12 +842,13 @@ line-height: normal;
                             <path d="M15.6554 19.9383C15.5772 19.9401 15.4995 19.9255 15.4272 19.8955C15.355 19.8655 15.2898 19.8208 15.2358 19.7642C15.1798 19.7096 15.1353 19.6443 15.1049 19.5723C15.0745 19.5002 15.0588 19.4228 15.0588 19.3446C15.0588 19.2664 15.0745 19.189 15.1049 19.1169C15.1353 19.0448 15.1798 18.9796 15.2358 18.925L24.5458 9.58334C24.6613 9.46786 24.8179 9.40298 24.9812 9.40298C25.1446 9.40298 25.3012 9.46786 25.4167 9.58334C25.5321 9.69882 25.597 9.85544 25.597 10.0188C25.597 10.1821 25.5321 10.3387 25.4167 10.4542L16.075 19.7642C16.0202 19.8197 15.9548 19.8637 15.8828 19.8936C15.8107 19.9235 15.7334 19.9387 15.6554 19.9383Z" fill="white" style="fill:white;fill-opacity:1;"/>
                           </svg>
                        </button>
+                     </div>
                     {% endform %}
 
 
                   <style>
 
-                    .progressbar-block-footer form{
+                    .progressbar-block-footer .form{
                       display: flex;
                       align-items: center;
                       padding: 2px;
@@ -862,7 +863,15 @@ line-height: normal;
                       
                     }
 
-                      .progressbar-block-footer form input{
+                     .progressbar-block-footer .form button{
+                       padding: 0;
+                       background: none;
+                       cursor: pointer;
+                       border: none;
+                       margin: 0;
+                     }
+
+                      .progressbar-block-footer .form input{
                         width: 100%;
                         padding: 10px 16px;
                       }
