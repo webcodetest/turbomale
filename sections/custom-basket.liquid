@@ -1220,12 +1220,6 @@ shopify-google-pay-button {
                             <button class='custom-basket-tabs-content-more'>load more</button>
                         </div>
                         <div class='custom-basket-tabs-content' basket-data-content='add-ons'>
-                            {% assign collection_handle_second = 'add-ons' %}
-                            {% assign collection_second = collections[collection_handle_second] %}
-                           
-
-                          
-                            {% if collection_second.products.size > 0 %}
                                 <ul class="custom-basket-tabs-content-products">
                               {% for item in cart.items %}
                                   {% for product_second in item.product.metafields.custom.product_add_ons.value %}
@@ -1320,8 +1314,7 @@ shopify-google-pay-button {
                                     {% endfor %}
                                     {% endfor %}
                                 </ul>
-                            {% endif %}
-                            <button class='custom-basket-tabs-content-more'>load more</button>
+                        
                         </div>
                         <div class='custom-basket-tabs-content' basket-data-content='recommended'>
                             {% assign collection_handle_thirt = 'recommended' %}
@@ -1603,22 +1596,21 @@ shopify-google-pay-button {
                             <button class='custom-basket-tabs-content-more'>load more</button>
                         </div>
                         <div class='custom-basket-tabs-content' basket-data-content='add-ons'>
-                            {% assign collection_handle = 'add-ons' %}
-                            {% assign collection = collections[collection_handle] %}
-                            {% if collection.products.size > 0 %}
-                                <ul class="custom-basket-tabs-content-products">
-                                    {% for product in collection.products %}
+                              <ul class="custom-basket-tabs-content-products">
+                              {% for item in cart.items %}
+                                  {% for product_second in item.product.metafields.custom.product_add_ons.value %}
                                         <li class="custom-basket-tabs-content-product" style="display: none;">
-                                            <a href="{{ product.url }}">
-                                                <img src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.title }}">
+                                            <a href="{{ product_second.url }}">
+                                                <img src="{{ product_second.featured_image | img_url: 'master' }}" alt="{{ product_second.title }}">
+                                                <h3>{{ product_second.title }}</h3>
                                                 <div class='custom-basket-tabs-content-product-info'>
-                                                    {% if product.price < product.compare_at_price %}
+                                                    {% if product_second.price < product_second.compare_at_price %}
                                                         <div class="custom-basket-tabs-content-product-price">
-                                                            <span class="custom-basket-tabs-content-product-price-old">{{ product.compare_at_price | money }} USD</span>
-                                                            <span class="custom-basket-tabs-content-product-price-new">{{ product.price | money }} USD</span>
+                                                            <span class="custom-basket-tabs-content-product-price-old">{{ product_second.compare_at_price | money }} USD</span>
+                                                            <span class="custom-basket-tabs-content-product-price-new">{{ product_second.price | money }} USD</span>
                                                         </div>
                                                     {% else %}
-                                                        <span class="custom-basket-tabs-content-product-price-new">{{ product.price | money }} USD</span>
+                                                        <span class="custom-basket-tabs-content-product-price-new">{{ product_second.price | money }} USD</span>
                                                     {% endif %}
                                                     <div class='custom-basket-tabs-content-product-cart'>
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="23" viewBox="0 0 20 23" fill="none">
@@ -1636,7 +1628,7 @@ shopify-google-pay-button {
                                                             <span class="product-form__error-message"></span>
                                                         </div>
                                                         {%- form 'product',
-                                                            product,
+                                                            product_second,
                                                             id: product_form_id,
                                                             class: 'form',
                                                             novalidate: 'novalidate',
@@ -1646,10 +1638,10 @@ shopify-google-pay-button {
                                                             <input
                                                             type="hidden"
                                                             name="id"
-                                                            value="{{ product.selected_or_first_available_variant.id }}"
-                                                            {% if product.selected_or_first_available_variant.available == false
-                                                                or quantity_rule_soldout
-                                                                or product.selected_or_first_available_variant == null
+                                                            value="{{ product_second.selected_or_first_available_variant.id }}"
+                                                            {% if product_second.selected_or_first_available_variant.available == false
+                                                                or quantity_rule_soldout_second
+                                                                or product_second.selected_or_first_available_variant == null
                                                             %}
                                                                 disabled
                                                             {% endif %}
@@ -1658,11 +1650,11 @@ shopify-google-pay-button {
                                                             <div class="product-form__buttons">
                                                             {%- liquid
                                                                 assign check_against_inventory = true
-                                                                if product.selected_or_first_available_variant.inventory_management != 'shopify' or product.selected_or_first_available_variant.inventory_policy == 'continue'
+                                                                if product_second.selected_or_first_available_variant.inventory_management != 'shopify' or product_second.selected_or_first_available_variant.inventory_policy == 'continue'
                                                                 assign check_against_inventory = false
                                                                 endif
-                                                                if product.selected_or_first_available_variant.quantity_rule.min > product.selected_or_first_available_variant.inventory_quantity and check_against_inventory
-                                                                assign quantity_rule_soldout = true
+                                                                if product_second.selected_or_first_available_variant.quantity_rule.min > product_second.selected_or_first_available_variant.inventory_quantity and check_against_inventory
+                                                                assign quantity_rule_soldout_second = true
                                                                 endif
                                                             -%}
                                                             <button
@@ -1670,17 +1662,17 @@ shopify-google-pay-button {
                                                                 type="submit"
                                                                 name="add"
                                                                 class="product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
-                                                                {% if product.selected_or_first_available_variant.available == false
-                                                                or quantity_rule_soldout
-                                                                or product.selected_or_first_available_variant == null
+                                                                {% if product_second.selected_or_first_available_variant.available == false
+                                                                or quantity_rule_soldout_second
+                                                                or product_second.selected_or_first_available_variant == null
                                                                 %}
                                                                 disabled
                                                                 {% endif %}
                                                             >
                                                                 <span>
-                                                                {%- if product.selected_or_first_available_variant == null -%}
+                                                                {%- if product_second.selected_or_first_available_variant == null -%}
                                                                     {{ 'products.product.unavailable' | t }}
-                                                                {%- elsif product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
+                                                                {%- elsif product.selected_or_first_available_variant.available == false or quantity_rule_soldout_second -%}
                                                                     {{ 'products.product.sold_out' | t }}
                                                                 {%- else -%}
                                                                     {{ 'products.product.add_to_cart' | t }}
@@ -1696,9 +1688,8 @@ shopify-google-pay-button {
                                             </a>
                                         </li>
                                     {% endfor %}
+                                    {% endfor %}
                                 </ul>
-                            {% endif %}
-                            <button class='custom-basket-tabs-content-more'>load more</button>
                         </div>
                         <div class='custom-basket-tabs-content' basket-data-content='recommended'>
                             {% assign collection_handle = 'recommended' %}
