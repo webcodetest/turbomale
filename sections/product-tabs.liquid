@@ -338,43 +338,58 @@
     const tabs = document.querySelectorAll(".tab-button");
     const contents = document.querySelectorAll(".tab-content");
     const tabSelect = document.querySelector(".tab-select");
+    const shopifySections = document.querySelectorAll(".shopify-section");
+
+    function updateTab(target) {
+        // Проверяем, выбран ли таб "Details"
+        if (target === "details") {
+            // Скрываем все вкладки
+            contents.forEach((c) => c.classList.remove("active"));
+            tabs.forEach((t) => t.classList.remove("active"));
+            
+            // Скрываем все секции shopify-section, кроме нужных
+            shopifySections.forEach((section) => {
+                const id = section.id;
+                if (id.includes("product_tabs") || id.includes("custom_breaadcrumbs") || id.includes("main") || id.includes("best_seller")) {
+                    section.style.display = "";
+                } else {
+                    section.style.display = "none";
+                }
+            });
+        } else {
+            // Показываем все вкладки
+            contents.forEach((c) => c.classList.remove("active"));
+            tabs.forEach((t) => t.classList.remove("active"));
+            document.getElementById(target).classList.add("active");
+            
+            // Активируем соответствующую кнопку
+            const activeButton = document.querySelector(`.tab-button[data-tab="${target}"]`);
+            if (activeButton) {
+                activeButton.classList.add("active");
+            }
+            
+            // Показываем все секции shopify-section
+            shopifySections.forEach((section) => {
+                section.style.display = "";
+            });
+        }
+    }
 
     // Обработчик для кнопок
     tabs.forEach((tab) => {
-      tab.addEventListener("click", function () {
-        const target = this.getAttribute("data-tab");
-
-        // Удалить классы "active"
-        tabs.forEach((t) => t.classList.remove("active"));
-        contents.forEach((c) => c.classList.remove("active"));
-
-        // Добавить активный класс
-        document.getElementById(target).classList.add("active");
-        this.classList.add("active");
-
-        // Синхронизировать с select
-        tabSelect.value = target;
-      });
+        tab.addEventListener("click", function () {
+            const target = this.getAttribute("data-tab");
+            tabSelect.value = target; // Синхронизировать с select
+            updateTab(target);
+        });
     });
 
     // Обработчик для выпадающего меню
     tabSelect.addEventListener("change", function () {
-      const target = this.value;
-
-      // Удалить классы "active"
-      tabs.forEach((t) => t.classList.remove("active"));
-      contents.forEach((c) => c.classList.remove("active"));
-
-      // Добавить активный класс
-      document.getElementById(target).classList.add("active");
-
-      // Синхронизировать с кнопками
-      const activeButton = document.querySelector(`.tab-button[data-tab="${target}"]`);
-      if (activeButton) {
-        activeButton.classList.add("active");
-      }
+        updateTab(this.value);
     });
-  });
+});
+
 </script>
 
 
