@@ -159,11 +159,11 @@ cart-drawer {
   display: block;
 }
 
-.cart-drawer__form {
+/* .cart-drawer__form {
   flex-grow: 1;
   display: flex;
   flex-wrap: wrap;
-}
+} */
 
 .cart-drawer__collection {
   margin: 0 2.5rem 1.5rem;
