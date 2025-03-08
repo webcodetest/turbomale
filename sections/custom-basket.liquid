@@ -1322,7 +1322,7 @@ shopify-google-pay-button {
                             {% if collection_thirt.products.size > 0 %}
                                 <ul class="custom-basket-tabs-content-products">
                                     {% for product_thirt in collection_thirt.products %}
-                                        <li class="custom-basket-tabs-content-product" ">
+                                        <li class="custom-basket-tabs-content-product" style="display: none;">
                                             <a href="{{ product_thirt.url }}">
                                                 <img src="{{ product_thirt.featured_image | img_url: 'master' }}" alt="{{ product_thirt.title }}">
                                                 <h3>{{ product_thirt.title }}</h3>
@@ -1697,7 +1697,7 @@ shopify-google-pay-button {
                             {% if collection.products.size > 0 %}
                                 <ul class="custom-basket-tabs-content-products">
                                     {% for product in collection.products %}
-                                        <li class="custom-basket-tabs-content-product" >
+                                        <li class="custom-basket-tabs-content-product" style="display: none;">
                                             <a href="{{ product.url }}">
                                                 <img src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.title }}">
                                                 <div class='custom-basket-tabs-content-product-info'>
