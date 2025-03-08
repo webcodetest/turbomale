@@ -334,15 +334,17 @@
 </style>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
     const tabs = document.querySelectorAll(".tab-button");
     const contents = document.querySelectorAll(".tab-content");
     const tabSelect = document.querySelector(".tab-select");
-    const shopifySections = document.querySelectorAll(".shopify-section");
+    const shopifySections = document.querySelectorAll("#MainContent .shopify-section");
 
     function updateTab(target) {
-        // Проверяем, выбран ли таб "Details"
-        if (target === "details") {
+        // Проверяем, выбран ли таб НЕ "Details"
+        const isNotDetails = !document.querySelector(`.tab-button[data-tab="${target}"]`)?.textContent.includes("Details");
+        
+        if (isNotDetails) {
             // Скрываем все вкладки
             contents.forEach((c) => c.classList.remove("active"));
             tabs.forEach((t) => t.classList.remove("active"));
