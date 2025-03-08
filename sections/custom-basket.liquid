@@ -1225,8 +1225,8 @@ shopify-google-pay-button {
                            {% if cart.items.size > 0 %}
     <ul class="custom-basket-tabs-content-products">
         {% for item in cart.items %}
-            {% if item.properties.custom_product_add_ons %}
-                {% assign product_add_ons = item.properties.custom_product_add_ons %}
+            {% if item.metafields.custom_product_add_ons %}
+                {% assign product_add_ons = item.metafields.custom_product_add_ons %}
                 {% for product_handle in product_add_ons %}
                     {% assign product = all_products[product_handle] %}
                     {% if product %}
@@ -1611,8 +1611,8 @@ shopify-google-pay-button {
                             {% if cart.items.size > 0 %}
     <ul class="custom-basket-tabs-content-products">
         {% for item in cart.items %}
-            {% if item.properties.custom_product_add_ons %}
-                {% assign product_add_ons = item.properties.custom_product_add_ons %}
+            {% if item.metafields.custom_product_add_ons %}
+                {% assign product_add_ons = item.metafields.custom_product_add_ons %}
                 {% for product_handle in product_add_ons %}
                     {% assign product = all_products[product_handle] %}
                     {% if product %}
