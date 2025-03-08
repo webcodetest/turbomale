@@ -332,7 +332,7 @@
                           var productInfoSection = tempDiv.querySelector('product-info');
               
                           if (productInfoSection) {
-                              document.getElementById('product-info-container').innerHTML = productInfoSection.outerHTML;
+                              document.querySelector('.quick-add__modal-product').innerHTML = productInfoSection.outerHTML;
                           } else {
                               console.error('Секция .product-info не найдена на странице товара.');
                           }
