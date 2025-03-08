@@ -25,6 +25,7 @@
        .success-newsletter span{
         display: block;
       color: #40AE00;
+      font-weight: 900;
         }
 </style>
 
@@ -44,12 +45,12 @@
         <div class="custom-sign-up-email">
             <input type="email" name="contact[email]" placeholder="your@email.com" />
         </div>
+            {% endif %}
 
         <div class="custom-sign-up-submit">
             <input type="submit" value="{{ section.settings.form_button_text }}" />
         </div>
 
-            {% endif %}
         {% endform %}
     </div>
 </section>
