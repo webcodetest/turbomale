@@ -326,11 +326,8 @@
                       event.preventDefault();  // Отключаем стандартное поведение ссылки
           
                       // Извлекаем handle продукта из href
-                      var href = link.getAttribute('href');
-                      var handle = href.split('/').pop();  // Берём часть после "/products/"
-          
-                      // Формируем URL для загрузки данных продукта
-                      var productUrl = '/products/' + handle;
+                      var productUrl = link.getAttribute('href');
+                    
           
                       // Загружаем информацию о продукте
                       fetch(productUrl)
