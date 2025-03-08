@@ -5097,6 +5097,10 @@ ul {
 
 
 
+.drawer__heading a{
+  font-weight: 700;
+  text-transform: uppercase;
+}
 
 
 
