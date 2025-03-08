@@ -316,6 +316,36 @@
       <div class="quick-add__modal-product"></div>
     </div>
 
+              <script>
+
+
+                document.addEventListener('DOMContentLoaded', function() {
+                  var productId = {{ product.id | json }};  
+                  var productUrl = '/products/' + 'turbomale-ultimate-enlargement-package';  
+              
+                  fetch(productUrl)
+                      .then(response => response.text())  
+                      .then(data => {
+                          var tempDiv = document.createElement('div');
+                          tempDiv.innerHTML = data;
+              
+                          var productInfoSection = tempDiv.querySelector('product-info');
+              
+                          if (productInfoSection) {
+                              document.getElementById('product-info-container').innerHTML = productInfoSection.outerHTML;
+                          } else {
+                              console.error('Секция .product-info не найдена на странице товара.');
+                          }
+                      })
+                      .catch(error => {
+                          console.error('Ошибка при загрузке секции товара:', error);
+                      });
+              });
+
+                
+
+              </script>
+
               <style>
                 .quick-add__modal{
                   position: fixed;
@@ -345,6 +375,7 @@
                     text-transform: uppercase;
                   }
               </style>
+              
 
               
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
