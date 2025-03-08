@@ -300,6 +300,8 @@
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
+
+    
     <div class="quick-add__modal">
       <div class="quick-add__modal-header">
         <h2>quick add</h2>
@@ -310,7 +312,43 @@
           </svg>
         </a>
       </div>
+
+      <div class="quick-add__modal-product"></div>
     </div>
+
+              <style>
+                .quick-add__modal{
+                  position: fixed;
+                  z-index: 1000;
+                  right: 0;
+                  top: 0;
+                  width: 100vw;
+                  max-width: 575px;
+                  height: 100%;
+                  display: flex;
+                  justify-content: flex-end;
+                  background: #fff;
+                 
+                  padding:24px 32px;
+                }
+
+                  .quick-add__modal-header{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                  }
+                  .quick-add__modal-header h3{
+                    color: #000;
+                    font-family: "Proxima Nova";
+                    font-size: 24px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: normal;
+                    text-transform: uppercase;
+                  }
+              </style>
+
+              
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
