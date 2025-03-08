@@ -838,7 +838,7 @@ slider-component{
               });
           });
 
-                document.querySelector('.quick-add__overflow, .quick-add__modal .close').forEach(item => {
+                document.querySelectorAll('.quick-add__overflow, .quick-add__modal .close').forEach(item => {
                   item.addEventListener("click", function(e){
                     e.preventDefault();
                        document.querySelector('.quick-add__overflow').classList.close('open');
