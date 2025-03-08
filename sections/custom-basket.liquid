@@ -1223,7 +1223,7 @@ shopify-google-pay-button {
                             {% assign collection_handle_second = 'add-ons' %}
                             {% assign collection_second = collections[collection_handle_second] %}
                             {% for item in cart.items %}
-                              {{ item.handle }}
+                              {{ item.product | json }}
                             {% endfor %}
 
                           
