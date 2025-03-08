@@ -333,6 +333,27 @@
               
                           if (productInfoSection) {
                               document.querySelector('.quick-add__modal-product').innerHTML = productInfoSection.outerHTML;
+
+                               var swiperProductMainHorizontal = new Swiper(".quick-add__modal-product .product__horizontal-swiper__item", {
+                                  slidesPerView: 1,
+                                  spaceBetween: 10,
+                               
+                                  navigation: {
+                                    nextEl: ".quick-add__modal-product .swiper-button-next",
+                                    prevEl: ".quick-add__modal-product .swiper-button-prev",
+                                  },
+                
+                                 breakpoints:{
+                                   0:{
+                                      slidesPerView: 1,
+                                   },
+                                   767:{
+                                      slidesPerView: 2,
+                                   }
+                                 }
+                            
+                                });
+                            
                           } else {
                               console.error('Секция .product-info не найдена на странице товара.');
                           }
