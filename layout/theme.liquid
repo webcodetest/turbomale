@@ -785,12 +785,12 @@ slider-component{
 
              document.addEventListener('DOMContentLoaded', function() {
               // Добавление обработчика событий на клик по ссылкам с href, содержащим '/products/'
-              document.querySelectorAll('.slide-product__item-prices__add-to-card-btn, .product-item a.low-btn').forEach(function(link) {
+              document.querySelectorAll('[data-quick-add]').forEach(function(link) {
                   link.addEventListener('click', function(event) {
                       event.preventDefault();  // Отключаем стандартное поведение ссылки
           
                       // Извлекаем handle продукта из href
-                      var productUrl = link.getAttribute('href');
+                      var productUrl = link.getAttribute('data-quick-add');
                     console.log(productUrl)
           
                       // Загружаем информацию о продукте
