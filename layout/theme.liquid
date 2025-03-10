@@ -786,58 +786,57 @@ slider-component{
              document.addEventListener('DOMContentLoaded', function() {
               // Добавление обработчика событий на клик по ссылкам с href, содержащим '/products/'
              document.body.addEventListener('click', function (event) {
-                const link = event.target.closest('[data-quick-add]');
-                if (!link) return; // Если клик не по нужному элементу, выходим
+    const link = event.target.closest('[data-quick-add]');
+    if (!link) return; // Если клик не по нужному элементу, выходим
+
+    event.preventDefault(); // Отключаем стандартное поведение ссылки
+
+    // Извлекаем handle продукта из data-атрибута
+    var productUrl = link.getAttribute('data-quick-add');
+    console.log(productUrl);
+
+    // Загружаем информацию о продукте
+    fetch(productUrl)
+        .then(response => response.text())
+        .then(data => {
+            var tempDiv = document.createElement('div');
+            tempDiv.innerHTML = data;
+
+            var productInfoSection = tempDiv.querySelector('.product-main-section'); // Добавляем точку перед product-info
             
-                event.preventDefault();
-            
-                // Извлекаем handle продукта из data-атрибута
-                var productUrl = link.getAttribute('data-quick-add');
-                console.log(productUrl);
-            
-                // Загружаем информацию о продуктевот
-                fetch(productUrl)
-                    .then(response => response.text())
-                    .then(data => {
-                        var tempDiv = document.createElement('div');
-                        tempDiv.innerHTML = data;
-            
-                        var productInfoSection = tempDiv.querySelector('.product-main-section'); // Добавляем точку перед product-info
-                     
-                        if (productInfoSection && productInfoSection.querySelector('variant-selects')) {
-                          
-                            // Вставляем секцию продукта в модальное окно
-                            document.querySelector('.quick-add__modal-product').innerHTML = productInfoSection.outerHTML;
-              
-                            // Инициализация слайдера для горизонтального слайдера в модальном окне
-                            var swiperProductMainHorizontal = new Swiper(".quick-add__modal-product .product__horizontal-swiper__item", {
-                                slidesPerView: 1,
-                                spaceBetween: 10,
-                                navigation: {
-                                    nextEl: ".quick-add__modal-product .swiper-button-next",
-                                    prevEl: ".quick-add__modal-product .swiper-button-prev",
-                                },
-                                breakpoints: {
-                                    0: {
-                                        slidesPerView: 1,
-                                    },
-                                    767: {
-                                        slidesPerView: 2,
-                                    }
-                                }
-                            });
-            
-                            // Открываем модальное окно
-                            document.querySelector('.quick-add__overflow').classList.add('open');
-                            document.querySelector('.quick-add__modal').classList.add('open');
-                        } else {
-                            console.error('Секция .product-info не найдена на странице товара.');
+            if (productInfoSection) {
+                // Вставляем секцию продукта в модальное окно
+                document.querySelector('.quick-add__modal-product').innerHTML = productInfoSection.outerHTML;
+
+                // Инициализация слайдера для горизонтального слайдера в модальном окне
+                var swiperProductMainHorizontal = new Swiper(".quick-add__modal-product .product__horizontal-swiper__item", {
+                    slidesPerView: 1,
+                    spaceBetween: 10,
+                    navigation: {
+                        nextEl: ".quick-add__modal-product .swiper-button-next",
+                        prevEl: ".quick-add__modal-product .swiper-button-prev",
+                    },
+                    breakpoints: {
+                        0: {
+                            slidesPerView: 1,
+                        },
+                        767: {
+                            slidesPerView: 2,
                         }
-                    })
-                    .catch(error => {
-                        console.error('Ошибка при загрузке секции товара:', error);
-                    });
-            });
+                    }
+                });
+
+                // Открываем модальное окно
+                document.querySelector('.quick-add__overflow').classList.add('open');
+                document.querySelector('.quick-add__modal').classList.add('open');
+            } else {
+                console.error('Секция .product-info не найдена на странице товара.');
+            }
+        })
+        .catch(error => {
+            console.error('Ошибка при загрузке секции товара:', error);
+        });
+});
 
           });
 
