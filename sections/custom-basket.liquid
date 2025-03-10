@@ -1285,6 +1285,7 @@ shopify-google-pay-button {
                                                                 id="ProductSubmitButton-{{ section_id }}"
                                                                 type="submit"
                                                                 name="add"
+                                                              data-quick-add="{{ product_second.url }}"
                                                                 class="product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
                                                                 {% if product_second.selected_or_first_available_variant.available == false
                                                                 or quantity_rule_soldout_second
@@ -1384,6 +1385,7 @@ shopify-google-pay-button {
                                                                 id="ProductSubmitButton-{{ section_id }}"
                                                                 type="submit"
                                                                 name="add"
+                                                              data-quick-add="{{   product_thirt.url }}"
                                                                 class="product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
                                                                 {% if product_thirt.selected_or_first_available_variant.available == false
                                                                 or quantity_rule_soldout_thirt
@@ -1564,6 +1566,7 @@ shopify-google-pay-button {
                                                                 id="ProductSubmitButton-{{ section_id }}"
                                                                 type="submit"
                                                                 name="add"
+                                                              data-quick-add="{{ product.url }}"
                                                                 class="product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
                                                                 {% if product.selected_or_first_available_variant.available == false
                                                                 or quantity_rule_soldout
@@ -1661,6 +1664,7 @@ shopify-google-pay-button {
                                                                 id="ProductSubmitButton-{{ section_id }}"
                                                                 type="submit"
                                                                 name="add"
+                                                              data-quick-add="{{  product_second.url }}"
                                                                 class="product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
                                                                 {% if product_second.selected_or_first_available_variant.available == false
                                                                 or quantity_rule_soldout_second
@@ -1757,6 +1761,7 @@ shopify-google-pay-button {
                                                             <button
                                                                 id="ProductSubmitButton-{{ section_id }}"
                                                                 type="submit"
+                                                               data-quick-add="{{ product.url }}"
                                                                 name="add"
                                                                 class="product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
                                                                 {% if product.selected_or_first_available_variant.available == false
