@@ -803,10 +803,9 @@ slider-component{
             tempDiv.innerHTML = data;
 
             var productInfoSection = tempDiv.querySelector('.product-main-section'); // Добавляем точку перед product-info
-            if(productInfoSection.querySelector('variant-selects')){
-                  event.preventDefault(); // Отключаем стандартное поведение ссылки
-            }
-            if (productInfoSection) {
+         
+            if (productInfoSection && productInfoSection.querySelector('variant-selects')) {
+              event.preventDefault();
                 // Вставляем секцию продукта в модальное окно
                 document.querySelector('.quick-add__modal-product').innerHTML = productInfoSection.outerHTML;
   
