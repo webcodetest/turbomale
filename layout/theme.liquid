@@ -789,7 +789,7 @@ slider-component{
     const link = event.target.closest('[data-quick-add]');
     if (!link) return; // Если клик не по нужному элементу, выходим
 
-    event.preventDefault(); // Отключаем стандартное поведение ссылки
+
 
     // Извлекаем handle продукта из data-атрибута
     var productUrl = link.getAttribute('data-quick-add');
@@ -803,11 +803,13 @@ slider-component{
             tempDiv.innerHTML = data;
 
             var productInfoSection = tempDiv.querySelector('.product-main-section'); // Добавляем точку перед product-info
-
+            if(productInfoSection.querySelector('variant-selects')){
+                  event.preventDefault(); // Отключаем стандартное поведение ссылки
+            }
             if (productInfoSection) {
                 // Вставляем секцию продукта в модальное окно
                 document.querySelector('.quick-add__modal-product').innerHTML = productInfoSection.outerHTML;
-
+  
                 // Инициализация слайдера для горизонтального слайдера в модальном окне
                 var swiperProductMainHorizontal = new Swiper(".quick-add__modal-product .product__horizontal-swiper__item", {
                     slidesPerView: 1,
