@@ -106,7 +106,9 @@
                                                 id="ProductSubmitButton-{{ section_id }}"
                                                 type="submit"
                                                 name="add"
+                                              {% if best_seller_product.variants.size > 1 %}
                                               data-quick-add="{{  best_seller_product.url }}"
+                                              {% endif %}
                                                 class="product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
                                                 {% if best_seller_product.selected_or_first_available_variant.available == false
                                                 or quantity_rule_soldout
@@ -181,7 +183,9 @@
                                                 id="ProductSubmitButton-{{ section_id }}"
                                                 type="submit"
                                                 name="add"
+                                             {% if best_seller_product.variants.size > 1 %}
                                               data-quick-add="{{  best_seller_product.url }}"
+                                              {% endif %}
                                                 class="product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
                                                 {% if best_seller_product.selected_or_first_available_variant.available == false
                                                 or quantity_rule_soldout
