@@ -3615,7 +3615,7 @@ cart-drawer-items{
 }
 
 
-.best-seller-heart.swym-added svg path, .collection-card-heading-icon-wishlistt.swym-added svg path{
+[data-favorite].added svg path{
   fill:black !important;
 }
 
