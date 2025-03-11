@@ -89,6 +89,16 @@ const removeFromWishlist = (swat, product) => {
 
   window.onload = function() {
     createList(_swat);
+fetchList(_swat);
+
+      document.body.addEventListener("click", function(event) {
+            if (event.target.matches("[data-favorite]")) {
+                const id = event.target.getAttribute("data-favorite");
+                console.log(`Кнопка с data-favorite="${id}" нажата!`);
+            }
+        });
+
+    
   };
 
 
