@@ -44,7 +44,8 @@ class CartDrawer extends HTMLElement {
             { once: true }
         );
 
-       markWishlistItems(_swat);
+      setTimeout(function(){
+        markWishlistItems(_swat);
        document.querySelectorAll("cart-drawer [data-favorite]").forEach(item => {
           console.log(item);
           item.addEventListener("click", async function (event) {
@@ -52,6 +53,8 @@ class CartDrawer extends HTMLElement {
             handleWishlistClick(event, _swat);
           });
         });
+      }, 500)
+       
 
       
         document.body.classList.add("overflow-hidden");
