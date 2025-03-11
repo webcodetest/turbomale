@@ -1426,6 +1426,18 @@ initializeSwiper(
 
       });
 
+
+        await markWishlistItems(_swat);
+      
+        document.querySelectorAll("cart-drawer [data-favorite]").forEach(item => {
+          item.addEventListener("click", async function (event) {
+            event.preventDefault();
+            await handleWishlistClick(event, _swat);
+          });
+        });
+
+        
+
     </script>
   </div>
 
