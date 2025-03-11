@@ -39,6 +39,30 @@ const isProductInWishlist = async (swat, productId) => {
 };
 
 
+const markWishlistItems = async (swat) => {
+  try {
+    const lists = await fetchList(swat);
+
+    document.querySelectorAll("[data-favorite]").forEach(item => {
+      const productId = item.getAttribute("data-favorite");
+      const isInWishlist = lists.some(list =>
+        list.listcontents.some(product => product.empi == Number(productId))
+      );
+
+      if (isInWishlist) {
+        item.classList.add("added");
+      } else {
+        item.classList.remove("added");
+      }
+    });
+
+  } catch (error) {
+    console.error("Ошибка при проверке wishlist:", error);
+  }
+};
+
+
+
 /* Create a new wishlist if it doesn't already exist. */
 
 const createList = (swat) => {
@@ -120,6 +144,18 @@ const removeFromWishlist = (swat, product) => {
                 console.log(`Кнопка с data-favorite="${id}" нажата!`);
             }
         });
+
+
+
+     document.querySelectorAll("[data-favorite]").forEach(item => {
+      item.addEventListener("click", async function (event) {
+        event.preventDefault();
+        const id = item.getAttribute("data-favorite");
+        console.log(`Кнопка с data-favorite="${id}" нажата!`);
+        await markWishlistItems(_swat);
+      });
+    });
+    
   };
 
 
