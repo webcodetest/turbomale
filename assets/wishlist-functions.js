@@ -32,7 +32,7 @@ const isProductInWishlist = async (swat, productId) => {
   
   return lists.some(list =>
     list.listcontents.some(item => {
-      console.log(item.empi, productId);
+      console.log(item.empi, Number(productId));
       item.empi == Number(productId)
     })
   );
