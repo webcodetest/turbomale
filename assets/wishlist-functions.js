@@ -74,7 +74,7 @@ const handleWishlistClick = async (event, swat) => {
   const product = {
     epi: Number(productVariantId),
     empi: Number(productId),
-    du: productUrl, // Обязательно нужен URL
+    du: window.location.origin + productUrl, // Обязательно нужен URL
   };
 
   console.log(product)
