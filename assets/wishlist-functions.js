@@ -105,7 +105,7 @@ const removeFromWishlist = (swat, product) => {
       item.addEventListener("click", function(event){
         event.preventDefault();
           const id = item.getAttribute("data-favorite");
-          isProductInWishlist(_swat, productId).then(isInWishlist => {
+          isProductInWishlist(_swat, id).then(isInWishlist => {
             console.log("Товар в избранном:", isInWishlist);
           });
         
