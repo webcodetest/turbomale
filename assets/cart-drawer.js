@@ -49,7 +49,7 @@ class CartDrawer extends HTMLElement {
           console.log(item);
           item.addEventListener("click", async function (event) {
             event.preventDefault();
-            await handleWishlistClick(event, _swat);
+            handleWishlistClick(event, _swat);
           });
         });
 
