@@ -68,10 +68,11 @@ const handleWishlistClick = async (event, swat) => {
   if (!item) return;
 
   const productId = item.getAttribute("data-favorite");
+  const productVariantId = item.getAttribute("data-variant-id");
   const productUrl = item.closest('a').getAttribute('href'); // URL страницы, где товар находится
 
   const product = {
-    epi: Number(productId),
+    epi: Number(productVariantId),
     empi: Number(productId),
     du: productUrl, // Обязательно нужен URL
   };
