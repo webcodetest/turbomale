@@ -76,6 +76,8 @@ const handleWishlistClick = async (event, swat) => {
     du: productUrl, // Обязательно нужен URL
   };
 
+  console.log(product)
+
   const lists = await fetchList(swat);
   const isInWishlist = lists.some(list =>
     list.listcontents.some(product => product.epi == Number(productId))
