@@ -61,6 +61,29 @@ const markWishlistItems = async (swat) => {
   }
 };
 
+// Функция для обработки клика по кнопке
+const handleWishlistClick = async (event, swat) => {
+  event.preventDefault();
+  const item = event.target.closest("[data-favorite]");
+  if (!item) return;
+
+  const productId = item.getAttribute("data-favorite");
+  const lists = await fetchList(swat);
+  const isInWishlist = lists.some(list =>
+    list.listcontents.some(product => product.empi == Number(productId))
+  );
+
+  const product = { empi: Number(productId) }; // Объект товара
+
+  if (isInWishlist) {
+    removeFromWishlist(swat, product);
+    item.classList.remove("added");
+  } else {
+    addToWishlist(swat, product);
+    item.classList.add("added");
+  }
+};
+
 
 
 /* Create a new wishlist if it doesn't already exist. */
@@ -124,50 +147,18 @@ const removeFromWishlist = (swat, product) => {
 
 
 
-  window.onload = function() {
-    createList(_swat);
-    fetchList(_swat);
+window.onload = async function () {
+  createList(_swat);
+  await fetchList(_swat);
+  await markWishlistItems(_swat);
 
-    document.querySelectorAll("[data-favorite]").forEach(item => {
-      item.addEventListener("click", function(event){
-        event.preventDefault();
-          const id = item.getAttribute("data-favorite");
-          isProductInWishlist(_swat, id).then(isInWishlist => {
-            if(isInWishlist){
-              removeFromWishlist(_swat, id);
-              item.classList.remove("added")
-            }else{
-              addToWishlist(_swat, id);
-             item.classList.add("added")
-            }
-          });
-        
-      })
-    })
-      document.body.addEventListener("click", function(event) {
-            if (event.target.matches("[data-favorite]")) {
-                const id = event.target.getAttribute("data-favorite");
-                isProductInWishlist(_swat, id).then(isInWishlist => {
-                  if(isInWishlist){
-                    removeFromWishlist(_swat, id);
-                  }else{
-                    addToWishlist(_swat, id);
-                  }
-                });
-            }
-        });
-
-
-
-     document.querySelectorAll("[data-favorite]").forEach(item => {
-      item.addEventListener("click", async function (event) {
-        event.preventDefault();
-        const id = item.getAttribute("data-favorite");
-        console.log(`Кнопка с data-favorite="${id}" нажата!`);
-        await markWishlistItems(_swat);
-      });
+  document.querySelectorAll("[data-favorite]").forEach(item => {
+    item.addEventListener("click", async function (event) {
+      event.preventDefault();
+      await handleWishlistClick(event, _swat);
     });
-    
-  };
+  });
+};
+
 
 
