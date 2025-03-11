@@ -25,6 +25,16 @@ const fetchList = async (swat) => {
   });
 };
 
+
+const isProductInWishlist = async (swat, productId) => {
+  const lists = await fetchList(swat);
+  if (!lists || lists.length === 0) return false;
+
+  return lists.some(list =>
+    list.listcontents.some(item => item.epi === productId);
+  );
+};
+
 /* Create a new wishlist if it doesn't already exist. */
 
 const createList = (swat) => {
