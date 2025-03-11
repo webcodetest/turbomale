@@ -133,7 +133,13 @@ const removeFromWishlist = (swat, product) => {
         event.preventDefault();
           const id = item.getAttribute("data-favorite");
           isProductInWishlist(_swat, id).then(isInWishlist => {
-            console.log("Товар в избранном:", isInWishlist);
+            if(isInWishlist){
+              removeFromWishlist(_swat, id);
+              item.classList.remove("added")
+            }else{
+              addToWishlist(_swat, id);
+             item.classList.add("added")
+            }
           });
         
       })
@@ -141,7 +147,13 @@ const removeFromWishlist = (swat, product) => {
       document.body.addEventListener("click", function(event) {
             if (event.target.matches("[data-favorite]")) {
                 const id = event.target.getAttribute("data-favorite");
-                console.log(`Кнопка с data-favorite="${id}" нажата!`);
+                isProductInWishlist(_swat, id).then(isInWishlist => {
+                  if(isInWishlist){
+                    removeFromWishlist(_swat, id);
+                  }else{
+                    addToWishlist(_swat, id);
+                  }
+                });
             }
         });
 
