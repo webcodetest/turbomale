@@ -35,6 +35,7 @@ const isProductInWishlist = async (swat, productId) => {
   );
 };
 
+
 /* Create a new wishlist if it doesn't already exist. */
 
 const createList = (swat) => {
