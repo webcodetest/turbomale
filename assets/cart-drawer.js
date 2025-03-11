@@ -44,8 +44,8 @@ class CartDrawer extends HTMLElement {
             { once: true }
         );
 
-
-         document.querySelectorAll("cart-drawer [data-favorite]").forEach(item => {
+       await markWishlistItems(_swat);
+       document.querySelectorAll("cart-drawer [data-favorite]").forEach(item => {
           console.log(item);
           item.addEventListener("click", async function (event) {
             event.preventDefault();
