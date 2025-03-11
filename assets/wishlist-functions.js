@@ -31,7 +31,7 @@ const isProductInWishlist = async (swat, productId) => {
   if (!lists || lists.length === 0) return false;
 
   return lists.some(list =>
-    list.listcontents.some(item => item.epi === productId)
+    list.listcontents.some(item => item.empi === productId)
   );
 };
 
