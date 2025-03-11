@@ -256,8 +256,7 @@ line-height: normal;
   .card-drawer-wishlist{
     background: none;
     border: 0;
-    min-width: 3.5rem;
-    min-height: 3.5rem;
+  padding-top: 5px;
   }
   .product-drawer-item-link a{
     color: #000;
@@ -1431,9 +1430,9 @@ initializeSwiper(
       });
 
 
-        await markWishlistItems(_swat);
       
         document.querySelectorAll("cart-drawer [data-favorite]").forEach(item => {
+          console.log(item);
           item.addEventListener("click", async function (event) {
             event.preventDefault();
             await handleWishlistClick(event, _swat);
