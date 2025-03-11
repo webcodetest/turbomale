@@ -29,9 +29,12 @@ const fetchList = async (swat) => {
 const isProductInWishlist = async (swat, productId) => {
   const lists = await fetchList(swat);
   if (!lists || lists.length === 0) return false;
-
+  
   return lists.some(list =>
-    list.listcontents.some(item => item.empi === productId)
+    list.listcontents.some(item => {
+      console.log(item.empi);
+      item.empi === productId
+    })
   );
 };
 
