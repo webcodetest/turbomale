@@ -128,7 +128,7 @@ const addToWishlist = (swat, product) => {
     }
     
     let onError = function (error){
-      swat.ui.showErrorNotification({ message: "Error Adding Product to Wishlist" });
+      console.log({ message: "Error Adding Product to Wishlist" });
     }
 
     let lid = window.swymSelectedListId;
@@ -144,7 +144,7 @@ const removeFromWishlist = (swat, product) => {
   }
   
   let onError = function(error) {
-    swat.ui.showErrorNotification({ message: "Error removing Product from Wishlist" });
+     console.log({ message: "Error removing Product from Wishlist" });
   }
 
   let lid = window.swymSelectedListId;
