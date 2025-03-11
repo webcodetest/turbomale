@@ -79,18 +79,13 @@ const handleWishlistClick = async (event, swat) => {
 
   console.log(product)
 
-  const lists = await fetchList(swat);
-  const isInWishlist = lists.some(list =>
-    list.listcontents.some(product => product.epi == Number(productId))
-  );
-
-  if (isInWishlist) {
-    removeFromWishlist(swat, product);
-    item.classList.remove("added");
-  } else {
-    addToWishlist(swat, product);
-    item.classList.add("added");
-  }
+ if (item.classList.contains("added")) {
+      removeFromWishlist(_swat, product);
+      item.classList.remove("added");
+    } else {
+      addToWishlist(_swat, product);
+      item.classList.add("added");
+    }
 };
 
 
