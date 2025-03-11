@@ -68,12 +68,18 @@ const handleWishlistClick = async (event, swat) => {
   if (!item) return;
 
   const productId = item.getAttribute("data-favorite");
+  const productUrl = item.closest('a').getAttribute('href'); // URL страницы, где товар находится
+
+  const product = {
+    epi: Number(productId),
+    empi: Number(productId),
+    du: productUrl, // Обязательно нужен URL
+  };
+
   const lists = await fetchList(swat);
   const isInWishlist = lists.some(list =>
-    list.listcontents.some(product => product.empi == Number(productId))
+    list.listcontents.some(product => product.epi == Number(productId))
   );
-
-  const product = { empi: Number(productId) }; // Объект товара
 
   if (isInWishlist) {
     removeFromWishlist(swat, product);
@@ -83,6 +89,7 @@ const handleWishlistClick = async (event, swat) => {
     item.classList.add("added");
   }
 };
+
 
 
 
