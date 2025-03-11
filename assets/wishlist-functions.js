@@ -92,6 +92,7 @@ const removeFromWishlist = (swat, product) => {
 
     document.querySelectorAll("[data-favorite]").forEach(item => {
       item.addEventListener("click", function(event){
+        event.preventDefault();
           const id = item.getAttribute("data-favorite");
           console.log(`Кнопка с data-favorite="${id}" нажата!`);
       })
