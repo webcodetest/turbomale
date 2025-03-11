@@ -7,7 +7,6 @@ const fetchList = async (swat) => {
       window.swymWishLists = lists;
       window.swymSelectedListId = lists && lists[0] && lists[0].lid;
       resolve(lists);
-      updateButtonState();
     };
 
     const onError = (error) => {
