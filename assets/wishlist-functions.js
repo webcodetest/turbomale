@@ -69,7 +69,7 @@ const handleWishlistClick = async (event, swat) => {
 
   const productId = item.getAttribute("data-favorite");
   const productVariantId = item.getAttribute("data-variant-id");
-  const productUrl = item.closest('a').getAttribute('href'); 
+  const productUrl = item.getAttribute("data-product-url"); 
 
   const product = {
     epi: Number(productVariantId),
