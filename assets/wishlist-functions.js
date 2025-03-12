@@ -163,6 +163,49 @@ window.onload = async function () {
       await handleWishlistClick(event, _swat);
     });
   });
+
+
+
+  const wishlistContainer = document.querySelector(".custom-wishlist-container");
+    
+    if (!wishlistContainer) return;
+
+    try {
+        const lists = await fetchList(window._swat);
+        if (!lists || lists.length === 0) return;
+
+        const wishlistItems = lists[0].items;
+        wishlistContainer.innerHTML = "";
+
+        wishlistItems.forEach((item) => {
+            const product = item.product;
+            const comparePrice = product.compare_at_price ? `<span class="custom-basket-tabs-content-product-price-old">${(product.compare_at_price / 100).toFixed(2)} USD</span>` : "";
+            
+            const listItem = document.createElement("li");
+            listItem.classList.add("custom-basket-tabs-content-product");
+            listItem.innerHTML = `
+                <a href="${product.url}">
+                    <img src="${product.featured_image}" alt="${product.title}">
+                    <h3>${product.title}</h3>
+                    <div class='custom-basket-tabs-content-product-info'>
+                        <div class="custom-basket-tabs-content-product-price">
+                            ${comparePrice}
+                            <span class="custom-basket-tabs-content-product-price-new">${(product.price / 100).toFixed(2)} USD</span>
+                        </div>
+                        <div class='custom-basket-tabs-content-product-cart'>
+                            <button class="add-to-cart" data-product-id="${product.variants[0].id}">Add to Cart</button>
+                        </div>
+                    </div>
+                </a>
+            `;
+            listItem.style.display = "block";
+            wishlistContainer.appendChild(listItem);
+        });
+    } catch (error) {
+        console.error("Error loading wishlist items:", error);
+    }
+
+  
 };
 
 
