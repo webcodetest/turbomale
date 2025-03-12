@@ -9,6 +9,69 @@
 
 
 
+<script>
+
+
+  document.addEventListener("DOMContentLoaded", async function () {
+    const wishlistContainer = document.querySelector(".wishlist-container");
+    if (!wishlistContainer) return;
+
+    try {
+        const lists = await fetchList(window._swat);
+        if (!lists || lists.length === 0) return;
+
+        const wishlistItems = lists[0].listcontents;
+        wishlistContainer.innerHTML = "";
+
+        for (const item of wishlistItems) {
+            const productData = await fetchProductById(item.empi);
+            if (!productData) continue;
+            
+            const productId = productData.product.id;
+            
+            // Загружаем рендеринг карточки через Shopify section_id
+            const productHTML = await fetchRenderedProduct(productId);
+            if (!productHTML) continue;
+
+            const listItem = document.createElement("li");
+            listItem.classList.add("custom-basket-tabs-content-product");
+            listItem.innerHTML = productHTML;
+            listItem.style.display = "block";
+            wishlistContainer.appendChild(listItem);
+        }
+    } catch (error) {
+        console.error("Error loading wishlist items:", error);
+    }
+});
+
+// Запрос к Shopify API для получения данных о продукте
+async function fetchProductById(productId) {
+    try {
+        const response = await fetch(`/products/${productId}.json`);
+        if (!response.ok) throw new Error("Failed to fetch product data");
+        return await response.json();
+    } catch (error) {
+        console.error("Error fetching product details:", error);
+        return null;
+    }
+}
+
+// Запрос для рендеринга сниппета через AJAX
+async function fetchRenderedProduct(productId) {
+    try {
+        const response = await fetch(`?section_id=card-product&product_id=${productId}`);
+        if (!response.ok) throw new Error("Failed to render product snippet");
+        return await response.text();
+    } catch (error) {
+        console.error("Error fetching rendered product:", error);
+        return null;
+    }
+}
+
+  
+  
+</script>
+
 
 
 
