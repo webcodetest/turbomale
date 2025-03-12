@@ -151,9 +151,9 @@ const removeFromWishlist = (swat, product) => {
 }
 
 
-async function fetchProductById(productId) {
+async function fetchProductById(productUrl) {
     try {
-        const response = await fetch(`/products/${productId}.json`);
+        const response = await fetch(`${productUrl}.json`);
         if (!response.ok) throw new Error("Failed to fetch product data");
         return await response.json();
     } catch (error) {
@@ -189,7 +189,7 @@ window.onload = async function () {
         wishlistContainer.innerHTML = "";
 
         for (const item of wishlistItems) {
-            const productData = await fetchProductById(item.empi);
+            const productData = await fetchProductById(item.du);
             if (!productData) continue;
             
             const product = productData.product;
