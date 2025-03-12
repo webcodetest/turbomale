@@ -15,9 +15,14 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "wishlist_section_DC3KDr": {
+      "type": "wishlist-section",
+      "settings": {}
     }
   },
   "order": [
-    "main"
+    "main",
+    "wishlist_section_DC3KDr"
   ]
 }
