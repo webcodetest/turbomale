@@ -254,21 +254,26 @@ window.onload = async function () {
     }
 
 
-     console.log(fetchRenderedProduct(6865816256610))
+   const wishlistContainer2 = document.querySelector(".wishlist-container");
+    try {
+        const lists = await fetchList(window._swat);
+        if (!lists || lists.length === 0) return;
 
+        const wishlistItems = lists[0].listcontents;
+        if (!wishlistItems || wishlistItems.length === 0) return;
 
-    document.querySelectorAll(".remove-from-favorite").forEach(item => {
-      item.addEventListener("click", async function (event) {
-        event.preventDefault();
-        await handleWishlistClick(event, _swat);
-
-        if(item.closest('.custom-basket-tabs-content-product')){
-           item.closest('.custom-basket-tabs-content-product').remove();
-        }
-       
+        const productIds = wishlistItems.map(item => item.empi); // Получаем все ID товаров
+        const sectionUrl = `https://${window.location.hostname}/?section_id=wishlist-products&product_ids=${productIds.join(",")}`;
         
-      });
-    });
+        // Загружаем секцию через AJAX
+        const response = await fetch(sectionUrl);
+        if (!response.ok) throw new Error("Failed to fetch wishlist section");
+
+        const html = await response.text();
+        wishlistContainer2.innerHTML = html; // Вставляем секцию с товарами
+    } catch (error) {
+        console.error("Error loading wishlist items:", error);
+    }
   
 
   
