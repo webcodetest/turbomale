@@ -24,7 +24,7 @@
         wishlistContainer.innerHTML = "";
 
         for (const item of wishlistItems) {
-            const productData = await fetchProductById(item.empi);
+            const productData = await fetchProductById(item.du);
             if (!productData) continue;
             
             const productId = productData.product.id;
@@ -45,9 +45,9 @@
 });
 
 // Запрос к Shopify API для получения данных о продукте
-async function fetchProductById(productId) {
+async function fetchProductById(productUrl) {
     try {
-        const response = await fetch(`/products/${productId}.json`);
+        const response = await fetch(`${productUrl}.json`);
         if (!response.ok) throw new Error("Failed to fetch product data");
         return await response.json();
     } catch (error) {
@@ -55,6 +55,7 @@ async function fetchProductById(productId) {
         return null;
     }
 }
+
 
 // Запрос для рендеринга сниппета через AJAX
 async function fetchRenderedProduct(productId) {
