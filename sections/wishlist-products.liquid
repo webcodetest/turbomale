@@ -1,5 +1,5 @@
 {%- assign product_ids = request.params.product_ids | split: "," -%}
-
+{{ product_ids }}
 <div class="wishlist-container">
     {%- for id in product_ids -%}
         {%- assign product = all_products[id] -%}
