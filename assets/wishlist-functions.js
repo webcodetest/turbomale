@@ -259,7 +259,7 @@ window.onload = async function () {
     if (!wishlistContainer) return;
 
     try {
-        const lists = await fetchList(window._swat);
+        const lists = await fetchList(_swat);
         if (!lists || lists.length === 0) return;
 
         const wishlistItems = lists[0].listcontents;
