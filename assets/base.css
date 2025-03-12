@@ -3633,3 +3633,17 @@ display: none; }
 width: 100%;
 overflow: hidden;
 }
+
+.custom-basket-tabs-content-product{
+  position: relative;
+}
+.remove-from-favorite{
+position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.remove-from-favorite svg{
+width: 24px;
+height: 24px;
+}
