@@ -151,6 +151,18 @@ const removeFromWishlist = (swat, product) => {
 }
 
 
+async function fetchProductById(productId) {
+    try {
+        const response = await fetch(`/products/${productId}.json`);
+        if (!response.ok) throw new Error("Failed to fetch product data");
+        return await response.json();
+    } catch (error) {
+        console.error("Error fetching product details:", error);
+        return null;
+    }
+}
+
+
 
 window.onload = async function () {
   createList(_swat);
@@ -166,19 +178,21 @@ window.onload = async function () {
 
 
 
-  const wishlistContainer = document.querySelector(".custom-wishlist-container");
-    
+     const wishlistContainer = document.querySelector(".custom-wishlist-container");
     if (!wishlistContainer) return;
 
     try {
         const lists = await fetchList(window._swat);
         if (!lists || lists.length === 0) return;
 
-        const wishlistItems = lists[0].items;
+        const wishlistItems = lists[0].listcontents;
         wishlistContainer.innerHTML = "";
 
-        wishlistItems.forEach((item) => {
-            const product = item.product;
+        for (const item of wishlistItems) {
+            const productData = await fetchProductById(item.empi);
+            if (!productData) continue;
+            
+            const product = productData.product;
             const comparePrice = product.compare_at_price ? `<span class="custom-basket-tabs-content-product-price-old">${(product.compare_at_price / 100).toFixed(2)} USD</span>` : "";
             
             const listItem = document.createElement("li");
@@ -200,7 +214,7 @@ window.onload = async function () {
             `;
             listItem.style.display = "block";
             wishlistContainer.appendChild(listItem);
-        });
+        }
     } catch (error) {
         console.error("Error loading wishlist items:", error);
     }
