@@ -262,11 +262,14 @@ window.onload = async function () {
         const wishlistItems = lists[0].listcontents;
         if (!wishlistItems || wishlistItems.length === 0) return;
 
+
+      console.log(wishlistItems)
         const productIds = wishlistItems.map(item => item.empi); // Получаем все ID товаров
         const sectionUrl = `https://${window.location.hostname}/?section_id=wishlist-products&product_ids=${productIds.join(",")}`;
         
         // Загружаем секцию через AJAX
         const response = await fetch(sectionUrl);
+      console.log(response);
         if (!response.ok) throw new Error("Failed to fetch wishlist section");
 
         const html = await response.text();
