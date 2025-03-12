@@ -255,7 +255,7 @@ window.onload = async function () {
     }
 
 
-    const wishlistContainer = document.querySelector(".wishlist-container");
+    const wishlistContainer2 = document.querySelector(".wishlist-container");
     if (!wishlistContainer) return;
 
     try {
@@ -263,7 +263,7 @@ window.onload = async function () {
         if (!lists || lists.length === 0) return;
 
         const wishlistItems = lists[0].listcontents;
-        wishlistContainer.innerHTML = "";
+        wishlistContainer2.innerHTML = "";
 
         for (const item of wishlistItems) {
             const productData = await fetchProductById(item.du);
@@ -279,7 +279,7 @@ window.onload = async function () {
             listItem.classList.add("custom-basket-tabs-content-product");
             listItem.innerHTML = productHTML;
             listItem.style.display = "block";
-            wishlistContainer.appendChild(listItem);
+            wishlistContainer2.appendChild(listItem);
         }
     } catch (error) {
         console.error("Error loading wishlist items:", error);
