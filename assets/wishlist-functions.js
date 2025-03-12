@@ -254,36 +254,7 @@ window.onload = async function () {
     }
 
 
-    const wishlistContainer2 = document.querySelector(".wishlist-container");
-
-    try {
-        const lists = await fetchList(_swat);
-        if (!lists || lists.length === 0) return;
-
-        const wishlistItems = lists[0].listcontents;
-        wishlistContainer2.innerHTML = "";
-
-        for (const item of wishlistItems) {
-            const productData = await fetchProductById(item.du);
-            if (!productData) continue;
-            
-            const productId = productData.product.id;
-            
-            // Загружаем рендеринг карточки через Shopify section_id
-            const productHTML = await fetchRenderedProduct(productId);
-          console.log(productHTML)
-            if (!productHTML) continue;
-
-            const listItem = document.createElement("li");
-            listItem.classList.add("custom-basket-tabs-content-product");
-            listItem.innerHTML = productHTML;
-            listItem.style.display = "block";
-            wishlistContainer2.appendChild(listItem);
-        }
-    } catch (error) {
-        console.error("Error loading wishlist items:", error);
-    }
-  
+     consolle.log(fetchRenderedProduct(6865816256610))
 
 
     document.querySelectorAll(".remove-from-favorite").forEach(item => {
