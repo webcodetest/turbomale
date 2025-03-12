@@ -32,41 +32,13 @@
       "type": "custom-breadcrumbs",
       "settings": {}
     },
-    "custom_contact_us_ydGLkE": {
-      "type": "custom-contact-us",
-      "blocks": {
-        "form_subject_zmhV4a": {
-          "type": "form_subject",
-          "settings": {
-            "subject": "Subject1"
-          }
-        },
-        "form_subject_gnX7nN": {
-          "type": "form_subject",
-          "settings": {
-            "subject": "Subject2"
-          }
-        },
-        "form_subject_GBQkUX": {
-          "type": "form_subject",
-          "settings": {
-            "subject": "Subject3"
-          }
-        }
-      },
-      "block_order": [
-        "form_subject_zmhV4a",
-        "form_subject_gnX7nN",
-        "form_subject_GBQkUX"
-      ],
+    "custom_liquid_g4rQLK": {
+      "type": "custom-liquid",
       "settings": {
-        "title": "Contact us",
-        "title_absolute": "Contact us",
-        "text": "Need Kiiroo service or support? We're more than happy to help you out. Start your request in the contact form below and we'll find you a solution. We respond to all enquiries as quickly as possible, between 2-3 working days. However, this can take longer during busier periods. Rest assured, your pleasure is our priority.",
-        "block_bg": "shopify://shop_images/contact-block-bg.webp",
-        "block_image": "shopify://shop_images/package_3_1.svg",
-        "block_image_alt": "",
-        "block_text": "Track order"
+        "custom_liquid": "",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
       }
     }
   },
@@ -74,6 +46,6 @@
     "main",
     "form",
     "custom_breadcrumbs_KMXxNK",
-    "custom_contact_us_ydGLkE"
+    "custom_liquid_g4rQLK"
   ]
 }
