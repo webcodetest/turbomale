@@ -194,18 +194,18 @@ window.onload = async function () {
             
             const product = productData.product;
           console.log(product)
-            const comparePrice = product.compare_at_price ? `<span class="custom-basket-tabs-content-product-price-old">${(product.compare_at_price / 100).toFixed(2)} USD</span>` : "";
+            const comparePrice = product.variants[0].compare_at_price ? `<span class="custom-basket-tabs-content-product-price-old">${(product.variants[0].compare_at_price / 100).toFixed(2)} USD</span>` : "";
             
             const listItem = document.createElement("li");
             listItem.classList.add("custom-basket-tabs-content-product");
             listItem.innerHTML = `
                 <a href="${product.url}">
-                    <img src="${product.featured_image}" alt="${product.title}">
+                    <img src="${product.image.src}" alt="${product.title}">
                     <h3>${product.title}</h3>
                     <div class='custom-basket-tabs-content-product-info'>
                         <div class="custom-basket-tabs-content-product-price">
                             ${comparePrice}
-                            <span class="custom-basket-tabs-content-product-price-new">${(product.price / 100).toFixed(2)} USD</span>
+                            <span class="custom-basket-tabs-content-product-price-new">${product.variants[0].price.toFixed(2)} USD</span>
                         </div>
                         <div class='custom-basket-tabs-content-product-cart'>
                             <button class="add-to-cart" data-product-id="${product.variants[0].id}">Add to Cart</button>
