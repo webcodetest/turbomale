@@ -254,7 +254,7 @@ window.onload = async function () {
     }
 
 
-     consolle.log(fetchRenderedProduct(6865816256610))
+     console.log(fetchRenderedProduct(6865816256610))
 
 
     document.querySelectorAll(".remove-from-favorite").forEach(item => {
