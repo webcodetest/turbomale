@@ -193,6 +193,7 @@ window.onload = async function () {
             if (!productData) continue;
             
             const product = productData.product;
+          console.log(product)
             const comparePrice = product.compare_at_price ? `<span class="custom-basket-tabs-content-product-price-old">${(product.compare_at_price / 100).toFixed(2)} USD</span>` : "";
             
             const listItem = document.createElement("li");
