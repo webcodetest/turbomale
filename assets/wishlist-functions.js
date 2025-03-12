@@ -262,19 +262,23 @@ window.onload = async function () {
         const wishlistItems = lists[0].listcontents;
         if (!wishlistItems || wishlistItems.length === 0) return;
 
+        const productIds = wishlistItems.map(item => item.empi);
 
-      console.log(wishlistItems)
-        const productIds = wishlistItems.map(item => item.empi); // Получаем все ID товаров
-        const sectionUrl = `https://${window.location.hostname}/?section_id=wishlist-products&product_ids=${productIds.join(",")}`;
+        const sectionUrl = `https://${window.location.hostname}/?section_id=wishlist-products`;
         
-        // Загружаем секцию через AJAX
-        const response = await fetch(sectionUrl);
-     
+        const response = await fetch(sectionUrl, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ product_ids: productIds })
+        });
+
         if (!response.ok) throw new Error("Failed to fetch wishlist section");
 
         const html = await response.text();
-       console.log(response, html);
-        wishlistContainer2.innerHTML = html; // Вставляем секцию с товарами
+      console.log(html)
+        wishlistContainer2.innerHTML = html;
     } catch (error) {
         console.error("Error loading wishlist items:", error);
     }
