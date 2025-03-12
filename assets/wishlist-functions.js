@@ -245,6 +245,7 @@ window.onload = async function () {
 
     document.querySelectorAll(".remove-from-favorite").forEach(item => {
       item.addEventListener("click", async function (event) {
+        item.closest('a').remove();
         event.preventDefault();
         await handleWishlistClick(event, _swat);
       });
