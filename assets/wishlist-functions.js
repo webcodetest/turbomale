@@ -163,6 +163,19 @@ async function fetchProductById(productUrl) {
 }
 
 
+async function fetchRenderedProduct(productId) {
+    try {
+        const response = await fetch(`?section_id=card-product&product_id=${productId}`);
+        if (!response.ok) throw new Error("Failed to render product snippet");
+        return await response.text();
+    } catch (error) {
+        console.error("Error fetching rendered product:", error);
+        return null;
+    }
+}
+
+
+
 
 window.onload = async function () {
   createList(_swat);
@@ -241,6 +254,37 @@ window.onload = async function () {
         console.error("Error loading wishlist items:", error);
     }
 
+
+    const wishlistContainer = document.querySelector(".wishlist-container");
+    if (!wishlistContainer) return;
+
+    try {
+        const lists = await fetchList(window._swat);
+        if (!lists || lists.length === 0) return;
+
+        const wishlistItems = lists[0].listcontents;
+        wishlistContainer.innerHTML = "";
+
+        for (const item of wishlistItems) {
+            const productData = await fetchProductById(item.du);
+            if (!productData) continue;
+            
+            const productId = productData.product.id;
+            
+            // Загружаем рендеринг карточки через Shopify section_id
+            const productHTML = await fetchRenderedProduct(productId);
+            if (!productHTML) continue;
+
+            const listItem = document.createElement("li");
+            listItem.classList.add("custom-basket-tabs-content-product");
+            listItem.innerHTML = productHTML;
+            listItem.style.display = "block";
+            wishlistContainer.appendChild(listItem);
+        }
+    } catch (error) {
+        console.error("Error loading wishlist items:", error);
+    }
+  
 
 
     document.querySelectorAll(".remove-from-favorite").forEach(item => {
