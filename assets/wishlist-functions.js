@@ -269,10 +269,11 @@ window.onload = async function () {
         
         // Загружаем секцию через AJAX
         const response = await fetch(sectionUrl);
-      console.log(response);
+     
         if (!response.ok) throw new Error("Failed to fetch wishlist section");
 
         const html = await response.text();
+       console.log(response, html);
         wishlistContainer2.innerHTML = html; // Вставляем секцию с товарами
     } catch (error) {
         console.error("Error loading wishlist items:", error);
