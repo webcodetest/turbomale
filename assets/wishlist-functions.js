@@ -194,7 +194,7 @@ window.onload = async function () {
             
             const product = productData.product;
           console.log(product)
-            const comparePrice = product.variants[0].compare_at_price ? `<span class="custom-basket-tabs-content-product-price-old">${(product.variants[0].compare_at_price / 100).toFixed(2)} USD</span>` : "";
+            const comparePrice = product.variants[0].compare_at_price ? `<span class="custom-basket-tabs-content-product-price-old">${product.variants[0].compare_at_price} USD</span>` : "";
             
             const listItem = document.createElement("li");
             listItem.classList.add("custom-basket-tabs-content-product");
