@@ -1,0 +1,24 @@
+{%- assign product_ids = request.params.product_ids | split: "," -%}
+
+<div class="wishlist-container">
+    {%- for id in product_ids -%}
+        {%- assign product = all_products[id] -%}
+        {%- if product != blank -%}
+            <div class="wishlist-item">
+                {% render 'card-product', product: product %}
+            </div>
+        {%- endif -%}
+    {%- endfor -%}
+</div>
+
+{% schema %}
+{
+    "name": "Wishlist Products",
+    "settings": [],
+    "presets": [
+        {
+            "name": "Wishlist Products"
+        }
+    ]
+}
+{% endschema %}
