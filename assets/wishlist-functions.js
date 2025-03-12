@@ -192,7 +192,6 @@ window.onload = async function () {
 
 
      const wishlistContainer = document.querySelector(".custom-wishlist-container");
-    if (!wishlistContainer) return;
 
     try {
         const lists = await fetchList(window._swat);
@@ -256,7 +255,6 @@ window.onload = async function () {
 
 
     const wishlistContainer2 = document.querySelector(".wishlist-container");
-    if (!wishlistContainer) return;
 
     try {
         const lists = await fetchList(_swat);
