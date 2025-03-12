@@ -208,7 +208,19 @@ window.onload = async function () {
                             <span class="custom-basket-tabs-content-product-price-new">${product.variants[0].price} USD</span>
                         </div>
                         <div class='custom-basket-tabs-content-product-cart'>
-                            <button class="add-to-cart" data-product-id="${product.variants[0].id}">Add to Cart</button>
+                            <form method="post" action="/cart/add" accept-charset="UTF-8" class="form" enctype="multipart/form-data" novalidate="novalidate" data-type="add-to-cart-form">
+                                <input type="hidden" name="form_type" value="product">
+                                <input type="hidden" name="utf8" value="✓">
+                                <input type="hidden" name="id" value="${product.variants[0].id}" class="product-variant-id">
+                                <div class="product-form__buttons">
+                                    <button type="submit" name="add" class="product-form__submit button button--full-width button--primary">
+                                        <span>Add to cart</span>
+                                        <div class="loading__spinner hidden"></div>
+                                    </button>
+                                </div>
+                                <input type="hidden" name="product-id" value="${product.id}">
+                                <input type="hidden" name="section-id" value="template--24328161034617__custom_basket_bBtrxc">
+                            </form>
                         </div>
                     </div>
                 </a>
