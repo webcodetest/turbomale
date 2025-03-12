@@ -273,6 +273,7 @@ window.onload = async function () {
             
             // Загружаем рендеринг карточки через Shopify section_id
             const productHTML = await fetchRenderedProduct(productId);
+          console.log(productHTML)
             if (!productHTML) continue;
 
             const listItem = document.createElement("li");
