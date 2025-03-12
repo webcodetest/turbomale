@@ -205,7 +205,7 @@ window.onload = async function () {
                     <div class='custom-basket-tabs-content-product-info'>
                         <div class="custom-basket-tabs-content-product-price">
                             ${comparePrice}
-                            <span class="custom-basket-tabs-content-product-price-new">${product.variants[0].price.toFixed(2)} USD</span>
+                            <span class="custom-basket-tabs-content-product-price-new">${product.variants[0].price} USD</span>
                         </div>
                         <div class='custom-basket-tabs-content-product-cart'>
                             <button class="add-to-cart" data-product-id="${product.variants[0].id}">Add to Cart</button>
