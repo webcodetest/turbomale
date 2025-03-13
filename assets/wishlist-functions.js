@@ -265,6 +265,7 @@ window.onload = async function () {
         // Получаем все ссылки на товары, которые в избранном
         const productUrls = wishlistItems.map(item => item.du);
 
+      console.log(productUrls)
         // Перебираем все <li>, проверяем ссылки внутри
         document.querySelectorAll(".wishlist-container li").forEach(li => {
             const link = li.querySelector("a");
