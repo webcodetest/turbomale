@@ -264,13 +264,13 @@ window.onload = async function () {
         if (!wishlistItems || wishlistItems.length === 0) return;
 
         const productIds = wishlistItems.map(item => item.empi);
-        
-        document.querySelectorAll(".wishlist-container li").forEach(li => {
-            const productId = li.getAttribute("data-product-id");
-            if (!productIds.includes(productId)) {
-                li.remove();
-            }
-        });
+        console.log(productIds);
+        // document.querySelectorAll(".wishlist-container li").forEach(li => {
+        //     const productId = li.getAttribute("data-product-id");
+        //     if (!productIds.includes(productId)) {
+        //         li.remove();
+        //     }
+        // });
     } catch (error) {
         console.error("Error processing wishlist items:", error);
     }
