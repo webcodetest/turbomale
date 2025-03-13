@@ -267,8 +267,8 @@ window.onload = async function () {
         console.log(productIds);
         document.querySelectorAll(".wishlist-container li").forEach(li => {
             const productId = li.getAttribute("data-product-id");
-            if (!productIds.includes(Number(productId))) {
-                li.remove();
+            if (productIds.includes(Number(productId))) {
+                li.style.display = 'block';
             }
         });
     } catch (error) {
