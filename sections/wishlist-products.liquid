@@ -1,9 +1,16 @@
-{%- assign product_ids = request.params.product_ids | split: "," -%}
-{{ product_ids }}
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+
+  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+
+  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+
+
 <div class="wishlist-container">
-    {%- for id in product_ids -%}
-        {%- assign product = all_products[id] -%}
-        {%- if product != blank -%}
+        {% for product in collections.all.products %}
             <div class="wishlist-item">
                   {% render 'card-product',
                     card_product: product,
@@ -18,7 +25,6 @@
                     section_id: section.id
                   %}
             </div>
-        {%- endif -%} 
     {%- endfor -%}
 </div>
 
