@@ -267,12 +267,12 @@ window.onload = async function () {
 
       console.log(productUrls)
         // Перебираем все <li>, проверяем ссылки внутри
-        document.querySelectorAll(".wishlist-container li").forEach(li => {
-            const link = li.querySelector("a");
-            if (!link || !productUrls.includes(link.getAttribute("href"))) {
-                li.remove(); // Удаляем <li>, если его ссылка НЕ в избранном
-            }
-        });
+        // document.querySelectorAll(".wishlist-container li").forEach(li => {
+        //     const link = li.querySelector("a");
+        //     if (!link || !productUrls.includes(link.getAttribute("href"))) {
+        //         li.remove(); // Удаляем <li>, если его ссылка НЕ в избранном
+        //     }
+        // });
 
     } catch (error) {
         console.error("Ошибка при фильтрации избранных товаров:", error);
