@@ -255,6 +255,7 @@ window.onload = async function () {
 
 
 
+
     try {
         const lists = await fetchList(window._swat);
         if (!lists || lists.length === 0) return;
@@ -262,21 +263,18 @@ window.onload = async function () {
         const wishlistItems = lists[0].listcontents;
         if (!wishlistItems || wishlistItems.length === 0) return;
 
-        // Получаем все ссылки на товары, которые в избранном
-        const productUrls = wishlistItems.map(item => item.du);
-
-      console.log(productUrls)
-        // Перебираем все <li>, проверяем ссылки внутри
-        // document.querySelectorAll(".wishlist-container li").forEach(li => {
-        //     const link = li.querySelector("a");
-        //     if (!link || !productUrls.includes(link.getAttribute("href"))) {
-        //         li.remove(); // Удаляем <li>, если его ссылка НЕ в избранном
-        //     }
-        // });
-
+        const productIds = wishlistItems.map(item => item.empi);
+        
+        document.querySelectorAll(".wishlist-container li").forEach(li => {
+            const productId = li.getAttribute("data-product-id");
+            if (!productIds.includes(productId)) {
+                li.remove();
+            }
+        });
     } catch (error) {
-        console.error("Ошибка при фильтрации избранных товаров:", error);
+        console.error("Error processing wishlist items:", error);
     }
+
 
 
 
