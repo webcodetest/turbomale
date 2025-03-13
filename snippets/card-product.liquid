@@ -537,9 +537,7 @@
 </style>
 {% endif %}
 
-{% if card_product == empty %}
-{% assign card_product = all_products[request.params.product_id] %}
-{% endif %}
+
 {%- if card_product and card_product != empty -%}
   {%- liquid
     assign ratio = 1
