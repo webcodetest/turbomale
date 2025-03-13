@@ -5,9 +5,7 @@
 
 
 <div class="wishlist-container">
-    {%- for id in product_ids -%}
-        {%- assign product = all_products[id] -%}
-        {%- if product != blank -%}
+    {% for product in collections.all.products %}
             <div class="wishlist-item">
                   {% render 'card-product',
                     card_product: product,
@@ -22,7 +20,7 @@
                     section_id: section.id
                   %}
             </div>
-        {%- endif -%} 
+       
     {%- endfor -%}
 </div>
 
