@@ -5,7 +5,18 @@
         {%- assign product = all_products[id] -%}
         {%- if product != blank -%}
             <div class="wishlist-item">
-                {% render 'card-product', product: product %}
+                  {% render 'card-product',
+                    card_product: product,
+                    media_aspect_ratio: 'square',
+                    image_shape: 'default',
+                    show_secondary_image: true,
+                    show_vendor: false,
+                    show_rating: true,
+                    lazy_load: true,
+                    skip_styles: skip_card_product_styles,
+                    quick_add: 'none',
+                    section_id: section.id
+                  %}
             </div>
         {%- endif -%}
     {%- endfor -%}
