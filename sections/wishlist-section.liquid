@@ -4,7 +4,12 @@
 </div>
 
 
-    <div class="wishlist-container"></div>
+<div class="wishlist-container">
+  {% for product in collections.all.products %}
+    {% render 'card-product', product: product %}
+  {% endfor %}
+</div>
+
     
 
 
