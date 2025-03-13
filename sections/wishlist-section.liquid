@@ -1,11 +1,16 @@
-<div class="custom-best-seller-top">
-      <div >Favorites</div>
-      <h2 plerdy-tracking-id="13429527201">Favorites</h2>
-</div>
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+
+  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+
+  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 
 
 <div class="wishlist-container">
-    {% for product in collections.all.products %}
+        {% for product in collections.all.products %}
             <div class="wishlist-item">
                   {% render 'card-product',
                     card_product: product,
@@ -20,13 +25,8 @@
                     section_id: section.id
                   %}
             </div>
-       
     {%- endfor -%}
 </div>
-
-
-    
-
 
 
 
