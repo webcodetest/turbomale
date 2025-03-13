@@ -35,8 +35,7 @@
     }
   },
   "order": [
-      "wishlist_section_DC3KDr",
-    "product-grid"
-  
+    "product-grid",
+    "wishlist_section_DC3KDr"
   ]
 }
