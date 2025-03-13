@@ -29,7 +29,7 @@
   {{ 'quantity-popover.css' | asset_url | stylesheet_tag }}
 {%- endunless -%}
 
-{% if template == "collection" %}
+{% if template == "collection" or template == 'page.favorites' %}
 
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 
