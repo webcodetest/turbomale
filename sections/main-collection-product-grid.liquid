@@ -681,7 +681,7 @@
           >
             {% assign skip_card_product_styles = false %}
             {%- for product in collections.all.products -%}
-              <li
+              <li style="display: none";
                 class="grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
                 {% if settings.animations_reveal_on_scroll %}
                   data-cascade
