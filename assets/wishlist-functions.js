@@ -254,34 +254,6 @@ window.onload = async function () {
     }
 
 
-   const wishlistContainer2 = document.querySelector(".wishlist-container");
-    try {
-        const lists = await fetchList(window._swat);
-        if (!lists || lists.length === 0) return;
-
-        const wishlistItems = lists[0].listcontents;
-        if (!wishlistItems || wishlistItems.length === 0) return;
-
-        const productIds = wishlistItems.map(item => item.empi);
-
-        const sectionUrl = `https://${window.location.hostname}/?section_id=wishlist-products`;
-        
-        const response = await fetch(sectionUrl, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ product_ids: productIds })
-        });
-
-        if (!response.ok) throw new Error("Failed to fetch wishlist section");
-
-        const html = await response.text();
-      console.log(html)
-        wishlistContainer2.innerHTML = html;
-    } catch (error) {
-        console.error("Error loading wishlist items:", error);
-    }
   
 
   
