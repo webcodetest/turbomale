@@ -265,16 +265,18 @@ window.onload = async function () {
         // Получаем все ссылки на товары, которые в избранном
         const productUrls = wishlistItems.map(item => item.du);
 
-        // Удаляем <li>, если он содержит ссылку на товар из избранного
-        document.querySelectorAll(".wishlist-container li a").forEach(link => {
-            if (productUrls.includes(link.getAttribute("href"))) {
-                link.closest("li").remove();
+        // Перебираем все <li>, проверяем ссылки внутри
+        document.querySelectorAll(".wishlist-container li").forEach(li => {
+            const link = li.querySelector("a");
+            if (!link || !productUrls.includes(link.getAttribute("href"))) {
+                li.remove(); // Удаляем <li>, если его ссылка НЕ в избранном
             }
         });
 
     } catch (error) {
-        console.error("Ошибка при удалении избранных товаров:", error);
+        console.error("Ошибка при фильтрации избранных товаров:", error);
     }
+
 
 
 
