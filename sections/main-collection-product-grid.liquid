@@ -3,7 +3,7 @@
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 
 
-{{ template }}
+
 {% if section.settings.image_shape == 'blob' %}
   {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
 {%- endif -%}
@@ -646,6 +646,8 @@
 
 
 </style>
+
+{{ template | json }}
 {% if template == 'page'%}
 
 
