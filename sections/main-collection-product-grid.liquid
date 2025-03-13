@@ -745,6 +745,7 @@
           data-cascade
         {% endif %}
       >
+       {{  template | json }}
         {%- if collection.products.size == 0 -%}
           <div class="collection collection--empty container" id="product-grid" data-id="{{ section.id }}">
             <div class="loading-overlay gradient"></div>
