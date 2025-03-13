@@ -469,6 +469,9 @@
   .facets-vertical .product-grid-container{
     padding-top: 55px;
   }
+  .card .card__inner .card__media{
+    z-inndex: 5;
+  }
   .card__media .media img{
     object-fit: contain;
   }
@@ -1157,7 +1160,7 @@
         class="card__inner{% if settings.card_style == 'standard' %} color-{{ settings.card_color_scheme }} gradient{% endif %} ratio"
       >
         <div
-          class="card__media 1 {% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }} gradient{% endif %}"
+          class="card__media {% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }} gradient{% endif %}"
         >
           <div
             class="media media--transparent"
