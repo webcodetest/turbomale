@@ -568,7 +568,7 @@
         style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%; background-color: #fff;"
       >
         {%- if card_product.featured_media -%}
-          <div class="card__media{% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }} gradient{% endif %}">
+          <a href="{{ card_product.url }}" class="card__media{% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }} gradient{% endif %}">
             <div class="media media--transparent media--hover-effect">
               {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
               <img
@@ -614,7 +614,7 @@
                 >
               {%- endif -%}
             </div>
-          </div>
+          </a>
         {%- endif -%}
         <div class="card__content">
           {% if card_product.metafields.custom.product_custom_badge %}
