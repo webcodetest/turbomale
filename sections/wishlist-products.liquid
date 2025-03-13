@@ -1,32 +1,4 @@
-{{ 'template-collection.css' | asset_url | stylesheet_tag }}
-{{ 'component-card.css' | asset_url | stylesheet_tag }}
-{{ 'component-price.css' | asset_url | stylesheet_tag }}
 
-
-  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
-
-  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
-
-
-<div class="wishlist-container">
-        {% for product in collections.all.products %}
-            <div class="wishlist-item">
-                  {% render 'card-product',
-                    card_product: product,
-                    media_aspect_ratio: 'square',
-                    image_shape: 'default',
-                    show_secondary_image: true,
-                    show_vendor: false,
-                    show_rating: true,
-                    lazy_load: true,
-                    skip_styles: skip_card_product_styles,
-                    quick_add: 'none',
-                    section_id: section.id
-                  %}
-            </div>
-    {%- endfor -%}
-</div>
 
 {% schema %}
 {
