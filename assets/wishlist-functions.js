@@ -254,6 +254,30 @@ window.onload = async function () {
     }
 
 
+
+    try {
+        const lists = await fetchList(window._swat);
+        if (!lists || lists.length === 0) return;
+
+        const wishlistItems = lists[0].listcontents;
+        if (!wishlistItems || wishlistItems.length === 0) return;
+
+        // Получаем все ссылки на товары, которые в избранном
+        const productUrls = wishlistItems.map(item => item.du);
+
+        // Удаляем <li>, если он содержит ссылку на товар из избранного
+        document.querySelectorAll(".wishlist-container li a").forEach(link => {
+            if (productUrls.includes(link.getAttribute("href"))) {
+                link.closest("li").remove();
+            }
+        });
+
+    } catch (error) {
+        console.error("Ошибка при удалении избранных товаров:", error);
+    }
+
+
+
   
 
   
