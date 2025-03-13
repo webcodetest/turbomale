@@ -265,12 +265,12 @@ window.onload = async function () {
 
         const productIds = wishlistItems.map(item => item.empi);
         console.log(productIds);
-        // document.querySelectorAll(".wishlist-container li").forEach(li => {
-        //     const productId = li.getAttribute("data-product-id");
-        //     if (!productIds.includes(productId)) {
-        //         li.remove();
-        //     }
-        // });
+        document.querySelectorAll(".wishlist-container li").forEach(li => {
+            const productId = li.getAttribute("data-product-id");
+            if (!productIds.includes(Number(productId))) {
+                li.remove();
+            }
+        });
     } catch (error) {
         console.error("Error processing wishlist items:", error);
     }
