@@ -305,7 +305,7 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
          class="product-checkbox" 
          data-price="{{ product_handle.price | times: 0.01 | round: 2 }}" 
          data-product-id="{{ available_variant_id }}" 
-    {% if product.variants.size > 1 %} data-quick {% endif %}
+    {% if product.variants.size > 1 %} data-quick='{{ product.url }}' {% endif %}
          checked>
 {% else %}
   <p>Product is currently unavailable.</p>
@@ -350,7 +350,7 @@ document.addEventListener("DOMContentLoaded", function () {
     addToCartBtn.addEventListener("click", function () {
         const checkboxesChecked = document.querySelectorAll(".product-checkbox:checked");
         const itemsToAdd = [];
-
+          const itemsQuickAdd = []
         checkboxesChecked.forEach((checkbox) => {
             const productId = checkbox.getAttribute("data-product-id");
               if(!checkbox.hasAttribute('data-quick')){
@@ -358,6 +358,8 @@ document.addEventListener("DOMContentLoaded", function () {
                   id: productId,
                   quantity: 1,
               });
+            }else{
+                itemsQuickAdd.push(checkbox.getAttribute('data-quick'));
             }
         });
 
@@ -373,6 +375,56 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             alert("No products selected.");
         }
+
+      if(itemsQuickAdd.length > 0){
+       document.querySelector('.quick-add__modal-product').innerHTML = "";
+        itemsQuickAdd.forEach(item => {
+          
+           fetch(item)
+                .then(response => response.text())
+                .then(data => {
+                    var tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = data;
+        
+                    var productInfoSection = tempDiv.querySelector('.product-main-section'); // Добавляем точку перед product-info
+                    
+                    if (productInfoSection) {
+                        // Вставляем секцию продукта в модальное окно
+                        document.querySelector('.quick-add__modal-product').innerHTML += productInfoSection.outerHTML;
+        
+                        // Инициализация слайдера для горизонтального слайдера в модальном окне
+                        var swiperProductMainHorizontal = new Swiper(".quick-add__modal-product .product__horizontal-swiper__item", {
+                            slidesPerView: 1,
+                            spaceBetween: 10,
+                            navigation: {
+                                nextEl: ".quick-add__modal-product .swiper-button-next",
+                                prevEl: ".quick-add__modal-product .swiper-button-prev",
+                            },
+                            breakpoints: {
+                                0: {
+                                    slidesPerView: 1,
+                                },
+                                767: {
+                                    slidesPerView: 2,
+                                }
+                            }
+                        });
+        
+                        // Открываем модальное окно
+                  
+                    } else {
+                        console.error('Секция .product-info не найдена на странице товара.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Ошибка при загрузке секции товара:', error);
+                });
+
+                document.querySelector('.quick-add__overflow').classList.add('open');
+                        document.querySelector('.quick-add__modal').classList.add('open');
+          
+        })
+      }
     });
 
     function addItemsToCart(items) {
