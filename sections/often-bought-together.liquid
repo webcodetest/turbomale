@@ -305,6 +305,7 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
          class="product-checkbox" 
          data-price="{{ product_handle.price | times: 0.01 | round: 2 }}" 
          data-product-id="{{ available_variant_id }}" 
+    {% if product.variants.size > 1 %} data-quick {% endif %}
          checked>
 {% else %}
   <p>Product is currently unavailable.</p>
@@ -352,11 +353,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
         checkboxesChecked.forEach((checkbox) => {
             const productId = checkbox.getAttribute("data-product-id");
-
-            itemsToAdd.push({
-                id: productId,
-                quantity: 1,
-            });
+              if(!checkbox.hasAttribute('data-quick')){
+                 itemsToAdd.push({
+                  id: productId,
+                  quantity: 1,
+              });
+            }
         });
 
         if (itemsToAdd.length > 0) {
