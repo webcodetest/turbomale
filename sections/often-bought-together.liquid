@@ -283,8 +283,8 @@ input[type="checkbox"]:checked + .custom-checkbox:after {
               <ul>
                 <li>
                   <label>
-                    {{ product.variants.size }}
-                    <input type="checkbox" class="product-checkbox" {% if product.variants.size > 1 %} data-quick="{{ product.url }}" {% endif %} data-price="{{ product.price | times: 0.01 | round: 2 }}" data-product-id="{{ product.variants.first.id }}" checked>
+                    
+                    <input type="checkbox" class="product-checkbox" {% if product.variants.size >= 1 %} data-quick="{{ product.url }}" {% endif %} data-price="{{ product.price | times: 0.01 | round: 2 }}" data-product-id="{{ product.variants.first.id }}" checked>
                     <span class="custom-checkbox"></span>
                     <span class="product-name"><span class="current-product-bold">Current Product </span>{{ product.title }}</span>
                     <span class="product-price">${{ product.price | times: 0.01 | round: 2 }} USD</span>
