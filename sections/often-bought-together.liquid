@@ -372,7 +372,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 .catch((error) => {
                     console.error("Error updating cart:", error);
                 });
-        } else {
+        } else if (itemsQuickAdd.length == 0 && itemsToAdd.length == 0) {
             alert("No products selected.");
         }
 
