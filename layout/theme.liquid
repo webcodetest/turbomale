@@ -1037,6 +1037,27 @@ font-size: 12px !important;}
     {%- endif -%}
 
       <script src=" {{ 'wishlist-functions.js' | asset_url }}"></script>
-             
+
+
+              <script>
+      document.addEventListener("DOMContentLoaded", function () {
+          let productHandle = "{{ product.handle }}"; 
+          if (!productHandle) return; 
+      
+          let viewedProducts = JSON.parse(localStorage.getItem("recentlyViewed")) || [];
+      
+          viewedProducts = viewedProducts.filter(handle => handle !== productHandle);
+      
+          viewedProducts.unshift(productHandle);
+      
+          if (viewedProducts.length > 6) {
+              viewedProducts.pop();
+          }
+      
+          localStorage.setItem("recentlyViewed", JSON.stringify(viewedProducts));
+      });
+      </script>
+
+              
   </body>
 </html>
