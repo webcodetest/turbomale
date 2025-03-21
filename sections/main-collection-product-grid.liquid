@@ -700,7 +700,7 @@
           >
             {% assign skip_card_product_styles = false %}
             {%- for product in collections.all.products -%}
-              <li data-product-id="{{ product.id }}"
+              <li data-product-handle="{{ product.handle }}" data-product-id="{{ product.id }}"
                 class="grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
                 {% if settings.animations_reveal_on_scroll %}
                   data-cascade
