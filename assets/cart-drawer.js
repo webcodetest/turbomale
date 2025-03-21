@@ -44,16 +44,22 @@ class CartDrawer extends HTMLElement {
             { once: true }
         );
 
-      setTimeout(function(){
+     setTimeout(function() {
         markWishlistItems(_swat);
-       document.querySelectorAll("cart-drawer [data-favorite]").forEach(item => {
-          console.log(item);
-          item.addEventListener("click", async function (event) {
-            event.preventDefault();
-            handleWishlistClick(event, _swat);
-          });
+        
+        document.querySelectorAll("cart-drawer [data-favorite]").forEach(item => {
+            // Создаем новый элемент и заменяем старый (удаляет все события)
+            let newItem = item.cloneNode(true);
+            item.replaceWith(newItem);
+    
+            // Вешаем новое событие
+            newItem.addEventListener("click", async function(event) {
+                event.preventDefault();
+                handleWishlistClick(event, _swat);
+            });
         });
-      }, 500)
+    }, 500);
+
        
 
       
