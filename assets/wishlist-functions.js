@@ -254,8 +254,7 @@ window.onload = async function () {
     }
 
 
-
-
+if(window.location.pathname.includes("wishlist")){
     try {
         const lists = await fetchList(window._swat);
         if (!lists || lists.length === 0) return;
@@ -274,6 +273,9 @@ window.onload = async function () {
     } catch (error) {
         console.error("Error processing wishlist items:", error);
     }
+}
+
+  
 
 
 
