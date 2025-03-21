@@ -1055,7 +1055,28 @@ font-size: 12px !important;}
           }
       
           localStorage.setItem("recentlyViewed", JSON.stringify(viewedProducts));
+
+        
       });
+
+            document.addEventListener("DOMContentLoaded", function () {
+              if (window.location.pathname.includes("recently-viewed")) {
+                  let viewedProducts = JSON.parse(localStorage.getItem("recentlyViewed")) || [];
+                  
+                  let productItems = document.querySelectorAll("#product-grid li");
+          
+                  productItems.forEach(item => {
+                      let productHandle = item.getAttribute("data-product-handle");
+          
+                      if (viewedProducts.includes(productHandle)) {
+                          item.style.display = "block"; 
+                      } else {
+                          item.style.display = "none"; 
+                      }
+                  });
+              }
+          });
+                
       </script>
 
               
