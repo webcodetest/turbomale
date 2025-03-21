@@ -653,11 +653,17 @@
 
   
 <div class="section-{{ section.id }}-padding gradient wishlist-container color-{{ section.settings.color_scheme }}">
-
+{% if template == 'page.favorites'  %}
     <div class="custom-best-seller-top">
           <div plerdy-tracking-id="75678124501">Wishlist</div>
           <h2 plerdy-tracking-id="13429527201">Favorites</h2>
       </div>
+  {% else %}
+   <div class="custom-best-seller-top">
+          <div plerdy-tracking-id="75678124501">RECENTLY VIEVED</div>
+          <h2 plerdy-tracking-id="13429527201">RECENTLY VIEVED</h2>
+      </div>
+  {% endif %}
   
   <div class="{% if section.settings.filter_type == 'vertical' %} facets-vertical container{% endif %}">
     {{ 'component-facets.css' | asset_url | stylesheet_tag }}
