@@ -98,11 +98,11 @@
                 {{ product.description }}
             </div>
         </div>
-        <div class="tab-content" id="tab-3">Tab-3 Content</div>
-        <div class="tab-content" id="tab-4">Tab-4 Content</div>
-        <div class="tab-content" id="tab-5">Tab-5 Content</div>
-        <div class="tab-content" id="tab-6">Tab-6 Content</div>
-        <div class="tab-content" id="tab-7">Tab-7 Content</div>
+        <div class="tab-content" id="tab-3">{{ product.metafields.custom.key_features }}</div>
+        <div class="tab-content" id="tab-4">{{ product.metafields.custom.whats_included_in_this_package }}</div>
+        <div class="tab-content" id="tab-5">{{ product.metafields.custom.sizing_guide }}</div>
+        <div class="tab-content" id="tab-6">{{ product.metafields.custom.how_it_works }}</div>
+        <div class="tab-content" id="tab-7"></div>
 </div>
 
 <style>
