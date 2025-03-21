@@ -98,10 +98,14 @@
                 {{ product.description }}
             </div>
         </div>
-        <div class="tab-content" id="tab-3">{{ product.metafields.custom.key_features }}</div>
-        <div class="tab-content" id="tab-4">{{ product.metafields.custom.whats_included_in_this_package }}</div>
-        <div class="tab-content" id="tab-5">{{ product.metafields.custom.sizing_guide }}</div>
-        <div class="tab-content" id="tab-6">{{ product.metafields.custom.how_it_works }}</div>
+        <div class="tab-content" id="tab-3">
+          <div class="page-width">
+          {{ product.metafields.custom.key_features }}
+          </div>
+        </div>
+        <div class="tab-content" id="tab-4"> <div class="page-width">{{ product.metafields.custom.whats_included_in_this_package }}</div></div>
+        <div class="tab-content" id="tab-5"> <div class="page-width">{{ product.metafields.custom.sizing_guide }}</div></div>
+        <div class="tab-content" id="tab-6"> <div class="page-width">{{ product.metafields.custom.how_it_works }}</div></div>
         <div class="tab-content" id="tab-7"></div>
 </div>
 
