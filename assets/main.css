@@ -956,7 +956,7 @@ ul {
   gap: 34px;
 }
 
-.mobile-menu ul li p a {
+.mobile-menu ul li p a, .mobile-menu ul li p span {
   color: #fff;
   font-family: "Proxima Nova";
   font-size: 16px;
