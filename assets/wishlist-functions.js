@@ -211,7 +211,7 @@ window.onload = async function () {
             const listItem = document.createElement("li");
             listItem.classList.add("custom-basket-tabs-content-product");
             listItem.innerHTML = `
-                <a href="/${product.handle}">
+                <a href="/products/${product.handle}">
                     <img src="${product.image.src}" alt="${product.title}">
                     <h3>${product.title}</h3>
                     <div class="remove-from-favorite added" data-favorite='${item.empi}' data-variant-id='${item.epi}' data-product-url="${item.du}">
