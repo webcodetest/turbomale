@@ -253,6 +253,7 @@ window.onload = async function () {
        document.querySelectorAll(".remove-from-favorite").forEach(item => {
         item.addEventListener("click", async function (event) {
           event.preventDefault();
+          item.closest('a').remove();
           await handleWishlistClick(event, _swat);
         });
       });
