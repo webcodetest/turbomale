@@ -434,9 +434,9 @@
         "slider_jTY7gh": {
           "type": "slider",
           "settings": {
-            "title": "test2",
-            "title_absolute": "test2",
-            "subtitle": "test2",
+            "title": "TurboMale Light Extender",
+            "title_absolute": "Light Extender",
+            "subtitle": "The Best Selling Vacuum Penis Extender",
             "slider_image": "shopify://shop_images/gold-slide.webp",
             "slider_image_mobile": "shopify://shop_images/gold-slide-mobile.png",
             "slider_image_alt": "",
@@ -447,8 +447,8 @@
         "slider_CXpYck": {
           "type": "slider",
           "settings": {
-            "title": "test3",
-            "title_absolute": "test3",
+            "title": "TurboMale Prime Extender",
+            "title_absolute": "Prime Extender",
             "subtitle": "test3",
             "slider_image": "shopify://shop_images/gold-slide.webp",
             "slider_image_mobile": "shopify://shop_images/gold-slide-mobile.png",
