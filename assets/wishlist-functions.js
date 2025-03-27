@@ -249,6 +249,14 @@ window.onload = async function () {
             listItem.style.display = "block";
             wishlistContainer.appendChild(listItem);
         }
+
+       document.querySelectorAll(".remove-from-favorite").forEach(item => {
+        item.addEventListener("click", async function (event) {
+          event.preventDefault();
+          await handleWishlistClick(event, _swat);
+        });
+      });
+      
     } catch (error) {
         console.error("Error loading wishlist items:", error);
     }
