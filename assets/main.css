@@ -3328,12 +3328,12 @@ ul {
   }
 }
 
-.custom-gold-slider p {
+.custom-gold-slider p.text {
   display: none;
 }
 
 @media screen and (max-width: 500px) {
-  .custom-gold-slider p {
+  .custom-gold-slider p.text {
     display: block;
     color: #000;
     text-align: center;
