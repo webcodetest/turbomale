@@ -3332,6 +3332,9 @@ ul {
   display: none;
 }
 
+.custom-gold-slider .swiper-slide{
+padding-top: 80px; }
+
 @media screen and (max-width: 500px) {
   .custom-gold-slider p.text {
     display: block;
