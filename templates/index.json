@@ -434,9 +434,9 @@
         "slider_jTY7gh": {
           "type": "slider",
           "settings": {
-            "title": "",
-            "title_absolute": "",
-            "subtitle": "",
+            "title": "test2",
+            "title_absolute": "test2",
+            "subtitle": "test2",
             "slider_image": "shopify://shop_images/gold-slide.webp",
             "slider_image_mobile": "shopify://shop_images/gold-slide-mobile.png",
             "slider_image_alt": "",
@@ -447,9 +447,9 @@
         "slider_CXpYck": {
           "type": "slider",
           "settings": {
-            "title": "",
-            "title_absolute": "",
-            "subtitle": "",
+            "title": "test3",
+            "title_absolute": "test3",
+            "subtitle": "test3",
             "slider_image": "shopify://shop_images/gold-slide.webp",
             "slider_image_mobile": "shopify://shop_images/gold-slide-mobile.png",
             "slider_image_alt": "",
