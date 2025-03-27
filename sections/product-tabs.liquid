@@ -1,25 +1,62 @@
 <div class="product-tabs-section">
     <div class="container">
         <div class="tabs">
-            <button class="tab-button active" data-tab="tab-1">{{ section.settings.tab_1_name }}</button>
+
+           {%  if section.settings.tab_1_name != blank %}
+            <button class="tab-button active" data-tab="tab-1">{{ section.settings.tab_1_name }}</button>{% endif %}
+            
+           {%  if section.settings.tab_2_name != blank %}
             <button class="tab-button" data-tab="tab-2">{{ section.settings.tab_2_name }}</button>
+             {% endif %}
+            
+           {%  if section.settings.tab_3_name != blank %}
             <button class="tab-button" data-tab="tab-3">{{ section.settings.tab_3_name }}</button>
+             {% endif %}
+            
+           {%  if section.settings.tab_4_name != blank %}
             <button class="tab-button" data-tab="tab-4">{{ section.settings.tab_4_name }}</button>
+             {% endif %}
+            
+           {%  if section.settings.tab_5_name != blank %}
             <button class="tab-button" data-tab="tab-5">{{ section.settings.tab_5_name }}</button>
+             {% endif %}
+            
+           {%  if section.settings.tab_6_name != blank %}
             <button class="tab-button" data-tab="tab-6">{{ section.settings.tab_6_name }}</button>
+             {% endif %}
+
+            {%  if section.settings.tab_7_name != blank %}
             <button class="tab-button" data-tab="tab-7">{{ section.settings.tab_7_name }}</button>
+              {% endif %}
         </div>
         <select class="tab-select" aria-label="Select Tab">
+          {%  if section.settings.tab_1_name != blank %}
             <option value="tab-1" selected>{{ section.settings.tab_1_name }}</option>
+          {%  endif %}
+            {%  if section.settings.tab_2_name != blank %}
             <option value="tab-2">{{ section.settings.tab_2_name }}</option>
+ {%  endif %}
+            {%  if section.settings.tab_3_name != blank %}
             <option value="tab-3">{{ section.settings.tab_3_name }}</option>
+ {%  endif %}
+            {%  if section.settings.tab_4_name != blank %}
             <option value="tab-4">{{ section.settings.tab_4_name }}</option>
+ {%  endif %}
+
+                {%  if section.settings.tab_5_name != blank %}
             <option value="tab-5">{{ section.settings.tab_5_name }}</option>
+
+ {%  endif %}
+                    {%  if section.settings.tab_6_name != blank %}
             <option value="tab-6">{{ section.settings.tab_6_name }}</option>
+
+ {%  endif %}
+                        {%  if section.settings.tab_7_name != blank %}
             <option value="tab-7">{{ section.settings.tab_7_name }}</option>
+                           {%  endif %}
         </select>
     </div>
-
+  {%  if section.settings.tab_1_name != blank %}
         <div class="tab-content active" id="tab-1">
             <div class="details-tab">
                 <div class="custom-discovery-line"></div>
@@ -93,20 +130,25 @@
                 </div>
             </div>
         </div>
-        <div class="tab-content" id="tab-2">
+  {% endif %}
+      {%  if section.settings.tab_2_name != blank %}    
+    <div class="tab-content" id="tab-2">
             <div class="page-width">
                 {{ product.description }}
             </div>
         </div>
+        {% endif %}
+          {%  if section.settings.tab_3_name != blank %}
         <div class="tab-content" id="tab-3">
           <div class="page-width" >
           {{ product.metafields.custom.key_features | newline_to_br  }}
           </div>
         </div>
-        <div class="tab-content" id="tab-4"> <div class="page-width" >{{ product.metafields.custom.whats_included_in_this_package | newline_to_br }}</div></div>
-        <div class="tab-content" id="tab-5"> <div class="page-width" >{{ product.metafields.custom.sizing_guide | newline_to_br  }}</div></div>
-        <div class="tab-content" id="tab-6"> <div class="page-width" >{{ product.metafields.custom.how_it_works | newline_to_br  }}</div></div> 
-        <div class="tab-content" id="tab-7"><div class="page-width" >{{  product.metafields.spr.reviews }}</div></div>
+            {% endif %}
+          {%  if section.settings.tab_4_name != blank %}<div class="tab-content" id="tab-4"> <div class="page-width" >{{ product.metafields.custom.whats_included_in_this_package | newline_to_br }}</div></div>{% endif %}
+          {%  if section.settings.tab_5_name != blank %}<div class="tab-content" id="tab-5"> <div class="page-width" >{{ product.metafields.custom.sizing_guide | newline_to_br  }}</div></div>{% endif %}
+          {%  if section.settings.tab_6_name != blank %}<div class="tab-content" id="tab-6"> <div class="page-width" >{{ product.metafields.custom.how_it_works | newline_to_br  }}</div></div> {% endif %}
+          {%  if section.settings.tab_7_name != blank %}<div class="tab-content" id="tab-7"><div class="page-width" >{{  product.metafields.spr.reviews }}</div></div>{% endif %}
 </div>
 
 <style>
