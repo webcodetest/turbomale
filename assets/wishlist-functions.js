@@ -132,6 +132,16 @@ const addToWishlist = (swat, product) => {
     let lid = window.swymSelectedListId;
 
     swat.addToList(lid, product, onSuccess, onError);
+
+  Toastify({
+    text: "Added to wishlist",
+    className: "info",
+    style: {
+      background: "black",
+      color: "white"
+    }
+  }).showToast();
+  
 }
 
 /* Remove product from wishlist action. */
@@ -148,6 +158,16 @@ const removeFromWishlist = (swat, product) => {
   let lid = window.swymSelectedListId;
 
   swat.deleteFromList(lid, product, onSuccess, onError);
+
+   Toastify({
+    text: "Removed from wishlist",
+    className: "info",
+    style: {
+      background: "black",
+      color: "white"
+    }
+  }).showToast();
+  
 }
 
 
