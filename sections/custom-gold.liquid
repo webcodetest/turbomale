@@ -9,30 +9,27 @@
                 {% for block in section.blocks %}
                     {% if block.type == 'slider' %}
                         <div class="swiper-slide">
-        <div class='custom-gold-title'>
-            <div>{{ section.settings.title_absolute }}</div>
-            <h2>{{ section.settings.title }}</h2>
-            <h3>{{ section.settings.subtitle }}</h3>
-        </div>
-        <ul class='custom-gold-list'>
-            {% for inner_block in section.blocks %}
-                {% if inner_block.type == 'list' %}
-                    <li>
-                        <img src='{{ inner_block.settings.list_item_image | img_url: 'master'}}' alt='{{ inner_block.settings.list_item_image_alt }}'>
-                        <p>{{ inner_block.settings.list_item_text }}</p>
-                    </li>
-                {% endif %}
-            {% endfor %}
-        </ul>
+                            <div class='custom-gold-title'>
+                                <div>{{ section.settings.title_absolute }}</div>
+                                <h2>{{ section.settings.title }}</h2>
+                                <h3>{{ section.settings.subtitle }}</h3>
+                            </div>
+                            <ul class='custom-gold-list'>
+                                {% for inner_block in section.blocks %}
+                                    {% if inner_block.type == 'list' %}
+                                        <li>
+                                            <img src='{{ inner_block.settings.list_item_image | img_url: 'master'}}' alt='{{ inner_block.settings.list_item_image_alt }}'>
+                                            <p>{{ inner_block.settings.list_item_text }}</p>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
     
                             <img class='custom-gold-slider-image-desktop' src='{{ block.settings.slider_image | img_url: 'master' }}' alt='{{ block.settings.slider_image_alt }}'>
                             <img class='custom-gold-slider-image-mobile' src='{{ block.settings.slider_image_mobile | img_url: 'master' }}' alt='{{ block.settings.slider_image_alt }}'>
                             <p>{{ block.settings.slider_text_mobile }}</p>
                             <a class='custom-gold-link' href='{{ block.settings.button_link }}'>{{ section.settings.button_text }}</a>
-                    
-
-
-                              </div>
+                          </div>
                     {% endif %}
             {% endfor %}
             </div>
