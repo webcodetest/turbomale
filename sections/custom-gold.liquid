@@ -10,9 +10,9 @@
                     {% if block.type == 'slider' %}
                         <div class="swiper-slide">
                             <div class='custom-gold-title'>
-                                <div>{{ section.settings.title_absolute }}</div>
-                                <h2>{{ section.settings.title }}</h2>
-                                <h3>{{ section.settings.subtitle }}</h3>
+                                <div>{{ block.settings.title_absolute }}</div>
+                                <h2>{{ block.settings.title }}</h2>
+                                <h3>{{ block.settings.subtitle }}</h3>
                             </div>
                             <ul class='custom-gold-list'>
                                 {% for inner_block in section.blocks %}
