@@ -138,7 +138,8 @@ const addToWishlist = (swat, product) => {
     className: "info",
     style: {
       background: "black",
-      color: "white"
+      color: "white",
+      border: "1px solid white"
     }
   }).showToast();
   
@@ -164,7 +165,8 @@ const removeFromWishlist = (swat, product) => {
     className: "info",
     style: {
       background: "black",
-      color: "white"
+      color: "white",
+       border: "1px solid white"
     }
   }).showToast();
   
