@@ -94,7 +94,8 @@ if (!customElements.get('product-form')) {
           })
           .finally(() => {
             this.submitButton.classList.remove('loading');
-            this.submitButton.querySelector("span").innerHTML = 'Product Added'
+            this.submitButton.querySelector("span").innerHTML = 'Product Added';
+             this.submitButton.classList.add("added");
             if (this.cart && this.cart.classList.contains('is-empty')) this.cart.classList.remove('is-empty');
             if (!this.error) this.submitButton.removeAttribute('aria-disabled');
             this.querySelector('.loading__spinner').classList.add('hidden');
