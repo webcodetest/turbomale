@@ -62,9 +62,9 @@
       "settings": {
         "title": "Contact us",
         "title_absolute": "Contact us",
-        "text": "Need Kiiroo service or support? We're more than happy to help you out. Start your request in the contact form below and we'll find you a solution. We respond to all enquiries as quickly as possible, between 2-3 working days. However, this can take longer during busier periods. Rest assured, your pleasure is our priority.",
-        "block_bg": "shopify:\/\/shop_images\/contact-block-bg.webp",
-        "block_image": "shopify:\/\/shop_images\/package_3_1.svg",
+        "text": "Need TurboMale service or expert advice? Our dedicated team is ready to assist you. Fill out the contact form below, and we'll respond quickly—typically within 1-2 working days. Your satisfaction and results are always our highest priority!",
+        "block_bg": "shopify://shop_images/contact-block-bg.webp",
+        "block_image": "shopify://shop_images/package_3_1.svg",
         "block_image_alt": "",
         "block_text": "Track order"
       }
