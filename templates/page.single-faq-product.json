@@ -27,43 +27,43 @@
         "faq_mDtcrC": {
           "type": "faq",
           "settings": {
-            "item_title": "Is it true that the “Titan Gel” cream can enlarge the penis?",
-            "item_text": "One tube (package) is enough for 1 week. We recommend ordering for a full monthly course to get maximum result."
+            "item_title": "1",
+            "item_text": "1"
           }
         },
         "faq_QqgWKV": {
           "type": "faq",
           "settings": {
-            "item_title": "How long does a tube last?",
-            "item_text": "One tube (package) is enough for 1 week. We recommend ordering for a full monthly course to get maximum result."
+            "item_title": "2",
+            "item_text": "2"
           }
         },
         "faq_dmRBFq": {
           "type": "faq",
           "settings": {
-            "item_title": "Can one package be effective enough?",
-            "item_text": "One tube (package) is enough for 1 week. We recommend ordering for a full monthly course to get maximum result."
+            "item_title": "3",
+            "item_text": "3"
           }
         },
         "faq_BxdRcz": {
           "type": "faq",
           "settings": {
-            "item_title": "Can one package be effective enough?",
-            "item_text": "One tube (package) is enough for 1 week. We recommend ordering for a full monthly course to get maximum result."
+            "item_title": "4",
+            "item_text": "4"
           }
         },
         "faq_P64Y3e": {
           "type": "faq",
           "settings": {
-            "item_title": "How many packages are needed to get maximum effect?",
-            "item_text": "One tube (package) is enough for 1 week. We recommend ordering for a full monthly course to get maximum result."
+            "item_title": "5",
+            "item_text": "5"
           }
         },
         "faq_4raTiM": {
           "type": "faq",
           "settings": {
-            "item_title": "By how many centimeters will the penis enlarge?",
-            "item_text": "One tube (package) is enough for 1 week. We recommend ordering for a full monthly course to get maximum result."
+            "item_title": "6",
+            "item_text": "6"
           }
         }
       },
@@ -78,7 +78,7 @@
       "settings": {
         "title": "Feel free to ask us a question",
         "title_absolute": "FAQ",
-        "text_bottom": "<p>Can't find what you're looking for? <a href=\"\/pages\/contact\" title=\"Contact\">Contact Us<\/a><\/p>"
+        "text_bottom": "<p>Can't find what you're looking for? <a href=\"/pages/contact\" title=\"Contact\">Contact Us</a></p>"
       }
     }
   },
