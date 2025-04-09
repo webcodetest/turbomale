@@ -13,7 +13,6 @@
   "sections": {
     "custom_announcement_bar_9nzXgX": {
       "type": "custom-announcement-bar",
-      "disabled": true,
       "settings": {
         "image": "shopify://shop_images/1000_F_453754621_UtJAkUx3oxKKLqFgs9u0D8vkmc3M3vnd_1.png",
         "text_sale": "15% OFF EVERYTHING!",
