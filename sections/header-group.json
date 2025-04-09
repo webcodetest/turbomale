@@ -166,6 +166,7 @@
         },
         "submenu2_z7r8hW": {
           "type": "submenu2",
+          "disabled": true,
           "settings": {
             "text": "Why TurboMale?",
             "url": "",
@@ -174,6 +175,7 @@
         },
         "submenu2_KzCKAz": {
           "type": "submenu2",
+          "disabled": true,
           "settings": {
             "text": "Our Quality",
             "url": "#",
@@ -182,6 +184,7 @@
         },
         "submenu2_neHQGz": {
           "type": "submenu2",
+          "disabled": true,
           "settings": {
             "text": "Our Process",
             "url": "#",
