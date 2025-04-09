@@ -34,36 +34,57 @@
         "faq_QqgWKV": {
           "type": "faq",
           "settings": {
-            "item_title": "2",
-            "item_text": "2"
+            "item_title": "How do I place an order?",
+            "item_text": "Shopping with us is a breeze! Simply browse through our turbocharged collection, add your favorite items to the cart, and follow the easy checkout process. If you face any issues, feel free to reach out to our support team."
           }
         },
         "faq_dmRBFq": {
           "type": "faq",
           "settings": {
-            "item_title": "3",
-            "item_text": "3"
+            "item_title": "What payment methods do you accept?",
+            "item_text": "We accept various payment methods, including PayPal, Stripe, Credit Card,  Electronic Funds Transfer, Crypto Currencies and other. Choose the option that suits you best for a seamless transaction."
           }
         },
         "faq_BxdRcz": {
           "type": "faq",
           "settings": {
-            "item_title": "4",
-            "item_text": "4"
+            "item_title": "Is international shipping available?",
+            "item_text": "Yes, TurboMale Shop ships internationally. Be aware that international orders may be subject to customs and import duties, which are the responsibility of the customer."
           }
         },
         "faq_P64Y3e": {
           "type": "faq",
           "settings": {
-            "item_title": "5",
-            "item_text": "5"
+            "item_title": "How can I track my order?",
+            "item_text": "Once your order is shipped, you'll receive a confirmation email with tracking details. Use this information to keep tabs on your turbocharged package as it makes its way to you."
           }
         },
         "faq_4raTiM": {
           "type": "faq",
           "settings": {
-            "item_title": "6",
-            "item_text": "6"
+            "item_title": "What is your return policy?",
+            "item_text": "We offer a 60 Day Satisfaction Money Back Guarantee. If you're not completely satisfied with our products, you can return them within 60 days for a refund. Refer to our refund policy for more details."
+          }
+        },
+        "faq_MYHdrU": {
+          "type": "faq",
+          "settings": {
+            "item_title": "How can I contact customer support?",
+            "item_text": "Our turbocharged support team is ready to assist you. Reach out via our contact page or drop us an email at support@turbomale.com, and we'll get back to you promptly."
+          }
+        },
+        "faq_RhqCqG": {
+          "type": "faq",
+          "settings": {
+            "item_title": "Can I change or cancel my order?",
+            "item_text": "Once an order is placed, it's processed promptly for swift delivery. If you need to make changes, please contact us immediately, and we'll do our best to assist you"
+          }
+        },
+        "faq_UUrmEk": {
+          "type": "faq",
+          "settings": {
+            "item_title": "Are your products safe and reliable?",
+            "item_text": "Absolutely! We take pride in offering top-quality, safe, and reliable products. Our items undergo rigorous testing to ensure they meet the highest standards."
           }
         }
       },
@@ -73,7 +94,10 @@
         "faq_dmRBFq",
         "faq_BxdRcz",
         "faq_P64Y3e",
-        "faq_4raTiM"
+        "faq_4raTiM",
+        "faq_MYHdrU",
+        "faq_RhqCqG",
+        "faq_UUrmEk"
       ],
       "settings": {
         "title": "Feel free to ask us a question",
