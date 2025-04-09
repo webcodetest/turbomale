@@ -278,6 +278,7 @@
         },
         "submenu4_UL8N3g": {
           "type": "submenu4",
+          "disabled": true,
           "settings": {
             "text": "Customer Reviews (+1700)",
             "url": "",
