@@ -46,7 +46,7 @@
           "type": "submenu_left",
           "settings": {
             "text": "TRENDING",
-            "url": "shopify://collections"
+            "url": "shopify://collections/bestsellers"
           }
         },
         "submenu_left_EpVd9J": {
