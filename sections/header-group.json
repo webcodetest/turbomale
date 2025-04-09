@@ -190,6 +190,7 @@
         },
         "submenu2_mg7XNC": {
           "type": "submenu2",
+          "disabled": true,
           "settings": {
             "text": "Our Ambassadors",
             "url": "#",
