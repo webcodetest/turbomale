@@ -13,6 +13,7 @@
   "sections": {
     "custom_announcement_bar_9nzXgX": {
       "type": "custom-announcement-bar",
+      "disabled": true,
       "settings": {
         "image": "shopify://shop_images/1000_F_453754621_UtJAkUx3oxKKLqFgs9u0D8vkmc3M3vnd_1.png",
         "text_sale": "15% OFF EVERYTHING!",
@@ -139,6 +140,7 @@
         },
         "submenu_right_kMfLF3": {
           "type": "submenu_right",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Group_62.webp",
             "image_alt": "",
@@ -147,6 +149,7 @@
         },
         "submenu_right_L6Gdh3": {
           "type": "submenu_right",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Group_69_50416a3b-1c5b-4f8d-8de0-876d33c58fa0.webp",
             "image_alt": "",
