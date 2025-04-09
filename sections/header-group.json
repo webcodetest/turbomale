@@ -365,6 +365,7 @@
         },
         "submenu5_hNPTQk": {
           "type": "submenu5",
+          "disabled": true,
           "settings": {
             "text": "Affialiate Program",
             "url": "#",
@@ -373,6 +374,7 @@
         },
         "submenu5_DMhTqY": {
           "type": "submenu5",
+          "disabled": true,
           "settings": {
             "text": "Become and Ambassador",
             "url": "#",
