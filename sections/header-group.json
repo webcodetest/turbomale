@@ -286,6 +286,7 @@
         },
         "submenu4_eBYyrA": {
           "type": "submenu4",
+          "disabled": true,
           "settings": {
             "text": "Proof",
             "url": "",
@@ -294,6 +295,7 @@
         },
         "submenu4_ArJi98": {
           "type": "submenu4",
+          "disabled": true,
           "settings": {
             "text": "Reddit Users Sharing",
             "url": "",
@@ -302,6 +304,7 @@
         },
         "submenu4_JUYPBa": {
           "type": "submenu4",
+          "disabled": true,
           "settings": {
             "text": "What you can gain",
             "url": "",
@@ -310,6 +313,7 @@
         },
         "submenu4_njPRen": {
           "type": "submenu4",
+          "disabled": true,
           "settings": {
             "text": "TurboMale Club",
             "url": "",
@@ -318,6 +322,7 @@
         },
         "submenu4_CCreLx": {
           "type": "submenu4",
+          "disabled": true,
           "settings": {
             "text": "TurboMale`s Knowledge",
             "url": "#",
@@ -326,6 +331,7 @@
         },
         "submenu4_GhjYm3": {
           "type": "submenu4",
+          "disabled": true,
           "settings": {
             "text": "Center",
             "url": "",
