@@ -164,42 +164,42 @@
           "repeater": "{{ collection.metafields.custom.collection_faq.value }}",
           "settings": {
             "item_title": "{{ block.repeater.title.value }}",
-            "item_text": "{{ block.repeater.answer.value }}"
+            "item_text": "{{ block.repeater.text | metafield_tag }}"
           }
         },
         "faq_mbk6CK": {
           "type": "faq",
           "settings": {
-            "item_title": "How long does a tube last?",
-            "item_text": "One tube (package) is enough for 1 week. We recommend ordering for a full monthly course to get maximum result."
+            "item_title": "1",
+            "item_text": "<p>1</p>"
           }
         },
         "faq_BxDLKL": {
           "type": "faq",
           "settings": {
-            "item_title": "Can one package be effective enough?",
-            "item_text": "One tube (package) is enough for 1 week. We recommend ordering for a full monthly course to get maximum result."
+            "item_title": "1",
+            "item_text": "<p>1</p>"
           }
         },
         "faq_MV4arr": {
           "type": "faq",
           "settings": {
-            "item_title": "Can one package be effective enough?",
-            "item_text": "One tube (package) is enough for 1 week. We recommend ordering for a full monthly course to get maximum result."
+            "item_title": "1",
+            "item_text": "<p>1</p>"
           }
         },
         "faq_HyYiKX": {
           "type": "faq",
           "settings": {
-            "item_title": "How many packages are needed to get maximum effect?",
-            "item_text": "One tube (package) is enough for 1 week. We recommend ordering for a full monthly course to get maximum result."
+            "item_title": "1",
+            "item_text": "<p>1</p>"
           }
         },
         "faq_eyzyYe": {
           "type": "faq",
           "settings": {
-            "item_title": "By how many centimeters will the penis enlarge?",
-            "item_text": "One tube (package) is enough for 1 week. We recommend ordering for a full monthly course to get maximum result."
+            "item_title": "1",
+            "item_text": "<p>1</p>"
           }
         }
       },
