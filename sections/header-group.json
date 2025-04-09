@@ -202,6 +202,7 @@
         },
         "submenu3_M43CkP": {
           "type": "submenu3",
+          "disabled": true,
           "settings": {
             "text": "How it works",
             "url": "#",
@@ -218,6 +219,7 @@
         },
         "submenu3_MMqBWg": {
           "type": "submenu3",
+          "disabled": true,
           "settings": {
             "text": "Buyer`s Guide",
             "url": "#",
@@ -226,6 +228,7 @@
         },
         "submenu3_mx3pWb": {
           "type": "submenu3",
+          "disabled": true,
           "settings": {
             "text": "Product Instructions",
             "url": "",
@@ -258,6 +261,7 @@
         },
         "submenu3_Jf9UyV": {
           "type": "submenu3",
+          "disabled": true,
           "settings": {
             "text": "Reddit Users Sharing",
             "url": "",
@@ -266,6 +270,7 @@
         },
         "submenu4_kgr3Gr": {
           "type": "submenu4",
+          "disabled": true,
           "settings": {
             "text": "Blog",
             "url": "",
