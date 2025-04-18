@@ -1122,36 +1122,54 @@ class VariantSelects extends HTMLElement {
   }
 
   connectedCallback() {
-    this.addEventListener('change', (event) => {
-      const target = this.getInputForEventTarget(event.target);
-      this.updateSelectionMetadata(event);
+    // Привязываем обработчик к событию change
+    this.addEventListener('change', this.handleChange.bind(this));
+  }
 
-      publish(PUB_SUB_EVENTS.optionValueSelectionChange, {
-        data: {
-          event,
-          target,
-          selectedOptionValues: this.selectedOptionValues,
-        },
-      });
+  handleChange(event) {
+    // Ищем ближайший контейнер с классом product__info-container от элемента, вызвавшего событие
+    const container = event.target.closest('.product__info-container');
+    if (!container) return; // Если не нашли контейнер — ничего не делаем
+
+    // Определяем целевой элемент для дальнейшей обработки
+    const inputTarget = this.getInputForEventTarget(event.target);
+    
+    // Обновляем метаданные выбора, учитывая только элементы внутри найденного контейнера
+    this.updateSelectionMetadata(event.target, container);
+
+    // Подсчитываем выбранные опции в рамках этого контейнера
+    const selectedOptionValues = Array.from(
+      container.querySelectorAll('select option[selected], fieldset input:checked')
+    ).map(el => el.dataset.optionValueId);
+
+    // Публикуем событие с данными для этой конкретной формы
+    publish(PUB_SUB_EVENTS.optionValueSelectionChange, {
+      data: {
+        event,
+        target: inputTarget,
+        selectedOptionValues: selectedOptionValues,
+      },
     });
   }
 
-  updateSelectionMetadata({ target }) {
+  updateSelectionMetadata(target, container) {
     const { value, tagName } = target;
-    const container = target.closest('.product__info-container'); // Ограничиваем область действия в пределах конкретной формы
-
-    if (!container) return; // Если контейнер не найден, выходим из функции
-
+    
     if (tagName === 'SELECT' && target.selectedOptions.length) {
-      Array.from(container.querySelectorAll('option[selected]'))
-        .forEach((option) => option.removeAttribute('selected'));
+      // Для текущего select сбрасываем выбранное состояние всех его опций
+      Array.from(target.options).forEach(option => {
+        if (option.hasAttribute('selected')) option.removeAttribute('selected');
+      });
+      
+      // Устанавливаем выбранной опцией первую из выбранных
+      const selectedOption = target.selectedOptions[0];
+      selectedOption.setAttribute('selected', 'selected');
 
-      target.selectedOptions[0].setAttribute('selected', 'selected');
-
-      const swatchValue = target.selectedOptions[0].dataset.optionSwatchValue;
-      const selectedDropdownSwatchValue = container
-        .querySelector('[data-selected-value] > .swatch');
+      // Обновляем внешний вид swatch внутри данного контейнера
+      const swatchValue = selectedOption.dataset.optionSwatchValue;
+      const selectedDropdownSwatchValue = container.querySelector('[data-selected-value] > .swatch');
       if (!selectedDropdownSwatchValue) return;
+      
       if (swatchValue) {
         selectedDropdownSwatchValue.style.setProperty('--swatch--background', swatchValue);
         selectedDropdownSwatchValue.classList.remove('swatch--unavailable');
@@ -1159,12 +1177,12 @@ class VariantSelects extends HTMLElement {
         selectedDropdownSwatchValue.style.setProperty('--swatch--background', 'unset');
         selectedDropdownSwatchValue.classList.add('swatch--unavailable');
       }
-
       selectedDropdownSwatchValue.style.setProperty(
         '--swatch-focal-point',
-        target.selectedOptions[0].dataset.optionSwatchFocalPoint || 'unset'
+        selectedOption.dataset.optionSwatchFocalPoint || 'unset'
       );
     } else if (tagName === 'INPUT' && target.type === 'radio') {
+      // Для радио кнопок обновляем значение внутри контейнера
       const selectedSwatchValue = container.querySelector('[data-selected-value]');
       if (selectedSwatchValue) selectedSwatchValue.innerHTML = value;
     }
@@ -1173,14 +1191,9 @@ class VariantSelects extends HTMLElement {
   getInputForEventTarget(target) {
     return target.tagName === 'SELECT' ? target.selectedOptions[0] : target;
   }
-
-  get selectedOptionValues() {
-    return Array.from(this.closest('.product__info-container')
-      .querySelectorAll('select option[selected], fieldset input:checked')).map(
-        ({ dataset }) => dataset.optionValueId
-      );
-  }
 }
+
+
 
 
 customElements.define('variant-selects', VariantSelects);
