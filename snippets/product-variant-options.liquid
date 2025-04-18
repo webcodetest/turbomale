@@ -79,7 +79,7 @@
   {%- elsif picker_type == 'button' -%}
     <input
       type="radio"
-      id="{{ section.id }}_{{ input_id }}"
+      id="{{ product.id }}_{{ input_id }}"
       name="{{ input_name | escape }}"
       value="{{ value | escape }}"
       form="{{ product_form_id }}"
@@ -91,7 +91,7 @@
       {% endif %}
       {{ input_dataset }}
     >
-    <label for="{{ section.id }}_{{ input_id }}">
+    <label for="{{ product.id }}_{{ input_id }}">
       {{ value -}}
       {{ label_unavailable }}
     </label>
